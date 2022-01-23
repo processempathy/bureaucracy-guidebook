@@ -1,41 +1,99 @@
+# Source: http://github.com/thomasWeise/docker-texlive-full/
+# specifically https://github.com/thomasWeise/docker-texlive-full/blob/master/image/Dockerfile
+
+# License: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007
+# The license applies to the way the image is built, while the
+# software components inside the image are under the respective
+# licenses chosen by their respective copyright holders.
 
 ARG DEBIAN_VERSION=buster-slim
 
 FROM debian:${DEBIAN_VERSION}
 
+ENV DEBIAN_FRONTEND=noninteractive
 
-# the following is from https://github.com/qdm12/basedevcontainer/blob/master/debian.Dockerfile
-# CA certificates
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends ca-certificates && \
-    rm -r /var/cache/* /var/lib/apt/lists/*
-
-# https://www.nongnu.org/chktex/ = Lint for LaTeX
-# the following is from https://github.com/qdm12/latexdevcontainer/blob/master/Dockerfile
-ARG CHKTEX_VERSION=1.7.6
-WORKDIR /tmp/workdir
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends g++ make wget
-RUN wget -qO- http://download.savannah.gnu.org/releases/chktex/chktex-${CHKTEX_VERSION}.tar.gz | \
-    tar -xz --strip-components=1
-RUN ./configure && \
-    make && \
-    mv chktex /tmp && \
-    rm -r *
-
-WORKDIR /tmp/texlive
-
-ARG TEXLIVE_VERSION=2021
-ARG TEXLIVE_MIRROR=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends wget gnupg cpanminus && \
-    wget -qO- ${TEXLIVE_MIRROR}/install-tl-unx.tar.gz | \
-    tar -xz --strip-components=1 && \
-    export TEXLIVE_INSTALL_NO_CONTEXT_CACHE=1 && \
-    export TEXLIVE_INSTALL_NO_WELCOME=1 && \
-    cd && \
-    apt-get clean autoclean && \
-    apt-get autoremove -y && \
-    rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/texlive /usr/local/texlive/${TEXLIVE_VERSION}/*.log
+RUN echo "Initial update." &&\
+    apt-get update &&\
+# prevent doc and man pages from being installed
+# the idea is based on https://askubuntu.com/questions/129566
+    echo "Preventing doc and man pages from being installed." &&\
+    printf 'path-exclude /usr/share/doc/*\npath-include /usr/share/doc/*/copyright\npath-exclude /usr/share/man/*\npath-exclude /usr/share/groff/*\npath-exclude /usr/share/info/*\npath-exclude /usr/share/lintian/*\npath-exclude /usr/share/linda/*\npath-exclude=/usr/share/locale/*' > /etc/dpkg/dpkg.cfg.d/01_nodoc 
+# install utilities
+RUN echo "Installing utilities." &&\
+    apt-get install -f -y --no-install-recommends apt-utils &&\
+# get and update certificates, to hopefully resolve mscorefonts error
+    echo "Get and update certificates for mscorefonts." &&\
+    apt-get install -f -y --no-install-recommends ca-certificates &&\
+    update-ca-certificates 
+# install some utilitites and nice fonts, e.g., for Chinese and others
+RUN apt-get install -f -y --no-install-recommends \
+          curl \
+          fontconfig \ 
+# install TeX Live and ghostscript as well as other tools
+          dvipng \
+          ghostscript \
+          gnuplot \
+          make \
+          latexmk \
+          poppler-utils \
+          psutils \
+          tex4ht \
+          texlive-base \
+          texlive-bibtex-extra \
+          #texlive-binaries \
+          #texlive-extra-utils \
+          #texlive-font-utils \
+          #texlive-fonts-extra \
+          #texlive-fonts-extra-links \
+          #texlive-fonts-recommended \
+          #texlive-formats-extra \
+          #texlive-lang-all \
+          texlive-latex-base \
+          texlive-latex-extra \
+          texlive-latex-recommended \
+          #texlive-luatex \
+          #texlive-metapost \
+          #texlive-pictures \
+          #texlive-plain-generic \
+          #texlive-pstricks \
+          #texlive-publishers \
+          #texlive-science \
+          #texlive-xetex \
+          texlive-bibtex-extra &&\
+# delete Tex Live sources and other potentially useless stuff
+    echo "Delete TeX Live sources and other useless stuff." &&\
+    (rm -rf /usr/share/texmf/source || true) &&\
+    (rm -rf /usr/share/texlive/texmf-dist/source || true) &&\
+    find /usr/share/texlive -type f -name "readme*.*" -delete &&\
+    find /usr/share/texlive -type f -name "README*.*" -delete &&\
+    (rm -rf /usr/share/texlive/release-texlive.txt || true) &&\
+    (rm -rf /usr/share/texlive/doc.html || true) &&\
+    (rm -rf /usr/share/texlive/index.html || true) &&\
+# update font cache
+    echo "Update font cache." &&\
+    fc-cache -fv &&\
+# clean up all temporary files
+    echo "Clean up all temporary files." &&\
+    apt-get clean -y &&\
+    rm -rf /var/lib/apt/lists/* &&\
+    rm -f /etc/ssh/ssh_host_* &&\
+# delete man pages and documentation
+    echo "Delete man pages and documentation." &&\
+    rm -rf /usr/share/man &&\
+    mkdir -p /usr/share/man &&\
+    find /usr/share/doc -depth -type f ! -name copyright -delete &&\
+    find /usr/share/doc -type f -name "*.pdf" -delete &&\
+    find /usr/share/doc -type f -name "*.gz" -delete &&\
+    find /usr/share/doc -type f -name "*.tex" -delete &&\
+    (find /usr/share/doc -type d -empty -delete || true) &&\
+    mkdir -p /usr/share/doc &&\
+    rm -rf /var/cache/apt/archives &&\
+    mkdir -p /var/cache/apt/archives &&\
+    rm -rf /tmp/* /var/tmp/* &&\
+    (find /usr/share/ -type f -empty -delete || true) &&\
+    (find /usr/share/ -type d -empty -delete || true) &&\
+    mkdir -p /usr/share/texmf/source &&\
+    mkdir -p /usr/share/texlive/texmf-dist/source &&\
+    echo "All done."
 
 
