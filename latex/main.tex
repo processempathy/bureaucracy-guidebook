@@ -1,0 +1,30 @@
+\documentclass{book}
+
+\usepackage{hyphenat} % http://www.ctex.org/documents/packages/special/hyphenat.pdf
+\usepackage{setspace}\onehalfspacing\frenchspacing\flushbottom\sloppy
+
+\title{Bureaucracy Guidebook}
+\author{Ben Payne}
+\date{\today}
+
+\begin{document}
+
+\frontmatter % the front of the book has roman numerals
+
+\input{copyright}\clearpage
+
+\input{dedication}\clearpage
+
+\chapter*{Foreword}% * excludes from Contents)
+\input{foreword}\clearpage
+
+\maketitle
+
+\tableofcontents
+
+\mainmatter % the main part of the book will have standard pages
+
+\chapter{first part}
+\section{Introduction}
+
+\end{document}
