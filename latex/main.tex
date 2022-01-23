@@ -1,30 +1,76 @@
 \documentclass{book}
 
 \usepackage{hyphenat} % http://www.ctex.org/documents/packages/special/hyphenat.pdf
+
 \usepackage{setspace}\onehalfspacing\frenchspacing\flushbottom\sloppy
 
-\title{Bureaucracy Guidebook}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+% https://en.wikibooks.org/wiki/LaTeX/Glossary says
+% "\usepackage{glossaries} and \makeglossaries in your preamble (after \usepackage{hyperref} if present)"
+
+% https://www.overleaf.com/learn/latex/Glossaries
+\usepackage[toc]{glossaries}
+
+\makeglossaries % The command must be before the first glossary entry.
+
+% https://en.wikibooks.org/wiki/LaTeX/Glossary says
+% "define any number of \newglossaryentry and \newacronym glossary and acronym entries in your preamble"
+\input{glossary_entries}
+
+\title{Bureaucracy Guidebook: How to be an effective bureaucrat}
 \author{Ben Payne}
 \date{\today}
 
 \begin{document}
 
+\maketitle
 \frontmatter % the front of the book has roman numerals
 
-\input{copyright}\clearpage
+\input{copyright}%\clearpage
 
-\input{dedication}\clearpage
+\input{dedication}%\clearpage
 
 \chapter*{Foreword}% * excludes from Contents)
-\input{foreword}\clearpage
+\input{foreword}%\clearpage
 
-\maketitle
 
 \tableofcontents
 
 \mainmatter % the main part of the book will have standard pages
 
-\chapter{first part}
-\section{Introduction}
+
+
+\chapter{Introduction to Bureaucracy}
+% essentials
+
+\input{fundamentals}
+
+\chapter{Bureaucracies are made of Humans}
+% unordered essays to be clustered latter
+
+\input{org_chart_orientation}
+
+\input{social_and_bureaucratic_interactions}
+
+\input{efficient_bureaucracy}
+
+\input{processes_tax_productivity}
+
+\clearpage
+
+\printglossaries
+
+\nocite{*} % causes LaTeX to include every entry in your .bib file.
+\bibliographystyle{plain-annote}
+\bibliography{biblio}
 
 \end{document}
