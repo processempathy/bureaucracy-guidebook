@@ -13,11 +13,13 @@ help:
 
 # the following commands are for use inside the Docker image
 
+# https://pandoc.org/MANUAL.html
 html:
 	cd latex; \
          pandoc main.tex -f latex \
              -t html -s -o main.html \
-             --bibliography biblio.bib
+             --citeproc \
+             --bibliography=biblio.bib
 
 
 pdf:
