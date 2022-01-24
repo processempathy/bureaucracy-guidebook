@@ -13,8 +13,20 @@ help:
 
 # the following commands are for use inside the Docker image
 
+html:
+	cd latex; \
+         pandoc main.tex -f latex \
+             -t html -s -o main.html \
+             --bibliography biblio.bib
+
+
 pdf:
-	cd latex; pdflatex main
+	cd latex; \
+         pdflatex main; \
+         makeglossaries main; \
+         pdflatex main; \
+         bibtex main; \
+         pdflatex main
 
 # the following commands are for use outside the Docker image
 

@@ -28,6 +28,7 @@ RUN echo "Installing utilities." &&\
 # install some utilitites and nice fonts, e.g., for Chinese and others
 RUN apt-get install -f -y --no-install-recommends \
           curl \
+          wget \
           fontconfig \ 
 # install TeX Live and ghostscript as well as other tools
           dvipng \
@@ -95,5 +96,12 @@ RUN apt-get install -f -y --no-install-recommends \
     mkdir -p /usr/share/texmf/source &&\
     mkdir -p /usr/share/texlive/texmf-dist/source &&\
     echo "All done."
+
+
+# as per https://askubuntu.com/a/687676
+# https://github.com/jgm/pandoc/releases/
+ARG PANDOC_VER=2.17.0.1
+RUN wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VER}/pandoc-${PANDOC_VER}-1-amd64.deb
+RUN dpkg -i pandoc-${PANDOC_VER}-1-amd64.deb
 
 
