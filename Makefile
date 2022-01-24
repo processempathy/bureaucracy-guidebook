@@ -9,12 +9,16 @@ help:
 	@echo "      build and run docker"
 	@echo "==== Targets inside container ===="
 	@echo "make pdf"
-	@echo "      generate pdf from .tex files"
+	@echo "      generate pdf from .tex files using pdflatex"
+	@echo "make html"
+	@echo "      generate HTML from .tex files using pandoc"
 
 # the following commands are for use inside the Docker image
 
+out: pdf html
+
 # https://pandoc.org/MANUAL.html
-html:
+html: pdf
 	cd latex; \
          pandoc main.tex -f latex \
              -t html -s -o main.html \
