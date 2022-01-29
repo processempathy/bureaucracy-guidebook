@@ -34,6 +34,9 @@ pdf:
          bibtex main; \
          pdflatex main
 
+clean:
+	cd latex; rm *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc
+
 # the following commands are for use outside the Docker image
 
 # see also 
@@ -49,3 +52,4 @@ docker_run:
            -v `pwd`:/scratch \
            --user $(id -u):$(id -g) \
            latex_debian /bin/bash
+

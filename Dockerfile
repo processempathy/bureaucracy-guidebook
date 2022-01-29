@@ -104,4 +104,4 @@ ARG PANDOC_VER=2.17.0.1
 RUN wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VER}/pandoc-${PANDOC_VER}-1-amd64.deb
 RUN dpkg -i pandoc-${PANDOC_VER}-1-amd64.deb
 
-
+WORKDIR /scratch/
