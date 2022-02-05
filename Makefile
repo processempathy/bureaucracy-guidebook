@@ -17,11 +17,20 @@ help:
 
 out: pdf html
 
-# https://pandoc.org/MANUAL.html
+# https://pandoc.org/MANUAL.html and https://pandoc.org/demos.html
+# --standalone:  without it, you'd only get a snippet instead of a complete document.        https://pandoc.org/MANUAL.html#option--standalone
+# --citeproc:    Process the citations in the file, replacing them with rendered citations and adding a bibliography.
+docx: pdf
+	cd latex; \
+         pandoc main.tex -o main.docx \
+         --standalone \
+         --citeproc \
+         --bibliography=biblio.bib
+
 html: pdf
 	cd latex; \
          pandoc main.tex -f latex \
-             -t html -s -o main.html \
+             -t html --standalone -o main.html \
              --citeproc \
              --bibliography=biblio.bib
 
@@ -49,7 +58,7 @@ docker_build:
 
 docker_run:
 	docker run -it --rm \
-           -v `pwd`:/scratch \
+           -v `pwd`:/scratch -w /scratch/ \
            --user $(id -u):$(id -g) \
            latex_debian /bin/bash
 

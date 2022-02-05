@@ -35,18 +35,26 @@
 % "define any number of \newglossaryentry and \newacronym glossary and acronym entries in your preamble"
 \input{glossary_entries}
 
-\title{Bureaucracy Guidebook: \\How to be an Effective Bureaucrat}
+\title{How to be an Effective Bureaucrat\\
+A Guidebook for Everyone}
 \author{Ben Payne}
 \date{\today}
 
 \begin{document}
 
+\begin{titlepage}
 \maketitle
+\thispagestyle{empty}
+\end{titlepage}
+\newpage
+
+%\thispagestyle{empty}
 \frontmatter % the front of the book has roman numerals
 
-\input{copyright}%\clearpage
-
+%\pagenumbering{gobble}
+\input{copyright}\clearpage
 \input{dedication}%\clearpage
+%\pagenumbering{roman}
 
 \chapter*{Foreword}% * excludes from Contents)
 \input{foreword}%\clearpage
@@ -61,7 +69,8 @@
 \chapter{Introduction to Bureaucracy}
 % essentials
 
-\section{Fundamentals of Bureaucracy}
+\section{Fundamentals of Bureaucracy\label{fundamentals_of_b}}
+This section provides terminology and definition for a bureaucratic lens. Specifically bureaucracy is defined and labels for roles in bureaucracy are named. Structure in organizations is often characterized by hierarchy, and that hierarchy is described by an ``org chart.'' Lastly, meetings and written communication are described as the way in which consensus among bureaucrats is established.
 \input{what_is_bureaucracy}
 % define the core concepts 
 \input{hierarchy_of_roles_in_bureaucracy} % approval process
@@ -78,40 +87,58 @@
 \input{why_does_bureacracy_exist} % section
 \input{why_is_bureaucracy_hard}
 
-\chapter{Bureaucracy throughout life}
+\chapter{Bureaucracy throughout life\label{b_throughout_life}}
 This chapter provides the view of a person interacting with bureaucracy as a user. 
+
+Personal routines are self-imposed bureaucracy
 \input{avoiding_bureaucracy_is_nearly_impossible}
 \input{beginnings_and_endings}
 \input{relationships_throughout_life}
 
-\chapter{Bureaucracies are made of Humans}
+
+\chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
 This chapter provides an insider's perspective of working in a bureaucracy. What are all the aspects to consider?
 % unordered essays to be clustered later
 
+\input{hiring}
+\input{professional_training}
+\input{folk_wisdom}
 \input{org_chart_orientation}
-\input{social_and_bureaucratic_interactions}
 \input{accidental_and_essential_bureaucracy}
 \input{efficient_bureaucracy}
 \input{motivations_of_participants}
 \input{processes_tax_productivity}
 \input{fallacies}
-\input{hiring}
 \input{building_managing_spending_reputation}
 \input{product_deployment}
-\input{professional_training}
 \input{actual_time_spent_working}
 \input{teams}
+\section{Communication within a Bureaucracy}
+\input{social_and_bureaucratic_interactions} % subsection
+\input{communication_techniques}
+\input{friction_between_teams_within_organization}
 \section{Meetings within a Bureaucracy}
 types of meetings: internal meetings, customer meetings, conferences 
 % presenting
 % audience
 \input{well-run_meeting}
 \input{meeting_time_versus_theft}
+\input{one-on-ones}
+\input{walk_around_impromptu}
 \input{conference_attendee}
 \input{conference_organizer}
 
 
-% socializing
+
+% If bureaucracy is a distributed knowledge distributed decision system, compare with paxos and Byzantine generals
+% https://en.wikipedia.org/wiki/Paxos_(computer_science)
+
+% https://en.wikipedia.org/wiki/Complexity_theory_and_organizations
+
+% thought experiment: 
+% * What if everybody in a bureaucracy were the same?
+% * What if everybody in a bureaucracy had a different opinion?
+
 
 
 \clearpage
