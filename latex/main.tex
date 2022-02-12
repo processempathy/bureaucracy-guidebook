@@ -28,6 +28,7 @@
 
 % https://www.overleaf.com/learn/latex/Glossaries
 \usepackage[toc]{glossaries}
+%\usepackage{glossaries-extra}
 
 \makeglossaries % The command must be before the first glossary entry.
 
@@ -41,6 +42,7 @@ A Guidebook for Everyone}
 \date{\today}
 
 \begin{document}
+\pagenumbering{alph} % Fixes problem with glossary links; see https://tex.stackexchange.com/questions/119527/glossary-backlink-points-to-wrong-page
 
 \begin{titlepage}
 \maketitle
@@ -64,13 +66,19 @@ A Guidebook for Everyone}
 
 \mainmatter % the main part of the book will have standard pages
 
+
+\chapter{Bureaucracy Throughout Life\label{b_throughout_life}}
+
+  \input{what_is_bureaucracy} % section
+  \input{avoiding_bureaucracy_is_nearly_impossible} % section
+  \input{phases_of_life} % section
+
 \chapter{Introduction to Bureaucracy}
 % essentials
 
   \section{Fundamentals of Bureaucracy\label{fundamentals_of_b}}
   This section provides terminology and definition for a bureaucratic lens. Specifically bureaucracy is defined and labels for roles in bureaucracy are named. Structure in organizations is often characterized by hierarchy, and that hierarchy is described by an ``organization chart.'' Lastly, meetings and written communication are the way in which consensus among bureaucrats is established.
 
-    \input{what_is_bureaucracy} % subsection
     % define the core concepts 
     \input{hierarchy_of_roles_in_bureaucracy}
     \input{org_chart_as_guide_and_as_lie}
@@ -88,13 +96,7 @@ A Guidebook for Everyone}
     \input{what_does_bureaucracy_imply} % subsection
     \input{why_does_bureacracy_exist} % subsection
     \input{why_is_bureaucracy_hard}
-
-\chapter{Bureaucracy throughout life\label{b_throughout_life}}
-This chapter provides the view of a person interacting with bureaucracy as a \gls{subject}. 
-
-  \input{avoiding_bureaucracy_is_nearly_impossible} % section
-  \input{beginnings_and_endings} % section
-  \input{relationships_throughout_life} % section
+  \input{from_startup_to_bureaucracy}
 
 \chapter{Bureaucracy in general}
   \input{folk_wisdom}
@@ -119,13 +121,18 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{actual_time_spent_working}
     \input{measures_of_maturity}
     \input{tips}
+    \input{dilemmas_and_trilemmas}
+    \input{unavoidable_hazards}
   \section{Working with other Bureaucrats}
     \input{not_my_job_task_scope}
     \input{building_managing_spending_reputation}
     \input{teams}
+    \input{leveraging_expertise}
   %\input{product_deployment}
   \input{processes}
     \input{approval_forgiveness_opposition} % subsection
+    \input{static_vs_dynamic_processes}
+    \input{bureaucratic_debt} %subsection
     \input{design_processes_for_turnover}
     \input{processes_tax_productivity}
   \section{Communication within a Bureaucracy}
@@ -154,9 +161,15 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 
 % https://en.wikipedia.org/wiki/Complexity_theory_and_organizations
 
-% thought experiment: 
-% * What if everybody in a bureaucracy were the same?
-% * What if everybody in a bureaucracy had a different opinion?
+
+\appendix
+
+\input{readers_report} % chapter
+
+\chapter{Book notes}
+\input{book_notes_lipsky_street-level_bureaucracy}
+\input{book_notes_wilson_bureaucracy}
+\input{book_notes_ohearn_bureaucrats_handbook}
 
 
 
