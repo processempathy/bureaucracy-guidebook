@@ -1,6 +1,12 @@
 \documentclass{book}
+% to set font size use
+% \documentclass[12pt]{book}
 
 \usepackage{graphicx}
+
+% https://www.quora.com/What-font-are-most-books-printed-in
+% to set font, use
+%\usepackage{ebgaramond}
 
 \usepackage{hyphenat} % http://www.ctex.org/documents/packages/special/hyphenat.pdf
 
@@ -37,7 +43,7 @@
 \input{glossary_entries}
 
 \title{How to be an Effective Bureaucrat\\
-A Guidebook for Everyone}
+A Field Guide}
 \author{Ben Payne}
 \date{\today}
 
@@ -66,16 +72,10 @@ A Guidebook for Everyone}
 
 \mainmatter % the main part of the book will have standard pages
 
-
-\chapter{Bureaucracy Throughout Life\label{b_throughout_life}}
-
-  \input{what_is_bureaucracy} % section
-  \input{avoiding_bureaucracy_is_nearly_impossible} % section
-  \input{phases_of_life} % section
-
 \chapter{Introduction to Bureaucracy}
 % essentials
 
+  \input{what_is_bureaucracy} % section
   \section{Fundamentals of Bureaucracy\label{fundamentals_of_b}}
   This section provides terminology and definition for a bureaucratic lens. Specifically bureaucracy is defined and labels for roles in bureaucracy are named. Structure in organizations is often characterized by hierarchy, and that hierarchy is described by an ``organization chart.'' Lastly, meetings and written communication are the way in which consensus among bureaucrats is established.
 
@@ -99,10 +99,14 @@ A Guidebook for Everyone}
   \input{from_startup_to_bureaucracy}
 
 \chapter{Bureaucracy in general}
+  \input{phases_of_life} % section
+  \input{avoiding_bureaucracy_is_nearly_impossible} % section
+  
   \input{folk_wisdom}
   \input{accidental_and_essential_bureaucracy}
   \input{efficient_bureaucracy}
   \input{fallacies}
+  \input{dilemmas_and_trilemmas}
 
 
 \chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
@@ -121,7 +125,6 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{actual_time_spent_working}
     \input{measures_of_maturity}
     \input{tips}
-    \input{dilemmas_and_trilemmas}
     \input{unavoidable_hazards}
   \section{Working with other Bureaucrats}
     \input{not_my_job_task_scope}
@@ -141,7 +144,8 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{communication_techniques}
     \input{friction_between_teams_within_organization}
   \section{Meetings within a Bureaucracy}
-    types of meetings: internal meetings, customer meetings, conferences 
+    \input{characterizing_meetings}
+    
     % presenting
     % audience
     \input{well-run_meeting}
@@ -164,13 +168,17 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 
 \appendix
 
-\input{readers_report} % chapter
+\chapter{Assessments for Publication}
+\input{readers_report} % section
+\input{audience_analysis}  % section
 
 \chapter{Book notes}
-\input{book_notes_lipsky_street-level_bureaucracy}
+\input{book_notes_farazmand_handbook_of_bureaucracy}\newpage
+\input{book_notes_graeber_utopia_of_rules}\newpage
+\input{book_notes_hupe_research_handbook_on_street-level_bureaucracy}\newpage
+\input{book_notes_lipsky_street-level_bureaucracy}\newpage
+\input{book_notes_ohearn_bureaucrats_handbook}\newpage
 \input{book_notes_wilson_bureaucracy}
-\input{book_notes_ohearn_bureaucrats_handbook}
-
 
 
 \clearpage
