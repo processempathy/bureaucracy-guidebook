@@ -25,14 +25,14 @@ docx: pdf
          pandoc main.tex -o main.docx \
          --standalone \
          --citeproc \
-         --bibliography=biblio.bib
+         --bibliography=biblio_bureaucracy.bib
 
 html: pdf
 	cd latex; \
          pandoc main.tex -f latex \
              -t html --standalone -o main.html \
              --citeproc \
-             --bibliography=biblio.bib
+             --bibliography=biblio_bureaucracy.bib
 
 
 pdf:
