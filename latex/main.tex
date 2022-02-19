@@ -77,6 +77,7 @@ A Field Guide}
 
   \input{what_is_bureaucracy}\newpage % section
   \section{Fundamentals of Bureaucracy\label{fundamentals_of_b}}
+  
   This section provides terminology and definition for a bureaucratic lens. Specifically bureaucracy is defined and labels for roles in bureaucracy are named. Structure in organizations is often characterized by hierarchy, and that hierarchy is described by an ``organization chart.'' Lastly, meetings and written communication are the way in which consensus among bureaucrats is established.
 
     % define the core concepts 
@@ -116,25 +117,35 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 % unordered essays to be clustered later
 
   \section{Getting started}
+  There is no neutral member of a bureaucracy. Either you are contributing, or you are sapping resources. Because it is a zero-sum game for resource allocation
+  
     \input{what_to_read}
     \input{hiring}
+    \input{promotion}
     \input{org_chart_orientation}
     \input{professional_training}
   \newpage
   \section{Individuals in Organizations}
     \input{motivations_of_participants}
+    % management isn't leadership
+    \input{creating_change}
     \input{actual_time_spent_working}
     \input{measures_of_maturity}
     \input{tips}
   \newpage
   \section{Working with other Bureaucrats}
+    % enumerate tropes to figure how to respond
+
+    % inside an organization, cooperation/coordination is not held together by internal contracts or even service level agreements. What holds the organization together? Force of will of participants. 
+
     \input{not_my_job_task_scope}
     \input{building_managing_spending_reputation}
     \input{teams}
     \input{leveraging_expertise}
-  %\input{product_deployment}
+  \input{internal_product_development_deployment}
   \newpage
   \input{processes}
+    \input{resilience_and_redundancy}
     \input{approval_forgiveness_opposition} % subsection
     \input{static_vs_dynamic_processes}
     \input{bureaucratic_debt} %subsection
@@ -151,9 +162,10 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     %There are many books on how to do meetings well. 
     % How is this section (in a book about bureaucracy) distinct?
     \input{characterizing_meetings}
-    % presenting
-    % audience
     \input{well-run_meeting}
+    \input{make_effective_presentations}
+    % how to engage your audience
+    % stages of dysfunction
     \input{meeting_time_versus_theft}
     \input{does_anyone_want_to_volunteer}
     \input{one-on-ones}
@@ -161,7 +173,8 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{conference_attendee}
     \input{conference_organizer}
 
-
+\chapter{Last chapter}
+\input{last_chapter}
 
 % If bureaucracy is a distributed knowledge distributed decision system, compare with paxos and Byzantine generals
 % https://en.wikipedia.org/wiki/Paxos_(computer_science)
@@ -197,6 +210,6 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 
 % http://www-math.ucdenver.edu/~billups/courses/guides/annotated_bibliography.html
 \bibliographystyle{plain-annote}
-\bibliography{biblio_bureaucracy,biblio_meetings}
+\bibliography{biblio_bureaucracy}%,biblio_meetings}
 
 \end{document}
