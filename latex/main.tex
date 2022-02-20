@@ -2,6 +2,11 @@
 % to set font size use
 % \documentclass[12pt]{book}
 
+% https://www.overleaf.com/learn/latex/Tables
+\usepackage{array}
+\newcommand{\dilemmatablewidth}{5.5cm}
+
+
 \usepackage{graphicx}
 
 % https://www.quora.com/What-font-are-most-books-printed-in
@@ -72,6 +77,8 @@ A Field Guide}
 
 \mainmatter % the main part of the book will have standard pages
 
+% https://tex.stackexchange.com/questions/2958/why-is-newpage-ignored-sometimes
+
 \chapter{Introduction to Bureaucracy}
 % essentials
 
@@ -97,17 +104,17 @@ A Field Guide}
     \input{what_does_bureaucracy_imply} % subsection
     \input{why_does_bureacracy_exist} % subsection
     \input{why_is_bureaucracy_hard}
-  \input{from_startup_to_bureaucracy}
+  %\input{from_startup_to_bureaucracy}
 
 \chapter{Bureaucracy in general}
-  \input{phases_of_life} \newpage
-  \input{avoiding_bureaucracy_is_nearly_impossible} \newpage
-  \input{folk_wisdom}\newpage
-  \input{accidental_and_essential_bureaucracy}\newpage
-  \input{efficient_bureaucracy}\newpage
-  \input{fallacies}\newpage
-  \input{dilemmas_and_trilemmas}\newpage
-  \input{unavoidable_hazards}\newpage
+  \input{phases_of_life} \clearpage
+  \input{avoiding_bureaucracy_is_nearly_impossible} \clearpage
+  \input{folk_wisdom}\clearpage
+  \input{accidental_and_essential_bureaucracy}\clearpage
+  \input{efficient_bureaucracy} \clearpage
+  \input{fallacies} \clearpage
+  \input{dilemmas_and_trilemmas} \clearpage
+  \input{unavoidable_hazards} \clearpage
 
 
 \chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
@@ -116,8 +123,8 @@ A Field Guide}
 This chapter provides an insider's perspective of working in a bureaucracy. What are all the aspects to consider?
 % unordered essays to be clustered later
 
-  \section{Getting started}
-  There is no neutral member of a bureaucracy. Either you are contributing, or you are sapping resources. Because it is a zero-sum game for resource allocation
+  \section{Getting started in a Bureaucracy}
+    This section focuses on a bureaucrat's initial exposure to bureaucracy. 
   
     \input{what_to_read}
     \input{hiring}
@@ -126,11 +133,14 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{professional_training}
   \newpage
   \section{Individuals in Organizations}
+    This section focuses on the individual bureaucrat operating within an organization. 
+    
+    There is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
     \input{motivations_of_participants}
     % management isn't leadership
     \input{creating_change}
-    \input{actual_time_spent_working}
     \input{measures_of_maturity}
+    \input{actual_time_spent_working}
     \input{tips}
   \newpage
   \section{Working with other Bureaucrats}
@@ -138,6 +148,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 
     % inside an organization, cooperation/coordination is not held together by internal contracts or even service level agreements. What holds the organization together? Force of will of participants. 
 
+    % two networks: formal an informal
     \input{not_my_job_task_scope}
     \input{building_managing_spending_reputation}
     \input{teams}
@@ -145,6 +156,13 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
   \input{internal_product_development_deployment}
   \newpage
   \input{processes}
+    Processes can be undocumented. Then oral folklore is the mechanism. 
+    
+    Processes guardrails to prevent harm and keep stakeholders informed. 
+    
+    Without oversight processes, \href{https://en.wikipedia.org/wiki/Tragedy_of_the_commons}{tragedy of commons} occurs and malicious actors dominate.
+    
+    \input{harm_oversight_improvement}
     \input{resilience_and_redundancy}
     \input{approval_forgiveness_opposition} % subsection
     \input{static_vs_dynamic_processes}
@@ -153,6 +171,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{processes_tax_productivity}
   \newpage
   \section{Communication within a Bureaucracy}
+    \input{role_of_communication}
     \input{communication_preferences}
     \input{social_and_bureaucratic_interactions} % subsection
     \input{communication_techniques}
@@ -161,6 +180,10 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
   \section{Meetings within a Bureaucracy}
     %There are many books on how to do meetings well. 
     % How is this section (in a book about bureaucracy) distinct?
+    Stakeholders care about the outcome of a decision. 
+    In some sense, every participant in an organization is invested the outcome of every decision made because there is consequence to how resources are allocated and the direction of the organization. Every org member has an opinion, even lacking experience or expertise. 
+
+    
     \input{characterizing_meetings}
     \input{well-run_meeting}
     \input{make_effective_presentations}
@@ -168,8 +191,8 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     % stages of dysfunction
     \input{meeting_time_versus_theft}
     \input{does_anyone_want_to_volunteer}
+    Meeting types: scheduled one-on-ones, impromptu walk-around, conferences.  
     \input{one-on-ones}
-    \input{walk_around_impromptu}
     \input{conference_attendee}
     \input{conference_organizer}
 
@@ -191,6 +214,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 \input{audience_analysis}\newpage  % section
 
 \chapter{Book notes}
+\input{book_notes_blau_dynamics_of_bureaucracy}\newpage
 \input{book_notes_dugay_values_of_bureaucracy}\newpage
 \input{book_notes_farazmand_handbook_of_bureaucracy}\newpage
 \input{book_notes_graeber_utopia_of_rules}\newpage
