@@ -41,6 +41,7 @@ pdf:
          makeglossaries main; \
          pdflatex main; \
          bibtex main; \
+         pdflatex main; \
          pdflatex main
 
 clean:
