@@ -5,6 +5,8 @@ help:
 	@echo "make help"
 	@echo "      this message"
 	@echo "==== Targets outside container ===="
+	@echo "make docker_run"
+	@echo "      run container"
 	@echo "make docker"
 	@echo "      build and run docker"
 	@echo "==== Targets inside container ===="

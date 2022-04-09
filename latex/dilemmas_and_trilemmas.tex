@@ -1,13 +1,37 @@
 \section{Dilemmas and Trilemmas\label{sec:dilemma_trilemma}}
 
+% Not included here: 
+% https://en.wikipedia.org/wiki/The_Innovator%27s_Dilemma
+% because it is the etic view of change
+
+
+
 When a decision has two viable options (neither being best), that presents a \href{https://en.wikipedia.org/wiki/Dilemma}{dilemma}. The name for the case with three viable options is a \href{https://en.wikipedia.org/wiki/Trilemma}{trilemma}. 
 
- that is a reduction of a complicated situation to one variable. 
-
+% claim
 Dilemmas explain the inherent complexity of bureaucracy even when bureaucrats are honest and the purpose of the organization is clear.
-The action for the bureaucrat in response to this assessment is to talk with fellow bureaucrats about these dilemmas. Rather than seeking consensus, strive for comprehension of other people's perspective. That way you can navigate the processes more effectively
+% relevance
+The point isn't that one should select one of the two options. The point of a dilemma is that it is a marker that there is a decision to be made.
+% consequence
+The action for the bureaucrat in response to this assessment is to talk with fellow bureaucrats about these dilemmas. Rather than seeking consensus, strive for comprehension of other people's perspective. That way you can navigate processes more effectively.
 
-folk wisdom on decision making in the face of dilemmas
+\subsection{How Dilemmas arise in bureaucracy}
+
+Given a task, the simplest response for an individual is to take action and be done. 
+
+If the task is more challenging, it may be necessary to first make a plan, then take action and be done. The source of the challenge may be task complexity, scale, number of people impacted, diversity of stakeholders, amount of time needed, how the current task shapes future decisions, number of collaborators, etc. Regardless of why the task is challenging, a dilemma has already arisen: how much time to spend planning versus doing. 
+
+If the task is even more challenging, it may be useful to gather data for the plan, then make a plan, then take action and be done. A new dilemma arises: how much time to spend gathering data versus planning. The previous dilemma still exists -- planning versus doing. As an alternative to the dilemma framing, how much time should be allocated to three categories of activity?
+
+But wait, how did the person in the first scenario (just do the task) know no plan was necessary? Either it was an explicit choice or they didn't perceive the need to decide about whether to plan. Someone else faced with that same task might choose differently, e.g., to make a plan. The task complexity is relative to the person's skills, experiences, and expectations about stakeholders and ramifications.
+
+In this escalating sequence of increasingly challenging tasks, suppose the task involves you and another person. The overhead of coordination inflicts additional dilemmas. 
+
+An independent source of friction is when people involved in the task don't agree on how challenging it is. The framing of the difficulty matters because it alters how much time is left for carrying out the action. 
+
+The choice of ``how complicated is the task?'' shapes the team dynamics and hierarchical roles. 
+
+\subsection{Folk wisdom on decision making in the face of dilemmas}
 
 \href{https://en.wikipedia.org/wiki/Hick\%27s_law}{Hick's law}\marginpar{[Tag] Folk wisdom}: ``increasing the number of choices will increase the decision time logarithmically.''
 
@@ -20,36 +44,80 @@ folk wisdom on decision making in the face of dilemmas
 \href{https://en.wikipedia.org/wiki/Law_of_triviality}{Law of Triviality}\marginpar{[Tag] Folk wisdom}: ``people within an organization commonly or typically give disproportionate weight to trivial issues.''
 
 
+\subsection{Dilemmas are a poor framing}
+
 Although the following concepts are presented as dilemmas and trilemmas, these are necessarily simplifications. For example, two ways to simplify situations into a dilemma are
 \begin{itemize}
     \item start with a single variable, e.g., "how much data gathering", and force it into a binary choice "more data gathering" versus "less data gathering"
+    
+    % a reduction of a complicated situation to one variable. 
     \item start with a complex trade-off space with many opportunities and reduce it to a false dichotomy of zero-sum options: "more data gathering" vs "more planning." The actual trade-space involves optimization of multiple objectives, like (maximize productivity) and (minimize risk) and (maximize quality) and (maximize employee satisfaction) and (minimize latency). 
     % https://bennorthrop.com/Essays/2022/code-ownership-stewardship-or-free-for-all.php
 \end{itemize}
 These over-simplifications neglect both the continuous nature of the trade-offs and the alternative creative approaches to a specific situation. 
 
+\subsection{Dilemmas as a framing to ease you into the complexity}
 The choices are described here in simplified representation as a starting point intended to introduce the decision space relevant to individual bureaucrats. Awareness of these dilemmas and trilemmas are intended to spark creative imagination about the nuances specific to your situation.
 
 Do not accept the dilemmas presented here as the final framing. Thinking in terms of a limited spectrum of opportunities neglects nuances that enable more creative approaches. Ponder theses dilemmas prior to the pressure of real-time decision making.  Recognize dilemmas and trilemmas and then avoid them by adapting to the local conditions and specific people available to help.
 
-
+\subsection{Dilemmas are not purely intellectual}
 Decision making is not a purely intellectual task; there is emotional stress induced by the process. Dilemmas create cognitive dissonance for the decision maker. Any selection is going to have downsides, and any compromise will be suboptimal. Those burdens weigh on deciders.
 
+\subsection{Additional complications}
 Adding to the difficulty and stress, dilemmas presented here are occur concurrently and continuously. The dilemmas are inter-dependent due to both to the common variables and the constrained resources.
 Selecting an option for one dilemma alters the options available in other dilemmas.
 
 Oscillation between approaches can be caused by change of management, accumulation of experience (dissatisfaction) with one solution, the desire for promotion (change as progress), desire for cost savings. The rate of oscillation is an indicator of the half-life of institutional memory. 
 
 
-
 \subsection{Personal Policies}
+
+In practice, the following decisions are unordered and are constantly faced by the bureaucrat. As observed in \cite{1959_Lindblom}, this flurry of decisions contrasts to a regularized process that might be envisioned as optimal.
+
+
+Suppose you learn of something prior to official deployment (i.e., you learn of the internal musings of another team).  
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{Intervene before the deployment of a policy or process or product, perhaps without relevant context.} &
+  \textbf{Wait with feedback until deployment.} \\
+  \hline
+  \textit{Cons}: engaging prematurely betrays your awareness, so future explorations become more silo'd. & 
+  \textit{Cons}: the team wasted time and attention on something that wouldn't work or may even be harmful. \\
+  \hline
+\end{tabular}
+\caption{dilemma of early intervention. See the related dilemma of micromanaging.}
+\label{table:early-intervention}
+\end{table}
+\end{center}
 
 \begin{center}
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{Write everything down to cover your ass} &
-  \textbf{don't record sensitive conversations that could be used against you} \\
+  \textbf{Review status of the work of other people early and often.} &
+  \textbf{Review status infrequently.} \\
+  \hline
+  \textit{Description}: Micromanagement. & 
+  \textit{Description}: Hands-off management style. \\
+  \hline
+  \textit{Cons}: Takes up your time and the people you're reviewing. & 
+  \textit{Cons}: . \\
+  \hline
+\end{tabular}
+\caption{dilemma of micromanaging.}
+\label{table:micromanaging}
+\end{table}
+\end{center}
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{Write everything down to cover your ass.} &
+  \textbf{Don't record sensitive conversations that could be used against you.} \\
   \hline
   \textit{Cons}: Takes a lot of time and effort to accurately capture intent. Recording can be done poorly or be misconstrued.  & 
   \textit{Cons}: No written record to point to when someone changes their behavior. \\
@@ -65,8 +133,49 @@ Oscillation between approaches can be caused by change of management, accumulati
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
+  \textbf{Ponder what should or could be done.} &
+  \textbf{Figure out how to accomplish the objective.}\\
+  \hline
+  \textit{Cons}: . & 
+  \textit{Cons}: . \\
+  \hline
+\end{tabular}
+\caption{How much time to spend admiring the trees versus the forest. 
+}
+\label{table:forest-vs-trees}
+\end{table}
+\end{center}
+
+
+
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{how much time to allocate for meetings to facilitate coordination} &
+  \textbf{how much time for action} \\
+  \hline
+  \textit{Description}: . &
+  \textit{Description}: . \\
+  \hline
+  \textit{Cons}: . & 
+  \textit{Cons}: . \\
+  \hline
+\end{tabular}
+\caption{
+}
+\label{table:meetings-versus-work}
+\end{table}
+\end{center}
+
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
   \textbf{Operate at the level you are being paid for.} &
-  \textbf{operate above the level that you are being paid for in order to be a promoted.} \\
+  \textbf{Operate above the level that you are being paid for in order to be a promoted.} \\
   \hline
   \textit{Description}: Meet job requirements but nothing extra. &
   \textit{Description}: Exceed job requirements. \\
@@ -75,9 +184,49 @@ Oscillation between approaches can be caused by change of management, accumulati
   \textit{Cons}: experience wage loss - Organization is getting free labor \\
   \hline
 \end{tabular}
-\caption{
+\caption{Work above your pay grade (extra labor, reduced pay) or at your pay grade (expected labor and pay)?
 }
 \label{table:work_extra_or_work_as_expected}
+\end{table}
+\end{center}
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{Send bad news up the chain of command} &
+  \textbf{Minimize bad news up the chain of command} \\
+  \hline
+  \textit{Pros}: Reliable source of news. &
+  \textit{Pros}: Minimize burden of management. \\
+  \hline
+  \textit{Cons}: You are viewed as a source of problems. & 
+  \textit{Cons}: Harmful events eventually catch up with the org.  \\
+  \hline
+\end{tabular}
+\caption{Example: Challenger disaster.}
+\label{table:bad-news-up-the-chain}
+\end{table}
+\end{center}
+
+
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{Prepare for disasters and emergencies, invest in mitigation} &
+  \textbf{Wait for the problem to arise} \\
+  \hline
+  \textit{Pros}: Lessen the impact when bad things happen; decrease the number of problems from occurring in the first place. &
+  \textit{Pros}: deal with the specifics of the scenario at that time and thus be better informed. \\
+  \hline
+  \textit{Cons}: fewer events evolve into emergencies because you're prepared, or the impact of disasters is lessened. Both make you look overly paranoid and wasteful. & 
+  \textit{Cons}: Unexpected events result in worse outcomes.  \\
+  \hline
+\end{tabular}
+\caption{How much to invest in contingency planning and preparedness.}
+\label{table:emergencies-vs-ignore}
 \end{table}
 \end{center}
 
@@ -102,16 +251,57 @@ Oscillation between approaches can be caused by change of management, accumulati
 \end{table}
 \end{center}
 
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{seek recognition} &
+  \textbf{work in obscurity} \\
+  \hline
+  \textit{Pros}: . & 
+  \textit{Pros}: . \\
+  \hline
+  \textit{Cons}: . & 
+  \textit{Cons}: . \\
+  \hline
+\end{tabular}
+\caption{
+}
+\label{table:recognition-obscurity}
+\end{table}
+\end{center}
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{only let good ideas through (based on a detailed review process of clearly specified plan)} &
+  \textbf{give resources to untested ideas, some of which will fail} \\
+  \hline
+  \textit{Pros}: . & 
+  \textit{Pros}: . \\
+  \hline
+  \textit{Cons}: . & 
+  \textit{Cons}: . \\
+  \hline
+\end{tabular}
+\caption{
+}
+\label{table:idea-filtering}
+\end{table}
+\end{center}
+
+
 % https://graphthinking.blogspot.com/2016/06/innovation-in-open-versus-behind-curtain.html
 \begin{center}
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
   \textbf{work on disruptive innovation in the open} &
-  \textbf{work on disruptive innovation in obscurity} \\
+  \textbf{work on disruptive innovation in hiding} \\
   \hline
   \textit{Description}:  &
-  \textit{Description}: The sense of obscurity I'm referring to here is obfuscation. Obscurity due to lack of recognition is a different issue.  \\  
+  \textit{Description}: .  \\  
   \hline
   \textit{Pros}: more likely to be criticized. Criticism can be positive (as in an incubator setting) or .. & 
   \textit{Pros}: less drama -- the incumbent won't attack the innovation since they don't know about it. \\
@@ -203,6 +393,28 @@ Gathering data (Dilemma~\ref{table:gather_data_lots-vs-little}) is distinct from
 \label{table:planning}
 \end{table}
 \end{center}
+
+\begin{center}
+\begin{table}[ht]
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{plans that involve many milestones/check-ins/updates} &
+  \textbf{plan to just do it} \\
+  \hline
+  \textit{Description}: . & 
+  \textit{Description}: . \\ 
+  \hline
+  \textit{Cons}:  & 
+  \textit{Cons}: . \\  
+  \hline
+\end{tabular}
+\caption{Engagement with opposition to process or change.
+%{\tiny Tag: Decision making.}
+}
+\label{table:just-do-it}
+\end{table}
+\end{center}
+
 
 \begin{center}
 \begin{table}[ht]
@@ -336,7 +548,7 @@ Deployment of products and deployment of policies face similar dilemmas.
   \hline
 \end{tabular}
 \caption{How to disseminate information
-{\tiny Tag: Personal choice.}
+%{\tiny Tag: Personal choice.}
 }
 \label{table:disseminate_one-by-one}
 \end{table}
@@ -349,8 +561,8 @@ how strictly are the rules enforced (Dilemma~\ref{table:rule_strictness})?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{Enforce rules strictly} & 
-  \textbf{Lax rule enforcement} \\ 
+  \textbf{Enforce rules strictly.} & 
+  \textbf{Lax rule enforcement.} \\ 
   \hline
   \textit{Pros}: Predictable &
   \textit{Pros}: Bureaucrats feel empowered. \\
@@ -370,8 +582,8 @@ how strictly are the rules enforced (Dilemma~\ref{table:rule_strictness})?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{If it's not against the rules, it must be okay} & 
-  \textbf{I can only do what is allowed by the rules and nothing more and nothing more} \\ 
+  \textbf{If it's not against the rules, it must be okay.} & 
+  \textbf{I can only do what is allowed by the rules and nothing more.} \\ 
   \hline
   \textit{Pros}: Autonomy &
   \textit{Pros}:  \\
@@ -581,7 +793,7 @@ Alternative approach: guidance derived from principles that can be adapted to sp
   \hline
 \end{tabular}
 \caption{How much data to share.
-{\tiny Tag: Personal choice.}
+%{\tiny Tag: Personal choice.}
 }
 \label{table:data_share-vs-hide}
 \end{table}
@@ -604,7 +816,7 @@ Alternative approach: guidance derived from principles that can be adapted to sp
   \hline
 \end{tabular}
 \caption{Cooperate or Compete -- applies to teams and to individuals. 
-{\tiny Tag: Personal choice.}
+%{\tiny Tag: Personal choice.}
 }
 \label{table:cooperate-vs-compete}
 \end{table}
@@ -627,7 +839,7 @@ Alternative approach: guidance derived from principles that can be adapted to sp
   \hline
 \end{tabular}
 \caption{Case consistency vs adaptability.
-{\tiny Tag: Personal choice.}
+%{\tiny Tag: Personal choice.}
 }
 \label{table:policy_consistency_across_cases}
 \end{table}
@@ -662,19 +874,16 @@ How are people who do not conform identified? Are they confronted?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{Delegate} & 
-  \textbf{micromanage} \\ 
+  \textbf{Delegate; share work with other people} & 
+  \textbf{Work alone; don't rely on other people} \\ 
   \hline
-  \textit{Description}:  & 
-  \textit{Description}:  \\ 
-  \hline
-  \textit{Cons}: . & 
-  \textit{Cons}: . \\  
+  \textit{Cons}: Your success is dependent on other people. & 
+  \textit{Cons}: Can't accomplish as much on your own. \\  
   \hline
 \end{tabular}
-\caption{If you can't do the work yourself, you are reliant on other people
+\caption{
 }
-\label{table:oversight_delegate_or_micromanage}
+\label{table:delegate-or-not}
 \end{table}
 \end{center}
 
@@ -682,11 +891,8 @@ How are people who do not conform identified? Are they confronted?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{Many small tasks} & 
-  \textbf{fewer big tasks} \\ 
-  \hline
-  \textit{Description}:  & 
-  \textit{Description}:  \\ 
+  \textbf{Many small tasks/objectives} & 
+  \textbf{fewer big tasks/objectives} \\ 
   \hline
   \textit{Cons}: . & 
   \textit{Cons}: . \\  
@@ -723,18 +929,15 @@ How are people who do not conform identified? Are they confronted?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{dissent is welcome and discussed freely} & 
-  \textbf{dissent is suppressed} \\ 
-  \hline
-  \textit{Description}:  & 
-  \textit{Description}:  \\ 
+  \textbf{Dissent is welcome and discussed freely} & 
+  \textbf{Dissent is suppressed} \\ 
   \hline
   \textit{Cons}: . & 
   \textit{Cons}: . \\  
   \hline
 \end{tabular}
 \caption{
-{\tiny Tag: }
+%{\tiny Tag: }
 }
 \label{table:how_dissent_is_responded_to}
 \end{table}
@@ -745,11 +948,8 @@ How are people who do not conform identified? Are they confronted?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{do share lessons learned} & 
-  \textbf{don't share lessons learned} \\ 
-  \hline
-  \textit{Description}:  & 
-  \textit{Description}:  \\ 
+  \textbf{Do share lessons learned} & 
+  \textbf{Don't share lessons learned} \\ 
   \hline
   \textit{Pros}: Honesty, accountability, self-awareness and self-reflection. & 
   \textit{Pros}: look competent, even when making mistakes. \\  
@@ -769,18 +969,15 @@ How are people who do not conform identified? Are they confronted?
 \begin{table}[ht]
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{share lessons learned about yourself} & 
-  \textbf{share lessons learned from observing others  } \\ 
-  \hline
-  \textit{Description}:  & 
-  \textit{Description}:  \\ 
+  \textbf{Share lessons learned about yourself} & 
+  \textbf{Share lessons learned from observing others  } \\ 
   \hline
   \textit{Cons}: Potentially look stupid. & 
   \textit{Cons}: Potentially hurts their reputation. \\  
   \hline
 \end{tabular}
 \caption{
-{\tiny Tag: }
+%{\tiny Tag: }
 }
 \label{table:share_lessons_learned}
 \end{table}
@@ -792,17 +989,14 @@ How are people who do not conform identified? Are they confronted?
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
   \textbf{Build a small coalition of interested parties} & 
-  \textbf{build a large base of support and get everyone on board} \\ 
-  \hline
-  \textit{Description}:  & 
-  \textit{Description}:  \\ 
+  \textbf{Build a large base of support and get everyone on board} \\ 
   \hline
   \textit{Cons}: . & 
   \textit{Cons}: . \\  
   \hline
 \end{tabular}
 \caption{
-{\tiny Tag: }
+%{\tiny Tag: }
 }
 \label{table:how_to_change}
 \end{table}
@@ -827,7 +1021,7 @@ The constraints a decision maker faces are informed by the environment the decid
   \hline
 \end{tabular}
 \caption{Shape of hierarchical organization.
-{\tiny Tag: Organization's culture}
+%{\tiny Tag: Organization's culture}
 }
 \end{table}
 \end{center}
@@ -852,7 +1046,7 @@ The constraints a decision maker faces are informed by the environment the decid
   \hline
 \end{tabular}
 \caption{Size of team or organization.
-{\tiny Tag: Design of organization.}
+%{\tiny Tag: Design of organization.}
 }
 \label{table:staff_many-vs-few}
 \end{table}
@@ -879,7 +1073,7 @@ The constraints a decision maker faces are informed by the environment the decid
   \hline
 \end{tabular}
 \caption{Services that are necessary but not central.
-{\tiny Tag: Design of organization.}
+%{\tiny Tag: Design of organization.}
 }
 \label{table:inhouse-vs-external}
 \end{table}
@@ -910,7 +1104,7 @@ Table~\ref{table:inhouse-vs-external} isn't unique to bureaucracy. It applies to
 \end{tabular}
 \caption{Centralization of services. 
 See Fig.~\ref{fig:central-vs-distributed}.
-{\tiny Tag: Design of organization.}
+%{\tiny Tag: Design of organization.}
 }
 \label{table:central-vs-distributed}
 \end{table}
@@ -951,7 +1145,7 @@ The weaker feedback, lack of redundancy, and decreased emphasis on relationships
   \hline
 \end{tabular}
 \caption{Where decisions get made in hierarchical organization.
-{\tiny Tag: Design of organization.}
+%{\tiny Tag: Design of organization.}
 }
 \label{table:decisions_low-vs-high}
 \end{table}
@@ -977,7 +1171,7 @@ The weaker feedback, lack of redundancy, and decreased emphasis on relationships
   \hline
 \end{tabular}
 \caption{Services within an organization. See also Fig.~\ref{fig:market-vs-monopoly}.
-{\tiny Tag: Design of organization.}
+%{\tiny Tag: Design of organization.}
 }
 \label{table:market-vs-monopoly}
 \end{table}
@@ -992,15 +1186,29 @@ The weaker feedback, lack of redundancy, and decreased emphasis on relationships
 \end{figure}
 
 
+% https://graphthinking.blogspot.com/2021/04/laffer-curve-and-minimum-viable.html
+Goldilocks situation for amount of processes:
+* too few processes (all social relationships)
+* just the right amount -- a balance process and social, and when to use which is known.
+* too much process (not enough leveraging of social relationships)
+Similar to the \href{https://en.wikipedia.org/wiki/Laffer_curve}{Laffer curve} in economics.
+
+
+
 % https://graphthinking.blogspot.com/2021/12/hierarchical-organization-trilemma.html
 Trilemma: \textbf{Do you work for your team, your manager, or yourself?}
 Being a member of a team that operates within a hierarchy is tough. One reason is the question of who you are working for. The trilemma is whether you work for yourself, work for your supervisor, or work for your team.  Ideally you can find ways to do all three, but that is not always the case. 
 
 Members of the team should work collaboratively, but there is a potential counter-force: accountability to the supervisor. Because each team member is accountable to their supervisor(s), that motivates the action of the individual. The team does not actually have autonomy -- they are accountable to the boss.
 
-In the approach "team members are directed by their supervisor," the synergy of the team is neglected and the supervisor becomes a bottleneck (for decision making and for creativity and for planning).
+In the approach ``team members are directed by their supervisor," the synergy of the team is neglected and the supervisor becomes a bottleneck (for decision making and for creativity and for planning).
 
 The third approach is for a person to ignore their team and their supervisor. This might enable quicker progress, at the risk of going in an unhelpful direction or not leveraging skills of coworkers. 
+
+\ \\
+
+Trilemma:
+Seek less budget, same, or larger budget 
 
 \ \\
 
@@ -1014,13 +1222,12 @@ In other words, the options are
 
 \ \\
 
+There are many of dilemmas. Even if everyone considers the same choices (which doesn't necessarily happen), not everyone makes the same selection. Is the right response to defer to someone higher in the hierarchy to coordinate? While this would ensure consistency, this would be micromanagement. The people in the hierarchy above the person facing the choice don't have exposure to the problem.
 
 
-
-Three "so what" for dilemmas/trilemmas
+Three ``so what" for dilemmas/trilemmas:
 1) construct pareto frontier to identify non-optimal choices that can be eliminated
 2) instead of assess variables in isolation, assess in workflows
-3) raise subjective decisions to explicit discussion with stakeholders so that disagreement can be negotiated 
-
+3) raise subjective decisions to explicit discussion with stakeholders so that disagreement can be negotiated .
 
 
