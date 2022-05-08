@@ -1,11 +1,14 @@
 \subsection{Decision making in a bureaucracy\label{sec:decision-making}}
 
 
-Occasionally events unfold without decisions being made. This might be because the decision makers are not informed, or there is an intentional neglect.
+Decision are not the only source of change in an organization. Occasionally events unfold without decisions being made. This might be because the decision makers are not informed, or there is an \href{https://en.wikipedia.org/wiki/Willful_blindness}{intentional neglect}. This section focuses on situations where bureaucrats recognize the need for a decision and want to make the best decision.
 
-A \gls{simple decision} has one correct or beneficial choice and one or more wrong or harmful choices. The work of decision making is to gather information that identifies which is the correct or beneficial choice and select that option.
+There are multiple types of decisions. 
+A \gls{simple decision} has one correct or beneficial choice and one or more wrong or harmful choices. The work of decision making is then to gather information that identifies which is the correct or beneficial choice and select that option.
 
-Best case scenario is one person making a well-informed simple decision that has immediate consequence and the consequence is to the decision maker. Example from elementary formal education: arithmetic math problems, multiple choice quizzes, spelling tests, memorization tests. 
+The best case scenario for any decision making is one person making a well-informed simple decision that has immediate consequence and the consequence is to the decision maker. Examples from elementary formal education include arithmetic math problems, multiple choice quizzes, spelling tests, and memorization tests. A bureaucrat's \href{https://en.wikipedia.org/wiki/Moral_injury}{moral injury} can come from decision making that involves multiple people, weak feedback loops, and complex decisions.
+
+\subsubsection{Example Decision Method: Pareto Frontier\label{sec:pareto}}
 
 A complex decision may have many choices, and there are might not be a best option. Then a \href{https://en.wikipedia.org/wiki/Pareto_front}{Pareto frontier} might exist where trade-offs can be made. 
 
@@ -14,36 +17,40 @@ As an example of a complex decision made by one person with immediate consequenc
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1\textwidth]{images/pareto_frontier_car_options.pdf}
-    \caption{Four cars, L, M, N, and P. Goal is to spend less money and get better fuel efficiency. Choices not on the frontier should be avoided, but that doesn't yield a single result.}
+    \caption{Four cars, L, M, N, and P. The goal of the buyer is to spend less money and get better fuel efficiency. Choices not on the frontier should be avoided, but that doesn't yield a single result.}
     \label{fig:pareto_frontier_cars}
 \end{figure}
 
-A common pareto frontier in generic decision making is the trade-off between speed, accuracy, and cost. 
+Visualzing a Pareto frontier for two quantitative variables is easy, but typically decisions involve more factors. For example, evaluating the trade-off of three quantitative variables like speed, accuracy, and cost creates a surface. With more than three variables visualization are less useful, though the analysis technique still applies. 
 
-Pareto frontier analysis works well when there are many options relative to the number of variables being optimized for. Does not account for relative importance of different variables.
+Another constraint on using Pareto frontier analysis is that it works well when there are many options relative to the number of variables being optimized for. 
+The assessment does not work as well when there are few choices relative to the number of variables. For example, suppose there are 10 choices of car and you want high fuel efficiency, sufficient cargo capacity, maximum number of passengers, stylish, low cost, low maintenance, good durability, and high resale value. 
 
-The assessment does not work as well when there are few choices relative to the number of variables. For example, suppose there are 10 choices of car and I want high fuel efficiency, high cargo capacity, maximum number of passengers, stylish, low cost, low maintenance, good durability, and high resale value. might need to assign weights to each of these factors. 
+For a set of quantitative variables, a Pareto frontier does not account for relative importance of different variables. Assign weights to each of these factors merely stretches one axis relative to the other axes. 
 
-A typical decision is ill-informed, has diffuse consequences, delayed impact, and does not affect the decision maker. 
-
+There are many possible decision making frameworks besides Pareto frontiers, but in practice a typical bureaucratic decision is ill-informed, has diffuse consequences, delayed impact, and does not affect the decision maker. In bureaucratic processes there is rarely a formal assessment of options. 
+Decisions are rarely recorded. 
 Even afterwards a decision can be difficult to evaluate for correctness because there are multiple stakeholders.
 
-In bureaucratic processes there is rarely a formal assessment of options. 
-Decisions are rarely recorded. 
 
+\subsubsection{Risks of Using Decision Frameworks}
 
-
-Process and policy\ref{sec:process}
-
-One way to avoid the appearance of subjective decision making on policy is to frame the process as ``data driven." 
-% https://graphthinking.blogspot.com/2018/06/data-driven-decisions-versus-data.html
-
-
+Decision making frameworks can be attractive to bureaucrats intending to formalize processes (see \S\ref{sec:process}) and encourage predictability. There are potential risks worth being aware of. 
 
 % https://graphthinking.blogspot.com/2019/01/political-decisions-versus-science.html
-A decision is political when the basis is historical relationships, maintenance or creation of a relationship, or to enable future relationships.
-In contrast, a quantitative decision basis is based on measurements.
+A decision is political when the basis is historical relationships, maintenance or creation of a relationship, or to enable future relationships. A decision is subjective when someone else faced with the same scenario would have come to a different conclusion.
+A decision is quantitative when it is based on measurements. To avoid the appearance of subjective decision making or political decision making, a decision may be framed as ``data driven." 
+% https://graphthinking.blogspot.com/2018/06/data-driven-decisions-versus-data.html
+A good approach for data driven quantitative analysis involves coming up with a testable hypothesis, then performing experiments and collecting data to evaluate the hypothesis. More commonly, a decision is made, then data is gathered which supports the desired outcome. Forming an opinion and then looking for evidence to back the outcome yields suboptimal results for the organization.
 
+Even if a bureaucrat is not intentionally biased towards an outcome, there are many ways to gather evidence and some approaches have biased sampling and produce biased results.
+
+With valid and representative data measurement, decision makers can be led astray by poor modeling. A model may use inapplicable techniques, or may have implementation bugs.
+
+For all the dangers of decision making methods, there are worse approaches that do not rely on measurement. People rely on history (if they are aware of it) and perpetuate bad ideas, or take action based on what is best for their career, or decide based on how to accumulate more power, or simply choose based on what someone else says to do.  
+
+
+\subsubsection{Decision Making Delay}
 
 What appears from the outside as ``organizational inertia'' is internal delay of decision making and the delay of dissemination. 
 Delay comes from
@@ -57,20 +64,17 @@ Delay comes from
 \end{itemize}
 
 
-Decision making by bureaucrats can be informal or formal, consensus-based or solo. 
-
-Most decisions made by bureaucrats do not have hard deadlines. Instead, there are trade-offs in timing. Sooner is better, but delaying allows for more information gathering for a better informed decision.
-
+% The following characterization has no consequence
+% Decision making by bureaucrats can be informal or formal, consensus-based or solo. 
 
 
+\subsubsection{A Bureaucratic Decision involves many Decisions}
 
-Decision makers face options and have the goal of identifying a beneficial outcome (for which stakeholders?). The goal is to reduce uncertainty among options. Two ways to reduce uncertainty: gather more information (takes time), or push the decision down the chain (to people with narrower view). 
+A decision is actually a collection of dependent choices. After recognizing the need for a decision, follow-on decisions include identifying the stakeholders (who to include in an impact analysis) and identifying options. Who is a stakeholder and what are the options are interrelated. Involving more people expands the number of options and the complexity. Additional choices associated with reducing uncertainty are how much time to spend on the decision, how much information to gather for the decision, whether the make the decision or push the decision to someone with more expertise, whether to push the decision to someone with more exposure to the consequences.
 
-If a bureaucrat is going to rely on expert consultation, the decision maker needs to be confident the expert is not of straying outside their area of expertise. For example, I don't rely on a botanist with many published papers to tell me how to change the oil in my car. 
+Most decisions you make as a bureaucrat do not have hard deadlines. Instead, there are trade-offs in allocation of your time. Sooner is preferable since the consequence of the decision benefits the organization and allows you to focus on other tasks, but delaying allows for more information gathering for a better informed decision. (See Dilemma~\ref{table:gather_data_lots-vs-little} and other related Dilemmas in that section.)
 
-When getting input for a decision, is the expert providing a factual summary, a predictive assessment, or a value judgement? 
 
-There are many ways to gather evidence. 
-Role of measurement and modeling. 
-Form an opinion, look for evidence to back the outcome.
-Instead of measurement, most people rely on history (if they are aware of it), or what is best for their career, or how to accumulate more power, or what someone else says to do.  
+If a bureaucrat is going to rely on expert consultation (see \S\ref{sec:expertise} on expertise), the decision maker needs to be confident the expert is not of straying outside their area of expertise. For example, I don't rely on a botanist with many published papers to tell me how to change the oil in my car. 
+Besides knowing their own limitations, the expert should be clear about whether their input is a factual summary, a predictive assessment, or a value judgement. This nuance complicates what you as a bureaucrat are interested in (what's the best choice?).
+

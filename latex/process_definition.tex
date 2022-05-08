@@ -1,37 +1,11 @@
 \subsection{Definition of Process}
 
 % definition
-Policy says what action is allowed or required
-Process is a sequence of tasks, with each task invoking policy enforcement 
-
-
-% https://graphthinking.blogspot.com/2016/07/three-process-types-in-large-complex.html
-There are three types of processes: heroic, bureaucratic, and social.
-
-A heroic process is exemplified by a single person or a very small number of people doing the work associated with a specific task. This is clearly not sustainable, as there's significant dependence on the hero(s).
-
-A bureaucratic process is a documented and repeatable sequence of steps. These steps may not be communicated to process participants, which often causes frustration. The number of steps in the bureaucratic process may seem onerous to people going through the process. The process often takes longer than desired.
-
-A social process is undocumented. There is a strong sensitivity to the skills of the people involved. No documentation exists. There is no single PoC that represents the social network.
-
-Once these distinctions are recognized, tactics can be used to address the challenges associated with each.
-
-For the heroic process, you can outwait the hero(s). If you're the hero, look for bureaucratic versus social processes to determine how to act. Find relevant stakeholders and get buy-in.
-
-For the bureaucratic process, it is helpful to send a test dummy through the sequence of steps. This enumerates the process and provides a measure of the time needed to get through. Reputation typically doesn't matter.
-
-For the social process, participants are swayed by title, role. Prestige and reputation matter. Doing favors for participants helps
-
-
-
-Forms are meant to ensure consistent application of policy, and to catch people who shouldn't get the resource (both in cases of accidental request and malicious request). For malicious requests, a more burdensome process merely filters the low-cost grifters. 
-
-
-
-A \gls{process} is a task broken into a specified set of subtask dependencies, typically with subtasks in a sequence. 
-Each task is associated with the application of policies enforced by bureaucrats. 
+A bureaucratic \gls{process} is a sequence of tasks, with each task invoking policy enforcement by bureaucrats. 
 % Also known as a procedure. 
-Two distinguishing features in the context of bureaucracy are authorization and justification.  
+The policy of an organization is a decision about what action is required, allowed, or not allowed.
+
+
 A process has inputs and outputs. 
 A process can be decomposed into other processes. 
 Processes operate on both information and tangible objects. 
@@ -39,20 +13,71 @@ Processes require \href{https://en.wikipedia.org/wiki/Work_(physics)}{work} and 
 Processes are carried out by people or machines.
 
 % process and roles
-processes depend on roles that have responsibility/authority
-When there aren't sufficient staffing, then individuals wear multiple hats
-Commonly leads to conflict of interest among roles, which is defeated by one person in multiple roles
-eg "review the implementation" and "implement"
+Dividing processes into separate tasks is associated with distinct roles. The distinction of roles originates in skill specialization, separation of responsibilities, and narrow authority. 
+When there aren't sufficient staffing individual bureaucrats have multiple roles. This can lead to a conflict of interest among the roles and is experienced by the bureaucrat as a dissonance. For example, when one person has both the responsibility to implement the plan and review the completed implementation, the oversight is ineffective. \footnote{For a formal mechanism of documenting roles, see the 
+\href{https://en.wikipedia.org/wiki/Responsibility_assignment_matrix}{Responsibility Assignment Matrix}.
+}
 
-\href{https://en.wikipedia.org/wiki/Responsibility_assignment_matrix}{Responsibility Assignment Matrix}
+
+Processes are important for organizations because they create a defensible story for the bureaucrats involved -- not the actual equitable distribution.
 
 % how does understanding process help me?
-The point to understanding process and policy is so that you know when to work within versus work around, when to accept versus change, when to ignore, how to leverage, and how to design.
-
-
+That's theoretical and generic, but there's already some practical relevance:
+\begin{itemize}
+\item The point to understanding concepts like process and policy is so that you know when to work within versus work around, when to accept versus change, when to ignore, how to leverage, and how to design.
+    \item In your role as a bureaucrat administering a process, check that the person you are inflicting the process on can explain the steps back to you. If they cannot, their confusion will likely create more work for the bureaucrats. 
+    \marginpar{[Tag] Actionable Advice}
+    \item As the subject of a process, check that your understanding of the process is consistent with the bureaucrat's intent. Summarize the next steps and applicable deadlines so they can confirm. 
+\end{itemize}
 
 % dangers of process
-The simplification and the neglect of specific circumstances results in process friction. Process friction manifest in practical waste, temporal and efficiency, emotional frustration, and social distrust of institutions.
+The simplification and the neglect of specific circumstances results in process friction. Process friction manifest in waste of resources (tangible or expertise), temporal inefficiency, emotional frustration, and social distrust of institutions.
+
+
+%Two distinguishing features in the context of bureaucracy are authorization and justification.  
+
+\subsection{Types of Process}
+% https://graphthinking.blogspot.com/2016/07/three-process-types-in-large-complex.html
+The generic definition of process above obscures distinct subcategories. In practice there are three types of processes: heroic, bureaucratic, and social.
+
+A \underline{heroic process} is exemplified by a single person or a very small number of people doing the work associated with a specific task. The person may be acting in multiple roles and typically relies on expertise from multiple domains. This approach is not sustainable as there's significant dependence on the hero(s). The heroic process persists because it minimizes the work of other bureaucrats and is more efficient because there's less hand-off among bureaucrats. The heroic process may cause demoralization of the hero and lead to burn-out. 
+
+% process design trade-offs
+Processes with fewer people and fewer steps can be quicker and use fewer resources, but they are more fragile and are less representative. Having more people involved helps with edge cases, but slows down the process. 
+
+A \underline{bureaucratic process} is a sequence of steps with each step administered by a different bureaucrat. The steps of the process may not be communicated to process participants, which often causes frustration when the person has to discover each step sequentially. The number of steps in the bureaucratic process may seem onerous to people going through the process because of the multiple interactions with different bureaucrats (compared to the heroic process). The process often takes longer than desired due to loss of information and context in the hand-off among bureaucrats. The participant has to re-explain the same background to each bureaucrat.
+
+In contrast to heroic processes and social processes, bureaucratic processes are associated with the use of forms (paper or electronic). 
+Forms are meant to ensure consistent application of policy, and to catch people who shouldn't get the resource (both in cases of accidental request and malicious request). For malicious requests, a more burdensome process merely filters the low-cost grifters. 
+
+
+A \underline{social process} is undocumented and relies on relationships instead of hierarchy. There is a strong sensitivity to prior experiences of the bureaucrats and on the skills of the people involved. There is no single person that represents or manages the social network, so the entry point is through relationships with bureaucrats who have existing connections.
+
+Once distinctions are recognized, tactics can be used to address the challenges associated with each.
+
+If you are blocked by the hero of a heroic process, you can try waiting until the hero leaves. Given burn-out and turn-over, sometimes this is only a few years. Alternatively, you can try creating a positive relationship with the hero.  If you're the hero and don't want to be, look for ways to transition to bureaucratic or social processes. 
+
+
+For the social process, participants are swayed by reputation more than title. Prestige and reputation matter. Doing favors for participants helps.
+
+Social processes can work well for small tasks that are infrequent.
+Social processes can be effective in anomalous situations.
+
+Bureaucratic processes are useful under typical conditions.
+When you are forced to use a bureaucratic process, avoid starting with the most important or hardest problem. Send a test dummy through the sequence of steps. This enumerates the process, provides a measure of the time needed to get through the process, and identify key personnel. In an ideal bureaucratic process your reputation wouldn't matter. That assumption turns out to not be valid. 
+
+Thinking of bureaucratic processes in opposition to social relationships is a false dichotomy. Bureaucratic processes are social relationships formalized.
+
+
+% https://graphthinking.blogspot.com/2021/04/laffer-curve-and-minimum-viable.html
+
+When no process exists, only people with relationships succeed. Processes enable novices to an organization to contribute value and gain experience. 
+
+
+
+Processes (whether heroic, bureaucratic, or social) are not consistent because relationships vary -- both among the bureaucrats administering the process and the person going through the process.
+
+
 
 
 
@@ -66,27 +91,12 @@ The simplification and the neglect of specific circumstances results in process 
 
 
 
-Bureaucracy is defined by processes.
-As a counter force, social relationships.
-Actually, processes are social relationships formalized
-
-Processes are not consistent across people because the relationships vary
-
-
-processes are about a defensible story for the bureaucrats involved -- not the actual equitable distribution
-
-
-
-% https://graphthinking.blogspot.com/2021/04/laffer-curve-and-minimum-viable.html
-social processes can work well for small tasks that are infrequent
-social processes can be effective in anomalous situations
-bureaucratic processes are useful under typical conditions
-
-When no process exists, only people with relationships succeed. Processes enable novices to an organization to contribute value and gain experience. 
 
 
 
 
+
+\subsection{TODO: Uncategorized}
 
 Does a process exist?
 
@@ -95,7 +105,6 @@ Do participants know about existing processes?
 
 Processes can be undocumented. Then oral folklore is the mechanism. 
 
-% process design trade-offs
-Processes with fewer people and fewer steps can be quicker and use fewer resources, but they are more fragile and less representative. Having more people involved helps with edge cases, but slows down the process. 
+
 
 

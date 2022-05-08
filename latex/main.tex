@@ -63,7 +63,7 @@ A Field Guide}
 \maketitle
 \thispagestyle{empty}
 \end{titlepage}
-\newpage
+\clearpage
 
 %\thispagestyle{empty}
 \frontmatter % the front of the book has roman numerals
@@ -73,8 +73,8 @@ A Field Guide}
 \input{dedication}%\clearpage
 %\pagenumbering{roman}
 
-\chapter*{Foreword}% * excludes from Contents)
-\input{foreword}%\clearpage
+\chapter*{Preface}% * excludes from Contents)
+\input{preface}%\clearpage
 
 \hypertarget{contents}{}
 \tableofcontents
@@ -86,12 +86,16 @@ A Field Guide}
 \chapter{Introduction to Bureaucracy}
 % essentials
 
-Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated terminology for specific roles.
+  Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated terminology for specific roles.
 
-  \input{what_is_bureaucracy}\newpage % section
-  \input{alternative_views_of_bureaucracy_from_within}
-  \input{models_of_bureaucracy}\newpage % section
-  \input{alternatives_to_bureacracy} % subsection
+  \input{what_is_bureaucracy} % section
+  \clearpage 
+  \input{alternative_views_of_bureaucracy_from_within} % section
+  \clearpage
+  \input{models_of_bureaucracy} % section
+  \clearpage 
+  \input{alternatives_to_bureacracy} % section
+  \clearpage
   \section{Scope of bureaucracy}
   %\begin{flushright}
   %Back to the \hyperlink{contents}{Table of Contents}
@@ -100,8 +104,8 @@ Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated termin
     \input{number_of_people_in_a_bureacracy} % subsection
   %\input{from_startup_to_bureaucracy}
 
-\input{fundamentals_of_bureaucracy} % section
-
+  \clearpage
+  \input{fundamentals_of_bureaucracy} % section
     % define the core concepts 
     \input{decision_making} % Process and policy
     \input{hierarchy_of_roles_in_bureaucracy}
@@ -109,22 +113,30 @@ Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated termin
     \input{meetings_for_coordination}
     \input{communication_written} 
     \input{feedback_loops} % subsection
-  \newpage
-  \input{history}\newpage % section
+  \clearpage
+  \input{history}\clearpage % section
 
 \chapter{Bureaucracy in general\label{sec:bureaucracy-in-general}}
-  \input{phases_of_life} \clearpage
-  \input{avoiding_bureaucracy_is_nearly_impossible} \clearpage
+  \input{phases_of_life} 
+  \clearpage
+  \input{avoiding_bureaucracy_is_nearly_impossible} 
+  \clearpage
   \input{not_many_options_for_organizations}
   %\input{folk_wisdom}\clearpage
-  \input{accidental_and_essential_bureaucracy}\clearpage
-  \input{fallacies} \clearpage
-  \input{effective_bureaucrat} \clearpage
+  \input{accidental_and_essential_bureaucracy}
+  \clearpage
+  \input{fallacies} 
+  \clearpage
+  \input{effective_bureaucrat} 
+  \clearpage
 
 \chapter{Why Bureaucracy is Hard}
-  \input{why_is_bureaucracy_hard}
-  \input{dilemmas_and_trilemmas} \clearpage
-  \input{unavoidable_hazards} \clearpage
+  \input{why_is_bureaucracy_hard} % section
+  \clearpage
+  \input{dilemmas_and_trilemmas}  % section
+  \clearpage
+  \input{unavoidable_hazards}  % section
+  \clearpage
 
 
 \chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
@@ -143,7 +155,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{org_chart_orientation}
     \input{org_chart_seating_chart}
     \input{career_professional_training}
-  \newpage
+  \clearpage
   \section{You are an Individual in an Organization}
   
     This section focuses on the individual bureaucrat operating within an organization. 
@@ -153,7 +165,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     % management isn't leadership
     \input{creating_change}
     \input{measures_of_maturity}
-  \newpage
+  \clearpage
   % person-to-person relations
   \input{working_with_other_bureaucrats} % section
     \input{motivations_of_participants}
@@ -162,7 +174,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{teams}
     \input{leveraging_expertise}
     \input{does_anyone_want_to_volunteer}
-  \newpage
+  \clearpage
   % multi-person interactions = process
   \section{Bureaucratic Processes\label{sec:process}}
     \input{process_context_habits}
@@ -176,15 +188,15 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{process_static_vs_dynamic}
     \input{process_framing_bureaucratic_debt} %subsection
     \input{process_design_processes_for_turnover}
-  \newpage
+  \clearpage
   \input{communication_within_bureaucracy} % section
 
-    \input{communication_role_of}
-    \input{communicate_failure_to}
-    \input{communication_preferences}
+    \input{communication_role_of} % subsection
+    \input{communicate_failure_to} % subsection
+    \input{communication_preferences} % subsection
     \input{social_and_bureaucratic_interactions} % subsection
     \input{communication_techniques} % subsection 
-    \input{friction_between_teams_within_organization}
+    \input{friction_between_teams_within_organization} % subsection
 
     %There are many books on how to do meetings well. 
     % How is this section (in a book about bureaucracy) distinct?
@@ -192,18 +204,21 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     Stakeholders care about the outcome of a decision. 
     In some sense, every participant in an organization is invested the outcome of every decision made because there is consequence to how resources are allocated and the direction of the organization. Every org member has an opinion, even lacking experience or expertise. 
     
-    \input{meetings_well-run_meeting}
-    \input{meetings_characterizing_meetings}
+    \input{meetings_late_and_theft_emails_not_free}
+    
+    \input{meetings_well-run_meeting} % subsection
+    \input{meetings_characterizing_meetings} % subsection
 %    \input{make_effective_presentations}
     % how to engage your audience
     % stages of dysfunction
 %    \input{meeting_time_versus_theft} % no value to the reader
     
-    \input{meetings_walk-arounds}
-    \input{meetings_one-on-ones}
+    \input{meetings_walk-arounds} % subsection
+    \input{meetings_one-on-ones} % subsection
 %    \input{conference_attendee}
 %    \input{conference_organizer}
 
+\clearpage
 \chapter{Last chapter}
 \input{last_chapter}
 
@@ -218,29 +233,43 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 \appendix
 
 \chapter{Assessments for Publication}
-\input{readers_report}\newpage % section
-\input{audience_analysis}\newpage  % section
+\input{readers_report}\clearpage % section
+\input{audience_analysis}\clearpage  % section
 
 \input{career_interview_questions}
 
+% https://tex.stackexchange.com/questions/5894/latex-conditional-expression
+\newif\ifbooknotes
+
+\booknotesfalse
+
+\ifbooknotes
 \chapter{Book notes}
-\input{notes_on_books/blau_dynamics_of_bureaucracy}\newpage
-\input{notes_on_books/dugay_values_of_bureaucracy}\newpage
-\input{notes_on_books/farazmand_handbook_of_bureaucracy}\newpage
-\input{notes_on_books/graeber_utopia_of_rules}\newpage
-\input{notes_on_books/hupe_research_handbook_on_street-level_bureaucracy}\newpage
-\input{notes_on_books/lipsky_street-level_bureaucracy}\newpage
-\input{notes_on_books/ohearn_bureaucrats_handbook}\newpage
-\input{notes_on_books/vine_bureaucracy_a_key_idea_for_business_and_society}\newpage
-\input{notes_on_books/vonmises_bureaucracy}\newpage
+\input{notes_on_books/blau_dynamics_of_bureaucracy}\clearpage
+\input{notes_on_books/dugay_values_of_bureaucracy}\clearpage
+\input{notes_on_books/farazmand_handbook_of_bureaucracy}\clearpage
+\input{notes_on_books/graeber_utopia_of_rules}\clearpage
+\input{notes_on_books/hupe_research_handbook_on_street-level_bureaucracy}\clearpage
+\input{notes_on_books/lipsky_street-level_bureaucracy}\clearpage
+\input{notes_on_books/ohearn_bureaucrats_handbook}\clearpage
+\input{notes_on_books/vine_bureaucracy_a_key_idea_for_business_and_society}\clearpage
+\input{notes_on_books/vonmises_bureaucracy}\clearpage
 \input{notes_on_books/wilson_bureaucracy}
 
+\else
+
+\fi
 
 \clearpage
 
 \printglossaries
 
 \nocite{*} % causes LaTeX to include every entry in your .bib file.
+
+% To investigate: bibliography per chapter
+% https://stackoverflow.com/questions/2765209/latex-bibliography-per-chapter
+% https://stackoverflow.com/questions/2503555/using-latex-how-can-i-have-a-list-of-references-at-the-end-of-each-section
+
 
 % http://www-math.ucdenver.edu/~billups/courses/guides/annotated_bibliography.html
 \bibliographystyle{plain-annote}
