@@ -11,5 +11,13 @@ set -o errexit   # set -e : exit the script if any statement returns a non-true 
 arr=( $(grep input latex/main.tex | sed 's/.*{//' | sed 's/}.*//') )
 
 # https://stackoverflow.com/a/15394738/1164295
-for eachfile in `/bin/ls latex/*.tex`; do filename=`echo $eachfile | sed 's/latex\///' | sed 's/\.tex//'`; if [[ " ${arr[*]} " =~ " ${filename} " ]]; then echo "found " $filename; else echo "DID NOT FIND " $filename; fi; done
+for eachfile in `/bin/ls latex/*.tex`; do 
+    filename=`echo $eachfile | sed 's/latex\///' | sed 's/\.tex//'`; 
+    if [[ " ${arr[*]} " =~ " ${filename} " ]]; then 
+        echo "found " $filename; 
+    else 
+        echo "DID NOT FIND " $filename; 
+    fi; 
+done
 
+# EOF
