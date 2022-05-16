@@ -1,37 +1,38 @@
-\subsection{Bureaucratic Debt\label{sec:bureaucratic_debt}}
+\subsection{Decisions and Processes Create Bureaucratic Debt\label{sec:bureaucratic_debt}}
 
 % https://graphthinking.blogspot.com/2017/09/bureaucratic-debt-and-what-to-do-about.html
 
-Suppose a \gls{process} is implemented and later found to be ineffective. Some work is needed to revise the process and hopefully improve effectiveness. \gls{bureaucratic debt} is the cost of that work needed to change a process. The bureaucratic debt is caused by choosing an easy solution now (with limited information or insufficient resources) instead of using a better approach that would take longer to design and implement.
-
-The purpose of defining this concept is to capture the otherwise unaccounted work resulting from decisions.
+Suppose a \gls{process} is implemented and later found to be ineffective. Some work is needed to revise the process and hopefully improve effectiveness (or an exception is needed; see \S\ref{sec:exceptions-to-process}). \gls{bureaucratic debt} is the cost of the work needed to change a process\footnote{Similar to \href{https://en.wikipedia.org/wiki/Technical_debt}{technical debt}}. The bureaucratic debt is caused by choosing an easy solution now (with limited information or insufficient resources) instead of using an approach that would take longer to design and implement.
 
 
-Decisions occur in a resource constrained environment (e.g., insufficient time, money, labor). Each decision made results in options that are not explored. Some of these missed opportunities are associated with short-term versus long-term trade-offs of costs.
-
-These opportunity costs (what the organization doesn't do) alters which future decisions become available.
-
+Decisions occur in a resource constrained environment.
 Getting information (measurement) and analysis are costly in terms of money, time, skill, and labor.
+Each decision made results in options that are not explored. These missed opportunities are associated with short-term versus long-term trade-offs of costs.
 
-Once the concept of bureaucratic debt is recognized, the question is how to track it.
+The opportunity costs (options the organization doesn't take) alters which future decisions become available.
+
+The purpose of defining this concept is to capture the work resulting from decisions that would otherwise be unaccounted for.
+Once the concept of bureaucratic debt is understood it can be tracked.
 
 To document bureaucratic debt, we need to capture decisions as they are made:
 \begin{itemize}
-    \item what is the decision to be made?
-    \item when the decision was identified?
-    \item when the decision was made?
-    \item who made the decision?
-    \item what options were identified?
-    \item which option was chosen?
-    \item what that option was chosen over the other options
+    \item What is the decision to be made?
+    \item When the decision was identified?
+    \item When the decision was made?
+    \item Who made the decision?
+    \item What options were identified?
+    \item Which option was chosen?
+    \item Why was that option was chosen over the other options?
 \end{itemize}
 The purpose of documenting decisions is to enable both aversion to bad decisions and attraction to good decisions. Without documenting decisions, there is no transparency, accountability, or historical ability to track dependencies. 
 
 The documentation of decisions needs to be disseminated to stakeholders. This should occur as promptly as possible. 
 
+
+For bureaucrats there are the processes and policies which get applied to customers, the documentation of what those processes and policies are, and guidance on when the processes and policies should be applied. 
+
 The scale of decision impact determines the level of documentation. "Do I choose pencil or pen?" incurs negligible bureaucratic debt; therefore the documentation needed is also negligible. Projecting impact of decisions is a subjective prediction. 
 
-Similarities of technical debt and bureaucratic debt.
-In developing software, there are three artifacts: the software, documentation on how to use the software, and documentation on why to use the software. The two distinct types of documentation are typically combined in one document. Each of these three artifacts are independent. The ramification of this is that each artifact can be created independently, and it takes work to maintain synchronization of the artifacts. 
+%Similarities of tech debt and bureaucratic debt.
+%In developing software, there are three artifacts: the software, documentation on how to use the software, and documentation on why to use the software. The two distinct types of documentation are typically combined in one document. Each of these three artifacts are independent. The ramification of this is that each artifact can be created independently, and it takes work to maintain synchronization of the artifacts. 
 
-Similarly for a bureaucracy, there is the processes and policies which get applied to customers, the documentation of what those processes and policies are, and guidance on when the processes and policies should be applied. As with technical debt, these three aspects are independent. 
