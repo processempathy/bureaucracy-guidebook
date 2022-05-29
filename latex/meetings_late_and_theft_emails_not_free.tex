@@ -20,27 +20,38 @@ We can debate the differences between theft of materials and theft of time. The 
 \subsubsection{Email is not free}
 
 Total cost of email:
-* time spent writing
-* time spent reading
-* infrastructure maintenance
+\begin{itemize}
+    \item time spent writing
+    \item time spent reading
+    \item infrastructure maintenance
+\end{itemize}
 
-Cost per email = 
-(hourly rate of writer)*(time spent writing) + (hourly rate of reader)*(time spent reading)*(number of readers)+(annual salary of maintainer)/(number of emails per year) + (email server cost)/(number of emails per year), etc
-
-50*(5/60) + 50*(5/60)*4 + 100000/1000000 + 10000/1000000 = \$21 for one email. 
+\begin{multline}
+\text{Cost per email} = 
+(\text{hourly rate of writer})*(\text{time spent writing}) +\\
+(\text{hourly rate of reader})*(\text{time spent reading})*(\text{number of readers})+\\
+\frac{\text{annual salary of maintainer}}{\text{number of emails per year}} + \frac{\text{email server cost}}{\text{number of emails per year}}
+\end{multline}
+Plugging in some numbers, suppose an author charging \$50 per hour spends 5 minutes writing an email to 4 people. Each of those four people also charge \$50 per hour and spends 5 minutes on reading. 
+\begin{equation}
+50*(5/60) + 50*(5/60)*4 + \frac{100000}{1000000} + \frac{10000}{1000000} = \$21
+\label{eq:four_readers}
+\end{equation}
+for one email!
 
 \begin{figure}
     \centering
-    \includegraphics{images/email_costs_5minutes_4people.pdf}
-    \caption{If email is 2 hours a day, and staffing is 50\% of the organizations budget, then 
+    \includegraphics[width=0.7\textwidth]{images/email_costs_5minutes_4people.pdf}
+    \caption{Breakdown of costs for Equation~\ref{eq:four_readers}. If \$21 for an email doesn't seem too significant, consider the broader releavnce to the organization. If email consumes 2 hours a day per person, and staffing is 50\% of the organizations budget, then 
     % (2/8)*0.5
-    12.5\% of the organization's budget is spent on email. Same math for meetings, so that's 25\% of the organization's budget on coordination.}
+    12.5\% of the organization's budget is spent on email. The same math for applies to meetings, so that's 25\% of the organization's budget on coordination.}
     \label{fig:my_label}
 \end{figure}
 
 % https://docs.google.com/spreadsheets/d/1ysV5PA3cEcneKv5BViUhAfgNq26cOlNRj6l5fXuHM3Q/edit?usp=sharing
 
-Paradigm for reading emails
-* Unread
-* Does this message have any bearing on my current task? 
-* Integrate with my understanding 
+
+%Paradigm for reading emails
+%* Unread
+%* Does this message have any bearing on my current task? 
+%* Integrate with my understanding 

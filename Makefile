@@ -34,6 +34,7 @@ html: pdf
          pandoc main.tex -f latex \
              -t html --standalone -o main.html \
              --citeproc \
+             --mathjax \
              --bibliography=biblio_bureaucracy.bib
 
 
@@ -54,7 +55,7 @@ clean:
 # see also 
 # https://gordonlesti.com/building-a-latex-docker-image/
 # https://github.com/pycnic/docker-texlive/blob/master/Dockerfile
-docker: docker_build docker_run
+docker: docker_build docker_live
 
 docker_build:
 	docker build -t latex_debian .
