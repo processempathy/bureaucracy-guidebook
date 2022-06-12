@@ -34,7 +34,10 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Overleaf Example},
+    pdftitle={Bureaucracy Fieldguide},
+    pdfsubject={How to be an Effective Bureaucrat},
+    pdfauthor={Ben Payne},
+    pdfkeywords={Bureaucrat, Bureaucracy},
     pdfpagemode=FullScreen,
     }
 
@@ -51,13 +54,28 @@
 % "define any number of \newglossaryentry and \newacronym glossary and acronym entries in your preamble"
 \input{glossary_entries}
 
-\title{How to be an Effective Bureaucrat\\
+\title{Be an Effective Bureaucrat\\
 A Field Guide}
+
+% alternative titles:
+% * "organization membership"
+% * "distributed knowledge and distributed decision making"
+% * "How to be an Effective Bureaucrat: A field Guide"
+% * "Field Guide for Being An Effective Bureaucrat"
+% * "Distributed Decision Making
+
 \author{Ben Payne}
 \date{\today}
 
 \begin{document}
 \pagenumbering{alph} % Fixes problem with glossary links; see https://tex.stackexchange.com/questions/119527/glossary-backlink-points-to-wrong-page
+
+
+%\setcounter{secnumdepth}{1}
+% -2 results in no numbering for chapters, sections, or subsections
+% 0  results in no numbering for sections or subsections
+% 1  results in no numbering for subsections
+
 
 \begin{titlepage}
 \maketitle
@@ -73,7 +91,7 @@ A Field Guide}
 \input{dedication}%\clearpage
 %\pagenumbering{roman}
 
-\chapter*{Preface}% * excludes from Contents)
+\chapter*{Preface}% * excludes from Contents
 \input{preface}%\clearpage
 
 \hypertarget{contents}{}
@@ -96,7 +114,8 @@ A Field Guide}
   \clearpage 
   \input{alternatives_to_bureacracy} % section
   \clearpage
-  \section{Scope of bureaucracy}
+  \section{Scope of Bureaucracy}
+  Bureaucracy is not a distant faceless concept. Bureaucracy permeates your environment and is the basis for many interactions you have with other people. 
   %\begin{flushright}
   %Back to the \hyperlink{contents}{Table of Contents}
   %\end{flushright}
