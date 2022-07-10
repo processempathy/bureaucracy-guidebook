@@ -10,3 +10,8 @@ I'm not able to consolidate the content down to a standard (concise) essay forma
 
 I assume the distribution format is PDF, or something else that supports hyperlinks. 
 
+
+Blog posts:
+* <https://allen-faulton.medium.com/the-fine-art-of-navigating-bureaucracy-a91236a29e58>i
+
+
