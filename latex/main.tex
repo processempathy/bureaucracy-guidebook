@@ -13,6 +13,8 @@
 
 \usepackage{graphicx}
 
+\usepackage{lineno}
+
 % https://www.quora.com/What-font-are-most-books-printed-in
 % to set font, use
 %\usepackage{ebgaramond}
@@ -70,6 +72,9 @@ A Field Guide}
 \begin{document}
 \pagenumbering{alph} % Fixes problem with glossary links; see https://tex.stackexchange.com/questions/119527/glossary-backlink-points-to-wrong-page
 
+% https://texblog.org/2012/02/08/adding-line-numbers-to-documents/
+%\linenumbers
+
 
 %\setcounter{secnumdepth}{1}
 % -2 results in no numbering for chapters, sections, or subsections
@@ -104,7 +109,9 @@ A Field Guide}
 \chapter{Introduction to Bureaucracy}
 % essentials
 
-  Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated terminology for specific roles.
+  Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in \S\ref{sec:alternative_views_from_within} with how bureaucrats view themselves and their interactions. In \S\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
+  
+  
 
   \input{what_is_bureaucracy} % section
   \clearpage 
@@ -268,7 +275,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
   \input{readers_report}\clearpage % section
   \input{audience_analysis}\clearpage  % section
 
-\input{career_interview_questions} % chapter
+\input{career_interview_questions} \clearpage% chapter
 
 % https://tex.stackexchange.com/questions/5894/latex-conditional-expression
 \newif\ifbooknotes
