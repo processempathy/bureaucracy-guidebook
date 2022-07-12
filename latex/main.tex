@@ -15,6 +15,10 @@
 
 \usepackage{lineno}
 
+% https://www.overleaf.com/learn/latex/Indices
+\usepackage{imakeidx}
+\makeindex
+
 % https://www.quora.com/What-font-are-most-books-printed-in
 % to set font, use
 %\usepackage{ebgaramond}
@@ -96,11 +100,13 @@ A Field Guide}
 \input{dedication}%\clearpage
 %\pagenumbering{roman}
 
-\chapter*{Preface}% * excludes from Contents
-\input{preface}%\clearpage
-
 \hypertarget{contents}{}
 \tableofcontents
+
+% 2022-07-11: Brian
+%\chapter*{Preface}% * excludes from Contents
+\chapter{Preface}
+\input{preface}\clearpage
 
 \mainmatter % the main part of the book will have standard pages
 
@@ -109,18 +115,12 @@ A Field Guide}
 \chapter{Introduction to Bureaucracy}
 % essentials
 
-  Section \S\ref{sec:define_bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in \S\ref{sec:alternative_views_from_within} with how bureaucrats view themselves and their interactions. In \S\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
+  Section section~\ref{sec:define_bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative_views_from_within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
   
 
   \input{what_is_bureaucracy} % section
   \clearpage 
-  \input{alternative_views_of_bureaucracy_from_within} % section
-  \clearpage
-  \input{models_of_bureaucracy} % section
-  \clearpage 
-  \input{alternatives_to_bureacracy} % section
-  \clearpage
   \section{Scope of Bureaucracy}
   Bureaucracy is not a distant faceless concept. Bureaucracy permeates your environment and is the basis for many interactions you have with other people. 
   %\begin{flushright}
@@ -147,6 +147,13 @@ A Field Guide}
   \clearpage
   \input{avoiding_bureaucracy_is_nearly_impossible} 
   \clearpage
+  \input{alternatives_to_bureacracy} % section
+  \clearpage
+  \input{alternative_views_of_bureaucracy_from_within} % section
+  \clearpage
+  \input{models_of_bureaucracy} % section
+  \clearpage 
+  \clearpage
   \input{not_many_options_for_organizations}
   %\input{folk_wisdom}\clearpage
   \input{accidental_and_essential_bureaucracy}
@@ -167,13 +174,13 @@ A Field Guide}
   \clearpage
 
 
-\chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
+%\chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
 % instead of presenting specific lessons, here I'm going to present insider perspectives on the fundamentals described in previous chapters. 
 
-This chapter provides an insider's perspective of working in a bureaucracy. What are all the aspects to consider?
+%This chapter provides an insider's perspective of working in a bureaucracy. What are all the aspects to consider?
 % unordered essays to be clustered later
 
-  \section{Getting started in a Bureaucracy}
+  \chapter{Getting started in a Bureaucracy\label{sec:getting-started}}
     This section focuses on a bureaucrat's initial exposure to bureaucracy. 
   
     \input{what_to_read}
@@ -187,9 +194,9 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
     \input{org_chart_orientation}
     \input{career_professional_training}
   \clearpage
-  \section{You are an Individual in an Organization\label{sec:individual_in_org}}
+  \chapter{You are an Individual in an Organization\label{sec:individual_in_org}}
   
-    This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to \S\ref{sec:working-with-other-bureaucrats} on working with others.
+    This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to section~\ref{sec:working-with-other-bureaucrats} on working with others.
     
     Understanding your options as a bureaucrat for action matters because trying to withdraw from bureaucracy isn't harmless. There is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
     \input{ideas_for_innovation}
@@ -241,7 +248,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 %    \input{conference_attendee}
 %    \input{conference_organizer}
   % multi-person interactions = process
-  \section{Bureaucratic Processes\label{sec:process}}
+  \chapter{Bureaucratic Processes\label{sec:process}}
     \input{process_context_habits}
     \input{process_definition}
     \input{process_why_exist}
@@ -258,7 +265,7 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
   \clearpage
 
 \clearpage
-\chapter{Last chapter}
+\chapter{Conclusion}
 \input{last_chapter}
 
 % If bureaucracy is a distributed knowledge distributed decision system, compare with paxos and Byzantine generals
@@ -314,5 +321,8 @@ This chapter provides an insider's perspective of working in a bureaucracy. What
 % http://www-math.ucdenver.edu/~billups/courses/guides/annotated_bibliography.html
 \bibliographystyle{plain-annote}
 \bibliography{biblio_bureaucracy}%,biblio_meetings}
+
+\printindex
+
 
 \end{document}
