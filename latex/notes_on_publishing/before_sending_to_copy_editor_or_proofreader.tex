@@ -1,0 +1,8 @@
+check that section headers are not separated from the text. Use
+\begin{samepage}
+don't break
+\end{samepage}
+
+samepage prevents LaTeX from pagebreaking within one paragraph, i.e. within the samepage environment, pagebreaks are only between paragraphs. Thus, you need nopagebreak as well, to prevent LaTeX from pagebreaking between two paragraphs.
+
+https://stackoverflow.com/a/4008368/1164295
