@@ -116,6 +116,15 @@ A Field Guide}
 
 % https://tex.stackexchange.com/questions/2958/why-is-newpage-ignored-sometimes
 
+
+% https://tex.stackexchange.com/questions/5894/latex-conditional-expression
+\newif\ifpageref
+\newif\ifsectionref
+
+\pagereffalse
+\sectionreffalse
+
+
 \chapter{Introduction to Bureaucracy}
 % essentials
 
@@ -200,7 +209,9 @@ A Field Guide}
   \clearpage
   \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
   
-    This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to section~\ref{sec:working-with-other-bureaucrats} on working with others.
+    This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to 
+    %section~\ref{sec:working-with-other-bureaucrats} on 
+    \hyperref[sec:working-with-other-bureaucrats]{working with others}.
     
     Understanding your options as a bureaucrat for action matters because trying to withdraw from bureaucracy isn't harmless. There is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
     \input{ideas_for_innovation}

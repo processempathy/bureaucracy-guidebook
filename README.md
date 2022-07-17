@@ -15,3 +15,8 @@ Blog posts:
 * <https://allen-faulton.medium.com/the-fine-art-of-navigating-bureaucracy-a91236a29e58>i
 
 
+
+# Tex to HTML
+
+* <https://tex.stackexchange.com/a/429650/235813>
+* <https://www.kodymirus.cz/overleaf-html-sample/main.html>

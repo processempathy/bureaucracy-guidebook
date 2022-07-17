@@ -119,9 +119,13 @@ Oscillation between approaches can be caused by change of management, accumulati
 \ \\
 
 The following two sections categorize dilemmas as \hyperref[sec:personal-policy-dilemmas]{personal policies} 
-%(section~\ref{sec:personal-policy-dilemmas}) 
+\ifsectionref
+(section~\ref{sec:personal-policy-dilemmas}) 
+\fi
 and policies regarding \hyperref[sec:org-dilemma]{structure of the organization}.
-%(section~\ref{sec:org-dilemma}). 
+\ifsectionref
+(section~\ref{sec:org-dilemma}). 
+\fi
 The personal policies apply to each bureaucrat in an organization, while the structural policies for an organization are faced by a subset of bureaucrats in the management role. 
 
 \subsection*{Personal Policy Dilemmas \label{sec:personal-policy-dilemmas}}
@@ -529,8 +533,10 @@ This dilemma is magnified when the task you work on is high risk or is resource 
 \textit{Dilemma of Data Quantity.}
 \index{dilemma!of data quantity}
 How much data to gather for a decision. See figure~\ref{fig:data_collection_cost_uncertainty}. See also the description of 
-%section~\ref{sec:bureaucratic_debt} 
- \hyperref[sec:bureaucratic_debt]{bureaucratic debt}.
+ \hyperref[sec:bureaucratic-debt]{bureaucratic debt}.
+\ifsectionref
+in section~\ref{sec:bureaucratic-debt} 
+\fi
 %{\tiny Tag: Decision making.}
 }
 \label{table:gather_data_lots-vs-little}
@@ -698,8 +704,13 @@ Once data is gathered (Dilemma~\ref{table:gather_data_lots-vs-little}) and a pla
 \index{dilemma!of consistency over time}
 Stability of rules; how change is implemented. Can also be characterized as when to tell other people: sooner or later (when firmer information is available).
 See the description of 
-%section~\ref{sec:static-dynamic_processes} 
 \hyperref[sec:static-dynamic_processes]{static versus dynamic processes}.
+\ifpageref
+on page~\pageref{sec:static-dynamic_processes}
+\fi
+\ifsectionref
+in section~\ref{sec:static-dynamic_processes} 
+\fi
 %{\tiny Tag: Organization's culture. Tag: Personal choice.}
 }
 \label{table:consistency}
