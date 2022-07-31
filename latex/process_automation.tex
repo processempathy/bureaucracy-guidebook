@@ -1,0 +1,36 @@
+\section{Automating Processes}
+
+% https://graphthinking.blogspot.com/2022/07/automating-management.html
+
+For a workplaces that deal with intangibles the sequential process of evolving towards of process automation are well-trodden.  (When physical objects are involved, then robotics is necessary for automation.)
+
+
+
+For an individual, the process is something like
+\begin{enumerate}
+    \item Transition verbal folklore to written documentation of existing processes.
+    \item Transition from plain text documentation to structured data like decision trees, workflow diagrams. Graphviz or Powerpoint
+    \item Collect metrics (number of times application was opened, time spent in tool) for existing manual processes to enable cost evaluation for implementing automation. \footnote{see \href{https://xkcd.com/1205/}{https://xkcd.com/1205/} and \href{https://xkcd.com/1319/}{https://xkcd.com/1319/}}
+    \index{xkcd!\href{https://xkcd.com/1319/}{1319}}
+    \index{xkcd!\href{https://xkcd.com/1205/}{1205}}
+    \item Implement stand-alone scripts per task using personal automation tools like https://pyautogui.readthedocs.io/en/latest/ or https://www.autoitscript.com/site/
+    \item Tie the scripts to the task workflows from step 2.
+    \item automation assistant that actively monitors your activities (keystrokes, mouse clicks, on-screen events) to detect repetitive actions that are candidates for automation.
+\end{enumerate}
+
+Gaining the skills to identify opportunities to automate depends on practical skill and experience
+
+
+At the organizational level, there are are system-level changes like
+\begin{itemize}
+    \item Hire people who have the mindset of automation and skill to implement automation
+    \item Use tracking bits in PDFs and webpages to collect data on how systems are used
+    \item Provide a metrics aggregation service
+    \item Align incentives (e.g., pay, promotion) with implementation of automation
+    \item Transition from paper to PDF to website to API. To read about how this worked out at Amazon see \begin{itemize}
+        \item https://gist.github.com/chitchcock/1281611
+        \item https://news.ycombinator.com/item?id=3101876
+        \item https://news.ycombinator.com/item?id=27566676
+    \end{itemize}
+    \item Every person should be trained to develop software, share code, use APIs, create APIs, maintain APIs.
+\end{itemize}

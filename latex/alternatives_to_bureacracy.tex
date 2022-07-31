@@ -27,7 +27,7 @@ Reasons bureaucracy is inefficient include
     \item People prioritize putting out fires rather than attacking largest issues.
     \item People do not respond to communications (email, phone, meetings); see the section on \hyperref[sec:slow-deployment]{slow deployment}. %section~\ref{sec:slow-deployment}.
     \item Participants are late to meetings.
-    \item Scope creep for projects.
+    \item \href{sec:scope-creep}{Scope creep} for projects.
     \item Planned scope and actual scope are mismatched  (due to staffing or skills).
     \item Teams operate in silos.
 % https://graphthinking.blogspot.com/2017/03/progress-in-spite-of-better-ways.html
@@ -73,7 +73,9 @@ Since bureaucracy is distributed knowledge and distributed decision making, it c
 Three minutes is not a lot of time to gather information and share it to the relevant people, but let's set that as a lower bound.
 If a single decision takes three minutes, then in a ten hour work day that's a max of (10*60)/3 = 200 decisions per day. If this decider works 300 days out of the year, that gets us to 60000 decisions per year. Everyone has to talk to this decider directly since there's no bureaucracy to gather or disseminate the information. The diversity of questions regarding shared resources would be challenging to answer well.
 
-A bureaucracy of one person doesn't scale. Within this constraint we can't just automate everything because carrying out the automation requires a staff to implement. Automation isn't free -- it requires creation and maintenance. Unless the same person making the decisions is also the person creating and maintaining the system, there will be multiple people in an organization.
+A bureaucracy of one person doesn't scale. Within this constraint we can't just automate everything because carrying out the automation requires a staff to implement. 
+\index{automation!challenges of}
+Automation isn't free -- it requires creation and maintenance. Unless the same person making the decisions is also the person creating and maintaining the system, there will be multiple people in an organization.
 
 
 \href{https://en.wikipedia.org/wiki/Monarchy}{Monarchies} and \href{https://en.wikipedia.org/wiki/Dictator}{dictatorships} rely on a single decider. This is a simple model to understand, but addressing all the edge cases for large society can be difficult. A single decider doesn't scale for the number of decisions needed, so the decider then appoints bureaucrats to subjectively implement policies. 
@@ -108,12 +110,13 @@ Again, try replacing ``bureaucracy" in with ``coordination of stakeholders". The
 \end{figure}
 
 
-\subsection*{Automation of Processes}
+\subsection*{Automation of Processes\label{sec:automation}}
 
 The role of automation is to make interactions more predictable, faster, and to handle more of them. Automation does not eliminate bureaucracy; automation obfuscates the subjective decisions and limits the ability to negotiate with decision makers.
 
 % https://graphthinking.blogspot.com/2019/07/bureaucracy-is-social-process-executed.html
 There are benefits to automation, and automation can be implemented to minimize harm to bureaucratic subjects.  Automated systems can be made more transparent by including documentation about what is happening, why, and what's next.
+\index{automation!benefits of}
 \marginpar{[Tag] Actionable advice}
 This helps both bureaucrats and subjects identify when assumptions made in the automation are incorrect. 
 
@@ -121,6 +124,9 @@ This helps both bureaucrats and subjects identify when assumptions made in the a
 There are indicators of when to transition a human-based bureaucratic process to a more automated approach:
 % https://graphthinking.blogspot.com/2019/07/cost-of-creating-and-supporting.html
 \footnote{\href{https://xkcd.com/1319/}{https://xkcd.com/1319/} and \href{https://xkcd.com/1205/}{https://xkcd.com/1205/}}
+\index{automation!when to}
+\index{xkcd!\href{https://xkcd.com/1319/}{1319}}
+\index{xkcd!\href{https://xkcd.com/1205/}{1205}}
 \begin{itemize}
     \item The process to be automated is stable.
     \item The expected lifespan for the process -- how long the process will be needed -- is much longer than the time to implement the automation.

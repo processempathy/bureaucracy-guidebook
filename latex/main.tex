@@ -11,6 +11,12 @@
 \usepackage{float}
 % https://tex.stackexchange.com/a/20380/235813
 
+
+% standard "if" conditional statement breaks pandoc when used inside a caption. Therefore, as per
+% https://tex.stackexchange.com/a/5896/235813
+\usepackage{etoolbox}
+
+
 \usepackage{graphicx}
 
 \usepackage{lineno}
@@ -120,9 +126,16 @@ A Field Guide}
 % https://tex.stackexchange.com/questions/5894/latex-conditional-expression
 \newif\ifpageref
 \newif\ifsectionref
-
 \pagereffalse
 \sectionreffalse
+
+% etoolbox
+\newtoggle{pageref}
+\newtoggle{sectionref}
+
+\togglefalse{pageref}
+\togglefalse{sectionref}
+
 
 
 \chapter{Introduction to Bureaucracy}
@@ -268,6 +281,7 @@ A Field Guide}
     \input{process_definition}
     \input{process_why_exist}
     \input{process_versus_chaos}
+    \input{process_automation}
     \input{process_involves_new_members}
     \input{process_exceptions}
     \input{process_mistakes}
