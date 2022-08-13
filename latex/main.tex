@@ -8,6 +8,17 @@
 
 \usepackage{tikz} 
 
+% how to hyphenate words
+\usepackage[USenglish]{babel}
+
+% strikethrough text
+% https://tex.stackexchange.com/a/23712/235813
+% https://tex.stackexchange.com/a/13699/235813
+\usepackage[normalem]{ulem}
+
+% widows and orphans (paragraphs with single word on new line)
+% https://tex.stackexchange.com/a/558241/235813
+
 \usepackage{float}
 % https://tex.stackexchange.com/a/20380/235813
 
@@ -145,26 +156,24 @@ A Field Guide}
   
   
 
-  \input{what_is_bureaucracy} % section
+  \input{what_is_bureaucracy}  \clearpage% section
   \clearpage 
   \section{Scope of Bureaucracy}
   Bureaucracy is not a distant faceless concept. Bureaucracy permeates your environment and is the basis for many interactions you have with other people. 
   %\begin{flushright}
   %Back to the \hyperlink{contents}{Table of Contents}
   %\end{flushright}
-    \input{who_is_a_bureaucrat} % subsection
-    \input{number_of_people_in_a_bureacracy} % subsection
-  %\input{from_startup_to_bureaucracy}
-
+    \input{who_is_a_bureaucrat}  \clearpage% subsection
+    \input{number_of_people_in_a_bureacracy}  \clearpage % subsection
   \clearpage
   \input{fundamentals_of_bureaucracy} % section
     % define the core concepts 
-    \input{decision_making} % Process and policy
-    \input{hierarchy_of_roles_in_bureaucracy}
-    \input{org_chart_as_guide_and_as_lie}
-    \input{meetings_for_coordination}
-    \input{communication_written}
-    \input{feedback_loops} % subsection
+    \input{decision_making}  \clearpage% Process and policy
+    \input{hierarchy_of_roles_in_bureaucracy} \clearpage
+    \input{org_chart_as_guide_and_as_lie} \clearpage
+    \input{meetings_for_coordination} \clearpage
+    \input{communication_written} \clearpage
+    \input{feedback_loops}  \clearpage% subsection
   \clearpage
   \input{history} % section
   \clearpage 
@@ -180,7 +189,6 @@ A Field Guide}
   \clearpage
   \input{models_of_bureaucracy} % section
   \clearpage 
-  \clearpage
   \input{not_many_options_for_organizations}
   %\input{folk_wisdom}\clearpage
   \input{accidental_and_essential_bureaucracy}
@@ -210,16 +218,16 @@ A Field Guide}
   \chapter{Getting started in a Bureaucracy\label{sec:getting-started}}
     This section focuses on a bureaucrat's initial exposure to bureaucracy. 
   
-    \input{what_to_read}
-    \input{career_hiring}
-    \input{tips_for_getting_started}
-    \input{setting_your_emotional_state}
-    \input{learn_from_failure}
-    \input{success_in_the_organization_you_are_in}
-    \input{career_promotion}
+    \input{what_to_read} \clearpage
+    \input{career_hiring} \clearpage
+    \input{tips_for_getting_started} \clearpage
+    \input{setting_your_emotional_state} \clearpage
+    \input{learn_from_failure} \clearpage
+    \input{success_in_the_organization_you_are_in} \clearpage
+    \input{career_promotion} \clearpage
     %\input{career_exit_interview}
-    \input{org_chart_orientation}
-    \input{career_professional_training}
+    \input{org_chart_orientation} \clearpage
+    \input{career_professional_training} \clearpage
   \clearpage
   \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
   
@@ -228,34 +236,32 @@ A Field Guide}
     \hyperref[sec:working-with-other-bureaucrats]{working with others}.
     
     Understanding your options as a bureaucrat for action matters because trying to withdraw from bureaucracy isn't harmless. There is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
-    \input{ideas_for_innovation}
-    \input{changing_your_environment}
+    \input{ideas_for_innovation} \clearpage
+    \input{changing_your_environment} \clearpage
     % management isn't leadership
-    \input{change_tips_for}
-    \input{measures_of_maturity}
-  \clearpage
+    \input{change_tips_for} \clearpage
+    \input{measures_of_maturity} \clearpage
   % person-to-person relations
   \input{working_with_other_bureaucrats} % section
-    \input{motivations_of_participants}
-    \input{tropes}
-    \input{solving_problems}
-    \input{not_my_job_task_scope}
-    \input{building_managing_spending_reputation}
-    \input{teams}
-    \input{intellectual_empathy}
-    \input{leveraging_expertise}
-    \input{does_anyone_want_to_volunteer}
-  \clearpage
-  \input{communication_within_bureaucracy} % section
+    \input{motivations_of_participants} \clearpage
+    \input{tropes} \clearpage
+    \input{solving_problems} \clearpage
+    \input{not_my_job_task_scope} \clearpage
+    \input{building_managing_spending_reputation} \clearpage
+    \input{teams} \clearpage
+    \input{intellectual_empathy} \clearpage
+    \input{leveraging_expertise} \clearpage
+    \input{does_anyone_want_to_volunteer} \clearpage
 
-    \input{communication_role_of} % subsection
-    \input{communicate_failure_to} % subsection
-    \input{communication_preferences} % subsection
-    \input{communication_vulnerability} % subsection
-    \input{social_and_bureaucratic_interactions} % subsection
-    \input{communication_techniques} % subsection 
-    \input{communication_email_and_reports} 
-    \input{friction_between_teams_within_organization} % subsection
+  \input{communication_within_bureaucracy} % section
+    \input{communication_role_of} \clearpage % subsection
+    \input{communicate_failure_to} \clearpage % subsection
+    \input{communication_preferences} \clearpage % subsection
+    \input{communication_vulnerability} \clearpage % subsection
+    \input{social_and_bureaucratic_interactions} \clearpage % subsection
+    \input{communication_techniques} \clearpage % subsection 
+    \input{communication_email_and_reports} \clearpage 
+    \input{friction_between_teams_within_organization} \clearpage % subsection
 
     %There are many books on how to do meetings well. 
     % How is this section (in a book about bureaucracy) distinct?
@@ -263,40 +269,37 @@ A Field Guide}
     Stakeholders care about the outcome of a decision. 
     In some sense, every participant in an organization is invested the outcome of every decision made because there is consequence to how resources are allocated and the direction of the organization. Every org member has an opinion, even lacking experience or expertise. 
     
-    \input{meetings_late_and_theft_emails_not_free}
-    
-    \input{meetings_well-run_meeting} % subsection
-    \input{meetings_characterizing_meetings} % subsection
+    \input{meetings_late_and_theft_emails_not_free} \clearpage
+    \input{meetings_well-run_meeting} \clearpage % section
+    \input{meetings_characterizing_meetings} \clearpage % section
 %    \input{make_effective_presentations}
     % how to engage your audience
     % stages of dysfunction
 %    \input{meeting_time_versus_theft} % no value to the reader
     
-    \input{meetings_walk-arounds} % subsection
-    \input{meetings_one-on-ones} % subsection
-    \input{meetings_bad_presentations} % subsection
+    \input{meetings_walk-arounds} \clearpage % subsection
+    \input{meetings_one-on-ones} \clearpage % subsection
+    \input{meetings_bad_presentations} \clearpage % subsection
 %    \input{conference_attendee}
 %    \input{conference_organizer}
   % multi-person interactions = process
   \chapter{Bureaucratic Processes\label{sec:process}}
-    \input{process_context_habits}
-    \input{process_definition}
-    \input{process_why_exist}
-    \input{process_versus_chaos}
-    \input{process_automation}
-    \input{process_involves_new_members}
-    \input{process_exceptions}
-    \input{process_mistakes}
-    \input{process_change_existing}
-    \input{process_deployment}
-    \input{processes_two}
-    \input{process_tactic_approval_forgiveness_opposition} % subsection
-    \input{process_static_vs_dynamic}
+    \input{process_context_habits} \clearpage
+    \input{process_definition} \clearpage
+    \input{process_why_exist} \clearpage
+    \input{process_versus_chaos} \clearpage
+    \input{process_automation} \clearpage
+    \input{process_involves_new_members} \clearpage
+    \input{process_exceptions} \clearpage
+    \input{process_mistakes} \clearpage
+    \input{process_change_existing} \clearpage
+    \input{process_deployment} \clearpage
+    \input{processes_two} \clearpage
+    \input{process_tactic_approval_forgiveness_opposition} \clearpage % subsection
+    \input{process_static_vs_dynamic} \clearpage
     \input{process_framing_bureaucratic_debt} %subsection
-    \input{process_design_processes_for_turnover}
-  \clearpage
+    \input{process_design_processes_for_turnover} \clearpage
 
-\clearpage
 \input{last_chapter}
 
 % If bureaucracy is a distributed knowledge distributed decision system, compare with paxos and Byzantine generals
