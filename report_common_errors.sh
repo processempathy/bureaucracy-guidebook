@@ -73,52 +73,120 @@ grep -R -i -E "\b(\w+)\s+\1\b" latex/*.tex
 read -p "Press any key to resume ..."
 clear
 
-echo "********* Simplify ***************"
+echo "********* Simplify: Remove phrases that don't mean anything ***************"
+
+
+echo "remove 'a bit'"
+grep -R -i "a bit" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
+clear
+
+
+echo "remove 'sort of'"
+grep -R -i "sort of" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
+clear
+
+
+echo "remove 'in a sense'"
+grep -R -i "in a sense" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
+clear
+
+
+echo "remove 'rather'"
+grep -R -i "rather" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
+clear
+
+echo "be advised --> (omit)"
+grep -R -i "be advised" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
+clear
+
+echo "********** Simplify: Replace X with Y ***********"
 
 echo "assistance --> help"
 grep -R -i assistance latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "numerous --> many"
 grep -R -i numerous latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "facilitate --> ease"
 grep -R -i facilitate latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "individual --> man or woman"
 grep -R -i individual latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "remainder --> rest"
 grep -R -i remainder latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "initial --> first|early"
 grep -R -i initial latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "implement --> carry out|start|do|enact|perform|fulfull|accomplish"
 grep -R -i implement latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "sufficient --> enough"
 grep -R -i sufficient latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "attempt --> try"
 grep -R -i attempt latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
 
 echo "referred to as --> called"
 grep -R -i "referred to as" latex/*.tex
@@ -403,14 +471,6 @@ clear
 
 echo "at the present time --> at present|now"
 grep -R -i "at the present time" latex/*.tex
-if [[ $? -eq 0 ]]; then
-    read -p "Press any key to resume ..."
-fi
-clear
-
-
-echo "be advised --> (omit)"
-grep -R -i "be advised" latex/*.tex
 if [[ $? -eq 0 ]]; then
     read -p "Press any key to resume ..."
 fi
@@ -1105,6 +1165,7 @@ fi
 clear
 
 
+# I'm not familiar with this, but it means "among other things"
 echo "inter alia --> (omit)"
 grep -R -i "inter alia" latex/*.tex
 if [[ $? -eq 0 ]]; then
@@ -1201,7 +1262,7 @@ fi
 clear
 
 
-echo "is responsible for --> (omit) handles"
+echo "is responsible for --> (omit)|handles"
 grep -R -i "is responsible for" latex/*.tex
 if [[ $? -eq 0 ]]; then
     read -p "Press any key to resume ..."
