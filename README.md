@@ -20,3 +20,8 @@ Blog posts:
 
 * <https://tex.stackexchange.com/a/429650/235813>
 * <https://www.kodymirus.cz/overleaf-html-sample/main.html>
+
+
+# Readability scoring
+
+* <https://pypi.org/project/py-readability-metrics/>

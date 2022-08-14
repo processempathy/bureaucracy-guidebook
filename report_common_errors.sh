@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
 
+# Look for known issues in the latex.
+# This script assists in copyediting.
+# No changes to the Latex files are made.
+
 # Replace x with y.
 # See list from https://www.plainlanguage.gov/guidelines/words/use-simple-words-phrases/
 # and "On Writing Well", page
+
+# Websites that produce simplified text:
+# * https://www.simplish.org/
+# * https://rewordify.com/index.php
+
+# "even users with graduate degrees completed tasks faster
+#  when language was simplified. They also didn't have a
+#  negative reaction to the simplified content."
+# source: https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/meet.1450420179
 
 # strict error handling
 #set -x
@@ -15,12 +28,16 @@ clear
 
 echo "Citations should avoid line breaks"
 grep -R -i " \\\\cite" latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "Are marginpar consistent?"
 grep -R -i marginpar latex/*.tex | cut -d":" -f2 | sort | uniq
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "Are marginpar followed by an index entry?"
@@ -28,7 +45,9 @@ read -p "Press any key to resume ..."
 echo "#################################################################"
 clear
 grep -R -i marginpar latex/*.tex -A1
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "'an' should proceed a word that starts with a vowel"
@@ -44,18 +63,33 @@ read -p "Press any key to resume ..."
 clear
 
 echo "Periods should be followed by spaces"
-grep -R -i "\.[a-z]" latex/*.tex | grep -v http | grep -v "e\.g" | grep -v "includegraph"
-read -p "Press any key to resume ..."
+grep -R -i "\.[A-Za-z]" latex/*.tex | grep -v http | grep -v "e\.g" | grep -v "includegraph"
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
+
+
+echo "question marks should be followed by spaces"
+grep -R -i "?[A-Za-z]" latex/*.tex | grep -v http
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
+clear
+
 
 echo "I used to use 'i.e.' wrong; see https://theoatmeal.com/comics/ie for an explanation"
 grep -R -i "i\.e\." latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "Latex doesn't like \""
 grep -R -i \"[a-z] latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "I used ******* to denote separate sections of notes."
@@ -65,12 +99,16 @@ clear
 
 echo "I started lists with *"
 grep -R -i "^\*" latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "Identify duplicate words"
 grep -R -i -E "\b(\w+)\s+\1\b" latex/*.tex
-read -p "Press any key to resume ..."
+if [[ $? -eq 0 ]]; then
+    read -p "Press any key to resume ..."
+fi
 clear
 
 echo "********* Simplify: Remove phrases that don't mean anything ***************"
