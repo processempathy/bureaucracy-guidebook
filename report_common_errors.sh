@@ -170,14 +170,6 @@ fi
 clear
 
 
-echo "facilitate --> ease"
-grep -R -i facilitate latex/*.tex
-if [[ $? -eq 0 ]]; then
-    read -p "Press any key to resume ..."
-fi
-clear
-
-
 echo "individual --> man or woman"
 grep -R -i individual latex/*.tex
 if [[ $? -eq 0 ]]; then
@@ -212,14 +204,6 @@ clear
 
 echo "sufficient --> enough"
 grep -R -i sufficient latex/*.tex
-if [[ $? -eq 0 ]]; then
-    read -p "Press any key to resume ..."
-fi
-clear
-
-
-echo "attempt --> try"
-grep -R -i attempt latex/*.tex
 if [[ $? -eq 0 ]]; then
     read -p "Press any key to resume ..."
 fi
@@ -1147,14 +1131,6 @@ fi
 clear
 
 
-echo "initial --> first"
-grep -R -i "initial" latex/*.tex
-if [[ $? -eq 0 ]]; then
-    read -p "Press any key to resume ..."
-fi
-clear
-
-
 echo "initiate --> start"
 grep -R -i "initiate" latex/*.tex
 if [[ $? -eq 0 ]]; then
@@ -1726,14 +1702,6 @@ clear
 
 echo "relocate --> move"
 grep -R -i "relocate" latex/*.tex
-if [[ $? -eq 0 ]]; then
-    read -p "Press any key to resume ..."
-fi
-clear
-
-
-echo "remain --> stay"
-grep -R -i "remain" latex/*.tex
 if [[ $? -eq 0 ]]; then
     read -p "Press any key to resume ..."
 fi
