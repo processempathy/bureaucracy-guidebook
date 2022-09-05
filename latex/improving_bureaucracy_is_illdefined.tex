@@ -1,0 +1,61 @@
+Bureaucracy creates and implements policy for shared resources. Measuring how effectively that is being carried out depends on what the goal is -- equitable access to shared resource, latency of access, prioritized access on a basis of need, low-overhead, minimize fraudulant access. 
+
+Separate from the question of managing the shared resource, measuring change of the administrative process is technically feasible:
+\begin{enumerate}
+    \item Identify recurring business workflows
+    \item Given the workflow pipelines, count number of instances active in each pipeline segment.
+    \item For each instance in each pipeline segment, measure the duration.
+\end{enumerate}
+
+For example 
+
+* Implementing a new policy, or revising an existing policy
+** Staffing 
+*** Training
+*** Hiring: recruiting, screening, interview
+*** Payroll, benefits
+*** Promotion 
+*** Have a building to sit in, or if remote-only, collaborative software and hardware 
+**** Building maintenance
+**** Building security 
+** Legality evaluation
+** Financial support for all listed 
+** Compliance with data protection 
+** Vetting (does app already exist), prototype, deployment, sustainment, decommission
+** Hardware and software infrastructure for analytic
+*** Support for when hardware or software breaks
+*** Security updates for software
+*** Scanning for security issues in software 
+
+
+Problems with trying to measure: 
+\begin{itemize}
+    \item flux of processes due to turnover, evolving best practices
+    \item Localization: every team's process is different. Meaningful comparison relies on consistency between teams
+    \item Centralized aggregation of count and duration is burdensome to every single pipeline segment. Collecting data takes time away from the work.
+    \item Enumeration: a complete workflow touches every role that every employee has 
+    \item Incomplete data (not reported)
+    \item Collection lag (not live, not realtime) 
+    \item Getting benefits from data requires someone with the skills to make sense
+\end{itemize}
+
+Suppose we enumerated every workflow and collected every metric.
+What is the consequence of the observations?
+Optimize allocation of staffing and budget with respect to maximize pipeline throughput and minimize latency 
+
+That wouldn't tell 
+\begin{itemize}
+    \item whether the good ideas succeeded, or
+    \item if smart and kind people are retained, or
+    \item if the improvements of latency and throughput benefit users
+    \item If improvements are occurring at the cost of higher burnout
+    \item If employees find the work emotionally rewarding 
+\end{itemize}
+
+
+Practical responses: 
+\begin{itemize}
+    \item Implement small scope rather than holistic (pet projects, iterative)
+    \item Wait for complaints, fix as detected 
+    \item Optimize for political relevance (high profile)
+\end{itemize}
