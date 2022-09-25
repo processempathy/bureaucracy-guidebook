@@ -4,31 +4,31 @@
 
 For a workplaces that deal with intangibles the sequential process of evolving towards of process automation are well-trodden.  (When physical objects are involved, then robotics is necessary for automation.)
 
-
-
-For an individual, the process is something like
+The evolution of automating a process involves
 \begin{enumerate}
-    \item Transition verbal folklore to written documentation of existing processes.
-    \item Transition from plain text documentation to structured data like decision trees, workflow diagrams. Graphviz or Powerpoint.
-    \item Collect metrics (number of times application was opened, time spent in tool) for existing manual processes to enable cost evaluation for enacting automation. \footnote{see \href{https://xkcd.com/1205/}{https://xkcd.com/1205/} and \href{https://xkcd.com/1319/}{https://xkcd.com/1319/}}
+    \item Identify who is involved in the process. How did the process get created and how has it evolved? Who evaluates success of the process? 
+    \item For existing processes transition verbal folklore to written documentation.
+    \item Transition from plain text documentation to structured data. Examples of structured computer-parsable text include  decision trees and workflow diagrams. Implementation could be in Graphviz or Powerpoint.
+    \item Collect metrics (for example, number of times application was opened, time spent on webpage) for existing manual processes to enable cost evaluation for enacting automation. This is the modern version of a \href{https://en.wikipedia.org/wiki/Time_and_motion_study}{time and motion study}.\footnote{see \href{https://xkcd.com/1205/}{https://xkcd.com/1205/} and \href{https://xkcd.com/1319/}{https://xkcd.com/1319/}}
     \index{xkcd!\href{https://xkcd.com/1319/}{1319}}
     \index{xkcd!\href{https://xkcd.com/1205/}{1205}}
-    \item Implement stand-alone scripts per task using personal automation tools like https://pyautogui.readthedocs.io/en/latest/ or https://www.autoitscript.com/site/
-    \item Tie the scripts to the task workflows from step 2.
-    \item Automation assistant that actively monitors your activities (keystrokes, mouse clicks, on-screen events) to detect repetitive actions that are candidates for automation.
+    \item Implement stand-alone software (scripts) for each task task using personal automation tools like \href{https://pyautogui.readthedocs.io/en/latest/}{PyAutoGUI} or \href{https://www.autoitscript.com/site/}{AutoIt}.
+    \item Tie the scripts in the previous step to the task workflows from step 2.
+    \item Create an automation assistant that actively monitors your activities (keystrokes, mouse clicks, on-screen events) to detect repetitive actions that are candidates for automation.
 \end{enumerate}
 
-Gaining the skills to identify opportunities to automate depends on practical skill and experience.
+The skill of identifying opportunities to automate depends on practical skill (what are you capable of) and experience.
 
-
+\ \\
+Automating bureaucracy from the bottom-up can be augmented and supported by management. 
 At the organizational level, there are system-level changes like
 \begin{itemize}
-    \item Hire people who have the mindset of automation and skill to enact automation.
-    \item Use tracking bits in PDFs and webpages to collect data on how systems are used.
-    \item Provide a metrics aggregation service.
+    \item Hire people who desire automation and the skills to enact automation.
+    \item Use tracking bits in PDFs and webpages to collect data on how systems are used. This decreases the burden on process participants to report metrics and can be less biased since it does not rely on self-reporting.
+    \item Provide a metrics aggregation service. The ability to store metrics from multiple teams enables a holistic perspective on the organization and can help identify chokepoints. Without the ability to view the entire organization, premature optimization is likely.
     \item Align incentives (e.g., pay, promotion) with implementation of automation.
-    \item Transition from paper to PDF to website to API. To read about how this worked out at Amazon see \footnote{\href{https://gist.github.com/chitchcock/1281611}{https://gist.github.com/chitchcock/1281611}}
+    \item Transition from paper to \href{https://en.wikipedia.org/wiki/PDF}{PDF} to website to \href{https://en.wikipedia.org/wiki/API}{API}. To read about how this worked out at Amazon see \footnote{\href{https://gist.github.com/chitchcock/1281611}{https://gist.github.com/chitchcock/1281611}}
     \footnote{\href{https://news.ycombinator.com/item?id=3101876}{https://news.ycombinator.com/item?id=3101876}}
     \footnote{\href{https://news.ycombinator.com/item?id=27566676}{https://news.ycombinator.com/item?id=27566676}}.
-    \item Every person should be trained to develop software, share code, use APIs, create APIs, maintain APIs.
+    \item Members of bureaucratic teams should be trained to develop software, share code, use \href{https://en.wikipedia.org/wiki/API}{API}s, create APIs, and maintain APIs.
 \end{itemize}
