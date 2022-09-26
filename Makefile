@@ -72,5 +72,5 @@ dout:
 	docker run --rm \
            -v `pwd`:/scratch -w /scratch/ \
            --user $(id -u):$(id -g) \
-           latex_debian make out
+           latex_debian make html 
 
