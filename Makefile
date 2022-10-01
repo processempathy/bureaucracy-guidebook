@@ -19,6 +19,11 @@ help:
 
 # the following commands are for use inside the Docker image
 
+
+# catch notes to self
+notes:
+	grep -E -R "[A-Z]{5,}" latex/*.te
+
 out: pdf html
 
 # https://pandoc.org/MANUAL.html and https://pandoc.org/demos.html
