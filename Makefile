@@ -20,7 +20,7 @@ help:
 # the following commands are for use inside the Docker image
 
 
-# catch notes to self
+# review notes to self
 notes:
 	grep -E -R "[A-Z]{5,}" latex/*.te
 
@@ -43,6 +43,7 @@ html: pdf
              --citeproc \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
+	cd ..; convert_html_pdf_to_png.sh
 
 
 pdf:
@@ -77,5 +78,6 @@ dout:
 	docker run --rm \
            -v `pwd`:/scratch -w /scratch/ \
            --user $(id -u):$(id -g) \
-           latex_debian make html 
+           latex_debian make html
+ 
 
