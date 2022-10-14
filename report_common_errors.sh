@@ -277,6 +277,13 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+echo "eliminate 'very'"
+# https://prowritingaid.com/grammar/1000047/Why-shouldn-t-you-use-the-word-very-in-your-writing
+grep -R -i " very " latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press ENTER key to resume ..."
+fi
+clear
 
 echo "accordingly --> so"
 grep -R -i "accordingly" latex/*.tex
