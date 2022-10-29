@@ -13,6 +13,10 @@
 % https://tex.stackexchange.com/a/36528/235813
 \usepackage{mdframed}
 
+% https://tex.stackexchange.com/a/172608/235813
+\usepackage{tcolorbox}
+\newtcolorbox{quizbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+
 % how to hyphenate words
 \usepackage[USenglish]{babel}
 
@@ -174,7 +178,7 @@ A Field Guide}
   \input{fundamentals_of_bureaucracy} % section
     % define the core concepts 
     \input{decision_making}  \clearpage% Process and policy
-    \input{hierarchy_of_roles_in_bureaucracy} \clearpage
+    \input{hierarchy_of_roles_in_bureaucracy} % subsubsection, so no clearpage
     \input{org_chart_as_guide_and_as_lie} \clearpage
     \input{meetings_for_coordination} \clearpage
     \input{communication_written} \clearpage
