@@ -26,6 +26,14 @@ set -o nounset   # set -u : exit the script if you try to use an uninitialized v
 
 clear
 
+echo "find duplicate words"
+# https://stackoverflow.com/a/41611621/1164295
+egrep -R -i "(\b[a-zA-Z]+)\s+\1\b" *.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
 echo "Citations should avoid line breaks"
 grep -R -i " \\\\cite" latex/*.tex
 if [[ $? -eq 0 ]]; then
