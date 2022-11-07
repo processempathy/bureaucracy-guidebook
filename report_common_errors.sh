@@ -30,6 +30,7 @@ echo "find duplicate words"
 # https://stackoverflow.com/a/41611621/1164295
 egrep -R -i "(\b[a-zA-Z]+)\s+\1\b" *.tex
 if [[ $? -eq 0 ]]; then
+    echo "THERE SHOULD BE ZERO INSTANCES!"
     read -p "Press ENTER key to resume ..."
 fi
 clear

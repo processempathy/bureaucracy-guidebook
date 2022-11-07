@@ -9,6 +9,16 @@
 % draw pictures
 \usepackage{tikz} 
 
+% https://tex.stackexchange.com/questions/333617/how-to-use-chapterbib-package-syntax
+% https://www.overleaf.com/latex/examples/per-chapter-bibliographies-with-chapterbib/pqzjpxwyyjyd
+% https://texfaq.org/FAQ-chapbib
+\usepackage{chapterbib}
+
+% https://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
+% https://texfaq.org/FAQ-minitoc
+\usepackage{minitoc}
+
+
 % box text 
 % https://tex.stackexchange.com/a/36528/235813
 \usepackage{mdframed}
@@ -93,6 +103,11 @@ A Field Manual\\
 \includegraphics[width=0.8\textwidth]{images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.pdf}
 }
 
+% This isn't monograph 
+% "the readership has not only specialized or sophisticated knowledge but also professional interest in the subject of the work."
+% -- https://en.wikipedia.org/wiki/Monograph
+% Might be a https://en.wikipedia.org/wiki/Treatise
+
 %\begin{figure}[H]
 %    \centering
 
@@ -142,6 +157,7 @@ A Field Manual\\
 \input{dedication}%\clearpage
 %\pagenumbering{roman}
 
+\dominitoc % Initialization
 \hypertarget{contents}{}
 \tableofcontents
 
@@ -171,7 +187,7 @@ A Field Manual\\
 
 
 \chapter{Introduction\label{sec:introduction}}
-
+\minitoc
 %  Section~\ref{sec:define-bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative-views-from-within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
   \input{motivating_logic} \clearpage
@@ -198,8 +214,9 @@ A Field Manual\\
   \clearpage 
 
 \chapter{Bureaucracy in General\label{sec:bureaucracy-in-general}}
-  \input{phases_of_life} \clearpage
+\minitoc
   \input{avoiding_bureaucracy_is_nearly_impossible} \clearpage
+  \input{phases_of_life} \clearpage
   \input{alternatives_to_bureacracy} \clearpage
   \input{alternative_views_of_bureaucracy_from_within} \clearpage
   \input{models_of_bureaucracy} \clearpage 
@@ -210,6 +227,7 @@ A Field Manual\\
   \input{effective_bureaucrat} \clearpage
 
 \chapter{Why Bureaucracy is Hard\label{sec:why-bur-hard}}
+  \minitoc
   \input{why_is_bureaucracy_hard} \clearpage
   \input{dilemmas_and_trilemmas} \clearpage
   \input{unavoidable_hazards} \clearpage
@@ -221,6 +239,7 @@ A Field Manual\\
 % unordered essays to be clustered later
 
   \chapter{Getting started in a Bureaucracy\label{sec:getting-started}}
+  \minitoc
     This section focuses on a bureaucrat's initial exposure to bureaucracy. 
   
     \input{what_to_read} \clearpage
@@ -236,7 +255,7 @@ A Field Manual\\
     \input{career_professional_training} \clearpage
   \clearpage
   \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
-  
+  \minitoc
     This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to 
     %section~\ref{sec:working-with-other-bureaucrats} on 
     \hyperref[sec:working-with-other-bureaucrats]{working with others}.
@@ -292,6 +311,7 @@ A Field Manual\\
 %    \input{conference_organizer}
   % multi-person interactions = process
   \chapter{Bureaucratic Processes\label{sec:process}}
+  \minitoc
     \input{process_context_habits} \clearpage
     \input{process_definition} \clearpage
     \input{process_why_exist} \clearpage
