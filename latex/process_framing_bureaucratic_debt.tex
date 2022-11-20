@@ -1,4 +1,4 @@
-\section{Decisions and Processes Create Bureaucratic Debt\label{sec:bureaucratic-debt}}
+\subsection*{Decisions and Processes Create Bureaucratic Debt\label{sec:bureaucratic-debt}}
 
 % https://graphthinking.blogspot.com/2017/09/bureaucratic-debt-and-what-to-do-about.html
 
@@ -6,19 +6,22 @@ Suppose a \gls{process} is enacted and later found to be ineffective. Some work 
 \ifsectionref
 ; see section~\ref{sec:exceptions-to-process}).
 \fi
-\gls{bureaucratic debt} is the cost of the work needed to change a process\footnote{Similar to \href{https://en.wikipedia.org/wiki/Technical_debt}{technical debt}}. The bureaucratic debt is caused by choosing an easy solution now (with limited information or insufficient resources) instead of using an approach that would take longer to design and enact.
+\gls{bureaucratic debt} is 
+\marginpar{[Tag] Definition} the work needed to change a process\footnote{Similar to \href{https://en.wikipedia.org/wiki/Technical_debt}{technical debt}}. The bureaucratic debt is caused by choosing an easy solution now (with limited information or insufficient resources) instead of using an approach that would take longer to design and enact but be more robust.
 
 
-Decisions occur in a resource constrained environment.
+Decisions made by \glspl{bureaucrat} occur in a resource constrained environment.
 Getting information (measurement) and analysis are costly in terms of money, time, skill, and labor.
 Each decision made results in options that are not explored. These missed opportunities are associated with short-term versus long-term trade-offs of costs.
 
 The opportunity costs (options the organization doesn't take) alters which future decisions become available.
 
-The purpose of defining this concept is to capture the work resulting from decisions that would otherwise be unaccounted for.
+\ \\
+
+The purpose of defining bureaucratic debt as a concept is to capture the work resulting from decisions that would otherwise be unaccounted for.
 Once the concept of bureaucratic debt is understood it can be tracked.
 
-To document bureaucratic debt, we need to capture decisions as they are made:
+To document bureaucratic debt, you need to record aspects of decisions as they are made:
 \begin{itemize}
     \item What is the decision to be made?
     \item When the decision was identified?
@@ -28,12 +31,12 @@ To document bureaucratic debt, we need to capture decisions as they are made:
     \item Which option was chosen?
     \item Why was that option was chosen over the other options?
 \end{itemize}
-The purpose of documenting decisions is to enable both aversion to bad decisions and attraction to good decisions. Without documenting decisions, there is no transparency, accountability, or historical ability to track dependencies. 
+The purpose of documenting decisions is to enable both aversion to bad decisions and attraction to good decisions. That may sound strange, but the default of decision makers is to apply the same behavior in future decisions. 
+Without documenting decisions, there is no transparency, accountability, historical measure of progress, or ability to track dependencies. 
 
-The documentation of decisions needs to be disseminated to stakeholders. This should occur as promptly as possible. 
+Creating a record of decisions is necessary but not sufficient. The documentation of decisions needs to be disseminated to stakeholders to enable accountability. This should occur as promptly as possible. 
 
-
-For bureaucrats there are the processes and policies which get applied to customers, the documentation of what those processes and policies are, and guidance on when the processes and policies should be applied. 
+Every bureaucrat exercises policies that apply to subjects, even if the subjects are other bureaucrats. What I'm describing above is beyond merely documenting what the processes and policies are for subjects. Documenting bureaucratic debt is for use internal to the team or organization.  
 
 The scale of decision impact determines the level of documentation. ``Do I choose pencil or pen?" incurs negligible bureaucratic debt; therefore the documentation needed is also negligible. Projecting impact of decisions is a subjective prediction. 
 

@@ -159,7 +159,7 @@ A Field Manual\\
 
 \dominitoc % Initialization
 \hypertarget{contents}{}
-\tableofcontents
+\tableofcontents\label{sec:toc}
 
 % 2022-07-11: Brian
 %\chapter*{Preface}% * excludes from Contents
@@ -187,20 +187,19 @@ A Field Manual\\
 
 
 \chapter{Introduction\label{sec:introduction}}
+{\footnotesize\hyperref[sec:toc]{Main Table of Contents}}
 \minitoc
 %  Section~\ref{sec:define-bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative-views-from-within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
   \input{motivating_logic} \clearpage
   \input{process_empathy} \clearpage
-  \input{what_is_bureaucracy}  \clearpage% section
-  \clearpage 
+  \input{what_is_bureaucracy}  \clearpage
   \input{scope_of_bureaucracy}
   %\begin{flushright}
   %Back to the \hyperlink{contents}{Table of Contents}
   %\end{flushright}
     \input{who_is_a_bureaucrat}  \clearpage% subsection
-    \input{number_of_people_in_a_bureacracy}  \clearpage % subsection
-  \clearpage
+    \input{number_of_people_in_a_bureacracy}  \clearpage
   \input{fundamentals_of_bureaucracy} % section
     % define the core concepts 
     \input{decision_making}  \clearpage% Process and policy
@@ -214,6 +213,7 @@ A Field Manual\\
   \clearpage 
 
 \chapter{Bureaucracy in General\label{sec:bureaucracy-in-general}}
+{\footnotesize\hyperref[sec:toc]{Main Table of Contents}}
 \minitoc
   \input{avoiding_bureaucracy_is_nearly_impossible} \clearpage
   \input{phases_of_life} \clearpage
@@ -227,18 +227,14 @@ A Field Manual\\
   \input{effective_bureaucrat} \clearpage
 
 \chapter{Why Bureaucracy is Hard\label{sec:why-bur-hard}}
+  {\footnotesize\hyperref[sec:toc]{Main Table of Contents}}
   \minitoc
   \input{why_is_bureaucracy_hard} \clearpage
   \input{dilemmas_and_trilemmas} \clearpage
   \input{unavoidable_hazards} \clearpage
 
-%\chapter{Bureaucracies are made of Humans\label{b_made_of_humans}}
-% instead of presenting specific lessons, here I'm going to present insider perspectives on the fundamentals described in previous chapters. 
-
-%This chapter provides an insider's perspective of working in a bureaucracy. What are all the aspects to consider?
-% unordered essays to be clustered later
-
-  \chapter{Getting started in a Bureaucracy\label{sec:getting-started}}
+\chapter{Getting started in a Bureaucracy\label{sec:getting-started}}
+  {\footnotesize\hyperref[sec:toc]{Main Table of Contents}}
   \minitoc
     This section focuses on a bureaucrat's initial exposure to bureaucracy. 
   
@@ -253,8 +249,9 @@ A Field Manual\\
     %\input{career_exit_interview}
     \input{org_chart_orientation} \clearpage
     \input{career_professional_training} \clearpage
-  \clearpage
-  \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
+
+\chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
+  {\footnotesize\hyperref[sec:toc]{Main Table of Contents}}
   \minitoc
     This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to 
     %section~\ref{sec:working-with-other-bureaucrats} on 
@@ -268,7 +265,7 @@ A Field Manual\\
     \input{measures_of_maturity} \clearpage
 
   % person-to-person relations
-  \input{working_with_other_bureaucrats} % chapter
+\input{working_with_other_bureaucrats} % chapter
     \input{motivations_of_participants} \clearpage
     \input{tropes} \clearpage
     \input{solving_problems} \clearpage
@@ -279,7 +276,7 @@ A Field Manual\\
     \input{leveraging_expertise} \clearpage
     \input{does_anyone_want_to_volunteer} \clearpage
 
-  \input{communication_within_bureaucracy} % chapter
+\input{communication_within_bureaucracy} % chapter
     \input{communication_role_of} \clearpage % subsection
     \input{communicate_failure_to} \clearpage % subsection
     \input{communication_preferences} \clearpage % subsection
@@ -287,8 +284,9 @@ A Field Manual\\
     \input{social_and_bureaucratic_interactions} \clearpage % subsection
     \input{communication_techniques} \clearpage % subsection 
     \input{communication_email_and_reports} \clearpage 
-    \input{friction_between_teams_within_organization} \clearpage % subsection
+    \input{friction_between_teams_within_organization} \clearpage 
 
+    \section{Meetings are Bureaucratic\label{sec:meetings}}
     %There are many books on how to do meetings well. 
     % "Making of a Manager" has chapter 6 (pages 139-159)
     % How is this section (in a book about bureaucracy) distinct?
@@ -296,22 +294,17 @@ A Field Manual\\
     Stakeholders care about the outcome of a decision. 
     In some sense, every participant in an organization is invested the outcome of every decision made because there is consequence to how resources are divided and the direction of the organization. Every org member has an opinion, even lacking experience or expertise. 
     
-    \input{meetings_late_and_theft_emails_not_free} \clearpage
-    \input{meetings_well-run_meeting} \clearpage % section
-    \input{meetings_characterizing_meetings} \clearpage % section
-%    \input{make_effective_presentations}
-    % how to engage your audience
-    % stages of dysfunction
-%    \input{meeting_time_versus_theft} % no value to the reader
-    
-    \input{meetings_walk-arounds} \clearpage % subsection
-    \input{meetings_one-on-ones} \clearpage % subsection
-    \input{meetings_bad_presentations} \clearpage % subsection
-%    \input{conference_attendee}
-%    \input{conference_organizer}
+        \input{meetings_late_and_theft_emails_not_free}
+        \input{meetings_well-run_meeting} 
+        \input{meetings_characterizing_meetings} 
+        \input{meetings_walk-arounds} 
+        \input{meetings_one-on-ones} 
+        \input{meetings_bad_presentations}
+    \input{meetings_effective_presentations}
 
   % multi-person interactions = process
   \chapter{Bureaucratic Processes\label{sec:process}}
+  {\footnotesize\hyperref[sec:toc]{Main Table of Contents}}
   \minitoc
     \input{process_context_habits} \clearpage
     \input{process_definition} \clearpage
@@ -321,13 +314,18 @@ A Field Manual\\
     \input{process_involves_new_members} \clearpage
     \input{process_exceptions} \clearpage
     \input{process_mistakes} \clearpage
-    \input{process_change_existing} \clearpage
+    \input{process_change_existing} % no clearpage here because next input is subsection
+    \input{process_tactic_approval_forgiveness_opposition} \clearpage
     \input{process_deployment} \clearpage
     \input{processes_two} \clearpage
-    \input{process_tactic_approval_forgiveness_opposition} \clearpage % subsection
-    \input{process_static_vs_dynamic} \clearpage
-    \input{process_framing_bureaucratic_debt} %subsection
-    \input{process_design_processes_for_turnover} \clearpage
+    \section{Design of Processes}
+    Bureaucracy is the use of distributed knowledge and distributed decision making for policies concerning access to shared resources. To enact this concept a set of \glspl{process} is used by \glspl{bureaucrat} to leverage specialization and improve throughput. 
+    
+    Because bureaucrats are typically not formally trained in designing processes, ad hoc ideas reactive to the immediate situation and local constraints are used. 
+    
+        \input{process_static_vs_dynamic}
+        \input{process_framing_bureaucratic_debt}
+        \input{process_design_processes_for_turnover} \clearpage
 
 \input{last_chapter}
 
