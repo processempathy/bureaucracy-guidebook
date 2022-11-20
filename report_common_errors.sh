@@ -17,6 +17,9 @@
 #  negative reaction to the simplified content."
 # source: https://asistdl.onlinelibrary.wiley.com/doi/full/10.1002/meet.1450420179
 
+# TODO: detect medical falicies; see
+# https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01100/full
+
 # strict error handling
 #set -x
 set -o pipefail  # trace ERR through pipes
@@ -75,7 +78,7 @@ read -p "Press ENTER key to resume ..."
 clear
 
 echo "Periods should be followed by spaces"
-grep -R -i "\.[A-Za-z]" latex/*.tex | grep -v http | grep -v "e\.g" | grep -v "includegraph"
+grep -R -i "\.[A-Za-z]" latex/*.tex | grep -v http | grep -v "i\.e" | grep -v "e\.g" | grep -v "includegraph"
 if [[ $? -eq 0 ]]; then
     read -p "Press ENTER key to resume ..."
 fi
