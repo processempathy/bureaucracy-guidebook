@@ -49,9 +49,9 @@ RUN apt-get install -f -y --no-install-recommends \
           #texlive-fonts-recommended \
           #texlive-formats-extra \
           #texlive-lang-all \
-          texlive-latex-base \
-          texlive-latex-extra \
-          texlive-latex-recommended \
+          #texlive-latex-base \
+          texlive-latex-extra && \
+          #texlive-latex-recommended \
           #texlive-luatex \
           #texlive-metapost \
           #texlive-pictures \
@@ -60,7 +60,7 @@ RUN apt-get install -f -y --no-install-recommends \
           #texlive-publishers \
           #texlive-science \
           #texlive-xetex \
-          texlive-bibtex-extra &&\
+          #texlive-bibtex-extra &&\
 # delete Tex Live sources and other potentially useless stuff
     echo "Delete TeX Live sources and other useless stuff." &&\
     (rm -rf /usr/share/texmf/source || true) &&\

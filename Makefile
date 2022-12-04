@@ -22,7 +22,7 @@ help:
 
 # review notes to self
 notes:
-	grep -E -R "[A-Z]{5,}" latex/*.te
+	grep -E -R "[A-Z]{5,}" latex/*.tex
 
 out: pdf html
 
@@ -48,12 +48,12 @@ html: pdf
 
 pdf:
 	cd latex; \
-         pdflatex main; \
+         pdflatex -shell-escape main; \
          makeglossaries main; \
-         pdflatex main; \
+         pdflatex -shell-escape main; \
          bibtex main; \
-         pdflatex main; \
-         pdflatex main
+         pdflatex -shell-escape main; \
+         pdflatex -shell-escape main
 
 clean:
 	cd latex; rm *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc
