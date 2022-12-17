@@ -55,6 +55,12 @@ pdf:
          pdflatex -shell-escape main; \
          pdflatex -shell-escape main
 
+rm:
+	cd latex; rm -rf *
+
+uz:
+	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
+
 clean:
 	cd latex; rm *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc
 

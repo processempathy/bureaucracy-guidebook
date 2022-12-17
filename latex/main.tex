@@ -54,7 +54,7 @@
 % https://www.overleaf.com/learn/latex/Indices
 % https://latex-tutorial.com/creating-index-latex/
 \usepackage{imakeidx}
-\makeindex
+\makeindex[intoc] % https://tex.stackexchange.com/a/57437/235813
 
 % https://www.quora.com/What-font-are-most-books-printed-in
 % to set font, use
@@ -316,21 +316,23 @@ How to be a better bureaucrat\\
     \input{process_involves_new_members} \clearpage
     \input{process_automation} \clearpage
     \input{process_exceptions} \clearpage
+    \input{processes_two} \clearpage
     \input{process_mistakes} \clearpage
     \input{process_design_of}\clearpage
     \input{process_change_existing} \clearpage
     \input{process_deployment} \clearpage
-    \input{processes_two} \clearpage
 
 \input{last_chapter}
 
+% FUTURE WORK
 % If bureaucracy is a distributed knowledge distributed decision system, compare with paxos and Byzantine generals
 % https://en.wikipedia.org/wiki/Paxos_(computer_science)
 %https://blog.the-pans.com/understanding-paxos/
 %https://martinfowler.com/articles/patterns-of-distributed-systems/paxos.html
+% I'm not including those because I don't have expertise on those topics
+
 
 % https://en.wikipedia.org/wiki/Complexity_theory_and_organizations
-
 
 \appendix
 
