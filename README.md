@@ -18,9 +18,19 @@ Blog posts:
 
 # Tex to HTML
 
+* <https://tex.stackexchange.com/a/3083/235813>
 * <https://tex.stackexchange.com/a/429650/235813>
 * <https://www.kodymirus.cz/overleaf-html-sample/main.html>
+* <https://tex.stackexchange.com/questions/39309/convert-latex-to-html>
+* <https://bob.cs.sonoma.edu/LaTeX_to_HTML.html>
 
+Specific tools:
+* <https://texfaq.org/FAQ-LaTeX2HTML>
+* <http://www.openbookproject.net/thinkcs/archive/ltoh/>
+* <https://github.com/coolwanglu/pdf2htmlEX>
+* <https://math.nist.gov/~BMiller/LaTeXML/>
+* <https://ctan.org/pkg/lwarp>
+* <https://tug.org/tex4ht/>
 
 # Readability scoring
 

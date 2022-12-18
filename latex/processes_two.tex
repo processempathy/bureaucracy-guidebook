@@ -1,40 +1,46 @@
 \section{Processes involving Two Organizations\label{sec:processes-two-organizations}}
 
-When two independently-managed processes interact, there can be friction. Process friction, especially between two  organizations that lack shared coordination, results in either \hyperref[sec:exceptions-to-process]{exceptions to the process} 
+When two independently-managed processes interact across organizational boundaries there can be friction. Process friction, especially between two  organizations that lack shared coordination, results in either \hyperref[sec:exceptions-to-process]{exceptions to the process} 
 \ifsectionref
 (section~\ref{sec:exceptions-to-process}) 
 \fi
-or lying or \hyperref[sec:change-a-process]{change in process}.
+or lying or a \hyperref[sec:change-a-process]{change in process}.
 \ifsectionref
 (section~\ref{sec:change-a-process}). 
 \fi
+
+The following stories illustrate process friction between teams within an organization and process friction between organizations. The teams within an organization have shared objectives (set by the organization), whereas separate organizations lack incentive to coordinate. 
 
 \subsection*{Data Transfer from one Team to Another}
 
 \marginpar{[Tag] Story Time}
 \index{story time!data transfer}
 \begin{mdframed}
-Suppose there are two teams, each with a data storage and data processing capability. Allen's team sends Bob's team data on a weekly basis. The two data storage capabilities are not compatible. Members of Allen's team prints all the records (usually about a hundred pages) and then delivers them to Bob's team. Members of Bob's team then has to retype in all the information.
+Two teams in an organization have a relationship, and each has data storage and data processing capability. Allen's team sends Bob's team data on a weekly basis. Because the teams were built for different purposes and at different times by different people, the data storage capabilities used by each team are not compatible. Members of Allen's team print all the records (usually about a hundred pages) and then delivers the paper documents to Bob's team. Members of Bob's team then retype all the information into the data storage used by Bob's team.
 
-Recently the office went paperless. Now Allen's team sends Bob's team a set of PDF files. Member's of Bob's team type in the content from the PDFs into the database for Bob's team.
+Recently the office went paperless. Now Allen's team sends Bob's team a set of PDF files. Member's of Bob's team type in the content from the PDFs into the database for Bob's team. This is deemed a win for efficiency -- no more printing of paper documents each week!
+
+\ \\
 
 Why doesn't the organization common to both teams hire a data scientist to automate the recurring data transfer? Or train the current staff to learn to program a solution? Or create a third team that manages a common server?
 
-Because the current staff skill set supports printing and typing data entry. Training someone with a new skill set takes an investment of money, time, is an opportunity cost, and makes them a flight risk.
-Hiring a data scientist is expensive. Whether the task is feasible is uncertain, and how long the task will take is uncertain. Even once they create a connection, then a person with the skill set to maintain it is needed. The cost of ongoing maintenance and implementation is unknown.
+Because the current staff skill set supports printing and typing (data entry). Training someone with a new skill set takes an investment of money, time, is an opportunity cost, and makes them a flight risk.
+Hiring a data scientist is expensive. Whether the task is feasible is uncertain from the view of Bob and his manager (they both lack experience with the needed technology), and how long the task will take is uncertain. Even once they create a connection, then a person with the skill set to maintain it is needed. The cost of ongoing maintenance and implementation is unknown.
+
 Known working suboptimal with known cost versus unknown potential improvement of unknown degree for an unknown capital and ongoing cost. And if that improvement works out, staff who were implementing the old solution now need to find new work.
 \end{mdframed}
 
-\subsection*{Example of coordinating processes between two Organizations}
-Example: receipts from one process submitted for reimbursement to another process.
-Submitting the receipt shifts the accountability and justification burden to the accepting bureaucrat.
+Two teams operating within an organization, with a shared intent and working relationship, may be stuck with the process they have even when the friction is clear. When organizations lack a common objective, the friction can be even more significant. 
 
+\subsection*{Example of coordinating processes between two Organizations}
+This story is about receipts from one process being submitted for reimbursement to another process.
+Submitting the receipt shifts the accountability and justification burden to the accepting bureaucrat.
 
 % https://graphthinking.blogspot.com/2017/02/financial-motivation-in-bureaucracy.html
 \marginpar{[Tag] Story Time}
 \index{story time!dental insurance}
 \begin{mdframed}
-I have dental insurance. I visited the dentist December 2 and one of the procedures during a routine cleaning was ``bitewing x-rays." This procedure is covered by my insurance, so I was surprised when I received a bill for it from my dentist.
+I have dental insurance. I visited the dentist December 2 and one of the procedures during a routine cleaning was ``bitewing x-rays." This procedure is covered by my insurance, so I was surprised when I received a bill for it from my dentist a few weeks after my visit.
 
 I called my dentist and they explained that the dental insurance had declined to pay for the procedure. I called the insurance company January 3 and they confirmed that the procedure was covered by my policy. 
 Every time I call the insurance provider I had to provide my social security number, date of birth, and zip code twice -- once to the automated system, a second time to the person I talk with. The insurance company apparently had made a mistake and said they would cover the cost of the procedure. I followed up with my dentist and explained the situation.
@@ -50,22 +56,24 @@ From my perspective, the question is whether chasing this issue makes financial 
 Streamlining bureaucratic processes does not occur automatically. There needs to be both incentive to change and authority to make the change. 
 \end{mdframed}
 
+In the above story the dental office wanted to be paid for services provided. The insurance company wanted to minimize the number of payments made. And I wanted to minimize my costs. While none of those are conflicting, each organization has separate objectives.
+
 \subsection*{Deploying Bureaucrats to Different Teams or Organizations\label{sec:prisoner-exchange}}
 
-One method of addressing friction between teams or organizations is to deploy a person. This may not result in a specific change, but it can help members of both the originating team and receiving team better understand their counterpart. For the rest of this section I'll use ``team A" as the origin and ``team B'' as the receiver, though the concept applies to exchange of organization members. The name of the bureaucrat in this example is Mark. This example covers an informal deployment in which Mark remains employed with team A. While Mark is with team B he provides the management of team A with a weekly activity report. 
+One method of addressing friction between teams or organizations is to deploy a person. This may not result in a specific change, but it can help members of both the originating team and receiving team better understand their counterpart. For the rest of this section I'll use ``team~A" as the origin and ``team~B'' as the receiver, though the concept applies to exchange of organization members. The name of the bureaucrat in this example is Mark. This example covers an informal deployment in which Mark remains employed with team~A. While Mark is with team~B he provides the management of team~A with a weekly activity report. 
 
-The easiest question regarding Mark's deployment to team B is ``how long?'' That depends on the purpose of the exercise and the complexity of the work Mark will be doing with team B, as well as how long team A can operate without Mark's contributions. What is a successful outcome for Mark? For team A? For team B? For the organization? How long will integration of Mark onto team B take? Does Mark need time on team A to delegate current work?
+The easiest question regarding Mark's deployment to team~B is ``how long?'' That depends on the purpose of the exercise and the complexity of the work Mark will be doing with team~B, as well as how long team~A can operate without Mark's contributions. What is a successful outcome for Mark? For team~A? For team~B? For the organization? How long will integration of Mark onto team~B take? Does Mark need time on team~A to delegate current work?
 
-A deployment harms the productivity of originating team A by loss of staff. The deployment also harms Mark's productivity for his work with team A. The deployment harms the receiving team B since they have to train or integrate Mark. 
+A deployment harms the productivity of originating team~A by loss of staff. The deployment also harms Mark's productivity for his work with team~A. The deployment harms the receiving team~B since they have to train or integrate Mark. 
 
-Incentives for this investment include cross-training for Mark, better process empathy for both teams, and temporary (exceptional) support. What is team B expecting from Mark? How will team A benefit? What is Mark expecting to gain from the deployment? Or is this a sacrifice on Mark's part? 
+Incentives for this investment include cross-training for Mark, better process empathy for both teams, and temporary (exceptional) support. What is team~B expecting from Mark? How will team~A benefit? What is Mark expecting to gain from the deployment? Or is this a sacrifice on Mark's part? 
 
 Cross-training Mark can improve productivity of Mark and the teams. 
-Team B gets to hear an outsider's perspective from Mark, and Mark returns to team A with a broader perspective of the organization.
+team~B gets to hear an outsider's perspective from Mark, and Mark returns to team~A with a broader perspective of the organization.
 A deployment can build relationships among the teams. Both teams are better able to address process friction or exceptional interactions. 
 
 
-Potential engagement modes for Mark: consultant (providing knowledge to team B), integree (increasing the capacity of team B), or shadowing (learning from team B). Shadowing can be of an individual on team B, or Mark can shadow team B by attending meetings. 
+Potential engagement modes for Mark: consultant (providing knowledge to team~B), integree (increasing the capacity of team~B), or shadowing (learning from team~B). Shadowing can be of an individual on team~B, or Mark can shadow team~B by attending meetings. 
 
 
 Mark could be deployed full time for the entire duration, or split his him between teams, or build-up/back-down over the course of the deployment.
@@ -88,5 +96,9 @@ An Service-Level Agreement should include providing historical and live data to 
 A supervisor common to the parties may be invoked when an SLA is not met, or if there is a dispute over the interpretation of an SLA. Usually the threat of invoking oversight is enough to coerce change in negotiations. 
 When the common supervisor gets involved there are not many options available for sanctions. The supervisor could withhold bonuses or promotions, or assign a new team lead, or re-negotiate the SLA. 
 
-Because creation of SLAs are burdensome to all parties invovled, monitoring to enable enforcement incurs work, and punishment is limited, most cooperation between teams and between organizations is informal and ad hoc. Relying on personal relationships is easier than formal agreements.
+Because creation of SLAs are burdensome to all parties invovled, monitoring to enable enforcement incurs work, and punishment is limited, most cooperation between teams and between organizations is informal and ad hoc. Relying on personal relationships is easier than formal agreements. Reputations, both for individual bureaucrats and for teams and organizations, are then formed on the basis of performance and reliability.
 
+
+% TRANSITION to next section: process_mistakes
+%TODO
+The next section addresses mistakes, a common source of process friction. 

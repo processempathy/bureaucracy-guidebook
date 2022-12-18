@@ -4,37 +4,36 @@
 
 Bureaucratic processes require working with other people. One source of friction is that participants may lack familiarity with the process. 
 
-This observation can be quantified with a small number of assumptions. The distribution of employee tenure might fit a \href{https://en.wikipedia.org/wiki/Power_law}{power law distribution}
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Power_law}{power law}}
--- there are more inexperienced people than experienced people. What matters in this context is how long the employee has been in their role (rather than how long they've been a member of the organization). Therefore let's assume a max tenure of 10 years\footnote{\href{https://www.bls.gov/news.release/pdf/tenure.pdf}{https://www.bls.gov/news.release/pdf/tenure.pdf}}. If the process involves 5 people, the least experienced member will have a median 97 calendar days of experience.
+This observation can be quantified with a small number of assumptions. The distribution of team membership tenure might fit a \href{https://en.wikipedia.org/wiki/Power_law}{power law distribution}
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Power_law}{power law}}\footnote{\href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html}{numpy.random.power}}
+-- there are more inexperienced people than experienced people. What matters in this context is how long the team member has been in their role (rather than how long they've been a member of the organization). Let's assume a max tenure of 10 years\footnote{\href{https://www.bls.gov/news.release/pdf/tenure.pdf}{https://www.bls.gov/news.release/pdf/tenure.pdf}}. If the process involves 5 people, the least experienced member will have a median 97 calendar days of experience.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tenure_power_distribution_a5_with_max_tenure10_and_5_participants.pdf}
-    \caption{With power law distribution of tenure, a=5,
-the median tenure of the youngest participant
- in a process with 5 people is 98 days.}
+    \caption{Power law distribution of tenure using probability density function described by $a\ x^{(a-1)}$ where $a=5$. The median tenure of the youngest participant  in a process with 5 people is 98 days.}
     \label{fig:tenure-powerlaw-5-participants-tenure10}
 \end{figure}
 
 
 Three calendar months (or 70 business days) may be inadequate for complex processes or processes that are infrequent (quarterly or annual), especially if there was no training. When the number of participants is 10 people, then the median tenure of the youngest participant is 51 calendar days (37 business days).
 
+\ \\
 
 To recap, the assumption made were
 \begin{itemize}
     \item Random independent sampling of organization members. 
-    \item Tenure in role matters, not tenure in organization. (Excludes transfer learning among roles.)
+    \item Tenure in role matters, not tenure in organization. (This assumption excludes transfer learning among roles.)
     \item Tenure in role fits power law distribution.
     \item The power law distribution is characterized by (a=5, max tenure=10 years). 
     \item There are 5 people involved in the process.
 \end{itemize}
-If that last parameter is varied, the 3 month estimate is reasonable for processes with 5 or more participants.
+If that last parameter is varied, the estimate of 3 months as the median  is reasonable for processes with 5 or more participants.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tenure_power_distribution_a5_with_max_tenure10.pdf}
-    \caption{Median tenure of the youngest participant (in calendar days) as a function of the number of process participants with tenure following a power law distribution, a=5, and max tenure = 10 years.}
+    \caption{Median tenure of the youngest participant (in calendar days) as a function of the number of process participants with tenure following a power law distribution, $a=5$, and max tenure of 10 years.}
     \label{fig:tenure-powerlaw-5-participants}
 \end{figure}
 
@@ -54,4 +53,4 @@ the median tenure of the youngest participant
     \label{fig:tenure-uniform-5-participants}
 \end{figure}
 
-The median tenure of the youngest member of a 5 participant is 15 months. 
+The median tenure of the youngest member of a process with 5 participants is 15 months. 
