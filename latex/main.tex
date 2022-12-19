@@ -54,7 +54,12 @@
 % https://www.overleaf.com/learn/latex/Indices
 % https://latex-tutorial.com/creating-index-latex/
 \usepackage{imakeidx}
-\makeindex[intoc] % https://tex.stackexchange.com/a/57437/235813
+\makeindex
+
+% the following didn't work
+%\usepackage[totoc]{idxlayout}
+% the following didn't work
+%\makeindex[intoc] % https://tex.stackexchange.com/a/57437/235813
 
 % https://www.quora.com/What-font-are-most-books-printed-in
 % to set font, use
@@ -98,7 +103,7 @@
 \input{glossary_entries}
 
 \title{Process Empathy Field Guide:\\
-How to be a better bureaucrat\\
+How to be a Better Bureaucrat\\
 \vfill
 \includegraphics[width=0.8\textwidth]{images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.pdf}
 }
@@ -320,7 +325,6 @@ How to be a better bureaucrat\\
     \input{process_mistakes} \clearpage
     \input{process_design_of}\clearpage
     \input{process_change_existing} \clearpage
-    \input{process_deployment} \clearpage
 
 \input{last_chapter}
 

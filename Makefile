@@ -43,7 +43,7 @@ html: pdf
              --citeproc \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
-	cd ..; convert_html_pdf_to_png.sh
+#	cd ..; convert_html_pdf_to_png.sh
 
 
 pdf:
@@ -81,9 +81,10 @@ docker_live:
            latex_debian /bin/bash
 
 dout:
-	docker run --rm \
+	time docker run --rm \
            -v `pwd`:/scratch -w /scratch/ \
            --user $(id -u):$(id -g) \
            latex_debian make html
+	open latex/main.pdf
  
 
