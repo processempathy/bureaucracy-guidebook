@@ -23,6 +23,7 @@ Blog posts:
 * <https://www.kodymirus.cz/overleaf-html-sample/main.html>
 * <https://tex.stackexchange.com/questions/39309/convert-latex-to-html>
 * <https://bob.cs.sonoma.edu/LaTeX_to_HTML.html>
+* <https://desfontain.es/privacy/latex-to-html.html> and <https://news.ycombinator.com/item?id=34050835>
 
 Specific tools:
 * <https://texfaq.org/FAQ-LaTeX2HTML>
