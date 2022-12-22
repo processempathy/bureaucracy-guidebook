@@ -50,10 +50,10 @@ pdf:
 	cd latex; \
          pdflatex -shell-escape main; \
          makeglossaries main; \
-         pdflatex -shell-escape main; \
          bibtex main; \
-         pdflatex -shell-escape main; 
-#         pdflatex -shell-escape main
+         pdflatex -shell-escape main; \
+         pdflatex -shell-escape main
+
 
 rm:
 	cd latex; rm -rf *

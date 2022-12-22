@@ -14,6 +14,17 @@
 % https://texfaq.org/FAQ-chapbib
 %\usepackage{chapterbib}
 
+% TODO: 
+% https://www.overleaf.com/learn/latex/Questions/Creating_multiple_bibliographies_in_the_same_document
+
+% https://www.overleaf.com/learn/latex/Multibib
+\usepackage{multibib}
+\newcites{bureaucracy}{Bureaucracy References}
+\newcites{email}{Email References}
+\newcites{meetings}{Meeting References}
+\newcites{ooom}{One-on-one Meeting References}
+
+
 % https://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
 % https://texfaq.org/FAQ-minitoc
 \usepackage{minitoc}
@@ -261,25 +272,28 @@ How to be a Better Bureaucrat\\
 \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
   \minitoc
-    This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This is a prelude to 
+    This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This chapter is a prelude to 
     %section~\ref{sec:working-with-other-bureaucrats} on 
     \hyperref[sec:working-with-other-bureaucrats]{working with others}.
     
-    Understanding your options as a bureaucrat for action matters because trying to withdraw from bureaucracy isn't harmless. There is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
+    As a bureaucrat, understanding your options for action matters. If you don't know what your options are, you're less effective. If you are ok with being ineffective, or are not feeling the harm of your ineffectiveness, keep in mind that
+    there is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
     \input{ideas_for_innovation} \clearpage
     \input{changing_your_environment} \clearpage
-    % management isn't leadership
     \input{change_tips_for} \clearpage
+    \input{social_and_bureaucratic_interactions} \clearpage % subsection
     \input{measures_of_maturity} \clearpage
 
   % person-to-person relations
-\input{working_with_other_bureaucrats} % chapter
+\input{working_with_other_bureaucrats} \clearpage % chapter
     \input{motivations_of_participants} \clearpage
     \input{tropes} \clearpage
     \input{solving_problems} \clearpage
     \input{not_my_job_task_scope} \clearpage
     \input{building_managing_spending_reputation} \clearpage
-    \input{teams} \clearpage
+    \input{teams} % no clearpage here because the next input is a subsection
+    \input{friction_between_teams_within_organization} 
+    \clearpage
     \input{intellectual_empathy} \clearpage
     \input{leveraging_expertise} \clearpage
     \input{does_anyone_want_to_volunteer} \clearpage
@@ -289,10 +303,9 @@ How to be a Better Bureaucrat\\
     \input{communicate_failure_to} \clearpage % subsection
     \input{communication_preferences} \clearpage % subsection
     \input{communication_vulnerability} \clearpage % subsection
-    \input{social_and_bureaucratic_interactions} \clearpage % subsection
     \input{communication_techniques} \clearpage % subsection 
     \input{communication_email_and_reports} \clearpage 
-    \input{friction_between_teams_within_organization} \clearpage 
+    
 
     \section{Meetings are Bureaucratic\label{sec:meetings}}
     %There are many books on how to do meetings well. 
@@ -344,6 +357,9 @@ How to be a Better Bureaucrat\\
   \input{readers_report}\clearpage % section
   \input{audience_analysis}\clearpage  % section
 
+\chapter{Resources}
+  \input{resources_for_writing}
+
 \input{career_interview_questions} \clearpage% chapter
 
 % https://tex.stackexchange.com/questions/5894/latex-conditional-expression
@@ -383,6 +399,17 @@ How to be a Better Bureaucrat\\
 % http://www-math.ucdenver.edu/~billups/courses/guides/annotated_bibliography.html
 \bibliographystyle{plain-annote}
 \bibliography{biblio_bureaucracy}%,biblio_meetings}
+
+% https://www.overleaf.com/learn/latex/Multibib
+%\bibliographystylebureaucracy{plain-annote}
+%\bibliographybureaucracy{all}
+%\bibliographystyleemail{plain-annote}
+%\bibliographyemail{biblio_email}
+%\bibliographystylemeetings{plain-annote}
+%\bibliographymeetings{biblo_meetings}
+%\bibliographystyleooom{plain-annote}
+%\bibliographyooom{biblio_one-on-one_meetings}
+
 
 \printindex
 

@@ -5,7 +5,7 @@
 A common misconception is that emails and reports are for communication. To be more precise, all you can surmise from the activity is, ``I wrote something." 
 Asynchronous communication has no requirement of a response or action. There's no guarantee that what you wrote has been incorporated into the audience's mental conception of reality. That's what makes it asynchronous. Any communication (e.g., building a shared mental model) that occurs is merely incidental.
 
-Why then are emails and reports useful to invest time in?
+Even though emails and reports may not be ideal forms of communication, there are other reasons they are useful to invest time in.
 
 \ \\
 \textit{Written documents as notifications}: Email can be used to document that you told someone something. Even if they don't read the content, you can later point out that the information was provided.
@@ -30,7 +30,7 @@ Another reframing of emails and reports is to discard the concept of an essay yo
 template is efficient.  
 
 \ \\
-\textbf{Email is a Piece of Art}: Effort invested in each email to improve readability means more than careful wording. 
+\textbf{Email is a Piece of Art}: Effort invested in each email to improve readability means more than just careful wording. 
 Use visual cues (different fonts, different font sizes, highlighting, font color) and pictures to improve readability. See figure~\ref{fig:email_computer_font} for example.
 
 \ \\
@@ -83,6 +83,7 @@ The email that is easy to reply to gets answered first.  The email that is diffi
 If you only have time for one of the emails, it's likely to be the easy one. This is an example of 
 \href{https://en.wikipedia.org/wiki/Ambiguity_aversion}{ambiguity aversion}.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Ambiguity_aversion}{ambiguity aversion}}
+\marginpar{[Wikipedia] Ambiguity\\aversion}
 As a consequence, outsiders see this as you demonstrating bike-shedding; also known as the
 \href{https://en.wikipedia.org/wiki/Law_of_triviality}{law of triviality}.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Law_of_triviality}{law of triviality}}
@@ -91,7 +92,7 @@ As a consequence, outsiders see this as you demonstrating bike-shedding; also kn
 
 \subsection*{Improving your Emails\label{sec:email-structure}}
 
-\index{list of tips!Email}
+\index{list of tips!email}
 
 Whether you are the only recipient or one of many receivers can change the intent of the email. Whether you are in the ``to" or ``cc" field matters. Unfortunately, ``to" versus ``cc" are not reliable indicators since email senders do not reliably conform to the expected use. 
 
@@ -122,7 +123,8 @@ Email greetings include the name of the targeted recipient(s). See Figure~\ref{f
 \ \\
 \textit{Email Improvement}: Emails have a signature block with contact information -- phone number, normal hours of response, which timezone you're in if your team spans timezones, how long to wait for a response before asking again, which communication channel you prefer, etc. See Figure~\ref{fig:email_template}. % template
 
-\begin{figure}
+% https://www.overleaf.com/learn/latex/Errors/%60!h%27_float_specifier_changed_to_%60!ht%27
+\begin{figure}[ht]
 \includegraphics[width=1\textwidth]{images/email_template.pdf}
 \caption{Template for new email messages. Greeting has a space after the comma -- that is where the recipient's name will go. Signature block uses smaller after the name.}
 \label{fig:email_template}
@@ -149,7 +151,8 @@ Email greetings include the name of the targeted recipient(s). See Figure~\ref{f
 \ \\
 \textit{Email Improvement}: If an email has multiple requests or questions, at the top of the email (after the greeting) explicitly say how many of each type. Then, in the body of the message, number them. See Figure~\ref{fig:email_meeting_notes}.
 
-\begin{figure}
+% https://www.overleaf.com/learn/latex/Errors/%60!h%27_float_specifier_changed_to_%60!ht%27
+\begin{figure}[ht]
 \includegraphics[width=1\textwidth]{images/email_two_questions.pdf}
 \caption{Distinct items the recipient should address in a reply. A good subject for this email would indicate there are two questions you are seeking answers for.}
 \label{fig:email_two_questions}
@@ -158,7 +161,8 @@ Email greetings include the name of the targeted recipient(s). See Figure~\ref{f
 \ \\
 \textit{Email Improvement}: If an item corresponds to a requested action, separately highlight the action and indicate who is supposed to take the action and what the deadline for response is.
 
-\begin{figure}
+% https://www.overleaf.com/learn/latex/Errors/%60!h%27_float_specifier_changed_to_%60!ht%27
+\begin{figure}[ht]
 \includegraphics[width=1\textwidth]{images/email_meeting_notes.pdf}
 \caption{Who has what action due when? The meeting notes are for a particular instance of a recurring event, so YYYY-MM-DD is included in the subject.}
 \label{fig:email_meeting_notes}
@@ -168,7 +172,7 @@ Email greetings include the name of the targeted recipient(s). See Figure~\ref{f
 \textit{Email Improvement}: Computer commands should be distinct separate fixed-width font. This distinguishes the text from the rest of the narrative.  See Figure~\ref{fig:email_computer_font}.
 
 
-\begin{figure}
+\begin{figure}[ht]
 \includegraphics[width=1\textwidth]{images/email_computer_font.pdf}
 \caption{The computer commands use fixed width font. The author distinguished input from output through the use of bold vs non-bold respectively. The author highlighted the error message using red. Inline text like ``cat'' in the last line is also fixed width.}
 \label{fig:email_computer_font}
@@ -181,13 +185,29 @@ Email greetings include the name of the targeted recipient(s). See Figure~\ref{f
 \textit{Email Improvement}: If referring to a previous separate thread, include the subject and the date+time that email was sent
 
 \ \\
-\textit{Email Improvement}: For bullet points, explicitly specify that items are joined by one of the following: OR, XOR, AND.
+\textit{Email Improvement}: For bullet points, explicitly specify that items are joined by one of the following: OR, XOR, AND. For example,
+\begin{itemize}
+    \item Buy bread.\\
+    \textit{and}
+    \item Sell socks.
+\end{itemize}
+versus
+\begin{itemize}
+    \item Press the ``Return'' key.\\
+    \textit{xor}
+    \item Press the ``Space'' key.
+\end{itemize}
 
 \ \\
 \textit{Email Improvement}: If you have an unordered list, explicitly state that order is irrelevant.
 
 \ \\
-\textit{Email Improvement}: If you have a sequence of steps, number them and indicate which steps are required versus optional
+\textit{Email Improvement}: If you have a sequence of steps, number them and indicate which steps are required versus optional. For example,
+\begin{enumerate}
+    \item (\textit{required}) Go to France.
+    \item (\textit{optional}) Go to Greece.
+    \item (\textit{required}) Go to Spain.
+\end{enumerate}
 
 \ \\
 \textit{Email Improvement}: Use visual sketches to illustrate concepts rather than always relying on text. Don't use pictures all the time, and don't have too many pictures in an email. 
@@ -197,7 +217,7 @@ Email greetings include the name of the targeted recipient(s). See Figure~\ref{f
 Email replies should preferentially be at the top of the thread. 
 If replying to multiple points in the previous email, embed replies inline, mark the distinction, and highlight the authorship. 
 
-\begin{figure}
+\begin{figure}[ht]
 \includegraphics[width=1\textwidth]{images/email_reply.pdf}
 \caption{Bob's reply to Sue's questions. The third question is not shown in this illustration.}
 \label{fig:email_reply}
@@ -221,12 +241,13 @@ or summary. In general emails should be short. Longer discussions should be held
 \textit{Email Improvement}: When replying, starting your email with an expression of gratitude for the work the recipient has done so far sets a positive tone by acknowledging their investment.
 
 \ \\
-\textit{Email Improvement}: Read each email and report to determine the purpose. If you don't have time to read everything, skim the content. 
+\textit{Email Improvement}: Read each email and report to determine the purpose. 
+
+
+Reading each email is burdensome, you f you don't have time to read everything a common tactic is to skim the content. 
 % https://graphthinking.blogspot.com/2021/03/read-each-email-to-determine-purpose.html
-
-\textit{Problematic behavior}: First you scan the text of a message to see if there is immediate action or response needed. If no action or response is needed, go to the next email. \\
+This tactic of skimming can lead to problematic behavior. First you scan the text of a message to see if there is immediate action or response needed. If no action or response is needed, go to the next email. 
 That may not work for emails that have logistics associated with future events, or emails that alter your perception of the situation.
-
 
 If you read an email to figure out the purpose of the email, that will help determine what action and response are relevant. Here I'm using ``action" to refer to activities outside the email channel. 
 
@@ -239,12 +260,12 @@ Below are potential intentions of the person writing the email.
 \textit{Action}: if the team maintains a decision log, update that.
 Response is selection of a choice.
 
-\textit{Improvement}: Instead of asking for a decision, ask if the person is opposed. See 
+\textit{Improvement for decision-centric emails}: Instead of asking for a decision, ask if the person is opposed. Or, even better, ask for the go-ahead. 
+This framing biases the respondent towards action (specifically approval) rather than thinking. 
+See 
 \hyperref[sec:approval-forgiveness-opposition]{approval and forgiveness and opposition}
 \marginpar{See page~\pageref{sec:approval-forgiveness-opposition}.}
 for more details.
-
-\textit{Improvement}: Instead of asking for a decision, ask for the go-ahead. This framing biases the respondent towards action (specifically approval) rather than thinking. 
 
 \ \\
 \textit{Email intent}: \textbf{Situational awareness}.\\
@@ -290,3 +311,10 @@ Acknowledgement response needed only if the edit is aimed at just me or the grou
 If this is a recurring question, move to a ``Frequently Asked Questions" page on a Confluence or Wiki.
 Response needed that provides answer or seeks clarification.
 
+\ \\
+
+By categorizing the intent of emails and reports, you can respond more appropriately. Often the intent may be unclear, in which case a response can be framed as curiosity-based: ``I think you're seeking a decision, but here's the question that is crucial to ask before deciding."
+
+\ \\
+
+% TRANSITION to 
