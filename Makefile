@@ -20,6 +20,9 @@ help:
 # the following commands are for use inside the Docker image
 
 
+todo:
+	grep -R -i TODO latex/*.tex 
+
 # review notes to self
 notes:
 	grep -E -R "[A-Z]{5,}" latex/*.tex
