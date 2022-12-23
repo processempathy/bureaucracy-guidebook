@@ -29,6 +29,22 @@ set -o nounset   # set -u : exit the script if you try to use an uninitialized v
 
 clear
 
+echo "find incorrect use of href"
+grep -R -i href *.tex | grep -i -v http
+if [[ $? -eq 0 ]]; then
+    echo "THERE SHOULD BE ZERO INSTANCES!"
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
+echo "find incorrect use of hyperref"
+grep -R -i hyperref *.tex | grep -i http
+if [[ $? -eq 0 ]]; then
+    echo "THERE SHOULD BE ZERO INSTANCES!"
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
 echo "find duplicate words"
 # https://stackoverflow.com/a/41611621/1164295
 egrep -R -i "(\b[a-zA-Z]+)\s+\1\b" *.tex
@@ -46,7 +62,7 @@ fi
 clear
 
 echo "Are marginpar consistent?"
-grep -R -i marginpar latex/*.tex | cut -d":" -f2 | sort | uniq
+grep -R -i marginpar latex/*.tex | cut -d":" -f2- | sort | uniq
 if [[ $? -eq 0 ]]; then
     read -p "Press ENTER key to resume ..."
 fi
