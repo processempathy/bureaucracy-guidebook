@@ -6,6 +6,11 @@
 % https://en.wikipedia.org/wiki/The_Innovator%27s_Dilemma
 % because it is the etic view of change
 
+% This .tex file contains a GraphViz diagram of the relations
+% between dilemmas and recurring themes.
+% Each line of GraphViz source code begins with "%GV". For example,
+%GV digraph G {
+%GV // from the bureaucracy book dilemmas_and_trilemmas.text
 
 When a decision has two viable options (neither being best), that is a \href{https://en.wikipedia.org/wiki/Dilemma}{dilemma}. 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Dilemma}{dilemma}}
@@ -69,8 +74,8 @@ As an alternative to the dilemma framing, how much time should be allocated to t
 
 But wait, how did the person in the first scenario (just do the task) know no plan was necessary? Either it was an explicit choice or they didn't perceive the need to decide about whether to plan. Someone else faced with that same task might choose differently, e.g., to make a plan. The task complexity is relative to the person's skills, experiences, expectations about stakeholders, and potential ramifications.
 
-In this escalating sequence of increasingly challenging tasks, now suppose the task involves you and another person. The overhead of coordination inflicts other dilemmas. The examples of complexity arising from coordination are identified in the list of dilemmas below, e.g. \ref{table:micromanaging}, \ref{table:early-intervention}.
-\marginpar{See page~\pageref{table:micromanaging}.}
+In this escalating sequence of increasingly challenging tasks, now suppose the task involves you and another person. The overhead of coordination inflicts other dilemmas. The examples of complexity arising from coordination are identified in the list of dilemmas below, e.g. \ref{table:dilemma-personal-manager-micromanaging}, \ref{table:dilemma-personal-early-intervention}.
+\marginpar{See page~\pageref{table:dilemma-personal-manager-micromanaging}.}
 
 An independent source of friction for distributed decision making and distributed knowledge is when people involved in the task don't agree on how challenging it is. The framing of the difficulty matters because it can lead different participants to distinct conclusions about how much time should be spent planning versus for carrying out the action. The choice of ``how complicated is the task?'' shapes the team dynamics and informs the need for hierarchical roles. 
 
@@ -215,6 +220,9 @@ The personal policies apply to each bureaucrat in an organization, while the str
 
 \subsection*{Personal Policy Dilemmas \label{sec:personal-policy-dilemmas}}
 
+%GV  subgraph cluster_personal {
+%GV    label = "Personal Policies";
+
 In practice, the following decisions are unordered and are constantly faced by the bureaucrat. As observed by Lindblom in~\cite{1959_Lindblom}, this flurry of decisions contrasts to a regularized process that might be envisioned as optimal.
 
 
@@ -238,17 +246,19 @@ In practice, the following decisions are unordered and are constantly faced by t
 \index{dilemma!of aperture}
 Scope of problem solving can be narrow or broad. Rather than limit your investigations to one or the other, flipping between the two on a recurring basis (but not too often) can help.
 }
-\label{table:focus-vs-systemic}
+\label{table:dilemma-personal-focus-vs-systemic}
+%GV "dilemma-personal-focus-vs-systemic" [label="immediate problem vs systemic issues", shape="box"];
+%GV "dilemma-personal-focus-vs-systemic" -> "systemic";
 \end{table}
 \end{center}
 
-The \hyperref[table:focus-vs-systemic]{Dilemma of Aperture} is defined in terms of scope of the challenge. An adjacent dilemma is the question of whether to focus on short-term tasks or long-term tasks. The right balance of how long tasks take is more project management then bureaucratic. I try to identify a small number of long-term tasks, then divide each into smaller (shorter) tasks. The dependencies of the smaller tasks then determine the order of the work.
+The \hyperref[table:dilemma-personal-focus-vs-systemic]{Dilemma of Aperture} is defined in terms of scope of the challenge. An adjacent dilemma is the question of whether to focus on short-term tasks or long-term tasks. The right balance of how long tasks take is more project management then bureaucratic. I try to identify a small number of long-term tasks, then divide each into smaller (shorter) tasks. The dependencies of the smaller tasks then determine the order of the work.
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:focus-vs-systemic]{Dilemma of Aperture} is not specific to bureaucracy, but commonly arises because isolated problems rarely exist. Challenges occur as part of larger systemic contexts. Addressing the immediate problem leaves the system issue, and tackling system issues are more difficult and take longer. 
+The \hyperref[table:dilemma-personal-focus-vs-systemic]{Dilemma of Aperture} is not specific to bureaucracy, but commonly arises because isolated problems rarely exist. Challenges occur as part of larger systemic contexts. Addressing the immediate problem leaves the system issue, and tackling system issues are more difficult and take longer. 
 
 % How does this affect your relationships with other bureaucrats?
-Your selection of narrow versus wide within the \hyperref[table:focus-vs-systemic]{Dilemma of Aperture} depends on what you find emotionally rewarding. Other bureaucrats may gain emotional enjoyment from approaches to problem solving that you do not. Finding ways to leverage that difference (rather than minimizing it) is useful. 
+Your selection of narrow versus wide within the \hyperref[table:dilemma-personal-focus-vs-systemic]{Dilemma of Aperture} depends on what you find emotionally rewarding. Other bureaucrats may gain emotional enjoyment from approaches to problem solving that you do not. Finding ways to leverage that difference (rather than minimizing it) is useful. 
 
 % Are the incentive structures aligned to support one direction or the other?
 Organizations typically incentivize short-term behavior. Annual performance reviews and quarterly feedback cycles might miss systemic changes that take multiple years to enact. Identifying incremental milestones is one response, though that isn't always feasible. Another approach is to only report a subset of your activities (the ones that yield short-term results). 
@@ -280,17 +290,19 @@ and
 \index{folk wisdom!Squeaky wheel gets replaced}
 How you raise the issue, with whom, and in what context all matter to either correcting the situation or getting better educated.
 }
-\label{table:speak-up-or-hold-back}
+\label{table:dilemma-personal-speak-up-or-hold-back}
+%GV "dilemma-personal-speak-up-or-hold-back" [label="speak up vs hold back", shape="box"];
+%GV "dilemma-personal-speak-up-or-hold-back" -> "speak";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:speak-up-or-hold-back]{Dilemma of Speaking} arises in bureaucracy because different people have different opinions about subjective policy. You may see someone doing something that appears wasteful, but that may be because you're not aware of what the optimization objective is. Or that person may be unaware of the waste, or they may not be aware there is a more effective way to carry out the action. 
+The \hyperref[table:dilemma-personal-speak-up-or-hold-back]{Dilemma of Speaking} arises in bureaucracy because different people have different opinions about subjective policy. You may see someone doing something that appears wasteful, but that may be because you're not aware of what the optimization objective is. Or that person may be unaware of the waste, or they may not be aware there is a more effective way to carry out the action. 
 
 Resolving differences of opinion is not always necessary. If all members of and organization were to try to minimize policy distinctions, the members could spend all of their time doing so. 
 
 % How does this affect your relationships with other bureaucrats?
-The \hyperref[table:speak-up-or-hold-back]{Dilemma of Speaking} is eased when you have relationships with other bureaucrats that allow you to express your curiosity or uncertainty in a way that doesn't make the person you are talking to feel threatened, or that they are wasting their time explaining what seems obvious. 
+The \hyperref[table:dilemma-personal-speak-up-or-hold-back]{Dilemma of Speaking} is eased when you have relationships with other bureaucrats that allow you to express your curiosity or uncertainty in a way that doesn't make the person you are talking to feel threatened, or that they are wasting their time explaining what seems obvious. 
 
 % Are the incentive structures aligned to support one direction or the other?
 Whether the culture of an organization promotes speaking up or not depends on having either top-down encouragement or relationships that exist outside formal hierarchical roles. You need both psychological safety and sufficient time. 
@@ -321,17 +333,19 @@ and
 ``Speak up when you see something wrong.''
 \index{folk wisdom!Speak up when you see something wrong}
 % \ m a rginpar{[Tag] Folk Wisdom}
-See the related \hyperref[table:micromanaging]{Dilemma of Micromanaging} in Table~\ref{table:micromanaging}.}
-\label{table:early-intervention}
+See the related \hyperref[table:dilemma-personal-manager-micromanaging]{Dilemma of Micromanaging} in Table~\ref{table:dilemma-personal-manager-micromanaging}.}
+\label{table:dilemma-personal-early-intervention}
+%GV "dilemma-personal-early-intervention" [label="intervene vs wait", shape="box"];
+%GV "dilemma-personal-early-intervention" -> "speak";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-When there is an objective measure for success, suggestions can be evaluated with respect to whether change improves the outcome. Because bureaucracy is based on subjective policy, there are always differences about how to improve. The \hyperref[table:early-intervention]{Dilemma of Early Intervention} is about knowledge your role didn't require. That knowledge may be incomplete or you may know more than the people taking action. 
+When there is an objective measure for success, suggestions can be evaluated with respect to whether change improves the outcome. Because bureaucracy is based on subjective policy, there are always differences about how to improve. The \hyperref[table:dilemma-personal-early-intervention]{Dilemma of Early Intervention} is about knowledge your role didn't require. That knowledge may be incomplete or you may know more than the people taking action. 
 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:early-intervention]{Dilemma of Early Intervention} can harm your relationships if you are seen as exceeding your role. Alternatively, your action can benefit the organization, and the team taking the action may be grateful for the intervention. 
+The \hyperref[table:dilemma-personal-early-intervention]{Dilemma of Early Intervention} can harm your relationships if you are seen as exceeding your role. Alternatively, your action can benefit the organization, and the team taking the action may be grateful for the intervention. 
 
 % Are the incentive structures aligned to support one direction or the other?
 Because organizations promote individuals, and there are a limited number of promotions available, the naive expectation is that intervention that could benefit others and risks harming your relationships would not happen. The motive for an individual to intervene is their sense of displeasure watching other people waste time and resources, or the possibility to learn something new.
@@ -361,18 +375,20 @@ Because organizations promote individuals, and there are a limited number of pro
 An expression of concern and control -- wanting the right outcome, wanting to provide guidance and feedback. 
 %Applies to both peers and subordinates.
 }
-\label{table:micromanaging}
+\label{table:dilemma-personal-manager-micromanaging}
+%GV "dilemma-personal-manager-micromanaging" [label="review frequency", shape="box"];
+%GV "dilemma-personal-manager-micromanaging" -> "micromanage";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-\hyperref[table:micromanaging]{Micromanagement from the supervisor's view} is not unique to bureaucratic organizations. The tendency to micromanage does not depend on the level of technical expertise of the manager. Micromanagement occurs when the manager feels insecure about results. If the employees are untrained or unmotivated, the sense of insecurity may be reasonable.
+\hyperref[table:dilemma-personal-manager-micromanaging]{Micromanagement from the supervisor's view} is not unique to bureaucratic organizations. The tendency to micromanage does not depend on the level of technical expertise of the manager. Micromanagement occurs when the manager feels insecure about results. If the employees are untrained or unmotivated, the sense of insecurity may be reasonable.
 
 % How does this effect your relationships with other bureaucrats?
-Limiting \hyperref[table:micromanaging]{micromanagement from the supervisor's view} means finding an acceptable level of engagement. This depends on the training and motivation of each participant. To alleviate the supervisor's fears, the subordinate bureaucrat doing the work can proactively provide periodic status updates. 
+Limiting \hyperref[table:dilemma-personal-manager-micromanaging]{micromanagement from the supervisor's view} means finding an acceptable level of engagement. This depends on the training and motivation of each participant. To alleviate the supervisor's fears, the subordinate bureaucrat doing the work can proactively provide periodic status updates. 
 
 % Are the incentive structures aligned to support one direction or the other?
-The manager is accountable for the outcome of the people being supervised, which leads the manager to fear that underlings will fail.  Contrast this with the Dilemma of  \hyperref[table:solution-provider]{Micromanagement from the Subordinate’s view}.
+The manager is accountable for the outcome of the people being supervised, which leads the manager to fear that underlings will fail.  Contrast this with the Dilemma of  \hyperref[table:dilemma-personal-solution-provider]{Micromanagement from the Subordinate’s view}.
 
 \begin{center}
 \begin{table}[H] % ht
@@ -387,17 +403,19 @@ The manager is accountable for the outcome of the people being supervised, which
 \end{tabular}
 \caption{\textit{Dilemma of Micromanagement from the Subordinate's view.}
 \index{dilemma!of micromanagement for subordinates}
-This is the opposite perspective of \ref{table:micromanaging}. Nominally the manager helps identify the goals and provides context and the subordinate figures out how to accomplish the goal, but who is responsible for what is negotiable in each relationship.
+This is the opposite perspective of \ref{table:dilemma-personal-manager-micromanaging}. Nominally the manager helps identify the goals and provides context and the subordinate figures out how to accomplish the goal, but who is responsible for what is negotiable in each relationship.
 }
-\label{table:solution-provider}
+\label{table:dilemma-personal-solution-provider}
+%GV "dilemma-personal-solution-provider" [label="direction vs micromanagement", shape="box"];
+%GV "dilemma-personal-solution-provider" -> "micromanage";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-\hyperref[table:solution-provider]{Micromanagement from the subordinate's view} is based on expectations the bureaucrat has for their supervisor. Micromanagement is common in bureaucracy due to the defining aspect of subjective decision making; delegating policy enforcement is a loss of control. 
+\hyperref[table:dilemma-personal-solution-provider]{Micromanagement from the subordinate's view} is based on expectations the bureaucrat has for their supervisor. Micromanagement is common in bureaucracy due to the defining aspect of subjective decision making; delegating policy enforcement is a loss of control. 
 
 % How does this effect your relationships with other bureaucrats?
-Regardless of origin, \hyperref[table:solution-provider]{micromanagement from the subordinate's view} harms each person's emotional state and sours relationships. This impedes your role as an effective bureaucrat no matter the cause.
+Regardless of origin, \hyperref[table:dilemma-personal-solution-provider]{micromanagement from the subordinate's view} harms each person's emotional state and sours relationships. This impedes your role as an effective bureaucrat no matter the cause.
 
 % Are the incentive structures aligned to support one direction or the other?
 Happily, this dilemma can be remedied by talking with the other people involved in the situation. Each person has to be willing to express their concerns and to adapt their behavior. 
@@ -424,15 +442,17 @@ I write things down and share them with other people (for example, this book), b
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Dark_pattern}{dark patterns}}
 for this trade-off, like intentionally misquoting another person to bias the documentation in your favor, or only writing down the aspects of conversation that favor the outcome you are interested in.  
 }
-\label{table:notes-or-no-notes}
+\label{table:dilemma-personal-notes-or-no-notes}
+%GV "dilemma-personal-notes-or-no-notes" [label="take notes or not", shape="box"];
+%GV "dilemma-personal-notes-or-no-notes" -> "notes";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-Bureaucracy is based on subjective decision making about policy enforcement. The \hyperref[table:notes-or-no-notes]{Dilemma of Documentation} is a question whether you avoid risk of accountability or enable accountability of yourself and other bureaucrats. Having a written record is useful when confronted with the question, ``What did you know and when did you know it?"
+Bureaucracy is based on subjective decision making about policy enforcement. The \hyperref[table:dilemma-personal-notes-or-no-notes]{Dilemma of Documentation} is a question whether you avoid risk of accountability or enable accountability of yourself and other bureaucrats. Having a written record is useful when confronted with the question, ``What did you know and when did you know it?"
 
 % How does this effect your relationships with other bureaucrats?
-If you decide to respond to the \hyperref[table:notes-or-no-notes]{Dilemma of Documentation} by taking notes and sharing them, your coworkers get value from your notes. Your investment saves them time and allows them to search through old notes. 
+If you decide to respond to the \hyperref[table:dilemma-personal-notes-or-no-notes]{Dilemma of Documentation} by taking notes and sharing them, your coworkers get value from your notes. Your investment saves them time and allows them to search through old notes. 
 \marginpar{[Tag] Actionable Advice}
 \index{actionable advice}
 As a new member of a team, this is an easy way to provide value.  
@@ -463,17 +483,19 @@ Brainstorming is useful, as is considering the holistic situation. At some point
 Both of these options succumb to \href{https://en.wikipedia.org/wiki/Analysis_paralysis}{analysis paralysis}.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Analysis_paralysis}{analysis paralysis}}
 }
-\label{table:forest-vs-trees}
+\label{table:dilemma-personal-forest-vs-trees}
+%GV "dilemma-personal-forest-vs-trees" [label="brainstorm or do", shape="box"];
+%GV "dilemma-personal-forest-vs-trees" -> "do";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:forest-vs-trees]{Dilemma of Think or Do} is pervasive in bureaucracy. Any time not spent taking action looks wasteful, while investing too little thought can result in wasteful action. 
+The \hyperref[table:dilemma-personal-forest-vs-trees]{Dilemma of Think or Do} is pervasive in bureaucracy. Any time not spent taking action looks wasteful, while investing too little thought can result in wasteful action. 
 
 % How does this effect your relationships with other bureaucrats?
 Coordinating with other bureaucrats magnifies the challenge. If different bureaucrats allocate different amounts of time to planning and acting, then each person interrupts others. This is unavoidable. Effective bureaucrats default to early coordination instead of waiting to see how others respond.
 
-The \hyperref[table:forest-vs-trees]{Dilemma of Think or Do} applies at the scale of individual bureaucrats and to the collective behavior of teams and organizations. The time it takes a team to respond is longer than that of an individual, and the time an organization takes is longer than that of a team.  A common mistake is to apply the timescale relevant to an individual to a team or organization.
+The \hyperref[table:dilemma-personal-forest-vs-trees]{Dilemma of Think or Do} applies at the scale of individual bureaucrats and to the collective behavior of teams and organizations. The time it takes a team to respond is longer than that of an individual, and the time an organization takes is longer than that of a team.  A common mistake is to apply the timescale relevant to an individual to a team or organization.
 
 % Are the incentive structures aligned to support one direction or the other?
 Inaction is usually a safe response to a situation. Admiring the problem, studying the options, or continuing to work on other issues are common behaviors. Only when circumstances threaten relationships or the team or organization is action taken.
@@ -494,23 +516,26 @@ Inaction is usually a safe response to a situation. Admiring the problem, studyi
 \end{tabular}
 \caption{\textit{Dilemma of Coordinate or Do.}
 \index{dilemma!of coordinate or do}
-Like Dilemma~\ref{table:forest-vs-trees}, but here the question is about coordination versus doing the work. The amount of coordination depends on how many stakeholders there are, how familiar the stakeholders are with the challenge, and whether the action is reversible when found to be incorrect.
+Like Dilemma~\ref{table:dilemma-personal-forest-vs-trees}, but here the question is about coordination versus doing the work. The amount of coordination depends on how many stakeholders there are, how familiar the stakeholders are with the challenge, and whether the action is reversible when found to be incorrect.
 }
-\label{table:meetings-versus-work}
+\label{table:dilemma-personal-meetings-versus-work}
+%GV "dilemma-personal-meetings-versus-work" [label="coordinate or do", shape="box"];
+%GV "dilemma-personal-meetings-versus-work" -> "coordinate";
+%GV "dilemma-personal-meetings-versus-work" -> "do";
 \end{table}
 \end{center}
 
 When you first hear of a challenge, you may be interested in immediately tackling it. You see a path to improvement, you have the skills needed, and addressing the challenge would benefit your team. Unbeknownst to you, another person on another team saw that same challenge and had the same reaction. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-Because of the distributed nature of knowledge and decision making in bureaucracy, the \hyperref[table:meetings-versus-work]{Dilemma of Coordinate or Do}
+Because of the distributed nature of knowledge and decision making in bureaucracy, the \hyperref[table:dilemma-personal-meetings-versus-work]{Dilemma of Coordinate or Do}
 is happening all the time for many aspect of the subjective decisions being made. Advertising ``I'm going to do something" and ``I'm doing something" and ``I did something" as you are progressing on any given task is vital to decreasing the likelihood of unintentional duplication. Even that activity of advertising and listening to the advertisements of other bureaucrats takes time away from doing your work. 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:meetings-versus-work]{Dilemma of Coordinate or Do} is a cause of conflict among bureaucrats who prioritize doing the work versus bureaucrats who see value in checking in with others first. The constraint of time allocation and variety of views leads to friction in organizations.
+The \hyperref[table:dilemma-personal-meetings-versus-work]{Dilemma of Coordinate or Do} is a cause of conflict among bureaucrats who prioritize doing the work versus bureaucrats who see value in checking in with others first. The constraint of time allocation and variety of views leads to friction in organizations.
 
 % Are the incentive structures aligned to support one direction or the other?
-As with \hyperref[table:forest-vs-trees]{Dilemma of Think or Do}, inaction is the safer default. Having a meeting is less risky than investing time in creating a prototype. 
+As with \hyperref[table:dilemma-personal-forest-vs-trees]{Dilemma of Think or Do}, inaction is the safer default. Having a meeting is less risky than investing time in creating a prototype. 
 
 \begin{center}
 \begin{table}[H] % ht
@@ -530,18 +555,23 @@ As with \hyperref[table:forest-vs-trees]{Dilemma of Think or Do}, inaction is th
 \index{dilemma!of working extra hard}
 Work above your pay grade (provide the organization extra labor and you get reduced pay) or at your pay grade (expected labor and pay)?
 }
-\label{table:work-extra-or-work-as-expected}
+\label{table:dilemma-personal-work-extra-or-work-as-expected}
+%GV "dilemma-personal-work-extra-or-work-as-expected" [label="work extra or as paid", shape="box"];
+%GV "dilemma-personal-work-extra-or-work-as-expected" -> "";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-Just as there are two views of micromanagement (\ref{table:solution-provider} and \ref{table:micromanaging}), promotion can be seen from the supervisor's view and the subordinate's view. The \hyperref[table:work-extra-or-work-as-expected]{Dilemma of Working extra hard} is the view of the subordinate. Unlike jobs in which labor is directly tied to financial profit, a bureaucrat has a weak feedback loop for their labor. Promotion may (but is not guaranteed to) happen in the future based on your current level of effort. 
+Just as there are two views of micromanagement (\ref{table:dilemma-personal-solution-provider} and \ref{table:dilemma-personal-manager-micromanaging}), promotion can be seen from the supervisor's view and the subordinate's view. The \hyperref[table:dilemma-personal-work-extra-or-work-as-expected]{Dilemma of Working extra hard} is the view of the subordinate. Unlike jobs in which labor is directly tied to financial profit, a bureaucrat has a weak feedback loop for their labor. Promotion may (but is not guaranteed to) happen in the future based on your current level of effort. 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:work-extra-or-work-as-expected]{Dilemma of Working extra hard} creates competition among bureaucrats competing for a limited pool of promotions. Because organizations rely on hierarchy, and hierarchy is correlated with pay, promotion is typically not based purely on the merits of an individual bureaucrat. 
+The \hyperref[table:dilemma-personal-work-extra-or-work-as-expected]{Dilemma of Working extra hard} creates competition among bureaucrats competing for a limited pool of promotions. Because organizations rely on hierarchy, and hierarchy is correlated with pay, promotion is typically not based purely on the merits of an individual bureaucrat. 
 
 % Are the incentive structures aligned to support one direction or the other?
-Promotions exist to bias bureaucrats towards the ``extra labor for reduced wages" outcome. Bureaucrats who have enough income and autonomy may not see promotions as relevant and thus be comfortable at their current workload. There are other \hyperref[sec:motivations]{motivations} driving bureaucrats besides pay, such as working towards a vision or gaining new skills. 
+Promotions exist to bias bureaucrats towards the ``extra labor for reduced wages" outcome. Bureaucrats who have enough income and autonomy may not see promotions as relevant and thus be comfortable at their current workload. There are other 
+\hyperref[sec:motivations]{motivations} 
+\marginpar{See page~\pageref{sec:motivations}.}
+driving bureaucrats besides pay, such as working towards a vision or gaining new skills. 
 
 \begin{center}
 \begin{table}[H] % ht
@@ -562,12 +592,14 @@ Promotions exist to bias bureaucrats towards the ``extra labor for reduced wages
 The canonical example is the \href{https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster}{Challenger disaster}. 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster}{Challenger disaster}}
 Transparency and professional vulnerability are desirable but have costs.}
-\label{table:bad-news-up-the-chain}
+\label{table:dilemma-personal-bad-news-up-the-chain}
+%GV "dilemma-personal-bad-news-up-the-chain" [label="send bad news up or not", shape="box"];
+%GV "dilemma-personal-bad-news-up-the-chain" -> "";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:bad-news-up-the-chain]{Dilemma of Bad News} is a consequence of hierarchical reporting in organizations. Regardless of whether the hierarchy stems from specialization of skills or delegation of decisions, information traverses up the
+The \hyperref[table:dilemma-personal-bad-news-up-the-chain]{Dilemma of Bad News} is a consequence of hierarchical reporting in organizations. Regardless of whether the hierarchy stems from specialization of skills or delegation of decisions, information traverses up the
 \href{https://en.wikipedia.org/wiki/Command_hierarchy}{chain of command}.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Command_hierarchy}{command hierarchy}}
 \marginpar{[Wikipedia] command\\hierarchy}
@@ -577,7 +609,7 @@ News going up the chain of command is subject to modifications -- both filtering
 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:bad-news-up-the-chain]{Dilemma of Bad News} applies to peer-to-peer relations and supervisor-to-subordinate, but in those two relationships the repercussions of bad news are less. Being professionally vulnerable feels less dangerous when there is less at risk. 
+The \hyperref[table:dilemma-personal-bad-news-up-the-chain]{Dilemma of Bad News} applies to peer-to-peer relations and supervisor-to-subordinate, but in those two relationships the repercussions of bad news are less. Being professionally vulnerable feels less dangerous when there is less at risk. 
 
 
 \begin{center}
@@ -598,19 +630,21 @@ The \hyperref[table:bad-news-up-the-chain]{Dilemma of Bad News} applies to peer-
 \textit{Dilemma of Preparation versus Cleanup.} 
 \index{dilemma!of preparation and cleanup}
 How much to invest in contingency planning and preparedness. In practice you will do both.}
-\label{table:emergencies-vs-ignore}
+\label{table:dilemma-personal-emergencies-vs-ignore}
+%GV "dilemma-personal-emergencies-vs-ignore" [label="prepare for emergency or wait", shape="box"];
+%GV "dilemma-personal-emergencies-vs-ignore" -> "plan";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-Bureaucracy arises to manage a shared resource; there are emergencies regardless of the specific resource. Emergencies can be on the supply side, like problems with air quality or not enough food inspectors. Disasters on the demand side come in the form of sudden spikes. The  \hyperref[table:emergencies-vs-ignore]{Dilemma of Preparation versus Cleanup} cannot be avoided. 
+Bureaucracy arises to manage a shared resource; there are emergencies regardless of the specific resource. Emergencies can be on the supply side, like problems with air quality or not enough food inspectors. Disasters on the demand side come in the form of sudden spikes. The  \hyperref[table:dilemma-personal-emergencies-vs-ignore]{Dilemma of Preparation versus Cleanup} cannot be avoided. 
 
 % Are the incentive structures aligned to support one direction or the other?
 There is a bias favoring the reactionary cleanup mentality. Bureaucrats appear responsive to the needs of the situation. Planning for an emergency requires thinking about contingencies. 
 
 % How does this effect your relationships with other bureaucrats?
 Even when there is consensus around the value of preparation, the follow-on question is to what degree. 
-The \hyperref[table:emergencies-vs-ignore]{Dilemma of Preparation versus Cleanup} is an entry point to discussions that depend on the personalities of individual bureaucrats and resources available. 
+The \hyperref[table:dilemma-personal-emergencies-vs-ignore]{Dilemma of Preparation versus Cleanup} is an entry point to discussions that depend on the personalities of individual bureaucrats and resources available. 
 
 
 \begin{center}
@@ -632,14 +666,16 @@ The \hyperref[table:emergencies-vs-ignore]{Dilemma of Preparation versus Cleanup
 \index{dilemma!of idea filtering}
 How much vetting should novel ideas get before being enacted?
 }
-\label{table:idea-filtering}
+\label{table:dilemma-personal-idea-filtering}
+%GV "dilemma-personal-idea-filtering" [label="filter good ideas or not", shape="box"];
+%GV "dilemma-personal-idea-filtering" -> "innovation";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:idea-filtering]{Dilemma of Idea filtering} is one element of the broader topic of \hyperref[sec:innovation]{innovation in bureaucracy}. 
+The \hyperref[table:dilemma-personal-idea-filtering]{Dilemma of Idea filtering} is one element of the broader topic of \hyperref[sec:innovation]{innovation in bureaucracy}. 
 \marginpar{See page~\pageref{sec:innovation}.}
-Related dilemmas include the \hyperref[table:disruptive-or-iterative]{Dilemma of Innovation}, the \hyperref[table:where-to-innovate]{Dilemma of Where to Innovate}. Any one of these is sufficient to suffocate change and all are biased towards the status quo.  
+Related dilemmas include the \hyperref[table:dilemma-personal-disruptive-or-iterative]{Dilemma of Innovation}, the \hyperref[table:dilemma-personal-where-to-innovate]{Dilemma of Where to Innovate}. Any one of these is sufficient to suffocate change and all are biased towards the status quo.  
 
 % How does this effect your relationships with other bureaucrats?
 In a bureaucracy if you are an observant and creative person there's no shortage of a good ideas or obvious things to fix.
@@ -647,7 +683,7 @@ The challenge is identifying fellow bureaucrats who buy into your good idea and 
 
 Having complaints, or good ideas, or even plans is insufficient. Taking action and creating sustainable change is the measure of an effective bureaucrat.
 
-%The \hyperref[table:idea-filtering]{Dilemma of Idea filtering}
+%The \hyperref[table:dilemma-personal-idea-filtering]{Dilemma of Idea filtering}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -670,18 +706,20 @@ Having complaints, or good ideas, or even plans is insufficient. Taking action a
 \index{dilemma!of flaws and innovation}
 Zero-sum investment of attention in either maintenance of the status quo or making progress. Both require work, but rewards are biased towards innovation. 
 }
-\label{table:flaws-and-innovation}
+\label{table:dilemma-personal-flaws-and-innovation}
+%GV "dilemma-personal-flaws-and-innovation" [label="fix flaws or innovate", shape="box"];
+%GV "dilemma-personal-flaws-and-innovation" -> "innovation";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:flaws-and-innovation]{Dilemma of Flaws and Innovation} applies to bureaucracy in terms of policy; the industry framing applies to product development. Most discussions of innovation within bureaucracy favor the status quo, but this dilemma defaults towards innovation. That apparent dissonance is resolved by separating the value of lipservice to innovation from enacting change.
+The \hyperref[table:dilemma-personal-flaws-and-innovation]{Dilemma of Flaws and Innovation} applies to bureaucracy in terms of policy; the industry framing applies to product development. Most discussions of innovation within bureaucracy favor the status quo, but this dilemma defaults towards innovation. That apparent dissonance is resolved by separating the value of lipservice to innovation from enacting change.
 
 % Are the incentive structures aligned to support one direction or the other?
 Innovation is more likely to result in promotion and recognition even though maintenance and innovation both require skill, creativity, hard work, and persistence. 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:flaws-and-innovation]{Dilemma of Flaws and Innovation} shows up in relationships in both directions. Innovators are recognized if they change the organization for the better, but bureaucrats also recognize the value of maintenance even though it's not rewarded. 
+The \hyperref[table:dilemma-personal-flaws-and-innovation]{Dilemma of Flaws and Innovation} shows up in relationships in both directions. Innovators are recognized if they change the organization for the better, but bureaucrats also recognize the value of maintenance even though it's not rewarded. 
 
 
 % https://graphthinking.blogspot.com/2016/05/claim-innovation-is-either-disruptive.html
@@ -706,7 +744,9 @@ The \hyperref[table:flaws-and-innovation]{Dilemma of Flaws and Innovation} shows
 \index{dilemma!of innovation}
 Incremental change may not suffice. Disruption can be costly.
 }
-\label{table:disruptive-or-iterative}
+\label{table:dilemma-personal-disruptive-or-iterative}
+%GV "dilemma-personal-disruptive-or-iterative" [label="disruptive or iterative innovation", shape="box"];
+%GV "dilemma-personal-disruptive-or-iterative" -> "innovation";
 \end{table}
 \end{center}
 
@@ -715,14 +755,14 @@ Managing shared resources in a dynamic environment necessitates changes to polic
 
 Incremental change provides quicker feedback but requires understanding and integrating with the existing bureaucracy. Revolutionary change is easier to get started but you will have to relearn the lessons the incumbent already knows.
 
-The \hyperref[table:disruptive-or-iterative]{Dilemma of Innovation} can be disheartening for bureaucrats. The innovation is usually intended to improve the team or organization, so resistance to change demoralizes the bureaucrat. 
+The \hyperref[table:dilemma-personal-disruptive-or-iterative]{Dilemma of Innovation} can be disheartening for bureaucrats. The innovation is usually intended to improve the team or organization, so resistance to change demoralizes the bureaucrat. 
 
 % How does this effect your relationships with other bureaucrats?
 Being an innovator (whether incremental or disruptive) can gain you supporters and friends as well as more negative reactions -- what does that person think they are doing? That person is so naive.
 
 A good indicator that you're on a useful path is when your support is from people with less to lose (at the bottom of the organization's hierarchy) and when the resistance is from people who have more status and power to lose (top of the hierarchy). However, that could merely be a sign your idea is popular and naive. 
 
-%The \hyperref[table:disruptive-or-iterative]{Dilemma of Innovation}
+%The \hyperref[table:dilemma-personal-disruptive-or-iterative]{Dilemma of Innovation}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -746,18 +786,20 @@ A good indicator that you're on a useful path is when your support is from peopl
 \index{dilemma!of where to innovate}
 Where (physically, spatially) innovation takes place matters because the environment sets context for assumptions.
 }
-\label{table:where-to-innovate}
+\label{table:dilemma-personal-where-to-innovate}
+%GV "dilemma-personal-where-to-innovate" [label="innovate novel or standard environment", shape="box"];
+%GV "dilemma-personal-where-to-innovate" -> "innovation";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:where-to-innovate]{Dilemma of Where to Innovate} is not specific to bureaucracy. Changing where work is done is disruptive. Disruption to routines can be harmful and beneficial.
+The \hyperref[table:dilemma-personal-where-to-innovate]{Dilemma of Where to Innovate} is not specific to bureaucracy. Changing where work is done is disruptive. Disruption to routines can be harmful and beneficial.
 
 %  explanation of context for dilemma
 % How does this effect your relationships with other bureaucrats?
 The benefits of trying to innovate in a environment isolated from other people is that you can focus without typical distractions\footnote{This is referred to as ``The Getaway Ploy'' (page 145) in Peopleware\cite{1987_DeMarco}}. When I participated in an off-site session I neglected to check my email; my focus improved but my lack of responsiveness harmed people who depended on me.
 
-%The \hyperref[table:where-to-innovate]{Dilemma of Where to Innovate} 
+%The \hyperref[table:dilemma-personal-where-to-innovate]{Dilemma of Where to Innovate} 
 % Are the incentive structures aligned to support one direction or the other?
 Bureaucracy is resistant to change, and innovation implies change. While moving to a distinct venue may make innovation easier, it incurs the cost of bringing the innovation back to the routine scenario.
 
@@ -781,7 +823,10 @@ Bureaucracy is resistant to change, and innovation implies change. While moving 
 \index{dilemma!of obfuscated innovation}
 How is innovation carried out within the organization?
 }
-\label{table:innovate-open-obscure}
+\label{table:dilemma-personal-innovate-open-obscure}
+%GV "dilemma-personal-innovate-open-obscure" [label="innovate in open or hiding", shape="box"];
+%GV "dilemma-personal-innovate-open-obscure" -> "innovation";
+%GV "dilemma-personal-innovate-open-obscure" -> "hide";
 \end{table}
 \end{center}
 
@@ -789,10 +834,10 @@ How is innovation carried out within the organization?
 Because innovation within bureaucracy is challenging, a common reaction is to hide the change until it has time to mature. The hope is that protecting the idea during development will result in a robust implementation that can withstand criticism. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:innovate-open-obscure]{Dilemma of Obfuscated Innovation} identifies the tension of useful criticism versus harmful criticism. Because bureaucracy operates in a zero-sum environment, attention and resources invested in innovation are always at risk of being cut in favor of more reliable efforts. 
+The \hyperref[table:dilemma-personal-innovate-open-obscure]{Dilemma of Obfuscated Innovation} identifies the tension of useful criticism versus harmful criticism. Because bureaucracy operates in a zero-sum environment, attention and resources invested in innovation are always at risk of being cut in favor of more reliable efforts. 
 
 % How does this effect your relationships with other bureaucrats?
-When you have an idea about how to improve, you can navigate the \hyperref[table:innovate-open-obscure]{Dilemma of Obfuscated Innovation} by talking with mentors about whether to hide or operate in the open. You may not agree with their advice, but the mere act of seeking their wisdom is likely to strengthen your relationship. 
+When you have an idea about how to improve, you can navigate the \hyperref[table:dilemma-personal-innovate-open-obscure]{Dilemma of Obfuscated Innovation} by talking with mentors about whether to hide or operate in the open. You may not agree with their advice, but the mere act of seeking their wisdom is likely to strengthen your relationship. 
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -816,7 +861,9 @@ When you have an idea about how to improve, you can navigate the \hyperref[table
 \index{dilemma!of recognition}
 This dilemma is magnified when the task you work on is high risk or is resource intensive. 
 }
-\label{table:recognition-obscurity}
+\label{table:dilemma-personal-recognition-obscurity}
+%GV "dilemma-personal-recognition-obscurity" [label="seek recognition or obscurity", shape="box"];
+%GV "dilemma-personal-recognition-obscurity" -> "hide";
 \end{table}
 \end{center}
 
@@ -824,10 +871,10 @@ This dilemma is magnified when the task you work on is high risk or is resource 
 While seeking glory for your accomplishments may seem egotistical, there is value in being recognized for good work: you're more likely to be able to get resources for your next effort. If fellow bureaucrats are not aware of your previous results, from their perspective you represent more risk. Having a track record of success paves the way to bigger risk taking.
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:recognition-obscurity]{Dilemma of Recognition} is a personal question of whether you prefer to remain less noticed or more noticed. As a bureaucrat you may see that people with authority get to make important decisions, so climbing the hierarchy seems relevant to accomplishing your goals. 
+The \hyperref[table:dilemma-personal-recognition-obscurity]{Dilemma of Recognition} is a personal question of whether you prefer to remain less noticed or more noticed. As a bureaucrat you may see that people with authority get to make important decisions, so climbing the hierarchy seems relevant to accomplishing your goals. 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:recognition-obscurity]{Dilemma of Recognition} can induce issues with claiming credit when acting as part of a team. When you are recognized for your efforts, how is your dependence on other bureaucrats accounted for?
+The \hyperref[table:dilemma-personal-recognition-obscurity]{Dilemma of Recognition} can induce issues with claiming credit when acting as part of a team. When you are recognized for your efforts, how is your dependence on other bureaucrats accounted for?
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -861,14 +908,16 @@ on page~\pageref{sec:bureaucratic-debt}.
 %}
 %{\tiny Tag: Decision making.}
 }
-\label{table:gather-data-lots-vs-little}
+\label{table:dilemma-personal-gather-data-lots-vs-little}
+%GV "dilemma-personal-gather-data-lots-vs-little" [label="data quantity", shape="box"];
+%GV "dilemma-personal-gather-data-lots-vs-little" -> "data";
 \end{table}
 \end{center}
 
 \begin{figure}[H] % ht
         \centering
         \includegraphics[width=0.8\textwidth]{images/cost_and_uncertainty_for_data_collection}
-        \caption{Collecting more data costs money and time and decreases uncertainty.  See Dilemma~\ref{table:gather-data-lots-vs-little}. This plot is wrong for multiple reasons. Cost, whether temporal or financial, does not increase linearly with data quantity. Similarly uncertainty is not linear with data quantity. Even quantifying uncertainty is challenging. }
+        \caption{Collecting more data costs money and time and decreases uncertainty.  See Dilemma~\ref{table:dilemma-personal-gather-data-lots-vs-little}. This plot is wrong for multiple reasons. Cost, whether temporal or financial, does not increase linearly with data quantity. Similarly uncertainty is not linear with data quantity. Even quantifying uncertainty is challenging. }
         \label{fig:data_collection_cost_uncertainty}
 \end{figure}
 
@@ -878,7 +927,7 @@ on page~\pageref{sec:bureaucratic-debt}.
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 Decision making is foundational to bureaucracy, so gathering data to inform decisions is crucial. There's typically insufficient time and resources available for this work, which results in imperfect decisions. 
 
-The \hyperref[table:gather-data-lots-vs-little]{Dilemma of Data Quantity} is more nuanced than merely finding 
+The \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{Dilemma of Data Quantity} is more nuanced than merely finding 
 \href{https://en.wikipedia.org/wiki/Goldilocks_principle}{just the right amount} of data.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks principle}}
 \marginpar{[Wikipedia] Goldilocks principle}
@@ -886,13 +935,13 @@ The skill is knowing which data is most relevant to the decision, and having rel
 
 % How does this effect your relationships with other bureaucrats?
 The logistics of gathering data can be measured, but there are other subjective aspects to account for as well. Making a decision has an emotional toll on the decider due to the risk of failure. Also, decisions are made in a social context, with decision makers accounting for the ramifications on people they have relationships with. 
-%The \hyperref[table:gather-data-lots-vs-little]{Dilemma of Data Quantity}
+%The \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{Dilemma of Data Quantity}
 
 % Are the incentive structures aligned to support one direction or the other?
 While gathering less data means less cost for the bureaucrat facing a decision, you might imagine some accountability for bad decisions due to inadequate data. To shield individual bureaucrats from reputation-harming liability, a decision may require an approval chain. That review process diffuses responsibility for decisions.
 
 
-The \hyperref[table:gather-data-lots-vs-little]{Dilemma of Gathering data} is distinct from the \hyperref[table:planning]{Dilemma of Planning}. It is possible to do a lot of planning with only a little information gathered, and it is feasible to have lots of data and do no planning. 
+The \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{Dilemma of Gathering data} is distinct from the \hyperref[table:dilemma-personal-planning-vs-iterate]{Dilemma of Planning}. It is possible to do a lot of planning with only a little information gathered, and it is feasible to have lots of data and do no planning. 
 
 \begin{center}
 \begin{table}[H] % ht
@@ -918,7 +967,10 @@ The \hyperref[table:gather-data-lots-vs-little]{Dilemma of Gathering data} is di
 How much time to invest in different types of planning.
 %{\tiny Tag: Decision making.}
 }
-\label{table:planning}
+\label{table:dilemma-personal-planning-vs-iterate}
+%GV "dilemma-personal-planning-vs-iterate" [label="how much planning", shape="box"];
+%GV "dilemma-personal-planning-vs-iterate" -> "plan";
+%GV "dilemma-personal-planning-vs-iterate" -> "iterate";
 \end{table}
 \end{center}
 
@@ -926,10 +978,10 @@ How much time to invest in different types of planning.
 Managing a shared resource requires more than just on-the-spot decision making. Thinking ahead to potential scenarios that effect the shared resource is the responsibility of the bureaucrat. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:planning]{Dilemma of Planning} identifies a widely applicable challenge for bureaucrats throughout an organization (top to bottom, and on every team). Regardless of whether you're planning your next day or the next few years, there will be unforeseen challenges. Do those interruptions invalidate the effort of planning?
+The \hyperref[table:dilemma-personal-planning-vs-iterate]{Dilemma of Planning} identifies a widely applicable challenge for bureaucrats throughout an organization (top to bottom, and on every team). Regardless of whether you're planning your next day or the next few years, there will be unforeseen challenges. Do those interruptions invalidate the effort of planning?
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:planning]{Dilemma of Planning} induces different responses for each bureaucrat, so you will likely encounter both someone who you think plans too much and someone who doesn't plan enough. Being exclusively reactionary can be demoralizing, as can seeing your plans become moot.
+The \hyperref[table:dilemma-personal-planning-vs-iterate]{Dilemma of Planning} induces different responses for each bureaucrat, so you will likely encounter both someone who you think plans too much and someone who doesn't plan enough. Being exclusively reactionary can be demoralizing, as can seeing your plans become moot.
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -940,7 +992,7 @@ Making a decision imposes a bound on how much time is available for both gatheri
 \begin{figure}[H] % ht
     \centering
     \includegraphics[width=0.8\textwidth]{images/planning_and_data_gathering.pdf}
-    \caption{Planning (Dilemma~\ref{table:planning}) and data gathering (Dilemma~\ref{table:gather-data-lots-vs-little}) trade-off.}
+    \caption{Planning (Dilemma~\ref{table:dilemma-personal-planning-vs-iterate}) and data gathering (Dilemma~\ref{table:dilemma-personal-gather-data-lots-vs-little}) trade-off.}
     \label{fig:pareto_frontier}
 \end{figure}
 
@@ -948,13 +1000,13 @@ Making a decision imposes a bound on how much time is available for both gatheri
 
 
 
-When planning (Dilemma~\ref{table:planning}), aspects to consider include
+When planning (Dilemma~\ref{table:dilemma-personal-planning-vs-iterate}), aspects to consider include
 %\begin{itemize}
 %    \item 
-the amount of risk seeking or risk tolerance (Dilemma~\ref{table:risk})
+the amount of risk seeking or risk tolerance (Dilemma~\ref{table:dilemma-personal-risk-high-vs-low})
 and
 %    \item 
-the intended scope of effect  (Dilemma~\ref{table:scope-broad-vs-narrow}).
+the intended scope of effect  (Dilemma~\ref{table:dilemma-personal-scope-broad-vs-narrow}).
 %\end{itemize}
 
 \begin{center}
@@ -981,7 +1033,9 @@ the intended scope of effect  (Dilemma~\ref{table:scope-broad-vs-narrow}).
 \index{dilemma!of \href{https://en.wikipedia.org/wiki/Risk_assessment}{Risk tolerance}}
 %{\tiny Tag: Personal choice.}
 }
-\label{table:risk}
+\label{table:dilemma-personal-risk-high-vs-low}
+%GV "dilemma-personal-risk-high-vs-low" [label="big risk or small risk", shape="box"];
+%GV "dilemma-personal-risk-high-vs-low" -> "risk";
 \end{table}
 \end{center}
 
@@ -989,14 +1043,14 @@ the intended scope of effect  (Dilemma~\ref{table:scope-broad-vs-narrow}).
 Taking big leaps can be exciting. But you might be leaping to failure. Small leaps are less risky, supporting an evolutionary path to discovery. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:risk]{Dilemma of Risk Tolerance} arises in bureaucracy because the environment around the shared resource being managed isn't static. Change requires policies and processes to change. Whether the change is small or large is dependent on the risk tolerance of individual bureaucrats involved in the decision. 
+The \hyperref[table:dilemma-personal-risk-high-vs-low]{Dilemma of Risk Tolerance} arises in bureaucracy because the environment around the shared resource being managed isn't static. Change requires policies and processes to change. Whether the change is small or large is dependent on the risk tolerance of individual bureaucrats involved in the decision. 
 
 % How does this effect your relationships with other bureaucrats?
 The risk tolerance of individuals is shaped by their experience. What you see as conventional and routine another bureaucrat would regard as untested. 
 
-%The \hyperref[table:risk]{Dilemma of Risk Tolerance}
+%The \hyperref[table:dilemma-personal-risk-high-vs-low]{Dilemma of Risk Tolerance}
 % Are the incentive structures aligned to support one direction or the other?
-The bias for bureaucrats is towards smaller risks. That way if failure does occur the bureaucrat incurs less harm to their reputaion. As a consequence, significant 
+The bias for bureaucrats is towards smaller risks. That way if failure does occur the bureaucrat incurs less harm to their reputation. As a consequence, significant 
 \hyperref[sec:innovation]{innovation} is difficult in bureaucratic organizations. 
 
 
@@ -1019,7 +1073,9 @@ The bias for bureaucrats is towards smaller risks. That way if failure does occu
 Engagement with opposition to process or change.
 %{\tiny Tag: Decision making.}
 }
-\label{table:opposition}
+\label{table:dilemma-personal-opposition-involve-ignore}
+%GV "dilemma-personal-opposition-involve-ignore" [label="involve opposition or ignore", shape="box"];
+%GV "dilemma-personal-opposition-involve-ignore" -> "disagree";
 \end{table}
 \end{center}
 
@@ -1030,11 +1086,11 @@ Engagement with opposition to process or change.
 Bureaucracy is the subjective decision making associated with management of shared resource, so the existence of people who disagree is not surprising. The choice you face is whether to engage with people who think you're wrong. 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:risk]{Dilemma of Risk Tolerance} is sensitive to how social you are and how well you can negotiate. If you can hear criticism of your idea and not take it personally, you are more capable of getting constructive feedback. Having relationships where that level of honesty is available is a long-term investment.
+The \hyperref[table:dilemma-personal-opposition-involve-ignore]{Dilemma of Disagreement} is sensitive to how social you are and how well you can negotiate. If you can hear criticism of your idea and not take it personally, you are more capable of getting constructive feedback. Having relationships where that level of honesty is available is a long-term investment.
 
 %
 % Are the incentive structures aligned to support one direction or the other?
-The default behavior for bureaucrats facing the \hyperref[table:risk]{Dilemma of Risk Tolerance}is to avoid negative input. What you might consider innovation another person might see as wasteful. To avoid that risk, don't share what you're working on.
+The default behavior for bureaucrats facing the \hyperref[table:dilemma-personal-opposition-involve-ignore]{Dilemma of Disagreement} is to avoid negative input. What you might consider innovation another person might see as wasteful. To avoid that risk, don't share what you're working on.
 
 \begin{center}
 \begin{table}[H] % ht
@@ -1059,24 +1115,26 @@ The default behavior for bureaucrats facing the \hyperref[table:risk]{Dilemma of
 Scope of effect of your work. 
 %{\tiny Tag: Personal choice}
 }
+\label{table:dilemma-personal-scope-broad-vs-narrow}
+%GV "dilemma-scope-broad-vs-narrow" [label="scope of effect broad vs narrow", shape="box"];
+%GV "dilemma-scope-broad-vs-narrow" -> "scope";
 \end{table}
-\label{table:scope-broad-vs-narrow}
 \end{center}
 
 % explanation of context for dilemma
 Framed as ``should you work on something consequential?" the naive answer is to say yes. However, to make effective change involves coordinating more stakeholders than you may be comfortable with. Experienced bureaucrats are more likely to crave off a small portion of a big challenge.
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-You may have some freedom to choose what you work on, in which case the \hyperref[table:scope-broad-vs-narrow]{Dilemma of Scope of Effect} is in play. Mentorship from more experienced bureaucrats can help you decide what scope of task is big enough to be meaningful but not too big as to be intractable.
+You may have some freedom to choose what you work on, in which case the \hyperref[table:dilemma-personal-scope-broad-vs-narrow]{Dilemma of Scope of Effect} is in play. Mentorship from more experienced bureaucrats can help you decide what scope of task is big enough to be meaningful but not too big as to be intractable.
 
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:scope-broad-vs-narrow]{Dilemma of Scope of Effect}
+%The \hyperref[table:dilemma-personal-scope-broad-vs-narrow]{Dilemma of Scope of Effect}
 % Are the incentive structures aligned to support one direction or the other?
 
 
 \ \\
 
-Once \hyperref[table:gather-data-lots-vs-little]{data is gathered} (Dilemma~\ref{table:gather-data-lots-vs-little}) and a \hyperref[table:planning]{plan is made} (Dilemma~\ref{table:planning}), the result is disseminated. The choices of how to disseminate are the \hyperref[table:consistency]{Dilemma of Consistency over time} (\ref{table:consistency}) and the \hyperref[table:disseminate-one-by-one]{Dilemma of Disseminating information} (\ref{table:disseminate-one-by-one}).
+Once \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{data is gathered} (Dilemma~\ref{table:dilemma-personal-gather-data-lots-vs-little}) and a \hyperref[table:dilemma-personal-planning-vs-iterate]{plan is made} (Dilemma~\ref{table:dilemma-personal-planning-vs-iterate}), the result is disseminated. The choices of how to disseminate are the \hyperref[table:dilemma-personal-consistency-gradual-stepwise]{Dilemma of Consistency over time} (\ref{table:dilemma-personal-consistency-gradual-stepwise}) and the \hyperref[table:dilemma-personal-disseminate-one-by-one]{Dilemma of Disseminating information} (\ref{table:dilemma-personal-disseminate-one-by-one}).
 
 \begin{center}
 \begin{table}[H] % ht
@@ -1109,7 +1167,9 @@ See the description of
 %}
 %{\tiny Tag: Organization's culture. Tag: Personal choice.}
 }
-\label{table:consistency}
+\label{table:dilemma-personal-consistency-gradual-stepwise}
+%GV "dilemma-personal-consistency-gradual-stepwise" [label="incremental or step-wise change", shape="box"];
+%GV "dilemma-personal-consistency-gradual-stepwise" -> "consistency";
 \end{table}
 \end{center}
 
@@ -1118,11 +1178,11 @@ Deployment of products in industry and deployment of policies in a bureaucracy f
 describes how innovation is adopted by people with different amounts of risk tolerance.
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-Bureaucracy arises to manage shared resources. Management occurs by policies and processes. The community accessing the shared resource changes over time, so the policies and processes evolve to reflect that change. The \hyperref[table:consistency]{Dilemma of Consistency over time} is about the degree of incrementalism of the change.
+Bureaucracy arises to manage shared resources. Management occurs by policies and processes. The community accessing the shared resource changes over time, so the policies and processes evolve to reflect that change. The \hyperref[table:dilemma-personal-consistency-gradual-stepwise]{Dilemma of Consistency over time} is about the degree of incrementalism of the change.
 
 % How does this effect your relationships with other bureaucrats?
 Bureaucrats responsible for carrying out policies and processes disagree on the question of stability. This disagreement generates friction for other processes reliant on those relations within an organization.
-The \hyperref[table:consistency]{Dilemma of Consistency over time} is also disruptive to the subjects of bureaucracy. 
+The \hyperref[table:dilemma-personal-consistency-gradual-stepwise]{Dilemma of Consistency over time} is also disruptive to the subjects of bureaucracy. 
 
 % Are the incentive structures aligned to support one direction or the other?
 Bureaucrats are incentivized to avoid change, so the bias in this dilemma is towards consistency and stability even if that means not adapting to current local circumstances. 
@@ -1146,20 +1206,22 @@ Bureaucrats are incentivized to avoid change, so the bias in this dilemma is tow
 \index{dilemma!of disseminating information}
 %{\tiny Tag: Personal choice.}
 }
-\label{table:disseminate-one-by-one}
+\label{table:dilemma-personal-disseminate-one-by-one}
+%GV "dilemma-personal-disseminate-one-by-one" [label="notify one-by-one ar at once", shape="box"];
+%GV "dilemma-personal-disseminate-one-by-one" -> "";
 \end{table}
 \end{center}
 
-Once a decision has been made, the decision is executed or enforced. \hyperref[table:number-of-rules]{How many rules are there} (Dilemma~\ref{table:number-of-rules}) and
-\hyperref[table:rule-strictness]{how strictly are the rules enforced} (Dilemma~\ref{table:rule-strictness})?
+Once a decision has been made, the decision is executed or enforced. \hyperref[table:dilemma-personal-number-of-rules]{How many rules are there} (Dilemma~\ref{table:dilemma-personal-number-of-rules}) and
+\hyperref[table:dilemma-personal-rule-strictness-lax]{how strictly are the rules enforced} (Dilemma~\ref{table:dilemma-personal-rule-strictness-lax})?
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 Bureaucracy involves coordination to facilitate distributed knowledge and distributed decision making. Each bureaucrat has finite time and attention. When communication channels are instantaneous (e.g., phone, email, video) there is often more information to be consumed.
-The \hyperref[table:disseminate-one-by-one]{Dilemma of Disseminating information} is a question of whether to save time by telling all stakeholders at one time or demonstrate the importance of a relationship by talking one-on-one. 
+The \hyperref[table:dilemma-personal-disseminate-one-by-one]{Dilemma of Disseminating information} is a question of whether to save time by telling all stakeholders at one time or demonstrate the importance of a relationship by talking one-on-one. 
 
 % How does this effect your relationships with other bureaucrats?
 
-One aspect of the \hyperref[table:disseminate-one-by-one]{Dilemma of Disseminating information} can be addressed using personalized emails. Rather than send an email notice to 10 people, automating the process of sending 10 separate emails can make it appear to each recipient that the conversation is one-on-one.  That doesn't resolve the challenge of getting all feedback at once.
+One aspect of the \hyperref[table:dilemma-personal-disseminate-one-by-one]{Dilemma of Disseminating information} can be addressed using personalized emails. Rather than send an email notice to 10 people, automating the process of sending 10 separate emails can make it appear to each recipient that the conversation is one-on-one.  That doesn't resolve the challenge of getting all feedback at once.
 
 % Are the incentive structures aligned to support one direction or the other?
 Whether to apply \href{https://en.wikipedia.org/wiki/Nemawashi}{Nemawashi} 
@@ -1186,7 +1248,9 @@ or not depends on how much time to allocate to sharing the information.
 \index{dilemma!of strictness of rules}
 %{\tiny Tag: Organization's culture.}
 }
-\label{table:rule-strictness}
+\label{table:dilemma-personal-rule-strictness-lax}
+%GV "dilemma-personal-rule-strictness-lax" [label="enforce rules strict or lax", shape="box"];
+%GV "dilemma-personal-rule-strictness-lax" -> "rules";
 \end{table}
 \end{center}
 
@@ -1196,14 +1260,14 @@ Bureaucracy is the subjective decision making associated with shared resources. 
 % explanation of context for dilemma
 
 The 
-\hyperref[table:rule-strictness]{Dilemma of Strictness of rules} 
+\hyperref[table:dilemma-personal-rule-strictness-lax]{Dilemma of Strictness of rules} 
 is about how the bureaucrat enforcing policies decides to act, whereas the
-\hyperref[table:dilemma-consistency]{Dilemma of Consistency} 
+\hyperref[table:dilemma-subject-consistency-per-situation]{Dilemma of Consistency} 
 (whether to seek exceptions) and
-\hyperref[table:dilemma-flexibility]{Dilemma of Flexible Rules}
+\hyperref[table:dilemma-subject-flexibility]{Dilemma of Flexible Rules}
 are from the subjects view. While the objective question is similar, the rationalization for behavior depends on which role is being considered.
 
-Bureaucrats and subjects of bureaucracy both complain regardless of where on the spectrum each instances of \hyperref[table:rule-strictness]{Dilemma of Strictness of rules} occurs. 
+Bureaucrats and subjects of bureaucracy both complain regardless of where on the spectrum each instances of \hyperref[table:dilemma-personal-rule-strictness-lax]{Dilemma of Strictness of rules} occurs. 
 
 % How does this effect your relationships with other bureaucrats?
 Different bureaucrats will evaluate which rules apply in each circumstance slightly differently. Barring consensus, the organization's hierarchy is used to have one person decide what the relevant interpretation is.
@@ -1216,7 +1280,8 @@ The default behavior is strict enforcement since that is a defensible story for 
 \begin{table}[H] % ht
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{Control via rules.} & \textbf{Freedom/autonomy/agility.} \\ 
+  \textbf{Control via rules.} & 
+  \textbf{Freedom/autonomy/agility.} \\ 
   \hline
   \textit{Description}: High number of rules to cover a variety of situations. & 
   \textit{Description}: Low number of rules to enable flexibility. \\ 
@@ -1230,24 +1295,26 @@ The default behavior is strict enforcement since that is a defensible story for 
 \index{dilemma!of number of rules}
 %{\tiny Tag: Organization's culture}
 }
-\label{table:number-of-rules}
+\label{table:dilemma-personal-number-of-rules}
+%GV "dilemma-personal-number-of-rules" [label="rule or freedom", shape="box"];
+%GV "dilemma-personal-number-of-rules" -> "rules";
 \end{table}
 \end{center}
 
 
 
-% TODO: explanation of context for dilemma
+%  explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:number-of-rules]{Dilemma of Number of rules}
+The \hyperref[table:dilemma-personal-number-of-rules]{Dilemma of Number of rules}
 \marginpar{[Tag] \href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks balance}}
 \index{Goldilocks balance!number of rules}
 arises in bureaucratic organizations because bureaucrats have to make subjective decisions about shared resources. 
 
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:number-of-rules]{Dilemma of Number of rules}
+%The \hyperref[table:dilemma-personal-number-of-rules]{Dilemma of Number of rules}
 % Are the incentive structures aligned to support one direction or the other?
 
-An alternative approach to the  \hyperref[table:number-of-rules]{Dilemma of Number of rules}
+An alternative approach to the  \hyperref[table:dilemma-personal-number-of-rules]{Dilemma of Number of rules}
 is to use guidance derived from principles. A principles-based approach relies on good judgement which can be adapted to specific situations. What qualifies as ``good'' has subjective boundary conditions and requires knowledge of the situation.
 
 
@@ -1275,16 +1342,18 @@ The scope of your actions bound by mandates and legality, but the way you interp
 Constraining activities to explicitly specified rules can be used as an excuse for laziness. 
 \index{dilemma!of adherence to rules}
 }
-\label{table:rule-adherence}
+\label{table:dilemma-personal-rule-adherence}
+%GV "dilemma-personal-rule-adherence" [label="rules allow or conform", shape="box"];
+%GV "dilemma-personal-rule-adherence" -> "rules";
 \end{table}
 \end{center}
 
-% TODO: explanation of context for dilemma
+%  explanation of context for dilemma
 Your understanding of your freedom versus responsibilities may be a philosophical topic, but it can manifest in bureaucratic organizations. Being a member of an organization means leveraging the resources available or acting in accordance with mandates. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 
-The \hyperref[table:rule-adherence]{Dilemma of Adherence to rules}
+The \hyperref[table:dilemma-personal-rule-adherence]{Dilemma of Adherence to rules}
 \footnote{See \href{https://en.wikipedia.org/wiki/Everything_which_is_not_forbidden_is_allowed}{Everything which is not forbidden is allowed} 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Everything_which_is_not_forbidden_is_allowed}{Everything which is not forbidden is allowed}}
 on Wikipedia.} is used by bureaucrats to rationalize their action (or inaction). 
@@ -1292,7 +1361,7 @@ on Wikipedia.} is used by bureaucrats to rationalize their action (or inaction).
 % How does this effect your relationships with other bureaucrats?
 Changing a coworker's attitude on this topic if they disagree with your understanding can rely on appeals to authority or emotional reassurance, depending on their stance.
 
-%The \hyperref[table:rule-adherence]{Dilemma of Adherence to rules}
+%The \hyperref[table:dilemma-personal-rule-adherence]{Dilemma of Adherence to rules}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1315,7 +1384,9 @@ Changing a coworker's attitude on this topic if they disagree with your understa
 \index{dilemma!of data for decisions}
 Having a single checkmark on a form makes data collection easier for the subject and the bureaucrat. However, the person using the form might not see the checkmark box or may accidentally fill in the checkmark. The process is sensitive to this single bit of data. This applies to written forms and verbal conversations.
 }
-\label{table:single-bit-decision}
+\label{table:dilemma-personal-single-bit-decision}
+%GV "dilemma-personal-single-bit-decision" [label="single bit error", shape="box"];
+%GV "dilemma-personal-single-bit-decision" -> "redundancy";
 \end{table}
 \end{center}
 
@@ -1324,12 +1395,12 @@ With the intent of streamlining interactions between subjects and bureaucrats, c
 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:gather-data-lots-vs-little]{Dilemma of Data Quantity} is about how much data is needed, whereas the \hyperref[table:single-bit-decision]{Dilemma of Data for Decisions} is about the redundancy of data used for coordination. While not unique to bureaucracy, the lack of feedback loops motivating correct information can lead to harm for participants.
+The \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{Dilemma of Data Quantity} is about how much data is needed, whereas the \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for Decisions} is about the redundancy of data used for coordination. While not unique to bureaucracy, the lack of feedback loops motivating correct information can lead to harm for participants.
 
 % How does this effect your relationships with other bureaucrats?
 Most decisions are of low importance, so the correctness of information is rarely checked. Redundant information is deemed wasteful, and those habits don't necessarily change when the significance of a decision increases. 
 
-The \hyperref[table:single-bit-decision]{Dilemma of Data for Decisions} presents a lose-lose situation: collect redundant information (which introduces additional risk of conflicting information) or hope that data collected represents reality without checking. 
+The \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for Decisions} presents a lose-lose situation: collect redundant information (which introduces additional risk of conflicting information) or hope that data collected represents reality without checking. 
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -1358,17 +1429,19 @@ The \hyperref[table:single-bit-decision]{Dilemma of Data for Decisions} presents
 \index{dilemma!of speed and accuracy}
 Speed versus accuracy of task completion.
 }
-\label{table:quick-methodical}
+\label{table:dilemma-personal-quick-methodical}
+%GV "dilemma-personal-quick-methodical" [label="quick or methodical", shape="box"];
+%GV "dilemma-personal-quick-methodical" -> "speed";
 \end{table}
 \end{center}
 
-If you try to resolve the \hyperref[table:quick-methodical]{Dilemma of Speed and Accuracy} by both getting a solution deployed quickly and then iterating towards a robust outcome, you may appear unpredictable or unstable; see Dilemma~\ref{table:planning}. This is an example of cascading dilemmas. The interplay of a creative resolution to one dilemma can effect the solution space for other dilemmas. 
+If you try to resolve the \hyperref[table:dilemma-personal-quick-methodical]{Dilemma of Speed and Accuracy} by both getting a solution deployed quickly and then iterating towards a robust outcome, you may appear unpredictable or unstable; see Dilemma~\ref{table:dilemma-personal-planning-vs-iterate}. This is an example of cascading dilemmas. The interplay of a creative resolution to one dilemma can effect the solution space for other dilemmas. 
 
 %  explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:quick-methodical]{Dilemma of Speed and Accuracy}
+%The \hyperref[table:dilemma-personal-quick-methodical]{Dilemma of Speed and Accuracy}
 % How does this effect your relationships with other bureaucrats?
-Regardless of where on this spectrum you are with the \hyperref[table:quick-methodical]{Dilemma of Speed and Accuracy}, someone that you depend on in the bureaucracy will take the opposite stance. This becomes a source of friction regarding how long tasks should take. 
+Regardless of where on this spectrum you are with the \hyperref[table:dilemma-personal-quick-methodical]{Dilemma of Speed and Accuracy}, someone that you depend on in the bureaucracy will take the opposite stance. This becomes a source of friction regarding how long tasks should take. 
 
 % Are the incentive structures aligned to support one direction or the other?
 The bias for this dilemma is that most bureaucrats want to be perceived as methodical and careful. Quick judgement is seen as risky. 
@@ -1389,16 +1462,21 @@ The bias for this dilemma is that most bureaucrats want to be perceived as metho
 \textit{Dilemma of Urgency.}
 \index{dilemma!of urgency}
 }
-\label{table:rate-of-work}
+\label{table:dilemma-personal-manager-rate-of-work}
+%GV "dilemma-personal-manager-rate-of-work" [label="", shape="box"];
+%GV "dilemma-personal-manager-rate-of-work" -> "";
+%GV "dilemma-personal-manager-rate-of-work" -> "dilemma-personal-work-extra-or-work-as-expected";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 There is usually a large range of productivity possible for a bureaucrat. Management has input on what is expected from bureaucrat. The 
-\hyperref[table:rate-of-work]{Dilemma of Urgency} reflects the trade-off of how much to push employees of an organization. 
+\hyperref[table:dilemma-personal-manager-rate-of-work]{Dilemma of Urgency} reflects the trade-off of how much to push employees of an organization. The \hyperref[table:dilemma-personal-manager-rate-of-work]{Dilemma of Urgency} is the manager's perspective, whereas the
+\hyperref[table:dilemma-personal-work-extra-or-work-as-expected]{Dilemma of Working extra hard}
+is the view of the bureaucrat. 
 
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:rate-of-work]{Dilemma of Urgency}
+%The \hyperref[table:dilemma-personal-manager-rate-of-work]{Dilemma of Urgency}
 
 % Are the incentive structures aligned to support one direction or the other?
 Because of weak feedback loops in bureaucratic organizations, bureaucrats default to a relaxed work environment. Examples of exceptions to this include seasonal variations like tax collection time for the \href{https://en.wikipedia.org/wiki/Internal_Revenue_Service}{IRS} 
@@ -1425,15 +1503,17 @@ and demand spikes like a natural disaster for \href{https://en.wikipedia.org/wik
 \index{dilemma!of talking}
 In conversations or meetings there is a (subjective) balance for participants.
 }
-\label{table:talk-or-listen}
+\label{table:dilemma-personal-talk-or-listen}
+%GV "dilemma-personal-talk-or-listen" [label="talk or listen", shape="box"];
+%GV "dilemma-personal-talk-or-listen" -> "";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:talk-or-listen]{Dilemma of Talking} captures the zero-some information constraint that most bureaucrats can't concurrently talk and listen. 
+The \hyperref[table:dilemma-personal-talk-or-listen]{Dilemma of Talking} captures the zero-some information constraint that most bureaucrats can't concurrently talk and listen. 
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:talk-or-listen]{Dilemma of Talking} depends on the personality of each bureaucrat involved in coordination of distributed knowledge and distributed decision making. Some are patient listeners, while others feel uncomfortable with silence.
+The \hyperref[table:dilemma-personal-talk-or-listen]{Dilemma of Talking} depends on the personality of each bureaucrat involved in coordination of distributed knowledge and distributed decision making. Some are patient listeners, while others feel uncomfortable with silence.
 
 % Are the incentive structures aligned to support one direction or the other?
 Talking constructively about work takes effort, so the default here is to not communicate. 
@@ -1458,19 +1538,21 @@ Talking constructively about work takes effort, so the default here is to not co
 \index{dilemma!of experienced collaborators}
 People with experience are useful but less accessible.
 }
-\label{table:experience}
+\label{table:dilemma-experienced-collaborators}
+%GV "dilemma-experienced-collaborators" [label="experienced collaborators or not", shape="box"];
+%GV "dilemma-experienced-collaborators" -> "";
 \end{table}
 \end{center}
 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 Distributed knowledge in a bureaucracy relies on collaboration among bureaucrats. 
-The \hyperref[table:experience]{Dilemma of Experienced Collaborators} is about the options of who to collaborate with. 
+The \hyperref[table:dilemma-experienced-collaborators]{Dilemma of Experienced Collaborators} is about the options of who to collaborate with. 
 
 % How does this effect your relationships with other bureaucrats?
 
 % Are the incentive structures aligned to support one direction or the other?
-The bias for the \hyperref[table:experience]{Dilemma of Experienced Collaborators} depends on the promotion structure of your organization and the composition of the workforce. If training new member of the team is rewarded, then you might choose to work with less experienced bureaucrats. If the entire team is experienced, then this Dilemma doesn't apply.
+The bias for the \hyperref[table:dilemma-experienced-collaborators]{Dilemma of Experienced Collaborators} depends on the promotion structure of your organization and the composition of the workforce. If training new member of the team is rewarded, then you might choose to work with less experienced bureaucrats. If the entire team is experienced, then this Dilemma doesn't apply.
 
 \begin{center}
 \begin{table}[H] % ht
@@ -1491,15 +1573,17 @@ The bias for the \hyperref[table:experience]{Dilemma of Experienced Collaborator
 \index{dilemma!of opportunities}
 Acceptance or rejection of more work can be explicit or implicit. Bureaucrats respond to this challenge by sending mixed signals: expressing interest but not following up with action.
 }
-\label{table:new-opportunties}
+\label{table:dilemma-new-opportunties-yes-no}
+%GV "dilemma-new-opportunties-yes-no" [label="new opportunities yes or no", shape="box"];
+%GV "dilemma-new-opportunties-yes-no" -> "";
 \end{table}
 \end{center}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:new-opportunties]{Dilemma of opportunities} depends as much on the workload as on your personality. 
+The \hyperref[table:dilemma-new-opportunties-yes-no]{Dilemma of opportunities} depends as much on the workload as on your personality. 
 
 % How does this effect your relationships with other bureaucrats?
-Finding ways to avoid doing work while helping the person providing the opportunity is the central skill for the \hyperref[table:new-opportunties]{Dilemma of opportunities}. This may mean referring the opportunity to another coworker or expressing support but not investing effort. 
+Finding ways to avoid doing work while helping the person providing the opportunity is the central skill for the \hyperref[table:dilemma-new-opportunties-yes-no]{Dilemma of opportunities}. This may mean referring the opportunity to another coworker or expressing support but not investing effort. 
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -1527,18 +1611,21 @@ Finding ways to avoid doing work while helping the person providing the opportun
 How much data to share. Potential solution is to make data discoverable. Advertise the availability of data without providing data. This way a negotiation is feasible for people interested in the data.
 %{\tiny Tag: Personal choice.}
 }
-\label{table:data-share-vs-hide}
+\label{table:dilemma-data-share-vs-hide}
+%GV "dilemma-data-share-vs-hide" [label="share data less or more", shape="box"];
+%GV "dilemma-data-share-vs-hide" -> "share";
+%GV "dilemma-data-share-vs-hide" -> "data";
 \end{table}
 \end{center}
 
-In the \hyperref[table:data-share-vs-hide]{Dilemma of Sharing Data} there many of aspects of data than can be shared to improve discoverability: who to contact about access, what the data sources are, how often data is collected, how long data is stored, how much data there is.
+In the \hyperref[table:dilemma-data-share-vs-hide]{Dilemma of Sharing Data} there many of aspects of data than can be shared to improve discoverability: who to contact about access, what the data sources are, how often data is collected, how long data is stored, how much data there is.
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 Distributed knowledge and distributed decision making both rely on having data. Without data the policies and processes of bureaucracy are less effective. 
 
 % How does this effect your relationships with other bureaucrats?
 Sharing data is typically perceived as helpful. 
-The \hyperref[table:data-share-vs-hide]{Dilemma of Sharing Data} points out that the helpfulness has a cost. 
+The \hyperref[table:dilemma-data-share-vs-hide]{Dilemma of Sharing Data} points out that the helpfulness has a cost. 
 
 % Are the incentive structures aligned to support one direction or the other?
 Because sharing data consumes resources, the bias is to not provide data. That applies to sharing with other bureaucrats within the organization as well as subjects of the bureaucracy. 
@@ -1564,7 +1651,9 @@ Because sharing data consumes resources, the bias is to not provide data. That a
 Applies to teams and to individuals. 
 %{\tiny Tag: Personal choice.}
 }
-\label{table:cooperate-vs-compete}
+\label{table:dilemma-personal-cooperate-vs-compete}
+%GV "dilemma-personal-cooperate-vs-compete" [label="cooperate or compete", shape="box"];
+%GV "dilemma-personal-cooperate-vs-compete" -> "";
 \end{table}
 \end{center}
 
@@ -1573,10 +1662,10 @@ Applies to teams and to individuals.
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 A bureaucratic organization responsible for management of share resources has finite staffing and money. When there are multiple concurrent efforts relevant to managing the shared resource,  dividing staffing and money is a challenge. 
 
-The \hyperref[table:cooperate-vs-compete]{Dilemma of Cooperate or Compete} is best addressed through explicit conversations, both between peers and with decision makers. These discussions may not remedy the challenge, but they provide an opportunity for you to learn more about the people in your organization.
+The \hyperref[table:dilemma-personal-cooperate-vs-compete]{Dilemma of Cooperate or Compete} is best addressed through explicit conversations, both between peers and with decision makers. These discussions may not remedy the challenge, but they provide an opportunity for you to learn more about the people in your organization.
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:cooperate-vs-compete]{Dilemma of Cooperate or Compete} can lead to animosity or stronger healthy relationships. 
+The \hyperref[table:dilemma-personal-cooperate-vs-compete]{Dilemma of Cooperate or Compete} can lead to animosity or stronger healthy relationships. 
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -1601,11 +1690,13 @@ The \hyperref[table:cooperate-vs-compete]{Dilemma of Cooperate or Compete} can l
 Case consistency vs adaptability.
 %{\tiny Tag: Personal choice.}
 }
-\label{table:policy-consistency-across-cases}
+\label{table:dilemma-personal-policy-consistency-across-cases}
+%GV "dilemma-personal-policy-consistency-across-cases" [label="consistent policy or adapt", shape="box"];
+%GV "dilemma-personal-policy-consistency-across-cases" -> "consistent";
 \end{table}
 \end{center}
 
-When change to policies is desired, there are options on how to advocate for change -- Dilemma~\ref{table:how-to-change}.
+When change to policies is desired, there are options on how to advocate for change -- Dilemma~\ref{table:dilemma-how-to-change}.
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
@@ -1632,18 +1723,20 @@ When change to policies is desired, there are options on how to advocate for cha
 \index{dilemma!of swimlanes}
 How are tasks assigned? This can be negotiated with coworkers and is not intrinsic to structure of the organization. 
 }
-\label{table:swimlanes}
+\label{table:dilemma-swimlanes}
+%GV "dilemma-swimlanes" [label="swimlanes or not", shape="box"];
+%GV "dilemma-swimlanes" -> "scope";
 \end{table}
 \end{center}
 
 
-Independent of how tasks are assigned within a team or organization (Dilemma~\ref{table:swimlanes}), individual bureaucrats can decide how they act in Dilemma~\ref{table:scope-of-activity}.
+Independent of how tasks are assigned within a team or organization (Dilemma~\ref{table:dilemma-swimlanes}), individual bureaucrats can decide how they act in Dilemma~\ref{table:dilemma-scope-of-activity}.
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:swimlanes]{Dilemma of Swimlanes}
+%The \hyperref[table:dilemma-swimlanes]{Dilemma of Swimlanes}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:swimlanes]{Dilemma of Swimlanes}
+%The \hyperref[table:dilemma-swimlanes]{Dilemma of Swimlanes}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1671,7 +1764,10 @@ Both strict adherence to role scope and ignoring scope can decrease an organizat
 What happens when a person deviates from their role?
 How are people who do not conform identified? Are they confronted?
 }
-\label{table:scope-of-activity}
+\label{table:dilemma-scope-of-activity}
+%GV "dilemma-scope-of-activity" [label="", shape="box"];
+%GV "dilemma-scope-of-activity" -> "scope";
+%GV "dilemma-scope-of-activity" -> "dilemma-swimlanes";
 \end{table}
 \end{center}
 
@@ -1681,9 +1777,9 @@ As a specialist, you have two choices: invest in deepening your expertise and sk
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:scope-of-activity]{Dilemma of Scope}
+%The \hyperref[table:dilemma-scope-of-activity]{Dilemma of Scope}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:scope-of-activity]{Dilemma of Scope}
+%The \hyperref[table:dilemma-scope-of-activity]{Dilemma of Scope}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1710,7 +1806,9 @@ As a specialist, you have two choices: invest in deepening your expertise and sk
 \index{dilemma!of speaking scope}
 If you don't know what you're talking about, should you speculate or keep your mouth shut?
 }
-\label{table:scope-of-speaking}
+\label{table:dilemma-scope-of-speaking}
+%GV "dilemma-scope-of-speaking" [label="", shape="box"];
+%GV "dilemma-scope-of-speaking" -> "scope";
 \end{table}
 \end{center}
 
@@ -1718,9 +1816,9 @@ Distinguishing speculation from experience is critical in communication. Explain
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
 % Are the incentive structures aligned to support one direction or the other?
 
 \begin{center}
@@ -1744,16 +1842,18 @@ Distinguishing speculation from experience is critical in communication. Explain
 There is no \href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks balance}.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks balance}}
 }
-\label{table:how-many-participants}
+\label{table:dilemma-how-many-participants}
+%GV "dilemma-how-many-participants" [label="", shape="box"];
+%GV "dilemma-how-many-participants" -> "";
 \end{table}
 \end{center}
  
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1773,15 +1873,17 @@ There is no \href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks
 \index{dilemma!of delegation}
 Sharing work can improve productivity and build relationships but also incurs risks to reputation and success.
 }
-\label{table:delegate-or-not}
+\label{table:dilemma-delegate-or-not}
+%GV "dilemma-delegate-or-not" [label="", shape="box"];
+%GV "dilemma-delegate-or-not" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:delegate-or-not]{Dilemma of Delegation}
+%The \hyperref[table:dilemma-delegate-or-not]{Dilemma of Delegation}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:delegate-or-not]{Dilemma of Delegation}
+%The \hyperref[table:dilemma-delegate-or-not]{Dilemma of Delegation}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1804,15 +1906,17 @@ Sharing work can improve productivity and build relationships but also incurs ri
 \index{dilemma!of health versus results}
  Producing the results that motivated the existence of an organization often requires spending organization's health
 }
-\label{table:health-vs-results}
+\label{table:dilemma-health-vs-results}
+%GV "dilemma-health-vs-results" [label="", shape="box"];
+%GV "dilemma-health-vs-results" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:health-vs-results]{Dilemma of Health versus Results}
+%The \hyperref[table:dilemma-health-vs-results]{Dilemma of Health versus Results}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:health-vs-results]{Dilemma of Health versus Results}
+%The \hyperref[table:dilemma-health-vs-results]{Dilemma of Health versus Results}
 % Are the incentive structures aligned to support one direction or the other?
 
 \begin{center}
@@ -1834,15 +1938,17 @@ Sharing work can improve productivity and build relationships but also incurs ri
 \index{dilemma!of chunk size}
 You may or may not have a choice of task size and number of tasks. If you have autonomy, what do you prefer? Do your coworkers and supervisors know your preference? 
 }
-\label{table:chunk-size}
+\label{table:dilemma-chunk-size}
+%GV "dilemma-chunk-size" [label="", shape="box"];
+%GV "dilemma-chunk-size" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:chunk-size]{Dilemma of Chunk size}
+%The \hyperref[table:dilemma-chunk-size]{Dilemma of Chunk size}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:chunk-size]{Dilemma of Chunk size}
+%The \hyperref[table:dilemma-chunk-size]{Dilemma of Chunk size}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1860,17 +1966,19 @@ You may or may not have a choice of task size and number of tasks. If you have a
 \caption{
 \textit{Dilemma of Dependencies.}
 \index{dilemma!of dependencies}
-External dependencies can enable broader scope. This Dilemma only is relevant if you have autonomy in the selection of your tasks. See also the Dilemma of Delegation, \ref{table:delegate-or-not}.
+External dependencies can enable broader scope. This Dilemma only is relevant if you have autonomy in the selection of your tasks. See also the Dilemma of Delegation, \ref{table:dilemma-delegate-or-not}.
 }
-\label{table:number-of-external-dependencies}
+\label{table:dilemma-number-of-external-dependencies}
+%GV "dilemma-number-of-external-dependencies" [label="", shape="box"];
+%GV "dilemma-number-of-external-dependencies" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:number-of-external-dependencies]{Dilemma of Dependencies}
+%The \hyperref[table:dilemma-number-of-external-dependencies]{Dilemma of Dependencies}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:number-of-external-dependencies]{Dilemma of Dependencies}
+%The \hyperref[table:dilemma-number-of-external-dependencies]{Dilemma of Dependencies}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1890,15 +1998,17 @@ External dependencies can enable broader scope. This Dilemma only is relevant if
 \index{dilemma!of roles}
 The right number of roles for a bureaucrat depends on personality and tasking. 
 }
-\label{table:number-of-roles}
+\label{table:dilemma-number-of-roles}
+%GV "dilemma-number-of-roles" [label="", shape="box"];
+%GV "dilemma-number-of-roles" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:number-of-roles]{Dilemma of Roles}
+%The \hyperref[table:dilemma-number-of-roles]{Dilemma of Roles}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:number-of-roles]{Dilemma of Roles}
+%The \hyperref[table:dilemma-number-of-roles]{Dilemma of Roles}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1918,15 +2028,17 @@ The right number of roles for a bureaucrat depends on personality and tasking.
 \index{dilemma!of dissent}
 Dissent is caused by dissatisfaction with people or processes. 
 }
-\label{table:how-dissent-is-responded-to}
+\label{table:dilemma-how-dissent-is-responded-to}
+%GV "dilemma-how-dissent-is-responded-to" [label="", shape="box"];
+%GV "dilemma-how-dissent-is-responded-to" -> "disagreement";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:how-dissent-is-responded-to]{Dilemma of Dissent}
+%The \hyperref[table:dilemma-how-dissent-is-responded-to]{Dilemma of Dissent}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:how-dissent-is-responded-to]{Dilemma of Dissent}
+%The \hyperref[table:dilemma-how-dissent-is-responded-to]{Dilemma of Dissent}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1949,15 +2061,17 @@ Dissent is caused by dissatisfaction with people or processes.
 \index{dilemma!of sharing lessons}
 Sharing lessons learned may seem reasonable unless you want to maintain a pristine reputation. 
 }
-\label{table:sharing-lessons-learned}
+\label{table:dilemma-sharing-lessons-learned}
+%GV "dilemma-sharing-lessons-learned" [label="", shape="box"];
+%GV "dilemma-sharing-lessons-learned" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:sharing-lessons-learned]{Dilemma of Sharing Lessons}
+%The \hyperref[table:dilemma-sharing-lessons-learned]{Dilemma of Sharing Lessons}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:sharing-lessons-learned]{Dilemma of Sharing Lessons}
+%The \hyperref[table:dilemma-sharing-lessons-learned]{Dilemma of Sharing Lessons}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1976,17 +2090,20 @@ Sharing lessons learned may seem reasonable unless you want to maintain a pristi
 \caption{
 \textit{Dilemma of Sharing.}
 \index{dilemma!of sharing}
-When sharing lessons learned (option 1 in \ref{table:sharing-lessons-learned}), the lessons do not have to be about you. 
+When sharing lessons learned (option 1 in \ref{table:dilemma-sharing-lessons-learned}), the lessons do not have to be about you. 
 }
-\label{table:share-lessons-learned}
+\label{table:dilemma-share-lessons-learned}
+%GV "dilemma-share-lessons-learned" [label="share lessons learned", shape="box"];
+%GV "dilemma-share-lessons-learned" -> "sharing";
+%GV "dilemma-share-lessons-learned" -> "lessons";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:share-lessons-learned]{Dilemma of Sharing}
+%The \hyperref[table:dilemma-share-lessons-learned]{Dilemma of Sharing}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:share-lessons-learned]{Dilemma of Sharing}
+%The \hyperref[table:dilemma-share-lessons-learned]{Dilemma of Sharing}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -2006,15 +2123,17 @@ When sharing lessons learned (option 1 in \ref{table:sharing-lessons-learned}), 
 \index{dilemma!of learning}
 How much formal training to invest in before learning by doing?
 }
-\label{table:lessons-learned-source}
+\label{table:dilemma-lessons-learned-source}
+%GV "dilemma-lessons-learned-source" [label="", shape="box"];
+%GV "dilemma-lessons-learned-source" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:lessons-learned-source]{Dilemma of Learning}
+%The \hyperref[table:dilemma-lessons-learned-source]{Dilemma of Learning}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:lessons-learned-source]{Dilemma of Learning}
+%The \hyperref[table:dilemma-lessons-learned-source]{Dilemma of Learning}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -2035,15 +2154,17 @@ How much formal training to invest in before learning by doing?
 A coalition can provide morale support but takes time to build.
 %{\tiny Tag: }
 }
-\label{table:how-to-change}
+\label{table:dilemma-how-to-change}
+%GV "dilemma-how-to-change" [label="", shape="box"];
+%GV "dilemma-how-to-change" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:how-to-change]{Dilemma of Coalitions}
+%The \hyperref[table:dilemma-how-to-change]{Dilemma of Coalitions}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:how-to-change]{Dilemma of Coalitions}
+%The \hyperref[table:dilemma-how-to-change]{Dilemma of Coalitions}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -2070,6 +2191,8 @@ A coalition can provide morale support but takes time to build.
 For repeated actions, who is the process optimized for -- the subject or the bureaucrat?
 }
 \label{table:dilemma-of-batching}
+%GV "dilemma-of-batching" [label="", shape="box"];
+%GV "dilemma-of-batching" -> "";
 \end{table}
 \end{center}
 
@@ -2104,6 +2227,8 @@ For repeated actions, who is the process optimized for -- the subject or the bur
 If a user doesn't see a checkbox on a form, or they incorrectly mark the checkbox, is there any validation of the selection?
 }
 \label{table:dilemma-of-redundancy}
+%GV "dilemma-of-redundancy" [label="", shape="box"];
+%GV "dilemma-of-redundancy" -> "";
 \end{table}
 \end{center}
 
@@ -2117,7 +2242,11 @@ If a user doesn't see a checkbox on a form, or they incorrectly mark the checkbo
 
 \subsection*{Dilemmas of Policy for an Organization's Structure\label{sec:org-dilemma}}
 
-The constraints a decision maker faces are informed by the person's environment. Dilemmas \ref{table:people-per-supervisor} through \ref{table:market-vs-monopoly} shape the experience of bureaucrats in an organization.
+%GV } // end personal policies
+%GV subgraph cluster_org {
+
+
+The constraints a decision maker faces are informed by the person's environment. Dilemmas \ref{table:dilemma-org-people-per-supervisor} through \ref{table:dilemma-org-market-vs-monopoly} shape the experience of bureaucrats in an organization.
 
 \begin{center}
 \begin{table}[H] % ht
@@ -2138,15 +2267,17 @@ The constraints a decision maker faces are informed by the person's environment.
 \index{dilemma!of flatness}
 %{\tiny Tag: Organization's culture}
 }
-\label{table:people-per-supervisor}
+\label{table:dilemma-org-people-per-supervisor}
+%GV "dilemma-org-people-per-supervisor" [label="", shape="box"];
+%GV "dilemma-org-people-per-supervisor" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:people-per-supervisor]{Dilemma of Shape of hierarchical organization}
+%The \hyperref[table:dilemma-org-people-per-supervisor]{Dilemma of Shape of hierarchical organization}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:people-per-supervisor]{Dilemma of Shape of hierarchical organization}
+%The \hyperref[table:dilemma-org-people-per-supervisor]{Dilemma of Shape of hierarchical organization}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -2172,7 +2303,9 @@ The constraints a decision maker faces are informed by the person's environment.
 \index{dilemma!of dense effectiveness}
 Effectiveness of bureaucrats is not uniform. Some bureaucrats in an organization are more effective than others.
 }
-\label{table:dense-effectiveness}
+\label{table:dilemma-org-dense-effectiveness}
+%GV "dilemma-org-dense-effectiveness" [label="", shape="box"];
+%GV "dilemma-org-dense-effectiveness" -> "";
 \end{table}
 \end{center}
 
@@ -2184,9 +2317,9 @@ Bringing the smartest members of the organization together on a team can result 
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dense-effectiveness]{Dilemma of Dense Effectiveness}
+%The \hyperref[table:dilemma-org-dense-effectiveness]{Dilemma of Dense Effectiveness}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dense-effectiveness]{Dilemma of Dense Effectiveness}
+%The \hyperref[table:dilemma-org-dense-effectiveness]{Dilemma of Dense Effectiveness}
 % Are the incentive structures aligned to support one direction or the other?
 
 \begin{center}
@@ -2211,15 +2344,17 @@ Bringing the smartest members of the organization together on a team can result 
 \index{dilemma!of team size}
 %{\tiny Tag: Design of organization.}
 }
-\label{table:staff-many-vs-few}
+\label{table:dilemma-org-staff-many-vs-few}
+%GV "dilemma-org-staff-many-vs-few" [label="", shape="box"];
+%GV "dilemma-org-staff-many-vs-few" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:staff-many-vs-few]{Dilemma of Size of team or organization}
+%The \hyperref[table:dilemma-org-staff-many-vs-few]{Dilemma of Size of team or organization}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:staff-many-vs-few]{Dilemma of Size of team or organization}
+%The \hyperref[table:dilemma-org-staff-many-vs-few]{Dilemma of Size of team or organization}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -2246,11 +2381,13 @@ Bringing the smartest members of the organization together on a team can result 
 Services that are necessary but not central.
 %{\tiny Tag: Design of organization.}
 }
-\label{table:inhouse-vs-external}
+\label{table:dilemma-org-inhouse-vs-external}
+%GV "dilemma-org-inhouse-vs-external" [label="", shape="box"];
+%GV "dilemma-org-inhouse-vs-external" -> "";
 \end{table}
 \end{center}
 
-The \hyperref[table:inhouse-vs-external]{Dilemma of Services} isn't unique to bureaucracy. It applies to businesses in a market and to governments in a global environment. Externalized services may be cheaper, but the long-term consequence is the loss of in-house expertise. 
+The \hyperref[table:dilemma-org-inhouse-vs-external]{Dilemma of Services} isn't unique to bureaucracy. It applies to businesses in a market and to governments in a global environment. Externalized services may be cheaper, but the long-term consequence is the loss of in-house expertise. 
 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
@@ -2262,7 +2399,7 @@ When services are outsourced, oversight doesn't provide insight on the nuances o
 Teams in a bureaucratic organization that work on aspects not critical management of the shared resource will earn less of the glory and be seen as a cost. Because efficiency is sought, organizations benefit from outsourcing non-core activities to other organizations that specialize in the domain.
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:inhouse-vs-external]{Dilemma of Services} can serve as guidance for where in an organization you should position yourself. Working on a support team means less glory and less resources than working in a team that is more aligned with the purpose of the organization.
+The \hyperref[table:dilemma-org-inhouse-vs-external]{Dilemma of Services} can serve as guidance for where in an organization you should position yourself. Working on a support team means less glory and less resources than working in a team that is more aligned with the purpose of the organization.
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -2292,14 +2429,16 @@ The \hyperref[table:inhouse-vs-external]{Dilemma of Services} can serve as guida
 Oscillation (see figure~\ref{fig:central-vs-distributed}) indicates neither solution is optimal.
 %{\tiny Tag: Design of organization.}
 }
-\label{table:central-vs-distributed}
+\label{table:dilemma-org-central-vs-distributed}
+%GV "dilemma-org-central-vs-distributed" [label="", shape="box"];
+%GV "dilemma-org-central-vs-distributed" -> "";
 \end{table}
 \end{center}
 
 \begin{figure}[H] % ht
     \centering
     \includegraphics[width=0.8\textwidth]{images/dilemma_centralization-vs-distributed.pdf}
-    \caption{Dipole oscillation. See Dilemma~\ref{table:central-vs-distributed}. Migrating to the opposite paradigm gives people in charge a chance to show their responsiveness to the needs of participants. The rate of oscillation is a measure of institutional memory half-life.}
+    \caption{Dipole oscillation. See Dilemma~\ref{table:dilemma-org-central-vs-distributed}. Migrating to the opposite paradigm gives people in charge a chance to show their responsiveness to the needs of participants. The rate of oscillation is a measure of institutional memory half-life.}
     \label{fig:central-vs-distributed}
 \end{figure}
 
@@ -2308,9 +2447,9 @@ Bureaucratic organizations are comprised of teams that provide services to other
 Grove~\cite{1995_Grove} calls the centralized model functional teams.
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:central-vs-distributed]{Dilemma of Centralization of Services}
+%The \hyperref[table:dilemma-org-central-vs-distributed]{Dilemma of Centralization of Services}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:central-vs-distributed]{Dilemma of Centralization of Services}
+%The \hyperref[table:dilemma-org-central-vs-distributed]{Dilemma of Centralization of Services}
 % Are the incentive structures aligned to support one direction or the other?
 
 Centralization is often carried out for the purposes of cost efficiency. The cost savings are due to de-duplication and having less slack. Both of those ``savings'' are a decrease of redundancy, which has a cost when there are unexpected fluctuations in need. 
@@ -2337,8 +2476,8 @@ The weaker feedback, lack of redundancy, and decreased emphasis on relationships
 \begin{table}[H] % ht
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
   \hline
-  \textbf{Redundant services in a market} &
-  \textbf{Monopoly service provider} \\
+  \textbf{Redundant services in a market.} &
+  \textbf{Monopoly service provider.} \\
   \hline
   \textit{Description}: Using a market model within the organization. &
   \textit{Description}:  \\  
@@ -2356,7 +2495,9 @@ The weaker feedback, lack of redundancy, and decreased emphasis on relationships
 Services within an organization. See also figure~\ref{fig:market-vs-monopoly}.
 %{\tiny Tag: Design of organization.}
 }
-\label{table:market-vs-monopoly}
+\label{table:dilemma-org-market-vs-monopoly}
+%GV "dilemma-org-market-vs-monopoly" [label="redundant services vs monopoly", shape="box"];
+%GV "dilemma-org-market-vs-monopoly" -> "monopoly";
 \end{table}
 \end{center}
 
@@ -2364,18 +2505,18 @@ Services within an organization. See also figure~\ref{fig:market-vs-monopoly}.
 \begin{figure}[H] % ht
     \centering
     \includegraphics[width=0.8\textwidth]{images/dilemma_market_vs_monopoly.pdf}
-    \caption{Dipole oscillation: solution A exists but doesn't meet my needs. Rather than tweak A, re-invent solution B which mostly overlaps with A but has independent development and support. See also Dilemma~\ref{table:market-vs-monopoly}.}
+    \caption{Dipole oscillation: solution A exists but doesn't meet my needs. Rather than tweak A, re-invent solution B which mostly overlaps with A but has independent development and support. See also Dilemma~\ref{table:dilemma-org-market-vs-monopoly}.}
     \label{fig:market-vs-monopoly}
 \end{figure}
 
 % explanation of context for dilemma
-The \hyperref[table:market-vs-monopoly]{Dilemma of Monopoly} is similar to the \hyperref[table:central-vs-distributed]{Dilemma of Centralization of Services}, in that both seem initially to be dipole oscillations. The centralization of services can be addressed by a matrixed organization, while an approximation of that concept for services would be federation. 
+The \hyperref[table:dilemma-org-market-vs-monopoly]{Dilemma of Monopoly} is similar to the \hyperref[table:dilemma-org-central-vs-distributed]{Dilemma of Centralization of Services}, in that both seem initially to be dipole oscillations. The centralization of services can be addressed by a matrixed organization, while an approximation of that concept for services would be federation. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:market-vs-monopoly]{Dilemma of Monopoly} is a label for the tension between minimizing redundancy and customizing solutions. Services tailored to the needs of a bureaucrat or subject mean that someone else with different needs will want a different solution. 
+The \hyperref[table:dilemma-org-market-vs-monopoly]{Dilemma of Monopoly} is a label for the tension between minimizing redundancy and customizing solutions. Services tailored to the needs of a bureaucrat or subject mean that someone else with different needs will want a different solution. 
 
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:market-vs-monopoly]{Dilemma of Monopoly}
+%The \hyperref[table:dilemma-org-market-vs-monopoly]{Dilemma of Monopoly}
 
 % Are the incentive structures aligned to support one direction or the other?
 The default direction for a bureaucratic organization is towards centralization and monopoly because that seems more efficient. At the same time, individual bureaucrats observe local challenges and invent solutions relevant to their needs.
@@ -2406,7 +2547,9 @@ The default direction for a bureaucratic organization is towards centralization 
 Where decisions get made in hierarchical organization.
 %{\tiny Tag: Design of organization.}
 }
-\label{table:decisions-low-vs-high}
+\label{table:dilemma-org-decisions-low-vs-high}
+%GV "dilemma-org-decisions-low-vs-high" [label="", shape="box"];
+%GV "dilemma-org-decisions-low-vs-high" -> "decisions";
 \end{table}
 \end{center}
 
@@ -2414,10 +2557,10 @@ Where decisions get made in hierarchical organization.
 Bureaucrats with direct exposure to a challenge and the ramifications are better positioned to make decisions. As Marquet~\cite{2013_Marquet} points out, pushing decisions down improves the sense of ownership. However, people directly working on a challenge may lack a holistic perspective held by bureaucrats higher in the chain of command. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:decisions-low-vs-high]{Dilemma of Decision Height} indicates that no individual is ideally positioned to make decisions. Bureaucracy involves distributed decision making because no member has all the relevant information. The coordination of distributed knowledge is a remedy that requires ongoing investment.
+The \hyperref[table:dilemma-org-decisions-low-vs-high]{Dilemma of Decision Height} indicates that no individual is ideally positioned to make decisions. Bureaucracy involves distributed decision making because no member has all the relevant information. The coordination of distributed knowledge is a remedy that requires ongoing investment.
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:decisions-low-vs-high]{Dilemma of Decision height} indicates that relationships up and down the chain of command are necessary. Low-level bureaucrats need to understand the holistic perspective, and bureaucrats at the top of the organization need to understand the ramifications of their decisions.
+The \hyperref[table:dilemma-org-decisions-low-vs-high]{Dilemma of Decision height} indicates that relationships up and down the chain of command are necessary. Low-level bureaucrats need to understand the holistic perspective, and bureaucrats at the top of the organization need to understand the ramifications of their decisions.
 
 % Are the incentive structures aligned to support one direction or the other?
 Relationships rarely span the chain of command, and bureaucrats make decisions based on locally accessible information and personal experience. 
@@ -2471,6 +2614,9 @@ In other words, the options are
 
 \subsection*{Dilemmas Raised by Subjects of Bureaucracy\label{sec:subjects-dilemmas}}
 
+%GV } // end org
+%GV subgraph cluster_subject {
+
 Each subject of bureaucracy views themselves as logical and self-consistent and erudite. In practice, the bureaucrat servicing subjects encounters conflicting statements. 
 
 \begin{center}
@@ -2492,7 +2638,9 @@ Each subject of bureaucracy views themselves as logical and self-consistent and 
 \end{tabular}
 \caption{\textit{Dilemma of Forms}: no one likes paperwork or letting cheaters cheat. The cost of protecting scarce resources is felt by everyone.
 }
-\label{table:dilemma-forms}
+\label{table:dilemma-subject-forms}
+%GV "dilemma-subject-forms" [label="", shape="box"];
+%GV "dilemma-subject-forms" -> "forms";
 \end{table}
 \end{center}
 
@@ -2500,14 +2648,14 @@ Each subject of bureaucracy views themselves as logical and self-consistent and 
 Subjects of bureaucracy expect efficiency. While that's reasonable, the nuances include minimizing the burden of interaction while also making sure the shared resource managed by bureaucrats isn't misallocated to malicious or unworthy recipients. 
 
 The 
-\hyperref[table:dilemma-forms]{Dilemma of Forms}
+\hyperref[table:dilemma-subject-forms]{Dilemma of Forms}
 is the subject's experience of the bureaucrat's 
-\hyperref[table:single-bit-decision]{Dilemma of Data for Decisions}
+\hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for Decisions}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 %
 % How does this effect your relationships with other bureaucrats?
-As a result of the \hyperref[table:dilemma-forms]{Dilemma of Forms}, bureaucrats are unable to satisfy the desire of subjects to have efficient bureaucracy. 
+As a result of the \hyperref[table:dilemma-subject-forms]{Dilemma of Forms}, bureaucrats are unable to satisfy the desire of subjects to have efficient bureaucracy. 
 
 % Are the incentive structures aligned to support one direction or the other?
 
@@ -2529,21 +2677,24 @@ As a result of the \hyperref[table:dilemma-forms]{Dilemma of Forms}, bureaucrats
 \caption{\textit{Dilemma of Consistency.}
 Consistency is seen as fairness, when in fact consistency can ignore critical differences. %Consistency is desirable for enabling predictability.
 }
-\label{table:dilemma-consistency}
+\label{table:dilemma-subject-consistency-per-situation}
+%GV "dilemma-subject-consistency-per-situation" [label="consistency vs exceptions", shape="box"];
+%GV "dilemma-subject-consistency-per-situation" -> "consistency";
+%GV "dilemma-subject-consistency-per-situation" -> "exception";
 \end{table}
 \end{center}
 
 % explanation of context for dilemma
-The origin of the \hyperref[table:dilemma-consistency]{Dilemma of Consistency} is based in narcissism on the part of subjects. ``I am uniquely special and no one else is.''  
+The origin of the \hyperref[table:dilemma-subject-consistency-per-situation]{Dilemma of Consistency} is based in narcissism on the part of subjects. ``I am uniquely special and no one else is.''  
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 %T
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-consistency]{Dilemma of Consistency}
+%The \hyperref[table:dilemma-subject-consistency-per-situation]{Dilemma of Consistency}
 % Are the incentive structures aligned to support one direction or the other?
 Bureaucrats seek consistency in the application of policies as a defensible story justifying the allocation of shared resources. A complicating factor is whether you think of fairness as equality (consistency means everything is the same) or equity (consistency accounts for differences). 
 
-As with the \hyperref[table:dilemma-forms]{Dilemma of Forms}, the consequence of the \hyperref[table:dilemma-consistency]{Dilemma of Consistency} is that subjects will usually be unhappy with bureaucracy. 
+As with the \hyperref[table:dilemma-subject-forms]{Dilemma of Forms}, the consequence of the \hyperref[table:dilemma-subject-consistency-per-situation]{Dilemma of Consistency} is that subjects will usually be unhappy with bureaucracy. 
 
 \begin{center}
 \begin{table}[H] % ht
@@ -2564,7 +2715,9 @@ As with the \hyperref[table:dilemma-forms]{Dilemma of Forms}, the consequence of
 \end{tabular}
 \caption{\textit{Dilemma of Flexible Rules.}
 }
-\label{table:dilemma-flexibility}
+\label{table:dilemma-subject-flexibility}
+%GV "dilemma-subject-flexibility" [label="clear rules vs flexiblity", shape="box"];
+%GV "dilemma-subject-flexibility" -> "flexibility";
 \end{table}
 \end{center}
 
@@ -2573,10 +2726,10 @@ The application of policy by bureaucrats is subjective. Relying on rules to be d
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 % How does this effect your relationships with other bureaucrats?
-As with all other dilemmas, the \hyperref[table:dilemma-flexibility]{Dilemma of flexible rules} is enacted to various degrees by different bureaucrats, resulting in non-uniform outcomes for subjects. Your relationship with the deciding bureaucrat matters. Information you provide and arguments you make sway the decider. 
+As with all other dilemmas, the \hyperref[table:dilemma-subject-flexibility]{Dilemma of flexible rules} is enacted to various degrees by different bureaucrats, resulting in non-uniform outcomes for subjects. Your relationship with the deciding bureaucrat matters. Information you provide and arguments you make sway the decider. 
 
 % Are the incentive structures aligned to support one direction or the other?
-The bias for bureacrats faced with the \hyperref[table:dilemma-flexibility]{Dilemma of flexible rules} is to appear consistent across decisions. The appearance of inconsistent policy application is harmful to the reputation of the bureaucrat and the organization.
+The bias for bureaucrats faced with the \hyperref[table:dilemma-subject-flexibility]{Dilemma of flexible rules} is to appear consistent across decisions. The appearance of inconsistent policy application is harmful to the reputation of the bureaucrat and the organization.
 
 \begin{center}
 \begin{table}[H] % ht
@@ -2598,7 +2751,9 @@ The bias for bureacrats faced with the \hyperref[table:dilemma-flexibility]{Dile
 \caption{\textit{Dilemma of transparency.}
 Transparency has a cost.
 }
-\label{table:dilemma-transparency}
+\label{table:dilemma-subject-transparency}
+%GV "dilemma-subject-transparency" [label="transparency vs low cost", shape="box"];
+%GV "dilemma-subject-transparency" -> "transparency";
 \end{table}
 \end{center}
 
@@ -2606,10 +2761,10 @@ Transparency has a cost.
 Whenever there is a desire for lower cost and some feature there is a tension with the costly feature. Bureaucrats make subjective decisions, so transparency helps other people understand the reasoning behind outcomes. Transparency is not free, so a dilemma occurs. 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-transparency]{Dilemma of transparency}
+%The \hyperref[table:dilemma-subject-transparency]{Dilemma of transparency}
 
 % How does this effect your relationships with other bureaucrats?
-The \hyperref[table:dilemma-transparency]{Dilemma of transparency} depends on your role. If you are a decision maker or data owner, you do not gain immediate value from justifying decisions or sharing data. You pay a cost to provide transparency, both reputational (your mistakes become visible) and financial (for hosting data, time spent publishing). There are potential benefits to transparency -- improved trust in relationships, subjects detecting and reporting mistakes. 
+The \hyperref[table:dilemma-subject-transparency]{Dilemma of transparency} depends on your role. If you are a decision maker or data owner, you do not gain immediate value from justifying decisions or sharing data. You pay a cost to provide transparency, both reputational (your mistakes become visible) and financial (for hosting data, time spent publishing). There are potential benefits to transparency -- improved trust in relationships, subjects detecting and reporting mistakes. 
 
 % Are the incentive structures aligned to support one direction or the other?
 An incumbent bureaucrat defaults to no transparency. If subjects want to dispute decisions they benefit from having information about how the policy was applied. If the subject is willing to pay the cost for the data, then the decision maker has to do extra work to make data available.
@@ -2637,3 +2792,5 @@ there are constructive responses that can improve your effectiveness. Improvemen
 \end{itemize}
  
 
+%GV } // end subject subgraph
+%GV } // end digraph G
