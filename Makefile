@@ -29,6 +29,13 @@ notes:
 
 out: pdf html
 
+dilgraph:
+	grep "%GV " latex/dilemmas_and_trilemmas.tex | sed 's/%GV //'  | sed 's/.*"";//'
+
+dilgraphkeywords:
+	grep "%GV " latex/dilemmas_and_trilemmas.tex | cut -d">" -f2 | grep "%GV" -v | grep dilemma -v | sort | uniq
+
+
 # https://pandoc.org/MANUAL.html and https://pandoc.org/demos.html
 # --standalone:  without it, you'd only get a snippet instead of a complete document.        https://pandoc.org/MANUAL.html#option--standalone
 # --citeproc:    Process the citations in the file, replacing them with rendered citations and adding a bibliography.

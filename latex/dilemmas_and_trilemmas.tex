@@ -11,6 +11,7 @@
 % Each line of GraphViz source code begins with "%GV". For example,
 %GV digraph G {
 %GV // from the bureaucracy book dilemmas_and_trilemmas.text
+%GV rankdir=LR;
 
 When a decision has two viable options (neither being best), that is a \href{https://en.wikipedia.org/wiki/Dilemma}{dilemma}. 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Dilemma}{dilemma}}
@@ -207,7 +208,7 @@ and \hyperref[sec:subjects-dilemmas]{dilemmas raised by subjects of bureaucracy}
 The personal policies apply to each bureaucrat in an organization, while the structural policies for an organization are faced by a subset of bureaucrats in the management role. 
 
 
-% META: for each dilemma, address the following questions:
+% META: dilemma template: for each dilemma, address the following questions:
 % Explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 %The \hyperref[table:]{Dilemma of }
@@ -247,8 +248,8 @@ In practice, the following decisions are unordered and are constantly faced by t
 Scope of problem solving can be narrow or broad. Rather than limit your investigations to one or the other, flipping between the two on a recurring basis (but not too often) can help.
 }
 \label{table:dilemma-personal-focus-vs-systemic}
-%GV "dilemma-personal-focus-vs-systemic" [label="immediate problem vs systemic issues", shape="box"];
-%GV "dilemma-personal-focus-vs-systemic" -> "systemic";
+%GV     "dilemma-personal-focus-vs-systemic" [label="immediate problem vs systemic issues", shape="box"];
+%GV     "dilemma-personal-focus-vs-systemic" -> "systemic";
 \end{table}
 \end{center}
 
@@ -291,8 +292,8 @@ and
 How you raise the issue, with whom, and in what context all matter to either correcting the situation or getting better educated.
 }
 \label{table:dilemma-personal-speak-up-or-hold-back}
-%GV "dilemma-personal-speak-up-or-hold-back" [label="speak up vs hold back", shape="box"];
-%GV "dilemma-personal-speak-up-or-hold-back" -> "speak";
+%GV     "dilemma-personal-speak-up-or-hold-back" [label="speak up vs hold back", shape="box"];
+%GV     "dilemma-personal-speak-up-or-hold-back" -> "speak";
 \end{table}
 \end{center}
 
@@ -335,8 +336,8 @@ and
 % \ m a rginpar{[Tag] Folk Wisdom}
 See the related \hyperref[table:dilemma-personal-manager-micromanaging]{Dilemma of Micromanaging} in Table~\ref{table:dilemma-personal-manager-micromanaging}.}
 \label{table:dilemma-personal-early-intervention}
-%GV "dilemma-personal-early-intervention" [label="intervene vs wait", shape="box"];
-%GV "dilemma-personal-early-intervention" -> "speak";
+%GV     "dilemma-personal-early-intervention" [label="intervene vs wait", shape="box"];
+%GV     "dilemma-personal-early-intervention" -> "speak";
 \end{table}
 \end{center}
 
@@ -376,8 +377,9 @@ An expression of concern and control -- wanting the right outcome, wanting to pr
 %Applies to both peers and subordinates.
 }
 \label{table:dilemma-personal-manager-micromanaging}
-%GV "dilemma-personal-manager-micromanaging" [label="review frequency", shape="box"];
-%GV "dilemma-personal-manager-micromanaging" -> "micromanage";
+%GV     "dilemma-personal-manager-micromanaging" [label="review frequency", shape="trapezium"];
+%GV     "dilemma-personal-manager-micromanaging" -> "micromanage";
+%GV     "dilemma-personal-manager-micromanaging" -> "dilemma-personal-solution-provider";
 \end{table}
 \end{center}
 
@@ -406,8 +408,8 @@ The manager is accountable for the outcome of the people being supervised, which
 This is the opposite perspective of \ref{table:dilemma-personal-manager-micromanaging}. Nominally the manager helps identify the goals and provides context and the subordinate figures out how to accomplish the goal, but who is responsible for what is negotiable in each relationship.
 }
 \label{table:dilemma-personal-solution-provider}
-%GV "dilemma-personal-solution-provider" [label="direction vs micromanagement", shape="box"];
-%GV "dilemma-personal-solution-provider" -> "micromanage";
+%GV     "dilemma-personal-solution-provider" [label="direction vs micromanagement", shape="box"];
+%GV     "dilemma-personal-solution-provider" -> "micromanage";
 \end{table}
 \end{center}
 
@@ -443,8 +445,8 @@ I write things down and share them with other people (for example, this book), b
 for this trade-off, like intentionally misquoting another person to bias the documentation in your favor, or only writing down the aspects of conversation that favor the outcome you are interested in.  
 }
 \label{table:dilemma-personal-notes-or-no-notes}
-%GV "dilemma-personal-notes-or-no-notes" [label="take notes or not", shape="box"];
-%GV "dilemma-personal-notes-or-no-notes" -> "notes";
+%GV     "dilemma-personal-notes-or-no-notes" [label="take notes or not", shape="box"];
+%GV     "dilemma-personal-notes-or-no-notes" -> "notes";
 \end{table}
 \end{center}
 
@@ -484,8 +486,8 @@ Both of these options succumb to \href{https://en.wikipedia.org/wiki/Analysis_pa
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Analysis_paralysis}{analysis paralysis}}
 }
 \label{table:dilemma-personal-forest-vs-trees}
-%GV "dilemma-personal-forest-vs-trees" [label="brainstorm or do", shape="box"];
-%GV "dilemma-personal-forest-vs-trees" -> "do";
+%GV     "dilemma-personal-forest-vs-trees" [label="brainstorm or do", shape="box"];
+%GV     "dilemma-personal-forest-vs-trees" -> "do";
 \end{table}
 \end{center}
 
@@ -519,9 +521,9 @@ Inaction is usually a safe response to a situation. Admiring the problem, studyi
 Like Dilemma~\ref{table:dilemma-personal-forest-vs-trees}, but here the question is about coordination versus doing the work. The amount of coordination depends on how many stakeholders there are, how familiar the stakeholders are with the challenge, and whether the action is reversible when found to be incorrect.
 }
 \label{table:dilemma-personal-meetings-versus-work}
-%GV "dilemma-personal-meetings-versus-work" [label="coordinate or do", shape="box"];
-%GV "dilemma-personal-meetings-versus-work" -> "coordinate";
-%GV "dilemma-personal-meetings-versus-work" -> "do";
+%GV     "dilemma-personal-meetings-versus-work" [label="coordinate or do", shape="box"];
+%GV     "dilemma-personal-meetings-versus-work" -> "coordinate";
+%GV     "dilemma-personal-meetings-versus-work" -> "do";
 \end{table}
 \end{center}
 
@@ -556,8 +558,8 @@ As with \hyperref[table:dilemma-personal-forest-vs-trees]{Dilemma of Think or Do
 Work above your pay grade (provide the organization extra labor and you get reduced pay) or at your pay grade (expected labor and pay)?
 }
 \label{table:dilemma-personal-work-extra-or-work-as-expected}
-%GV "dilemma-personal-work-extra-or-work-as-expected" [label="work extra or as paid", shape="box"];
-%GV "dilemma-personal-work-extra-or-work-as-expected" -> "";
+%GV     "dilemma-personal-work-extra-or-work-as-expected" [label="work extra or as paid", shape="box"];
+%GV     "dilemma-personal-work-extra-or-work-as-expected" -> "level-of-effort";
 \end{table}
 \end{center}
 
@@ -593,8 +595,8 @@ The canonical example is the \href{https://en.wikipedia.org/wiki/Space_Shuttle_C
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster}{Challenger disaster}}
 Transparency and professional vulnerability are desirable but have costs.}
 \label{table:dilemma-personal-bad-news-up-the-chain}
-%GV "dilemma-personal-bad-news-up-the-chain" [label="send bad news up or not", shape="box"];
-%GV "dilemma-personal-bad-news-up-the-chain" -> "";
+%GV     "dilemma-personal-bad-news-up-the-chain" [label="send bad news up or not", shape="box"];
+%GV     "dilemma-personal-bad-news-up-the-chain" -> "";
 \end{table}
 \end{center}
 
@@ -631,8 +633,8 @@ The \hyperref[table:dilemma-personal-bad-news-up-the-chain]{Dilemma of Bad News}
 \index{dilemma!of preparation and cleanup}
 How much to invest in contingency planning and preparedness. In practice you will do both.}
 \label{table:dilemma-personal-emergencies-vs-ignore}
-%GV "dilemma-personal-emergencies-vs-ignore" [label="prepare for emergency or wait", shape="box"];
-%GV "dilemma-personal-emergencies-vs-ignore" -> "plan";
+%GV     "dilemma-personal-emergencies-vs-ignore" [label="prepare for emergency or wait", shape="box"];
+%GV     "dilemma-personal-emergencies-vs-ignore" -> "plan";
 \end{table}
 \end{center}
 
@@ -667,8 +669,8 @@ The \hyperref[table:dilemma-personal-emergencies-vs-ignore]{Dilemma of Preparati
 How much vetting should novel ideas get before being enacted?
 }
 \label{table:dilemma-personal-idea-filtering}
-%GV "dilemma-personal-idea-filtering" [label="filter good ideas or not", shape="box"];
-%GV "dilemma-personal-idea-filtering" -> "innovation";
+%GV     "dilemma-personal-idea-filtering" [label="filter good ideas or not", shape="box"];
+%GV     "dilemma-personal-idea-filtering" -> "innovation";
 \end{table}
 \end{center}
 
@@ -707,8 +709,8 @@ Having complaints, or good ideas, or even plans is insufficient. Taking action a
 Zero-sum investment of attention in either maintenance of the status quo or making progress. Both require work, but rewards are biased towards innovation. 
 }
 \label{table:dilemma-personal-flaws-and-innovation}
-%GV "dilemma-personal-flaws-and-innovation" [label="fix flaws or innovate", shape="box"];
-%GV "dilemma-personal-flaws-and-innovation" -> "innovation";
+%GV     "dilemma-personal-flaws-and-innovation" [label="fix flaws or innovate", shape="box"];
+%GV     "dilemma-personal-flaws-and-innovation" -> "innovation";
 \end{table}
 \end{center}
 
@@ -745,8 +747,9 @@ The \hyperref[table:dilemma-personal-flaws-and-innovation]{Dilemma of Flaws and 
 Incremental change may not suffice. Disruption can be costly.
 }
 \label{table:dilemma-personal-disruptive-or-iterative}
-%GV "dilemma-personal-disruptive-or-iterative" [label="disruptive or iterative innovation", shape="box"];
-%GV "dilemma-personal-disruptive-or-iterative" -> "innovation";
+%GV     "dilemma-personal-disruptive-or-iterative" [label="disruptive or iterative innovation", shape="box"];
+%GV     "dilemma-personal-disruptive-or-iterative" -> "innovation";
+%GV     "dilemma-personal-disruptive-or-iterative" -> "iterate"
 \end{table}
 \end{center}
 
@@ -787,8 +790,8 @@ A good indicator that you're on a useful path is when your support is from peopl
 Where (physically, spatially) innovation takes place matters because the environment sets context for assumptions.
 }
 \label{table:dilemma-personal-where-to-innovate}
-%GV "dilemma-personal-where-to-innovate" [label="innovate novel or standard environment", shape="box"];
-%GV "dilemma-personal-where-to-innovate" -> "innovation";
+%GV     "dilemma-personal-where-to-innovate" [label="innovate novel or standard environment", shape="box"];
+%GV     "dilemma-personal-where-to-innovate" -> "innovation";
 \end{table}
 \end{center}
 
@@ -824,9 +827,9 @@ Bureaucracy is resistant to change, and innovation implies change. While moving 
 How is innovation carried out within the organization?
 }
 \label{table:dilemma-personal-innovate-open-obscure}
-%GV "dilemma-personal-innovate-open-obscure" [label="innovate in open or hiding", shape="box"];
-%GV "dilemma-personal-innovate-open-obscure" -> "innovation";
-%GV "dilemma-personal-innovate-open-obscure" -> "hide";
+%GV     "dilemma-personal-innovate-open-obscure" [label="innovate in open or hiding", shape="box"];
+%GV     "dilemma-personal-innovate-open-obscure" -> "innovation";
+%GV     "dilemma-personal-innovate-open-obscure" -> "hide";
 \end{table}
 \end{center}
 
@@ -862,8 +865,8 @@ When you have an idea about how to improve, you can navigate the \hyperref[table
 This dilemma is magnified when the task you work on is high risk or is resource intensive. 
 }
 \label{table:dilemma-personal-recognition-obscurity}
-%GV "dilemma-personal-recognition-obscurity" [label="seek recognition or obscurity", shape="box"];
-%GV "dilemma-personal-recognition-obscurity" -> "hide";
+%GV     "dilemma-personal-recognition-obscurity" [label="seek recognition or obscurity", shape="box"];
+%GV     "dilemma-personal-recognition-obscurity" -> "hide";
 \end{table}
 \end{center}
 
@@ -909,8 +912,8 @@ on page~\pageref{sec:bureaucratic-debt}.
 %{\tiny Tag: Decision making.}
 }
 \label{table:dilemma-personal-gather-data-lots-vs-little}
-%GV "dilemma-personal-gather-data-lots-vs-little" [label="data quantity", shape="box"];
-%GV "dilemma-personal-gather-data-lots-vs-little" -> "data";
+%GV     "dilemma-personal-gather-data-lots-vs-little" [label="data quantity", shape="box"];
+%GV     "dilemma-personal-gather-data-lots-vs-little" -> "data";
 \end{table}
 \end{center}
 
@@ -968,9 +971,9 @@ How much time to invest in different types of planning.
 %{\tiny Tag: Decision making.}
 }
 \label{table:dilemma-personal-planning-vs-iterate}
-%GV "dilemma-personal-planning-vs-iterate" [label="how much planning", shape="box"];
-%GV "dilemma-personal-planning-vs-iterate" -> "plan";
-%GV "dilemma-personal-planning-vs-iterate" -> "iterate";
+%GV     "dilemma-personal-planning-vs-iterate" [label="how much planning", shape="box"];
+%GV     "dilemma-personal-planning-vs-iterate" -> "plan";
+%GV     "dilemma-personal-planning-vs-iterate" -> "iterate";
 \end{table}
 \end{center}
 
@@ -1034,8 +1037,8 @@ the intended scope of effect  (Dilemma~\ref{table:dilemma-personal-scope-broad-v
 %{\tiny Tag: Personal choice.}
 }
 \label{table:dilemma-personal-risk-high-vs-low}
-%GV "dilemma-personal-risk-high-vs-low" [label="big risk or small risk", shape="box"];
-%GV "dilemma-personal-risk-high-vs-low" -> "risk";
+%GV     "dilemma-personal-risk-high-vs-low" [label="big risk or small risk", shape="box"];
+%GV     "dilemma-personal-risk-high-vs-low" -> "risk";
 \end{table}
 \end{center}
 
@@ -1074,8 +1077,8 @@ Engagement with opposition to process or change.
 %{\tiny Tag: Decision making.}
 }
 \label{table:dilemma-personal-opposition-involve-ignore}
-%GV "dilemma-personal-opposition-involve-ignore" [label="involve opposition or ignore", shape="box"];
-%GV "dilemma-personal-opposition-involve-ignore" -> "disagree";
+%GV     "dilemma-personal-opposition-involve-ignore" [label="involve opposition or ignore", shape="box"];
+%GV     "dilemma-personal-opposition-involve-ignore" -> "disagree";
 \end{table}
 \end{center}
 
@@ -1116,8 +1119,8 @@ Scope of effect of your work.
 %{\tiny Tag: Personal choice}
 }
 \label{table:dilemma-personal-scope-broad-vs-narrow}
-%GV "dilemma-scope-broad-vs-narrow" [label="scope of effect broad vs narrow", shape="box"];
-%GV "dilemma-scope-broad-vs-narrow" -> "scope";
+%GV     "dilemma-scope-broad-vs-narrow" [label="scope of effect broad vs narrow", shape="box"];
+%GV     "dilemma-scope-broad-vs-narrow" -> "scope";
 \end{table}
 \end{center}
 
@@ -1168,8 +1171,8 @@ See the description of
 %{\tiny Tag: Organization's culture. Tag: Personal choice.}
 }
 \label{table:dilemma-personal-consistency-gradual-stepwise}
-%GV "dilemma-personal-consistency-gradual-stepwise" [label="incremental or step-wise change", shape="box"];
-%GV "dilemma-personal-consistency-gradual-stepwise" -> "consistency";
+%GV     "dilemma-personal-consistency-gradual-stepwise" [label="incremental or step-wise change", shape="box"];
+%GV     "dilemma-personal-consistency-gradual-stepwise" -> "consistency";
 \end{table}
 \end{center}
 
@@ -1207,8 +1210,8 @@ Bureaucrats are incentivized to avoid change, so the bias in this dilemma is tow
 %{\tiny Tag: Personal choice.}
 }
 \label{table:dilemma-personal-disseminate-one-by-one}
-%GV "dilemma-personal-disseminate-one-by-one" [label="notify one-by-one ar at once", shape="box"];
-%GV "dilemma-personal-disseminate-one-by-one" -> "";
+%GV     "dilemma-personal-disseminate-one-by-one" [label="notify one-by-one ar at once", shape="box"];
+%GV     "dilemma-personal-disseminate-one-by-one" -> "";
 \end{table}
 \end{center}
 
@@ -1249,8 +1252,8 @@ or not depends on how much time to allocate to sharing the information.
 %{\tiny Tag: Organization's culture.}
 }
 \label{table:dilemma-personal-rule-strictness-lax}
-%GV "dilemma-personal-rule-strictness-lax" [label="enforce rules strict or lax", shape="box"];
-%GV "dilemma-personal-rule-strictness-lax" -> "rules";
+%GV     "dilemma-personal-rule-strictness-lax" [label="enforce rules strict or lax", shape="box"];
+%GV     "dilemma-personal-rule-strictness-lax" -> "rules";
 \end{table}
 \end{center}
 
@@ -1296,8 +1299,8 @@ The default behavior is strict enforcement since that is a defensible story for 
 %{\tiny Tag: Organization's culture}
 }
 \label{table:dilemma-personal-number-of-rules}
-%GV "dilemma-personal-number-of-rules" [label="rule or freedom", shape="box"];
-%GV "dilemma-personal-number-of-rules" -> "rules";
+%GV     "dilemma-personal-number-of-rules" [label="rule or freedom", shape="box"];
+%GV     "dilemma-personal-number-of-rules" -> "rules";
 \end{table}
 \end{center}
 
@@ -1343,8 +1346,8 @@ Constraining activities to explicitly specified rules can be used as an excuse f
 \index{dilemma!of adherence to rules}
 }
 \label{table:dilemma-personal-rule-adherence}
-%GV "dilemma-personal-rule-adherence" [label="rules allow or conform", shape="box"];
-%GV "dilemma-personal-rule-adherence" -> "rules";
+%GV     "dilemma-personal-rule-adherence" [label="rules allow or conform", shape="box"];
+%GV     "dilemma-personal-rule-adherence" -> "rules";
 \end{table}
 \end{center}
 
@@ -1364,10 +1367,6 @@ Changing a coworker's attitude on this topic if they disagree with your understa
 %The \hyperref[table:dilemma-personal-rule-adherence]{Dilemma of Adherence to rules}
 % Are the incentive structures aligned to support one direction or the other?
 
-
-  
-
-
 \begin{center}
 \begin{table}[H] % ht
 \begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
@@ -1375,18 +1374,24 @@ Changing a coworker's attitude on this topic if they disagree with your understa
   \textbf{A decision in a process is informed by a single bit of information.} & 
   \textbf{Fault tolerant decision making through redundancy.} \\ 
   \hline
-  \textit{Cons}: Might be accidentally wrong. &
-  \textit{Cons}: Extra burden of collecting and processing more data. \\  
+  \textit{Description}: A form featuring a checkbox option. & 
+  \textit{Description}: Multiple independent confirmations that the data collected is correct.  \\
+  \hline
+  \textit{Pros}: Less overhead. & 
+  \textit{Pros}: Decrease mistakes. \\
+  \hline
+  \textit{Cons}: Single point of failure. Might be accidentally wrong. &
+  \textit{Cons}: More time needed. Extra burden of collecting and processing more data. \\  
   \hline
 \end{tabular}
 \caption{
-\textit{Dilemma of Data for Decisions.}
-\index{dilemma!of data for decisions}
-Having a single checkmark on a form makes data collection easier for the subject and the bureaucrat. However, the person using the form might not see the checkmark box or may accidentally fill in the checkmark. The process is sensitive to this single bit of data. This applies to written forms and verbal conversations.
+\textit{Dilemma of Redundant Data for Decisions.}
+\index{dilemma!of redundant data for decisions}
+Having a single checkbox on a form makes data collection easier for both the subject and the bureaucrat. However, the person using the form might not see the checkbox or may accidentally fill in the checkbox. Is there any validation of the selection? The process is sensitive to this single bit of data. This applies to written forms and verbal conversations. 
 }
 \label{table:dilemma-personal-single-bit-decision}
-%GV "dilemma-personal-single-bit-decision" [label="single bit error", shape="box"];
-%GV "dilemma-personal-single-bit-decision" -> "redundancy";
+%GV     "dilemma-personal-single-bit-decision" [label="single bit error", shape="box"];
+%GV     "dilemma-personal-single-bit-decision" -> "redundancy";
 \end{table}
 \end{center}
 
@@ -1395,15 +1400,49 @@ With the intent of streamlining interactions between subjects and bureaucrats, c
 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-The \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{Dilemma of Data Quantity} is about how much data is needed, whereas the \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for Decisions} is about the redundancy of data used for coordination. While not unique to bureaucracy, the lack of feedback loops motivating correct information can lead to harm for participants.
+The \hyperref[table:dilemma-personal-gather-data-lots-vs-little]{Dilemma of Data Quantity} is about how much data is needed, whereas the \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Redundant Data for Decisions} is about the redundancy of data used for coordination. While not unique to bureaucracy, the lack of feedback loops motivating correct information can lead to harm for participants.
 
 % How does this effect your relationships with other bureaucrats?
 Most decisions are of low importance, so the correctness of information is rarely checked. Redundant information is deemed wasteful, and those habits don't necessarily change when the significance of a decision increases. 
 
-The \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for Decisions} presents a lose-lose situation: collect redundant information (which introduces additional risk of conflicting information) or hope that data collected represents reality without checking. 
+The \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Redundant Data for Decisions} presents a lose-lose situation: collect redundant information (which introduces additional risk of conflicting information) or hope that data collected represents reality without checking. 
 
 % Are the incentive structures aligned to support one direction or the other?
 
+\begin{center}
+\begin{table}[H] % ht
+\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
+  \hline
+  \textbf{A single bureaucrat reviews information and makes a decision.} & 
+  \textbf{Fault tolerant decision making using multiple reviewers.} \\ 
+  \hline
+  \textit{Description}: A decision process relies on a single bureaucrat. & 
+  \textit{Description}: Multiple independent confirmations of a decision.  \\
+  \hline
+  \textit{Pros}: Less overhead. & 
+  \textit{Pros}: Decrease mistakes. \\
+  \hline
+  \textit{Cons}: Single point of failure. Might get policy interpretation wrong. &
+  \textit{Cons}: More time and staffing needed. Less ownership of decisions. \\  
+  \hline
+\end{tabular}
+\caption{
+\textit{Dilemma of Redundant Reviewers.}
+\index{dilemma!of redundant reviewers}
+Having a single bureaucrat make a decision is quicker than checking that person, but validating the decision slows down the process and requires additional bureaucrats getting involved.
+}
+\label{table:dilemma-personal-redundant-reviewers}
+%GV     "dilemma-personal-redundant-reviewers" [label="redundant reviewers", shape="box"];
+%GV     "dilemma-personal-redundant-reviewers" -> "redundancy";
+\end{table}
+\end{center}
+
+% TODO: Explanation of context for dilemma
+% How does this relate directly to bureaucracy as defined as shared resource management policymaking?
+%The \hyperref[table:]{Dilemma of }
+% How does this effect your relationships with other bureaucrats?
+%The \hyperref[table:]{Dilemma of }
+% Are the incentive structures aligned to support one direction or the other?
 
 \begin{center}
 \begin{table}[H] % ht
@@ -1430,8 +1469,8 @@ The \hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for De
 Speed versus accuracy of task completion.
 }
 \label{table:dilemma-personal-quick-methodical}
-%GV "dilemma-personal-quick-methodical" [label="quick or methodical", shape="box"];
-%GV "dilemma-personal-quick-methodical" -> "speed";
+%GV     "dilemma-personal-quick-methodical" [label="quick or methodical", shape="box"];
+%GV     "dilemma-personal-quick-methodical" -> "speed";
 \end{table}
 \end{center}
 
@@ -1463,9 +1502,9 @@ The bias for this dilemma is that most bureaucrats want to be perceived as metho
 \index{dilemma!of urgency}
 }
 \label{table:dilemma-personal-manager-rate-of-work}
-%GV "dilemma-personal-manager-rate-of-work" [label="", shape="box"];
-%GV "dilemma-personal-manager-rate-of-work" -> "";
-%GV "dilemma-personal-manager-rate-of-work" -> "dilemma-personal-work-extra-or-work-as-expected";
+%GV     "dilemma-personal-manager-rate-of-work" [label="work hard or sustainably", shape="trapezium"];
+%GV     "dilemma-personal-manager-rate-of-work" -> "level-of-effort";
+%GV     "dilemma-personal-manager-rate-of-work" -> "dilemma-personal-work-extra-or-work-as-expected" [dir=none];
 \end{table}
 \end{center}
 
@@ -1504,8 +1543,8 @@ and demand spikes like a natural disaster for \href{https://en.wikipedia.org/wik
 In conversations or meetings there is a (subjective) balance for participants.
 }
 \label{table:dilemma-personal-talk-or-listen}
-%GV "dilemma-personal-talk-or-listen" [label="talk or listen", shape="box"];
-%GV "dilemma-personal-talk-or-listen" -> "";
+%GV     "dilemma-personal-talk-or-listen" [label="talk or listen", shape="box"];
+%GV     "dilemma-personal-talk-or-listen" -> "speak";
 \end{table}
 \end{center}
 
@@ -1538,21 +1577,21 @@ Talking constructively about work takes effort, so the default here is to not co
 \index{dilemma!of experienced collaborators}
 People with experience are useful but less accessible.
 }
-\label{table:dilemma-experienced-collaborators}
-%GV "dilemma-experienced-collaborators" [label="experienced collaborators or not", shape="box"];
-%GV "dilemma-experienced-collaborators" -> "";
+\label{table:dilemma-personal-experienced-collaborators}
+%GV     "dilemma-personal-experienced-collaborators" [label="experienced collaborators or not", shape="box"];
+%GV     "dilemma-personal-experienced-collaborators" -> "";
 \end{table}
 \end{center}
 
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 Distributed knowledge in a bureaucracy relies on collaboration among bureaucrats. 
-The \hyperref[table:dilemma-experienced-collaborators]{Dilemma of Experienced Collaborators} is about the options of who to collaborate with. 
+The \hyperref[table:dilemma-personal-experienced-collaborators]{Dilemma of Experienced Collaborators} is about the options of who to collaborate with. 
 
 % How does this effect your relationships with other bureaucrats?
 
 % Are the incentive structures aligned to support one direction or the other?
-The bias for the \hyperref[table:dilemma-experienced-collaborators]{Dilemma of Experienced Collaborators} depends on the promotion structure of your organization and the composition of the workforce. If training new member of the team is rewarded, then you might choose to work with less experienced bureaucrats. If the entire team is experienced, then this Dilemma doesn't apply.
+The bias for the \hyperref[table:dilemma-personal-experienced-collaborators]{Dilemma of Experienced Collaborators} depends on the promotion structure of your organization and the composition of the workforce. If training new member of the team is rewarded, then you might choose to work with less experienced bureaucrats. If the entire team is experienced, then this Dilemma doesn't apply.
 
 \begin{center}
 \begin{table}[H] % ht
@@ -1574,8 +1613,8 @@ The bias for the \hyperref[table:dilemma-experienced-collaborators]{Dilemma of E
 Acceptance or rejection of more work can be explicit or implicit. Bureaucrats respond to this challenge by sending mixed signals: expressing interest but not following up with action.
 }
 \label{table:dilemma-new-opportunties-yes-no}
-%GV "dilemma-new-opportunties-yes-no" [label="new opportunities yes or no", shape="box"];
-%GV "dilemma-new-opportunties-yes-no" -> "";
+%GV     "dilemma-new-opportunties-yes-no" [label="new opportunities yes or no", shape="box"];
+%GV     "dilemma-new-opportunties-yes-no" -> "";
 \end{table}
 \end{center}
 
@@ -1612,9 +1651,9 @@ How much data to share. Potential solution is to make data discoverable. Adverti
 %{\tiny Tag: Personal choice.}
 }
 \label{table:dilemma-data-share-vs-hide}
-%GV "dilemma-data-share-vs-hide" [label="share data less or more", shape="box"];
-%GV "dilemma-data-share-vs-hide" -> "share";
-%GV "dilemma-data-share-vs-hide" -> "data";
+%GV     "dilemma-data-share-vs-hide" [label="share data less or more", shape="box"];
+%GV     "dilemma-data-share-vs-hide" -> "share";
+%GV     "dilemma-data-share-vs-hide" -> "data";
 \end{table}
 \end{center}
 
@@ -1652,8 +1691,8 @@ Applies to teams and to individuals.
 %{\tiny Tag: Personal choice.}
 }
 \label{table:dilemma-personal-cooperate-vs-compete}
-%GV "dilemma-personal-cooperate-vs-compete" [label="cooperate or compete", shape="box"];
-%GV "dilemma-personal-cooperate-vs-compete" -> "";
+%GV     "dilemma-personal-cooperate-vs-compete" [label="cooperate or compete", shape="box"];
+%GV     "dilemma-personal-cooperate-vs-compete" -> "";
 \end{table}
 \end{center}
 
@@ -1691,8 +1730,8 @@ Case consistency vs adaptability.
 %{\tiny Tag: Personal choice.}
 }
 \label{table:dilemma-personal-policy-consistency-across-cases}
-%GV "dilemma-personal-policy-consistency-across-cases" [label="consistent policy or adapt", shape="box"];
-%GV "dilemma-personal-policy-consistency-across-cases" -> "consistent";
+%GV     "dilemma-personal-policy-consistency-across-cases" [label="consistent policy or adapt", shape="box"];
+%GV     "dilemma-personal-policy-consistency-across-cases" -> "consistency";
 \end{table}
 \end{center}
 
@@ -1723,20 +1762,20 @@ When change to policies is desired, there are options on how to advocate for cha
 \index{dilemma!of swimlanes}
 How are tasks assigned? This can be negotiated with coworkers and is not intrinsic to structure of the organization. 
 }
-\label{table:dilemma-swimlanes}
-%GV "dilemma-swimlanes" [label="swimlanes or not", shape="box"];
-%GV "dilemma-swimlanes" -> "scope";
+\label{table:dilemma-personal-swimlanes}
+%GV     "dilemma-personal-swimlanes" [label="swimlanes or not", shape="box"];
+%GV     "dilemma-personal-swimlanes" -> "scope";
 \end{table}
 \end{center}
 
 
-Independent of how tasks are assigned within a team or organization (Dilemma~\ref{table:dilemma-swimlanes}), individual bureaucrats can decide how they act in Dilemma~\ref{table:dilemma-scope-of-activity}.
+Independent of how tasks are assigned within a team or organization (Dilemma~\ref{table:dilemma-personal-swimlanes}), individual bureaucrats can decide how they act in Dilemma~\ref{table:dilemma-personal-scope-of-activity}.
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-swimlanes]{Dilemma of Swimlanes}
+%The \hyperref[table:dilemma-personal-swimlanes]{Dilemma of Swimlanes}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-swimlanes]{Dilemma of Swimlanes}
+%The \hyperref[table:dilemma-personal-swimlanes]{Dilemma of Swimlanes}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1764,10 +1803,10 @@ Both strict adherence to role scope and ignoring scope can decrease an organizat
 What happens when a person deviates from their role?
 How are people who do not conform identified? Are they confronted?
 }
-\label{table:dilemma-scope-of-activity}
-%GV "dilemma-scope-of-activity" [label="", shape="box"];
-%GV "dilemma-scope-of-activity" -> "scope";
-%GV "dilemma-scope-of-activity" -> "dilemma-swimlanes";
+\label{table:dilemma-personal-scope-of-activity}
+%GV     "dilemma-personal-scope-of-activity" [label="job scope", shape="box"];
+%GV     "dilemma-personal-scope-of-activity" -> "scope";
+%GV     "dilemma-personal-scope-of-activity" -> "dilemma-personal-swimlanes" [dir=none];
 \end{table}
 \end{center}
 
@@ -1777,9 +1816,9 @@ As a specialist, you have two choices: invest in deepening your expertise and sk
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-scope-of-activity]{Dilemma of Scope}
+%The \hyperref[table:dilemma-personal-scope-of-activity]{Dilemma of Scope}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-scope-of-activity]{Dilemma of Scope}
+%The \hyperref[table:dilemma-personal-scope-of-activity]{Dilemma of Scope}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1806,9 +1845,10 @@ As a specialist, you have two choices: invest in deepening your expertise and sk
 \index{dilemma!of speaking scope}
 If you don't know what you're talking about, should you speculate or keep your mouth shut?
 }
-\label{table:dilemma-scope-of-speaking}
-%GV "dilemma-scope-of-speaking" [label="", shape="box"];
-%GV "dilemma-scope-of-speaking" -> "scope";
+\label{table:dilemma-personal-scope-of-speaking}
+%GV     "dilemma-personal-scope-of-speaking" [label="speak outside your expertise", shape="box"];
+%GV     "dilemma-personal-scope-of-speaking" -> "scope";
+%GV     "dilemma-personal-scope-of-speaking" -> "speak";
 \end{table}
 \end{center}
 
@@ -1816,9 +1856,9 @@ Distinguishing speculation from experience is critical in communication. Explain
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-personal-scope-of-speaking]{Dilemma of Speaking Scope}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-personal-scope-of-speaking]{Dilemma of Speaking Scope}
 % Are the incentive structures aligned to support one direction or the other?
 
 \begin{center}
@@ -1843,17 +1883,18 @@ There is no \href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks balance}}
 }
 \label{table:dilemma-how-many-participants}
-%GV "dilemma-how-many-participants" [label="", shape="box"];
-%GV "dilemma-how-many-participants" -> "";
+%GV     "dilemma-how-many-participants" [label="number of people in discussion", shape="box"];
+%GV     "dilemma-how-many-participants" -> "speak";
+%GV     "dilemma-how-many-participants" -> "inclusion";
 \end{table}
 \end{center}
  
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-personal-scope-of-speaking]{Dilemma of Speaking Scope}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-scope-of-speaking]{Dilemma of Speaking Scope}
+%The \hyperref[table:dilemma-personal-scope-of-speaking]{Dilemma of Speaking Scope}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1873,17 +1914,18 @@ There is no \href{https://en.wikipedia.org/wiki/Goldilocks_principle}{Goldilocks
 \index{dilemma!of delegation}
 Sharing work can improve productivity and build relationships but also incurs risks to reputation and success.
 }
-\label{table:dilemma-delegate-or-not}
-%GV "dilemma-delegate-or-not" [label="", shape="box"];
-%GV "dilemma-delegate-or-not" -> "";
+\label{table:dilemma-personal-delegate-or-not}
+%GV     "dilemma-personal-delegate-or-not" [label="delegate or work alone", shape="box"];
+%GV     "dilemma-personal-delegate-or-not" -> "share";
+%GV     "dilemma-personal-delegate-or-not" -> "delegate";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-delegate-or-not]{Dilemma of Delegation}
+%The \hyperref[table:dilemma-personal-delegate-or-not]{Dilemma of Delegation}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-delegate-or-not]{Dilemma of Delegation}
+%The \hyperref[table:dilemma-personal-delegate-or-not]{Dilemma of Delegation}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1906,17 +1948,17 @@ Sharing work can improve productivity and build relationships but also incurs ri
 \index{dilemma!of health versus results}
  Producing the results that motivated the existence of an organization often requires spending organization's health
 }
-\label{table:dilemma-health-vs-results}
-%GV "dilemma-health-vs-results" [label="", shape="box"];
-%GV "dilemma-health-vs-results" -> "";
+\label{table:dilemma-personal-health-vs-results}
+%GV     "dilemma-personal-health-vs-results" [label="health of org vs results", shape="box"];
+%GV     "dilemma-personal-health-vs-results" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-health-vs-results]{Dilemma of Health versus Results}
+%The \hyperref[table:dilemma-personal-health-vs-results]{Dilemma of Health versus Results}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-health-vs-results]{Dilemma of Health versus Results}
+%The \hyperref[table:dilemma-personal-health-vs-results]{Dilemma of Health versus Results}
 % Are the incentive structures aligned to support one direction or the other?
 
 \begin{center}
@@ -1939,8 +1981,8 @@ Sharing work can improve productivity and build relationships but also incurs ri
 You may or may not have a choice of task size and number of tasks. If you have autonomy, what do you prefer? Do your coworkers and supervisors know your preference? 
 }
 \label{table:dilemma-chunk-size}
-%GV "dilemma-chunk-size" [label="", shape="box"];
-%GV "dilemma-chunk-size" -> "";
+%GV     "dilemma-chunk-size" [label="small tasks vs big tasks", shape="box"];
+%GV     "dilemma-chunk-size" -> "";
 \end{table}
 \end{center}
 
@@ -1966,19 +2008,19 @@ You may or may not have a choice of task size and number of tasks. If you have a
 \caption{
 \textit{Dilemma of Dependencies.}
 \index{dilemma!of dependencies}
-External dependencies can enable broader scope. This Dilemma only is relevant if you have autonomy in the selection of your tasks. See also the Dilemma of Delegation, \ref{table:dilemma-delegate-or-not}.
+External dependencies can enable broader scope. This Dilemma only is relevant if you have autonomy in the selection of your tasks. See also the Dilemma of Delegation, \ref{table:dilemma-personal-delegate-or-not}.
 }
-\label{table:dilemma-number-of-external-dependencies}
-%GV "dilemma-number-of-external-dependencies" [label="", shape="box"];
-%GV "dilemma-number-of-external-dependencies" -> "";
+\label{table:dilemma-personal-number-of-external-dependencies}
+%GV     "dilemma-personal-number-of-external-dependencies" [label="number of external dependencies", shape="box"];
+%GV     "dilemma-personal-number-of-external-dependencies" -> "dependencies";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-number-of-external-dependencies]{Dilemma of Dependencies}
+%The \hyperref[table:dilemma-personal-number-of-external-dependencies]{Dilemma of Dependencies}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-number-of-external-dependencies]{Dilemma of Dependencies}
+%The \hyperref[table:dilemma-personal-number-of-external-dependencies]{Dilemma of Dependencies}
 % Are the incentive structures aligned to support one direction or the other?
 
 
@@ -1999,8 +2041,8 @@ External dependencies can enable broader scope. This Dilemma only is relevant if
 The right number of roles for a bureaucrat depends on personality and tasking. 
 }
 \label{table:dilemma-number-of-roles}
-%GV "dilemma-number-of-roles" [label="", shape="box"];
-%GV "dilemma-number-of-roles" -> "";
+%GV     "dilemma-number-of-roles" [label="number of roles", shape="box"];
+%GV     "dilemma-number-of-roles" -> "";
 \end{table}
 \end{center}
 
@@ -2029,8 +2071,8 @@ The right number of roles for a bureaucrat depends on personality and tasking.
 Dissent is caused by dissatisfaction with people or processes. 
 }
 \label{table:dilemma-how-dissent-is-responded-to}
-%GV "dilemma-how-dissent-is-responded-to" [label="", shape="box"];
-%GV "dilemma-how-dissent-is-responded-to" -> "disagreement";
+%GV     "dilemma-how-dissent-is-responded-to" [label="dissent welcome or suppressed", shape="box"];
+%GV     "dilemma-how-dissent-is-responded-to" -> "disagree";
 \end{table}
 \end{center}
 
@@ -2062,8 +2104,8 @@ Dissent is caused by dissatisfaction with people or processes.
 Sharing lessons learned may seem reasonable unless you want to maintain a pristine reputation. 
 }
 \label{table:dilemma-sharing-lessons-learned}
-%GV "dilemma-sharing-lessons-learned" [label="", shape="box"];
-%GV "dilemma-sharing-lessons-learned" -> "";
+%GV     "dilemma-sharing-lessons-learned" [label="share lessons or not", shape="box"];
+%GV     "dilemma-sharing-lessons-learned" -> "share";
 \end{table}
 \end{center}
 
@@ -2093,9 +2135,9 @@ Sharing lessons learned may seem reasonable unless you want to maintain a pristi
 When sharing lessons learned (option 1 in \ref{table:dilemma-sharing-lessons-learned}), the lessons do not have to be about you. 
 }
 \label{table:dilemma-share-lessons-learned}
-%GV "dilemma-share-lessons-learned" [label="share lessons learned", shape="box"];
-%GV "dilemma-share-lessons-learned" -> "sharing";
-%GV "dilemma-share-lessons-learned" -> "lessons";
+%GV     "dilemma-share-lessons-learned" [label="share lessons learned", shape="box"];
+%GV     "dilemma-share-lessons-learned" -> "sharing";
+%GV     "dilemma-share-lessons-learned" -> "lessons";
 \end{table}
 \end{center}
 
@@ -2124,8 +2166,8 @@ When sharing lessons learned (option 1 in \ref{table:dilemma-sharing-lessons-lea
 How much formal training to invest in before learning by doing?
 }
 \label{table:dilemma-lessons-learned-source}
-%GV "dilemma-lessons-learned-source" [label="", shape="box"];
-%GV "dilemma-lessons-learned-source" -> "";
+%GV     "dilemma-lessons-learned-source" [label="learn lessons from yourself or others", shape="box"];
+%GV     "dilemma-lessons-learned-source" -> "lessons";
 \end{table}
 \end{center}
 
@@ -2155,8 +2197,8 @@ A coalition can provide morale support but takes time to build.
 %{\tiny Tag: }
 }
 \label{table:dilemma-how-to-change}
-%GV "dilemma-how-to-change" [label="", shape="box"];
-%GV "dilemma-how-to-change" -> "";
+%GV     "dilemma-how-to-change" [label="coalition size", shape="box"];
+%GV     "dilemma-how-to-change" -> "";
 \end{table}
 \end{center}
 
@@ -2190,61 +2232,24 @@ A coalition can provide morale support but takes time to build.
 \index{dilemma!of batching}
 For repeated actions, who is the process optimized for -- the subject or the bureaucrat?
 }
-\label{table:dilemma-of-batching}
-%GV "dilemma-of-batching" [label="", shape="box"];
-%GV "dilemma-of-batching" -> "";
+\label{table:dilemma-personal-batching-requests}
+%GV     "dilemma-personal-batching-requests" [label="request batch size", shape="box"];
+%GV     "dilemma-personal-batching-requests" -> "";
 \end{table}
 \end{center}
 
 % TODO: explanation of context for dilemma
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-of-batching]{Dilemma of Batching}
+%The \hyperref[table:dilemma-personal-batching-requests]{Dilemma of Batching}
 % How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-of-batching]{Dilemma of Batching}
+%The \hyperref[table:dilemma-personal-batching-requests]{Dilemma of Batching}
 % Are the incentive structures aligned to support one direction or the other?
-
-
-\begin{center}
-\begin{table}[H] % ht
-\begin{tabular}{ | m{\dilemmatablewidth}| m{\dilemmatablewidth} | } 
-  \hline
-  \textbf{Redundant reviews of data.} &
-  \textbf{Single review of data.} \\
-  \hline
-  \textit{Description}: Multiple independent confirmations that the data collected is correct. & 
-  \textit{Description}: A form featuring a checkbox option.  \\
-  \hline
-  \textit{Pros}: Decrease mistakes. & 
-  \textit{Pros}: Less overhead. \\
-  \hline
-  \textit{Cons}: More people or time needed. & 
-  \textit{Cons}: Single point of failure. \\
-  \hline
-\end{tabular}
-\caption{
-\textit{Dilemma of Redundancy.}
-\index{dilemma!of redundancy}
-If a user doesn't see a checkbox on a form, or they incorrectly mark the checkbox, is there any validation of the selection?
-}
-\label{table:dilemma-of-redundancy}
-%GV "dilemma-of-redundancy" [label="", shape="box"];
-%GV "dilemma-of-redundancy" -> "";
-\end{table}
-\end{center}
-
-% TODO: explanation of context for dilemma
-% How does this relate directly to bureaucracy as defined as shared resource management policymaking?
-%The \hyperref[table:dilemma-of-redundancy]{Dilemma of Redundancy}
-% How does this effect your relationships with other bureaucrats?
-%The \hyperref[table:dilemma-of-redundancy]{Dilemma of Redundancy}
-% Are the incentive structures aligned to support one direction or the other?
-
 
 \subsection*{Dilemmas of Policy for an Organization's Structure\label{sec:org-dilemma}}
 
 %GV } // end personal policies
 %GV subgraph cluster_org {
-
+%GV    label = "org policies";
 
 The constraints a decision maker faces are informed by the person's environment. Dilemmas \ref{table:dilemma-org-people-per-supervisor} through \ref{table:dilemma-org-market-vs-monopoly} shape the experience of bureaucrats in an organization.
 
@@ -2268,8 +2273,9 @@ The constraints a decision maker faces are informed by the person's environment.
 %{\tiny Tag: Organization's culture}
 }
 \label{table:dilemma-org-people-per-supervisor}
-%GV "dilemma-org-people-per-supervisor" [label="", shape="box"];
-%GV "dilemma-org-people-per-supervisor" -> "";
+%GV     "dilemma-org-people-per-supervisor" [label="people per supervisor", shape="box"];
+%GV     "dilemma-org-people-per-supervisor" -> "staffing";
+%GV     "dilemma-org-people-per-supervisor" -> "hierarchy shape";
 \end{table}
 \end{center}
 
@@ -2304,8 +2310,8 @@ The constraints a decision maker faces are informed by the person's environment.
 Effectiveness of bureaucrats is not uniform. Some bureaucrats in an organization are more effective than others.
 }
 \label{table:dilemma-org-dense-effectiveness}
-%GV "dilemma-org-dense-effectiveness" [label="", shape="box"];
-%GV "dilemma-org-dense-effectiveness" -> "";
+%GV     "dilemma-org-dense-effectiveness" [label="concentration of brilliance", shape="box"];
+%GV     "dilemma-org-dense-effectiveness" -> "";
 \end{table}
 \end{center}
 
@@ -2345,8 +2351,8 @@ Bringing the smartest members of the organization together on a team can result 
 %{\tiny Tag: Design of organization.}
 }
 \label{table:dilemma-org-staff-many-vs-few}
-%GV "dilemma-org-staff-many-vs-few" [label="", shape="box"];
-%GV "dilemma-org-staff-many-vs-few" -> "";
+%GV     "dilemma-org-staff-many-vs-few" [label="staffing level", shape="box"];
+%GV     "dilemma-org-staff-many-vs-few" -> "staffing";
 \end{table}
 \end{center}
 
@@ -2382,8 +2388,8 @@ Services that are necessary but not central.
 %{\tiny Tag: Design of organization.}
 }
 \label{table:dilemma-org-inhouse-vs-external}
-%GV "dilemma-org-inhouse-vs-external" [label="", shape="box"];
-%GV "dilemma-org-inhouse-vs-external" -> "";
+%GV     "dilemma-org-inhouse-vs-external" [label="in-house vs external services", shape="box"];
+%GV     "dilemma-org-inhouse-vs-external" -> "services";
 \end{table}
 \end{center}
 
@@ -2430,8 +2436,8 @@ Oscillation (see figure~\ref{fig:central-vs-distributed}) indicates neither solu
 %{\tiny Tag: Design of organization.}
 }
 \label{table:dilemma-org-central-vs-distributed}
-%GV "dilemma-org-central-vs-distributed" [label="", shape="box"];
-%GV "dilemma-org-central-vs-distributed" -> "";
+%GV     "dilemma-org-central-vs-distributed" [label="centralized vs distributed", shape="box"];
+%GV     "dilemma-org-central-vs-distributed" -> "services";
 \end{table}
 \end{center}
 
@@ -2496,8 +2502,8 @@ Services within an organization. See also figure~\ref{fig:market-vs-monopoly}.
 %{\tiny Tag: Design of organization.}
 }
 \label{table:dilemma-org-market-vs-monopoly}
-%GV "dilemma-org-market-vs-monopoly" [label="redundant services vs monopoly", shape="box"];
-%GV "dilemma-org-market-vs-monopoly" -> "monopoly";
+%GV     "dilemma-org-market-vs-monopoly" [label="redundant services vs monopoly", shape="box"];
+%GV     "dilemma-org-market-vs-monopoly" -> "monopoly";
 \end{table}
 \end{center}
 
@@ -2548,8 +2554,8 @@ Where decisions get made in hierarchical organization.
 %{\tiny Tag: Design of organization.}
 }
 \label{table:dilemma-org-decisions-low-vs-high}
-%GV "dilemma-org-decisions-low-vs-high" [label="", shape="box"];
-%GV "dilemma-org-decisions-low-vs-high" -> "decisions";
+%GV     "dilemma-org-decisions-low-vs-high" [label="decision making high or low", shape="box"];
+%GV     "dilemma-org-decisions-low-vs-high" -> "decisions";
 \end{table}
 \end{center}
 
@@ -2616,6 +2622,7 @@ In other words, the options are
 
 %GV } // end org
 %GV subgraph cluster_subject {
+%GV    label = "subject dilemmas";
 
 Each subject of bureaucracy views themselves as logical and self-consistent and erudite. In practice, the bureaucrat servicing subjects encounters conflicting statements. 
 
@@ -2639,8 +2646,8 @@ Each subject of bureaucracy views themselves as logical and self-consistent and 
 \caption{\textit{Dilemma of Forms}: no one likes paperwork or letting cheaters cheat. The cost of protecting scarce resources is felt by everyone.
 }
 \label{table:dilemma-subject-forms}
-%GV "dilemma-subject-forms" [label="", shape="box"];
-%GV "dilemma-subject-forms" -> "forms";
+%GV     "dilemma-subject-forms" [label="burden of forms", shape="box"];
+%GV     "dilemma-subject-forms" -> "forms";
 \end{table}
 \end{center}
 
@@ -2650,7 +2657,7 @@ Subjects of bureaucracy expect efficiency. While that's reasonable, the nuances 
 The 
 \hyperref[table:dilemma-subject-forms]{Dilemma of Forms}
 is the subject's experience of the bureaucrat's 
-\hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Data for Decisions}
+\hyperref[table:dilemma-personal-single-bit-decision]{Dilemma of Redundant Data for Decisions}
 
 % How does this relate directly to bureaucracy as defined as shared resource management policymaking?
 %
@@ -2678,9 +2685,9 @@ As a result of the \hyperref[table:dilemma-subject-forms]{Dilemma of Forms}, bur
 Consistency is seen as fairness, when in fact consistency can ignore critical differences. %Consistency is desirable for enabling predictability.
 }
 \label{table:dilemma-subject-consistency-per-situation}
-%GV "dilemma-subject-consistency-per-situation" [label="consistency vs exceptions", shape="box"];
-%GV "dilemma-subject-consistency-per-situation" -> "consistency";
-%GV "dilemma-subject-consistency-per-situation" -> "exception";
+%GV     "dilemma-subject-consistency-per-situation" [label="consistency vs exceptions", shape="box"];
+%GV     "dilemma-subject-consistency-per-situation" -> "consistency";
+%GV     "dilemma-subject-consistency-per-situation" -> "exception";
 \end{table}
 \end{center}
 
@@ -2716,8 +2723,8 @@ As with the \hyperref[table:dilemma-subject-forms]{Dilemma of Forms}, the conseq
 \caption{\textit{Dilemma of Flexible Rules.}
 }
 \label{table:dilemma-subject-flexibility}
-%GV "dilemma-subject-flexibility" [label="clear rules vs flexiblity", shape="box"];
-%GV "dilemma-subject-flexibility" -> "flexibility";
+%GV     "dilemma-subject-flexibility" [label="clear rules vs flexiblity", shape="box"];
+%GV     "dilemma-subject-flexibility" -> "flexibility";
 \end{table}
 \end{center}
 
@@ -2752,8 +2759,8 @@ The bias for bureaucrats faced with the \hyperref[table:dilemma-subject-flexibil
 Transparency has a cost.
 }
 \label{table:dilemma-subject-transparency}
-%GV "dilemma-subject-transparency" [label="transparency vs low cost", shape="box"];
-%GV "dilemma-subject-transparency" -> "transparency";
+%GV     "dilemma-subject-transparency" [label="transparency vs low cost", shape="box"];
+%GV     "dilemma-subject-transparency" -> "transparency";
 \end{table}
 \end{center}
 
