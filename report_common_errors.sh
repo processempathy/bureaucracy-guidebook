@@ -61,6 +61,13 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+echo "your own -> your"
+grep -R -i "your own" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
 echo "Are marginpar consistent?"
 grep -R -i marginpar latex/*.tex | cut -d":" -f2- | sort | uniq
 if [[ $? -eq 0 ]]; then
