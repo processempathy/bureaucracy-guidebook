@@ -1,0 +1,19 @@
+When using Pandoc to convert latex to HTML, the glossary substitutions are incorrect. 
+What renders correctly in PDF is not correct in HTML. 
+
+Example:
+
+\Gls{bureaucracy} involves the creation and execution of \glspl{policy}
+
+Becomes, in PDF
+
+Bureaucracy involves the creation and execution of policies
+
+whereas in HTML the rendered text is
+
+bureaucracy involves the creation and execution of policys
+
+
+TODO: does PS -> HTML have this issue?
+
+TODO: does DVI -> HTML have this issue?
