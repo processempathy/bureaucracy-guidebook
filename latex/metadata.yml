@@ -1,0 +1,17 @@
+---
+# for Pandoc
+# from https://github.com/wikiti/pandoc-book-template/blob/master/metadata.yml
+title: A Field Guide to Process Empathy: How to be an Effective Bureaucrat
+author: Ben Payne
+rights: Creative Commons
+lang: en-US
+mainlang: english
+otherlang: english
+tags: [bureaucracy, bureaucrat]
+abstract: |
+  How to be Effective
+mainfont: DejaVu Sans
+# Filter preferences:
+# - pandoc-crossref
+linkReferences: true
+---

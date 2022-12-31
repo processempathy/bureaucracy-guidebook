@@ -1,6 +1,10 @@
-\documentclass{book}
+\documentclass[openright]{book}
 % to set font size use
 % \documentclass[12pt]{book}
+% The book class is two-sided by default so you do not need to add the twoside option.
+% https://www.overleaf.com/learn/latex/Single_sided_and_double_sided_documents
+% https://ctan.org/pkg/book?lang=en
+
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
@@ -113,6 +117,10 @@
 % "define any number of \newglossaryentry and \newacronym glossary and acronym entries in your preamble"
 \input{glossary_entries}
 
+\usepackage{fancyhdr}
+% https://texfaq.org/FAQ-reallyblank
+\usepackage{emptypage}
+
 % Strangely, use of \Huge for the title causes a spurious 'b' to appear on the title page
 \title{\huge{The Field Guide for\\ Process Empathy:\\
 How to be a Better Bureaucrat}\\
@@ -184,7 +192,8 @@ How to be a Better Bureaucrat}\\
 % 2022-07-11: Brian
 %\chapter*{Preface}% * excludes from Contents
 \chapter{Preface}
-\input{preface}\clearpage
+\input{preface}%\clearpage
+%\thispagestyle{empty}
 
 \mainmatter % the main part of the book will have standard pages
 
@@ -380,10 +389,11 @@ How to be a Better Bureaucrat}\\
 \input{notes_on_books/wilson_bureaucracy}
 
 \else
-
+% nothing
 \fi
 
 \clearpage
+\backmatter
 
 \printglossaries
 
