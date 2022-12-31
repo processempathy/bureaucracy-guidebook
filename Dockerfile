@@ -32,9 +32,11 @@ RUN apt-get install -f -y --no-install-recommends \
           fontconfig \ 
 # install TeX Live and ghostscript as well as other tools
           dvipng \
+          gladtex \
           ghostscript \
           gnuplot \
           make \
+          latex2html \
           latexmk \
           latexml \
           poppler-utils \

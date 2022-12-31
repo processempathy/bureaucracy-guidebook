@@ -40,22 +40,43 @@ dilgraphkeywords:
 
 
 # https://pandoc.org/MANUAL.html and https://pandoc.org/demos.html
-# --standalone:  without it, you'd only get a snippet instead of a complete document.        https://pandoc.org/MANUAL.html#option--standalone
-# --citeproc:    Process the citations in the file, replacing them with rendered citations and adding a bibliography.
+# --standalone		without it, you'd only get a snippet instead of a complete document.		https://pandoc.org/MANUAL.html#option--standalone
+# --citeproc		Process the citations in the file, replacing them with rendered citations and adding a bibliography.
+# --metadata-file	Read metadata from the supplied YAML (or JSON) file.				https://pandoc.org/MANUAL.html#option--metadata-file
 docx: pdf
 	cd latex; \
          pandoc main.tex -o main.docx \
          --metadata-file metadata_pandoc.yml \
          --standalone \
+         --table-of-contents \
+         --number-sections \
          --citeproc \
          --bibliography=biblio_bureaucracy.bib
 
-html: pdf
+html: pdf html_latex2html html_pandoc
+
+# "split 0" makes one giant HTML file.
+# maximum verbosity is 4. Using 4 slows the process down due to printing to terminal
+html_latex2html: 
+	cd latex; latex2html main \
+		-index_in_navigation \
+		-contents_in_navigation \
+		-next_page_in_navigation \
+		-previous_page_in_navigation \
+		-show_section_numbers \
+		-split 2 \
+		-verbosity 2 \
+		-html_version "5.0"
+
+html_pandoc: 
 	cd latex; \
          pandoc main.tex -f latex \
              -t html --standalone -o main.html \
              --metadata-file metadata_pandoc.yml \
              --citeproc \
+             --table-of-contents \
+	     --toc-depth 2 \
+             --number-sections \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
 #	cd ..; convert_html_pdf_to_png.sh
@@ -72,6 +93,8 @@ pdf:
 
 # https://pandoc.org/epub.html
 # --gladtex converts maths into SVG images on your local machine.
+# Enclose TeX math in <eq> tags in HTML output. The resulting HTML can then be processed by GladTeX to produce SVG images of the typeset formulas and an HTML file with these images embedded.
+
 # BHP removed
 # --metadata-file metadata_pandoc.yml
 # so there's no conflict with the epub metadata
@@ -79,9 +102,13 @@ epub: html
 	cd latex; \
 		pandoc main.tex -f latex \
 		--epub-metadata=metadata_epub.xml \
-		--toc \
+		--citeproc \
+		--bibliography=biblio_bureaucracy.bib \
+		--table-of-contents \
+		--number-sections \
+		--epub-cover-image=images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.png \
 		--gladtex \
-		-t epub \
+		-t epub3 \
 		-o main.epub
 
 
@@ -92,7 +119,7 @@ uz:
 	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
 
 clean:
-	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub
+	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub
 
 # the following commands are for use outside the Docker image
 
