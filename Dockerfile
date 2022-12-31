@@ -41,6 +41,7 @@ RUN apt-get install -f -y --no-install-recommends \
           tex4ht \
           texlive-base \
           texlive-bibtex-extra \
+          texlive-extra-utils \
           #texlive-binaries \
           #texlive-extra-utils \
           #texlive-font-utils \

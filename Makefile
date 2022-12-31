@@ -72,7 +72,7 @@ uz:
 	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
 
 clean:
-	cd latex; rm *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc
+	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.x*; rm -rf main-epub
 
 # the following commands are for use outside the Docker image
 
