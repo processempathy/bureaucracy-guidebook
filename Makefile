@@ -45,6 +45,7 @@ dilgraphkeywords:
 docx: pdf
 	cd latex; \
          pandoc main.tex -o main.docx \
+         --metadata-file metadata.yml \
          --standalone \
          --citeproc \
          --bibliography=biblio_bureaucracy.bib
@@ -53,6 +54,7 @@ html: pdf
 	cd latex; \
          pandoc main.tex -f latex \
              -t html --standalone -o main.html \
+             --metadata-file metadata.yml \
              --citeproc \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
@@ -70,9 +72,10 @@ pdf:
 
 # https://pandoc.org/epub.html
 # --gladtex converts maths into SVG images on your local machine.
-epub:
+epub: html
 	cd latex; \
          pandoc main.tex -f latex \
+         --metadata-file metadata.yml \
          -t epub --gladtex
 
 
@@ -105,7 +108,7 @@ dout:
 	time docker run --rm \
            -v `pwd`:/scratch -w /scratch/ \
            --user $(id -u):$(id -g) \
-           latex_debian make html
+           latex_debian make epub
 	open latex/main.pdf
  
 
