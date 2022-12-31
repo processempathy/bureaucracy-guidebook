@@ -22,7 +22,7 @@ help:
 
 # what are all the things I haven't done yet? (As indicated by TODO.)
 todo:
-	grep -R -i TODO latex/*.tex 
+	grep -R -i TODO latex/*.tex
 
 # review notes to self
 notes:
@@ -45,7 +45,7 @@ dilgraphkeywords:
 docx: pdf
 	cd latex; \
          pandoc main.tex -o main.docx \
-         --metadata-file metadata.yml \
+         --metadata-file pandoc_metadata.yml \
          --standalone \
          --citeproc \
          --bibliography=biblio_bureaucracy.bib
@@ -54,7 +54,7 @@ html: pdf
 	cd latex; \
          pandoc main.tex -f latex \
              -t html --standalone -o main.html \
-             --metadata-file metadata.yml \
+             --metadata-file pandoc_metadata.yml \
              --citeproc \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
@@ -74,9 +74,12 @@ pdf:
 # --gladtex converts maths into SVG images on your local machine.
 epub: html
 	cd latex; \
-         pandoc main.tex -f latex \
-         --metadata-file metadata.yml \
-         -t epub --gladtex
+		pandoc main.tex -f latex \
+		--metadata-file pandoc_metadata.yml \
+		--epub-metadata=epub_metadata.xml \
+		--toc \
+		--gladtex \
+		-t epub
 
 
 rm:
@@ -90,7 +93,7 @@ clean:
 
 # the following commands are for use outside the Docker image
 
-# see also 
+# see also
 # https://gordonlesti.com/building-a-latex-docker-image/
 # https://github.com/pycnic/docker-texlive/blob/master/Dockerfile
 docker: docker_build docker_live
@@ -110,5 +113,3 @@ dout:
            --user $(id -u):$(id -g) \
            latex_debian make epub
 	open latex/main.pdf
- 
-
