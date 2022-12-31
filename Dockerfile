@@ -36,6 +36,7 @@ RUN apt-get install -f -y --no-install-recommends \
           gnuplot \
           make \
           latexmk \
+          latexml \
           poppler-utils \
           psutils \
           tex4ht \

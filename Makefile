@@ -45,7 +45,7 @@ dilgraphkeywords:
 docx: pdf
 	cd latex; \
          pandoc main.tex -o main.docx \
-         --metadata-file pandoc_metadata.yml \
+         --metadata-file metadata_pandoc.yml \
          --standalone \
          --citeproc \
          --bibliography=biblio_bureaucracy.bib
@@ -54,7 +54,7 @@ html: pdf
 	cd latex; \
          pandoc main.tex -f latex \
              -t html --standalone -o main.html \
-             --metadata-file pandoc_metadata.yml \
+             --metadata-file metadata_pandoc.yml \
              --citeproc \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
@@ -72,14 +72,17 @@ pdf:
 
 # https://pandoc.org/epub.html
 # --gladtex converts maths into SVG images on your local machine.
+# BHP removed
+# --metadata-file metadata_pandoc.yml
+# so there's no conflict with the epub metadata
 epub: html
 	cd latex; \
 		pandoc main.tex -f latex \
-		--metadata-file pandoc_metadata.yml \
-		--epub-metadata=epub_metadata.xml \
+		--epub-metadata=metadata_epub.xml \
 		--toc \
 		--gladtex \
-		-t epub
+		-t epub \
+		-o main.epub
 
 
 rm:
@@ -89,7 +92,7 @@ uz:
 	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
 
 clean:
-	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg; rm -rf main-epub
+	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub
 
 # the following commands are for use outside the Docker image
 

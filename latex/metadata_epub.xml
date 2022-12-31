@@ -1,4 +1,11 @@
-<dc:title id="t2">A Field Guide to Process Empathy: How to be an Effective Bureaucrat</dc:title>
+<!-- originally from 
+http://theroadchoseme.com/how-i-self-published-a-professional-paperback-and-ebook-using-latex-and-pandoc
+-->
+<!-- https://idpf.org/epub/30/spec/epub30-publications.html#sec-opf-dctitle -->
+<dc:title id="t1">Process Empathy: A Field Guide for Effective Bureaucrats</dc:title>
+<meta refines="#t1" property="title-type">main</meta>
+<dc:title id="t2">First Edition</dc:title>
+<meta refines="#t2" property="title-type">edition</meta>
 <dc:language>en-US</dc:language>
 <dc:creator opf:file-as="Payne, Ben" opf:role="aut">Ben Payne</dc:creator>
 <dc:publisher>Ben Payne</dc:publisher>
