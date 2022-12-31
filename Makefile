@@ -20,6 +20,7 @@ help:
 # the following commands are for use inside the Docker image
 
 
+# what are all the things I haven't done yet? (As indicated by TODO.)
 todo:
 	grep -R -i TODO latex/*.tex 
 
@@ -27,11 +28,13 @@ todo:
 notes:
 	grep -E -R "[A-Z]{5,}" latex/*.tex
 
-out: pdf html
+out: pdf html epub
 
+# graph of dilemmas
 dilgraph:
 	grep "%GV " latex/dilemmas_and_trilemmas.tex | sed 's/%GV //'  | sed 's/.*"";//'
 
+# list of all the dilemma keywords
 dilgraphkeywords:
 	grep "%GV " latex/dilemmas_and_trilemmas.tex | cut -d">" -f2 | grep "%GV" -v | grep dilemma -v | sort | uniq
 
@@ -65,6 +68,14 @@ pdf:
          pdflatex -shell-escape main
 
 
+# https://pandoc.org/epub.html
+# --gladtex converts maths into SVG images on your local machine.
+epub:
+	cd latex; \
+         pandoc main.tex -f latex \
+         -t epub --gladtex
+
+
 rm:
 	cd latex; rm -rf *
 
@@ -72,7 +83,7 @@ uz:
 	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
 
 clean:
-	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.x*; rm -rf main-epub
+	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg; rm -rf main-epub
 
 # the following commands are for use outside the Docker image
 
