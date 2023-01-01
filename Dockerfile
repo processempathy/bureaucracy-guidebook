@@ -39,6 +39,7 @@ RUN apt-get install -f -y --no-install-recommends \
           latex2html \
           latexmk \
           latexml \
+          pdf2svg \
           poppler-utils \
           psutils \
           tex4ht \
