@@ -68,22 +68,25 @@ html_latex2html:
 		-verbosity 2 \
 		-html_version "5.0"
 
+# --ascii = 	Use only ASCII characters in output. 
 html_pandoc: 
 	cd latex; \
-         pandoc main.tex -f latex \
-             -t html --standalone -o main.html \
-             --metadata-file metadata_pandoc.yml \
-             --citeproc \
-             --table-of-contents \
-	     --toc-depth 2 \
-             --number-sections \
-             --mathjax \
-             --bibliography=biblio_bureaucracy.bib
+		pandoc main.tex -f latex \
+		-t html --standalone \
+		-o main.html \
+		--metadata-file metadata_pandoc.yml \
+		--citeproc \
+		--table-of-contents \
+		--ascii \
+		--toc-depth 2 \
+		--number-sections \
+		--mathjax \
+		--bibliography=biblio_bureaucracy.bib
 	$(shell ./convert_html_pdf_to_png.sh)
 
 
 # --shell-escape enables TeX to execute other commands
-pdf:
+pdf: clean
 	cd latex; \
 		pdflatex -shell-escape main; \
 		makeglossaries main; \
