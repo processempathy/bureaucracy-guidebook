@@ -14,17 +14,33 @@ rm -rf TEMPORARY_EPUB
 mkdir TEMPORARY_EPUB
 cd TEMPORARY_EPUB/
 
-cp ../latex/main.epub .
+cp ../bin/main.epub .
 
 unzip main.epub
 rm main.epub
 
-cd EPUB/media
+cd EPUB
+
+mv content.opf content.opf_ORIGINAL
+head -n 4 content.opf_ORIGINAL > content.opf
+cat << EOF >> content.opf
+<dc:title id="t1">Process Empathy: A Field Guide for Effective Bureaucrats</dc:title>
+<meta refines="#t1" property="title-type">main</meta>
+<dc:title id="t2">First Edition</dc:title>
+<meta refines="#t2" property="title-type">edition</meta>
+EOF
+tail -n +8 content.opf_ORIGINAL >> content.opf
+
+sed -i '' 's/Effective Bureaucrats image/Effective Bureaucrats/g' nav.xhtml
+
+cd media
 for f in *.pdf; do
     filename=`echo $f | cut -d'.' -f1`;
     echo $filename;
     #pdf2svg $f ${filename}.svg;
-    docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdf2svg $f ${filename}.svg;
+    #docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdf2svg $f ${filename}.svg;
+    docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftoppm $f ${filename}.png -png;
+    mv "${filename}.png-1.png" "${filename}.png"
 done
 rm -rf *.pdf
 
@@ -37,12 +53,13 @@ for f in *.xhtml; do
     sed -i '' 's/<embed/<img/' $f
 
     # replace PDF with PNG for images
-    sed -i '' 's/\("media\/.*\)pdf"/\1svg"/' $f
+    sed -i '' 's/\(media\/.*\)pdf"/\1png"/' $f
 done
 cd ..
 sed -i '' 's/<embed/<img/' nav.xhtml
-sed -i '' 's/\("media\/.*\)pdf"/\1svg"/' nav.xhtml
+sed -i '' 's/\(media\/.*\)pdf"/\1png"/' nav.xhtml
 
+cd ..
 zip new_main.epub -r *
 
 # EOF

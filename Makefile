@@ -45,13 +45,14 @@ dilgraphkeywords:
 # --metadata-file	Read metadata from the supplied YAML (or JSON) file.				https://pandoc.org/MANUAL.html#option--metadata-file
 docx: pdf
 	cd latex; \
-         pandoc main.tex -o main.docx \
-         --metadata-file metadata_pandoc.yml \
-         --standalone \
-         --table-of-contents \
-         --number-sections \
-         --citeproc \
-         --bibliography=biblio_bureaucracy.bib
+		pandoc main.tex -o main.docx \
+		--metadata-file metadata_pandoc.yml \
+		--standalone \
+		--table-of-contents \
+		--number-sections \
+		--citeproc \
+		--bibliography=biblio_bureaucracy.bib
+	mv main.docx ../bin/
 
 html: pdf html_latex2html html_pandoc
 
@@ -82,7 +83,7 @@ html_pandoc:
 		--number-sections \
 		--mathjax \
 		--bibliography=biblio_bureaucracy.bib
-	$(shell ./convert_html_pdf_to_png.sh)
+#	$(shell ./convert_html_pdf_to_png.sh)
 
 
 # --shell-escape enables TeX to execute other commands
@@ -93,7 +94,7 @@ pdf: clean
 		bibtex main; \
 		pdflatex -shell-escape main; \
 		pdflatex -shell-escape main
-
+	mv main.pdf ../bin/
 
 # https://pandoc.org/epub.html
 # --gladtex converts maths into SVG images on your local machine.
@@ -114,6 +115,7 @@ epub: html
 		--gladtex \
 		-t epub3 \
 		-o main.epub
+	mv main.epub ../bin/
 
 
 rm:
@@ -123,7 +125,7 @@ uz:
 	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
 
 clean:
-	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub
+	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;
 
 # the following commands are for use outside the Docker image
 
@@ -146,4 +148,4 @@ dout:
            -v `pwd`:/scratch -w /scratch/ \
            --user $(id -u):$(id -g) \
            latex_debian make epub
-	open latex/main.pdf
+	open bin/main.pdf
