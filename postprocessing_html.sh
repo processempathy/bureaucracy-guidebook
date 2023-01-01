@@ -50,4 +50,3 @@ sed -i '' 's/>\[sec:process\]</>8</' latex/main.html
 sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' latex/main.html
 
 # EOF
-
