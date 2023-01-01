@@ -59,8 +59,7 @@
 
 % standard "if" conditional statement breaks pandoc when used inside a caption. Therefore, as per
 % https://tex.stackexchange.com/a/5896/235813
-\usepackage{etoolbox}
-
+%\usepackage{etoolbox}
 
 \usepackage{graphicx}
 
@@ -177,6 +176,25 @@ The Field Guide for\\ Effective Bureaucrats}\\
 \end{titlepage}
 \clearpage
 
+% https://tex.stackexchange.com/questions/5894/latex-conditional-expression
+%\newif\ifpageref
+%\newif\ifsectionref
+%\pagereffalse
+%\sectionreffalse
+
+% etoolbox
+%\newtoggle{pageref}
+%\newtoggle{sectionref}
+
+%\togglefalse{pageref}
+%\togglefalse{sectionref}
+
+% the following is used as a boolean toggle
+% when generating PDFs and paper books (which have page numbers)
+% whereas EPUB, HTML, MOBI do not have page numbers
+\newif\ifhaspagenumbers
+\haspagenumbersfalse
+
 \frontmatter % the front of the book has roman numerals
 
 %\pagenumbering{gobble}
@@ -198,22 +216,6 @@ The Field Guide for\\ Effective Bureaucrats}\\
 \mainmatter % the main part of the book will have standard pages
 
 % https://tex.stackexchange.com/questions/2958/why-is-newpage-ignored-sometimes
-
-
-% https://tex.stackexchange.com/questions/5894/latex-conditional-expression
-%\newif\ifpageref
-%\newif\ifsectionref
-%\pagereffalse
-%\sectionreffalse
-
-% etoolbox
-%\newtoggle{pageref}
-%\newtoggle{sectionref}
-
-%\togglefalse{pageref}
-%\togglefalse{sectionref}
-
-
 
 \chapter{Introduction\label{sec:introduction}}
 {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}

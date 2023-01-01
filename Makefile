@@ -86,8 +86,10 @@ html_pandoc:
 #	$(shell ./convert_html_pdf_to_png.sh)
 
 
-# --shell-escape enables TeX to execute other commands
+# toggle the boolean for page numbers being present
+# -shell-escape enables TeX to execute other commands
 pdf: clean
+	sed -i 's/haspagenumbersfalse/haspagenumberstrue/' latex/main.tex
 	cd latex; \
 		pdflatex -shell-escape main; \
 		makeglossaries main; \
@@ -95,6 +97,7 @@ pdf: clean
 		pdflatex -shell-escape main; \
 		pdflatex -shell-escape main
 	mv main.pdf ../bin/
+	sed -i 's/haspagenumbersfalse/haspagenumbersfalse/' main.tex
 
 # https://pandoc.org/epub.html
 # --gladtex converts maths into SVG images on your local machine.

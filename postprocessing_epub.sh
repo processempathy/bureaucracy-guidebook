@@ -31,8 +31,6 @@ cat << EOF >> content.opf
 EOF
 tail -n +8 content.opf_ORIGINAL >> content.opf
 
-sed -i '' 's/Effective Bureaucrats image/Effective Bureaucrats/g' nav.xhtml
-
 cd media
 for f in *.pdf; do
     filename=`echo $f | cut -d'.' -f1`;
@@ -58,6 +56,9 @@ done
 cd ..
 sed -i '' 's/<embed/<img/' nav.xhtml
 sed -i '' 's/\(media\/.*\)pdf"/\1png"/' nav.xhtml
+
+sed -i '' 's/Effective Bureaucrats image/Effective Bureaucrats/g' nav.xhtml
+sed -i '' 's/\.\.\/media/media/g' nav.xhtml
 
 cd ..
 zip new_main.epub -r *
