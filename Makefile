@@ -79,16 +79,17 @@ html_pandoc:
              --number-sections \
              --mathjax \
              --bibliography=biblio_bureaucracy.bib
-#	cd ..; convert_html_pdf_to_png.sh
+	$(shell ./convert_html_pdf_to_png.sh)
 
 
+# --shell-escape enables TeX to execute other commands
 pdf:
 	cd latex; \
-         pdflatex -shell-escape main; \
-         makeglossaries main; \
-         bibtex main; \
-         pdflatex -shell-escape main; \
-         pdflatex -shell-escape main
+		pdflatex -shell-escape main; \
+		makeglossaries main; \
+		bibtex main; \
+		pdflatex -shell-escape main; \
+		pdflatex -shell-escape main
 
 
 # https://pandoc.org/epub.html
