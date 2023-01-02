@@ -52,9 +52,10 @@ docx: pdf
 		--number-sections \
 		--citeproc \
 		--bibliography=biblio_bureaucracy.bib
-	mv main.docx ../bin/
+	mv latex/main.docx bin/
 
-html: pdf html_latex2html html_pandoc
+#html: pdf html_latex2html html_pandoc
+html: pdf html_pandoc
 
 # "split 0" makes one giant HTML file.
 # maximum verbosity is 4. Using 4 slows the process down due to printing to terminal
@@ -68,6 +69,7 @@ html_latex2html:
 		-split 2 \
 		-verbosity 2 \
 		-html_version "5.0"
+
 
 # --ascii = 	Use only ASCII characters in output. 
 html_pandoc: 
@@ -85,19 +87,25 @@ html_pandoc:
 		--bibliography=biblio_bureaucracy.bib
 #	$(shell ./convert_html_pdf_to_png.sh)
 
+test:
+	$(shell sed -i '' 's/haspagenumbersfalse/haspagenumberstrue/' latex/main.tex)
+	cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
 
 # toggle the boolean for page numbers being present
+# default should be "false"; toggle to "true" during PDF compilation
 # -shell-escape enables TeX to execute other commands
 pdf: clean
-	sed -i 's/haspagenumbersfalse/haspagenumberstrue/' latex/main.tex
+	$(shell sed -i '' 's/haspagenumbersfalse/haspagenumberstrue/' latex/main.tex)
+	cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
 	cd latex; \
 		pdflatex -shell-escape main; \
 		makeglossaries main; \
 		bibtex main; \
 		pdflatex -shell-escape main; \
 		pdflatex -shell-escape main
-	mv main.pdf ../bin/
-	sed -i 's/haspagenumbersfalse/haspagenumbersfalse/' main.tex
+	mv latex/main.pdf bin/
+	mv bin/main.pdf bin/bureaucracy.pdf
+	$(shell sed -i '' 's/haspagenumbersfalse/haspagenumbersfalse/' latex/main.tex)
 
 # https://pandoc.org/epub.html
 # --gladtex converts maths into SVG images on your local machine.
@@ -118,7 +126,8 @@ epub: html
 		--gladtex \
 		-t epub3 \
 		-o main.epub
-	mv main.epub ../bin/
+	mv latex/main.epub bin/
+	mv bin/main.epub bin/bureaucracy.epub
 
 
 rm:
@@ -142,13 +151,24 @@ docker_build:
 
 docker_live:
 	docker run -it --rm \
-           -v `pwd`:/scratch -w /scratch/ \
-           --user $(id -u):$(id -g) \
-           latex_debian /bin/bash
+		-v `pwd`:/scratch -w /scratch/ \
+		--user $(id -u):$(id -g) \
+		latex_debian /bin/bash
+
+dpdf:
+	time docker run --rm \
+		-v `pwd`:/scratch -w /scratch/ \
+		--user $(id -u):$(id -g) \
+		latex_debian make pdf 
 
 dout:
 	time docker run --rm \
-           -v `pwd`:/scratch -w /scratch/ \
-           --user $(id -u):$(id -g) \
-           latex_debian make epub
-	open bin/main.pdf
+		-v `pwd`:/scratch -w /scratch/ \
+		--user $(id -u):$(id -g) \
+		latex_debian make epub
+	open bin/bureaucracy.pdf
+	echo "to clean up the HTML and EPUB you need to run"
+	echo "./postprocessing_epub.sh"
+	echo "./postprocessing_html.sh"
+	echo "to complete the process"
+	echo "and then run Kindle Previewer to generate KPF and MOBI"
