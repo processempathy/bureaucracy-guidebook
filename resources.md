@@ -26,9 +26,4 @@ pandoc myTexFile.tex -f latex -t html -s -o myHtmlFile.html --bibliography myTex
 
 From <https://www.danwjoyce.com/data-blog/2018/2/20/latex-to-html-via-pandoc>
 
-### <https://tug.org/tex4ht/>
-
-```
-htlatex mydocument.tex
-```
 

@@ -8,7 +8,8 @@ set -o nounset   # set -u : exit the script if you try to use an uninitialized v
 set -o errexit   # set -e : exit the script if any statement returns a non-true return value
 
 # https://stackoverflow.com/a/9449633/1164295
-arr=( $(grep input latex/main.tex | sed 's/.*{//' | sed 's/}.*//') )
+#arr=( $(grep input latex/main.tex | sed 's/.*{//' | sed 's/}.*//') )
+arr=( $( grep "\\input{" latex/*.tex | cut -d':' -f2- | tr -d ' ' | sed '/^%/d' | sed 's/.*{//' | sed 's/}.*//') )
 
 # https://stackoverflow.com/a/15394738/1164295
 for eachfile in `/bin/ls latex/*.tex`; do 

@@ -54,7 +54,13 @@ description={A person who is expected to take action or make contribution}
 \newglossaryentry{essential bureaucracy}{
 name={essential bureaucracy},
 text={Essential bureaucracy},
-description={The minimum \glspl{process} and staffing and skills necessary to address the complexity of the problem space}
+description={The minimum 
+\ifglossarysubstitutionworks
+\glspl{process} 
+\else
+processes
+\fi
+and staffing and skills necessary to address the complexity of the problem space}
 }
 
 \newglossaryentry{org chart}{
@@ -108,7 +114,12 @@ at first sound reasonable but, upon reflection and analysis, are incorrect}
 \newglossaryentry{bureaucrat}{
     name={bureaucrat},
     plural={bureaucrats},
-    description={A person responsible for subjective implementation of policy addressing access to \glspl{shared resource}. 
+    description={A person responsible for subjective implementation of policy addressing access to 
+\ifglossarysubstitutionworks
+\glspl{shared resource}. 
+\else
+shared resources.
+\fi
     Conventional examples of roles filled by bureaucrats: teacher, police, government employee}
 }
 
@@ -162,9 +173,26 @@ Private or public is irrelevant; commercial or non-profit is irrelevant}
     plural={bureaucracies},
     text={bureaucracy},
     description={
-    The set of subjective decisions made by individual participants in an \gls{organization}. The decisions originate from the management of \glspl{shared resource}. The resources can be either tangible or in the form of expertise. Bureaucracy relies on distributed knowledge and distributed decision-making. 
+    The set of subjective decisions made by individual participants in an \gls{organization}. The decisions originate from the management of 
+\ifglossarysubstitutionworks
+\glspl{shared resource}.
+\else
+shared resources.
+\fi
+The resources can be either tangible or in the form of expertise. Bureaucracy relies on distributed knowledge and distributed decision-making. 
     \\
-    An organization of \glspl{bureaucrat} comprises a bureaucracy. A bureaucracy facilitates coordination of \glspl{stakeholder}. 
+    An organization of 
+\ifglossarysubstitutionworks
+\glspl{bureaucrat} 
+\else
+bureaucrats
+\fi
+comprises a bureaucracy. A bureaucracy facilitates coordination of 
+\ifglossarysubstitutionworks
+\glspl{stakeholder}. 
+\else
+stakeholders.
+\fi
     Bureaucracy is how large organizations make distributed decisions using distributed knowledge.    \\
     Every policy in a bureaucracy is made up by other people. \\
     Bureaucracy is a macroscopic phenomenon emergent at sufficient scale. The scale is important because there is no longer dependence on individual relationships. \\
@@ -189,13 +217,37 @@ description={A decision-maker selects an option and that propagates to schedule,
 \newglossaryentry{visible bureaucracy}{
 name={visible bureaucracy},
     %name={bureaucracy, visible},
-    description={\Glspl{process} are written down and can be discovered by \glspl{stakeholder}}
+    description={
+\ifglossarysubstitutionworks
+\Glspl{process} 
+\else
+Processes
+\fi
+are written down and can be discovered by 
+\ifglossarysubstitutionworks
+\glspl{stakeholder}
+\else
+stakeholders
+\fi
+}
 }
 
 \newglossaryentry{invisible bureaucracy}{
 name={invisible bureaucracy},
     %name={bureaucracy, invisible},
-    description={\Glspl{process} are known to some \glspl{stakeholder} and are conveyed verbally to some of the other stakeholders}
+    description={
+\ifglossarysubstitutionworks
+\Glspl{process} 
+\else
+Processes
+\fi
+are known to some 
+\ifglossarysubstitutionworks
+\glspl{stakeholder} 
+\else
+stakeholders
+\fi
+and are conveyed verbally to some of the other stakeholders}
 }
 
 \newglossaryentry{process}{
@@ -204,7 +256,18 @@ plural={processes},
 % aka procedure
 % https://graphthinking.blogspot.com/2017/02/breaking-down-bureaucracy-process-roles.html
 description={A task broken into a specified set of subtask dependencies, typically with subtasks in a sequence. 
-Each task is associated with the application of \glspl{policy} enforced by \glspl{bureaucrat}. 
+Each task is associated with the application of 
+\ifglossarysubstitutionworks
+\glspl{policy} 
+\else
+policies
+\fi
+enforced by 
+\ifglossarysubstitutionworks
+\glspl{bureaucrat}. 
+\else
+bureaucrats.
+\fi
 % Also known as a procedure. 
 Two distinguishing features in the context of bureaucracy are authorization and justification.  
 A process has inputs and outputs. 

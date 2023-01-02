@@ -1,4 +1,5 @@
 .DS_Store
+bin/
 
 ## Core latex/pdflatex auxiliary files:
 *.mtc

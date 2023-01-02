@@ -7,28 +7,33 @@ set -o nounset   # set -u : exit the script if you try to use an uninitialized v
 set -o errexit   # set -e : exit the script if any statement returns a non-true return value
 set -o xtrace    # set -x : show commands as the script executes
 
+echo "use:"
 echo "$0 pdf; $0 epub_pandoc; $0 html_pandoc"
+echo "or"
+echo "$0 all"
 
 function pdf {
   pwd
   sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main.tex
-	cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
-	cd latex
-		time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1.log; \
-		time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main         > log2.log; \
-		time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main                 > log3.log; \
-		time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log4.log; \
-		time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log5.log
-  cd ..
-  sed -i '' "s/haspagenumbersfalse/haspagenumbersfalse/" latex/main.tex
+  sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main.tex
+  cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
+  cd latex
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main         > log2.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main                 > log3.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log4.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log5.log
+    cd ..
+  sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main.tex
+  sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main.tex
   mv -f latex/main.pdf bin/bureaucracy.pdf
 }
 
 function epub_pandoc {
-	cd latex;
-		docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
-		--epub-metadata=metadata_epub.xml \
-		--citeproc \
+  cd latex;
+    docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
+	       --epub-metadata=metadata_epub.xml \
+	       --citeproc \
 		--bibliography=biblio_bureaucracy.bib \
 		--table-of-contents \
 		--number-sections \
@@ -36,15 +41,15 @@ function epub_pandoc {
 		--gladtex \
 		-t epub3 \
 		-o main.epub
-  cd ..
-	mv -f latex/main.epub bin/bureaucracy.epub
+    cd ..
+  mv -f latex/main.epub bin/bureaucracy.epub
   postprocess_epub
 }
 
 # --ascii = 	Use only ASCII characters in output.
 function html_pandoc {
-	cd latex; \
-		docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
+  cd latex; \
+    docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
 		-t html --standalone \
 		-o main.html \
 		--metadata-file metadata_pandoc.yml \
@@ -55,7 +60,7 @@ function html_pandoc {
 		--number-sections \
 		--mathjax \
 		--bibliography=biblio_bureaucracy.bib
-  cd ..
+    cd ..
   postprocess_html
 }
 
@@ -116,7 +121,7 @@ EOF
   zip bureaucracy.epub -r *
   pwd
   mv -f bureaucracy.epub ../bin/bureaucracy.epub
-
+  cd ..
 }
 
 function postprocess_html {
@@ -161,10 +166,17 @@ function postprocess_html {
 
 }
 
+function all {
+  pdf
+  html_pandoc
+  epub_pandoc
+}
+
 # from https://www.baeldung.com/linux/run-function-in-script
 # dollarsign variables in bash: https://stackoverflow.com/a/5163260/1164295
 case "$1" in
     "") ;;
+    all) "$@"; exit;;
     pdf) "$@"; exit;;
     epub_pandoc) "$@"; exit;;
     html_pandoc) "$@"; exit;;
