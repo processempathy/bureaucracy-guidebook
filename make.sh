@@ -14,9 +14,10 @@ echo "$0 all"
 
 function pdf {
   pwd
+  cp latex/main.tex latex/main_BEFORE_EDITING_BY_SED.tex.log
   sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main.tex
   sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main.tex
-  cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
+  cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex.log
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1.log; \
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main         > log2.log; \
@@ -31,7 +32,7 @@ function pdf {
 
 function epub_pandoc {
   cd latex;
-    docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
 	       --epub-metadata=metadata_epub.xml \
 	       --citeproc \
 		--bibliography=biblio_bureaucracy.bib \
@@ -49,7 +50,7 @@ function epub_pandoc {
 # --ascii = 	Use only ASCII characters in output.
 function html_pandoc {
   cd latex; \
-    docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
 		-t html --standalone \
 		-o main.html \
 		--metadata-file metadata_pandoc.yml \
@@ -94,7 +95,7 @@ EOF
       echo $filename;
       #pdf2svg $f ${filename}.svg;
       #docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdf2svg $f ${filename}.svg;
-      docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftoppm $f ${filename}.png -png;
+      time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftoppm $f ${filename}.png -png;
       mv "${filename}.png-1.png" "${filename}.png"
   done
   rm -rf *.pdf
