@@ -7,9 +7,9 @@
 
 
 \newif\ifhaspagenumbers
-\haspagenumbersfalse
+\haspagenumberstrue
 \newif\ifglossarysubstitutionworks
-\glossarysubstitutionworksfalse
+\glossarysubstitutionworkstrue
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
@@ -41,11 +41,12 @@
 
 % box text 
 % https://tex.stackexchange.com/a/36528/235813
-\usepackage{mdframed}
+%\usepackage{mdframed}
 
 % https://tex.stackexchange.com/a/172608/235813
 \usepackage{tcolorbox}
 \newtcolorbox{quizbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{storytime}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
 
 % how to hyphenate words
 \usepackage[USenglish]{babel}
