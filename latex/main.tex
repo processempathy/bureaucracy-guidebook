@@ -1,4 +1,17 @@
+\newif\ifboundbook
+\boundbookfalse
+\ifboundbook
 \documentclass[openright]{book}
+\else
+\documentclass[oneside]{book}
+% https://tex.stackexchange.com/a/137024/235813
+\usepackage[
+left=0.75in,
+textwidth=5.5in,
+marginparsep=0.25in,
+marginparwidth=1.5in
+]{geometry}
+\fi
 % to set font size use
 % \documentclass[12pt]{book}
 % The book class is two-sided by default so you do not need to add the twoside option.
@@ -10,6 +23,8 @@
 \haspagenumberstrue
 \newif\ifglossarysubstitutionworks
 \glossarysubstitutionworkstrue
+\newif\ifshowminitoc
+\showminitoctrue
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
@@ -224,7 +239,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \chapter{Introduction\label{sec:introduction}}
 {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+\ifshowminitoc
 \minitoc
+\fi
 %  Section~\ref{sec:define-bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative-views-from-within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
   \input{motivating_logic} \clearpage
@@ -261,14 +278,18 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \chapter{Why Bureaucracy is Hard\label{sec:why-bur-hard}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+  \ifshowminitoc
   \minitoc
+  \fi
   \input{why_is_bureaucracy_hard} \clearpage
   \input{dilemmas_and_trilemmas} \clearpage
   \input{unavoidable_hazards} \clearpage    
 
 \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+  \ifshowminitoc
   \minitoc
+  \fi
     This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This chapter is a prelude to the next chapter, 
     \hyperref[sec:working-with-other-bureaucrats]{working with others}.
     \marginpar{See page~\pageref{sec:working-with-other-bureaucrats}.}
@@ -343,7 +364,9 @@ Bureaucracy
   % multi-person interactions = process
   \chapter{Bureaucratic Processes\label{sec:process}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+  \ifshowminitoc
   \minitoc
+  \fi
     \input{process_context_habits} \clearpage
     \input{process_definition} \clearpage
     \input{process_why_exist} \clearpage
