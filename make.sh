@@ -8,31 +8,63 @@ set -o errexit   # set -e : exit the script if any statement returns a non-true 
 set -o xtrace    # set -x : show commands as the script executes
 
 echo "use:"
-echo "$0 pdf; $0 epub_pandoc; $0 html_pandoc"
+echo "$0 pdf_not_bound; $0 pdf_for_binding; $0 epub_pandoc; $0 html_pandoc"
 echo "or"
 echo "$0 all"
 
-function pdf {
+function pdf_not_bound {
   pwd
-  cp latex/main.tex latex/main_BEFORE_EDITING_BY_SED.tex.log
-  sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main.tex
-  sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main.tex
-  cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex.log
+  cp latex/main.tex latex/main_pdf_not_bound.tex
+  sed -i '' "s/boundbooktrue/boundbookfalse/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main_pdf_not_bound.tex
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main         > log2.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main                 > log3.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log4.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log5.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log4.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log5.log
     cd ..
-  sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main.tex
-  sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main.tex
-  mv -f latex/main.pdf bin/bureaucracy.pdf
+  mv -f latex/main_pdf_not_bound.pdf bin/bureaucracy_not_bound.pdf
+}
+
+function pdf_for_binding {
+  pwd
+  cp latex/main.tex latex/main_for_binding.tex
+  sed -i '' "s/boundbookfalse/boundbooktrue/" latex/main_for_binding.tex
+  sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main_for_binding.tex
+  sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main_for_binding.tex
+  cd latex
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_for_binding                 > log3.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log4.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log5.log
+    cd ..
+  mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
+
 }
 
 function epub_pandoc {
+  cp latex/main.tex latex/main_epub_pandoc.tex
+  # The version of Pandoc I'm using doesn't understand \newif
+  # https://github.com/jgm/pandoc/issues/6096
+  sed -i '' "/documentclass\[oneside\]{book}/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\usepackage.*{geometry}/d" latex/main_epub_pandoc.tex
+
+  sed -i '' "/\\newif/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\else/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\fi/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\boundbook/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\ifboundbook/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\haspagenumbers/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\glossarysubstitutionworks/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\showminitoc/d" latex/main_epub_pandoc.tex
+
+  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_epub_pandoc.tex
+  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_epub_pandoc.tex
   cd latex;
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_epub_pandoc.tex -f latex \
 	       --epub-metadata=metadata_epub.xml \
 	       --citeproc \
 		--bibliography=biblio_bureaucracy.bib \
@@ -41,16 +73,34 @@ function epub_pandoc {
 		--epub-cover-image=images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.png \
 		--gladtex \
 		-t epub3 \
-		-o main.epub
+		-o main_epub_pandoc.epub
     cd ..
-  mv -f latex/main.epub bin/bureaucracy.epub
+  mv -f latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 }
 
 # --ascii = 	Use only ASCII characters in output.
 function html_pandoc {
+  pwd
+  cp latex/main.tex latex/main_html_pandoc.tex
+  # The version of Pandoc I'm using doesn't understand \newif
+  # https://github.com/jgm/pandoc/issues/6096
+  sed -i '' "/documentclass\[oneside\]{book}/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\usepackage.*{geometry}/d" latex/main_html_pandoc.tex
+
+  sed -i '' "/\\newif/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\else/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\fi/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\boundbook/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\ifboundbook/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\haspagenumbers/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\glossarysubstitutionworks/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\showminitoc/d" latex/main_html_pandoc.tex
+
+  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_html_pandoc.tex
+  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_html_pandoc.tex
   cd latex; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main.tex -f latex \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_html_pandoc.tex -f latex \
 		-t html --standalone \
 		-o main.html \
 		--metadata-file metadata_pandoc.yml \
@@ -65,6 +115,26 @@ function html_pandoc {
   postprocess_html
 }
 
+function html_latex2html {
+  cp latex/main.tex latex/main_html_l2h.tex
+  sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_html_l2h.tex
+  sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_html_l2h.tex
+
+	cd latex
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3.log; \
+
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latex2html main_html_l2h \
+		-index_in_navigation \
+		-contents_in_navigation \
+		-next_page_in_navigation \
+		-previous_page_in_navigation \
+		-show_section_numbers \
+		-split 2 \
+		-verbosity 2 \
+		-html_version "5.0"
+}
 
 function postprocess_epub {
   pwd
@@ -168,8 +238,10 @@ function postprocess_html {
 }
 
 function all {
-  pdf
+  pdf_not_bound
+  pdf_for_binding
   html_pandoc
+  html_latex2html
   epub_pandoc
 }
 
@@ -178,8 +250,10 @@ function all {
 case "$1" in
     "") ;;
     all) "$@"; exit;;
-    pdf) "$@"; exit;;
+    pdf_not_bound) "$@"; exit;;
+    pdf_for_binding) "$@"; exit;;
     epub_pandoc) "$@"; exit;;
     html_pandoc) "$@"; exit;;
+    html_latex2html) "$@"; exit;;
     *) echo "Unkown function: $1()"; exit 2;;
 esac
