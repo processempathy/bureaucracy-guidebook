@@ -27,6 +27,7 @@ function pdf_not_bound {
   sed -i '' "s/boundbooktrue/boundbookfalse/" latex/main_pdf_not_bound.tex
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" latex/main_pdf_not_bound.tex
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/togglefalse{showbacktotoc}/toggletrue{showbacktotoc}/" latex/main_pdf_not_bound.tex
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_pdf_not_bound.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_pdf_not_bound.log
@@ -42,9 +43,18 @@ function pdf_not_bound {
 function pdf_for_binding {
   pwd
   cp latex/main.tex latex/main_for_binding.tex
+  # book is going to be bound; set boolean to true
   sed -i '' "s/boundbookfalse/boundbooktrue/" latex/main_for_binding.tex
+  # book has page numbers; set toggle to true
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" latex/main_for_binding.tex
+  # because this uses pdflatex, glossary substitution works; set toggle to true
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" latex/main_for_binding.tex
+  # books don't need hyperlinks to the toc; set toggle to false
+  sed -i '' "s/toggletrue{showbacktotoc}/togglefalse{showbacktotoc}/" latex/main_pdf_not_bound.tex
+  # book is black-and-white; don't use blue for hyperlink
+  sed -i '' "s/colorlinks=true,/colorlinks=false,/" latex/main_pdf_not_bound.tex
+  # when colorlinks=false, hyperref package uses rectangles around tex. Disable those
+  sed -i '' "s/usepackage{hyperref}/usepackage[hidelinks]{hyperref}/" latex/main_pdf_not_bound.tex
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1_for_binding.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2_for_binding.log
@@ -85,6 +95,8 @@ function epub_pandoc {
       sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
       # showminitoc == true
       sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+      # showbacktotoc == true
+      sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
   done
 
 
@@ -146,6 +158,8 @@ function html_pandoc {
       sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
       # showminitoc == true
       sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+      # showbacktotoc == true
+      sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
   done
 
   # The version of Pandoc I'm using doesn't understand \newif
@@ -195,6 +209,8 @@ function html_latex2html {
       sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
       # showminitoc == true
       sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+      # showbacktotoc == true
+      sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
   done
 
   #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_latex2html.tex
