@@ -131,13 +131,13 @@ epub: html
 
 
 rm:
-	cd latex; rm -rf *
+	rm -rf TEMPORARY_*; cd latex; rm -rf *
 
 uz:
 	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
 
 clean:
-	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;
+	rm -rf TEMPORARY_*; cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;
 
 # the following commands are for use outside the Docker image
 

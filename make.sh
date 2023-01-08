@@ -56,15 +56,15 @@ function epub_pandoc {
   #cd ..
   #mv latex/main_merged.tex latex/main_epub_pandoc.tex
 
-  rm -rf TEMPORARY_epub_source
-  mkdir TEMPORARY_epub_source
-  cp -r latex/* TEMPORARY_epub_source/
-  rm -rf TEMPORARY_epub_source/main_*
-  mv TEMPORARY_epub_source/main.tex TEMPORARY_epub_source/main_epub_pandoc.tex
+  rm -rf TEMPORARY_epub_source_html_source_latex
+  mkdir TEMPORARY_epub_source_html_source_latex
+  cp -r latex/* TEMPORARY_epub_source_html_source_latex/
+  rm -rf TEMPORARY_epub_source_html_source_latex/main_*
+  mv TEMPORARY_epub_source_html_source_latex/main.tex TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
 
   # DEPRECATED -- fancy and fragile
-  # python3 evaluate_boolean_toggles.py TEMPORARY_epub_source/main_epub_pandoc.tex
-  for f in TEMPORARY_epub_source/*.tex; do
+  # python3 evaluate_boolean_toggles.py TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  for f in TEMPORARY_epub_source_html_source_latex/*.tex; do
       # haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
       # haspagenumbers == false
@@ -78,18 +78,18 @@ function epub_pandoc {
 
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_epub_source/main_epub_pandoc.tex
-  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
 
-  sed -i '' "/\\newif/d" TEMPORARY_epub_source/main_epub_pandoc.tex
-  sed -i '' "/\\else/d" TEMPORARY_epub_source/main_epub_pandoc.tex
-  sed -i '' "/\\fi/d" TEMPORARY_epub_source/main_epub_pandoc.tex
-  sed -i '' "/\\boundbook/d" TEMPORARY_epub_source/main_epub_pandoc.tex
-  sed -i '' "/\\ifboundbook/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/\\newif/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/\\else/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/\\fi/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/\\boundbook/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/\\ifboundbook/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
 
-  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" TEMPORARY_epub_source/main_epub_pandoc.tex
-  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" TEMPORARY_epub_source/main_epub_pandoc.tex
-  cd TEMPORARY_epub_source;
+  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  cd TEMPORARY_epub_source_html_source_latex;
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_epub_pandoc.tex -f latex \
 	       --epub-metadata=metadata_epub.xml \
 	       --citeproc \
@@ -101,7 +101,7 @@ function epub_pandoc {
 		-t epub3 \
 		-o main_epub_pandoc.epub
     cd ..
-  mv -f TEMPORARY_epub_source/main_epub_pandoc.epub bin/bureaucracy.epub
+  mv -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 }
 
@@ -117,15 +117,15 @@ function html_pandoc {
   #cd ..
   #cp latex/main_merged.tex latex/main_html_pandoc.tex
 
-  rm -rf TEMPORARY_html_pandoc_source
-  mkdir TEMPORARY_html_pandoc_source
-  cp -r latex/* TEMPORARY_html_pandoc_source/
-  rm -rf TEMPORARY_html_pandoc_source/main_*
-  mv TEMPORARY_html_pandoc_source/main.tex TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  rm -rf TEMPORARY_html_pandoc_source_latex
+  mkdir TEMPORARY_html_pandoc_source_latex
+  cp -r latex/* TEMPORARY_html_pandoc_source_latex/
+  rm -rf TEMPORARY_html_pandoc_source_latex/main_*
+  mv TEMPORARY_html_pandoc_source_latex/main.tex TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
 
   # DEPRECATED -- fancy and fragile
-  # python3 evaluate_boolean_toggles.py TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  for f in TEMPORARY_html_pandoc_source/*.tex; do
+  # python3 evaluate_boolean_toggles.py TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  for f in TEMPORARY_html_pandoc_source_latex/*.tex; do
       # haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
       # haspagenumbers == false
@@ -138,19 +138,19 @@ function html_pandoc {
 
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
 
-  sed -i '' "/\\newif/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  sed -i '' "/\\else/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  sed -i '' "/\\fi/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  sed -i '' "/\\boundbook/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  sed -i '' "/\\ifboundbook/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/\\newif/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/\\else/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/\\fi/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/\\boundbook/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/\\ifboundbook/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
 
-  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
-  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
 
-  cd TEMPORARY_html_pandoc_source; \
+  cd TEMPORARY_html_pandoc_source_latex; \
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_html_pandoc.tex -f latex \
 		-t html --standalone \
 		-o main.html \
@@ -192,9 +192,9 @@ function html_latex2html {
 
 function postprocess_epub {
   pwd
-  rm -rf TEMPORARY_EPUB
-  mkdir TEMPORARY_EPUB
-  cd TEMPORARY_EPUB/
+  rm -rf TEMPORARY_epub_source_html
+  mkdir TEMPORARY_epub_source_html
+  cd TEMPORARY_epub_source_html/
 
   cp ../bin/bureaucracy.epub .
 
@@ -251,43 +251,43 @@ EOF
 
 function postprocess_html {
   # replace PDF with PNG for images
-  sed -i '' 's/\("images\/.*\)pdf"/\1png"/' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/\("images\/.*\)pdf"/\1png"/' TEMPORARY_html_pandoc_source_latex/main.html
 
   # instead of embedded images, just point to the PNG as an IMG
-  sed -i '' 's/<embed/<img/' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/<embed/<img/' TEMPORARY_html_pandoc_source_latex/main.html
 
   # replace tilted quote with straight quote
   #sed -i '' "s/’/'/g" main.html
   #sed -i '' 's/“/"/g' main.html
 
   # single quote
-  sed -i '' "s/&#x2018;/'/g" TEMPORARY_html_pandoc_source/main.html
-  sed -i '' "s/&#x2019;/'/g" TEMPORARY_html_pandoc_source/main.html
+  sed -i '' "s/&#x2018;/'/g" TEMPORARY_html_pandoc_source_latex/main.html
+  sed -i '' "s/&#x2019;/'/g" TEMPORARY_html_pandoc_source_latex/main.html
 
   # CAVEAT: ampersand needs to be escaped in the output because it means "match" for sed
   # space
-  sed -i '' "s/&#xA0;/\&nbsp;/g" TEMPORARY_html_pandoc_source/main.html
+  sed -i '' "s/&#xA0;/\&nbsp;/g" TEMPORARY_html_pandoc_source_latex/main.html
 
   # double quote
-  sed -i '' 's/&#x201D;/"/g' TEMPORARY_html_pandoc_source/main.html
-  sed -i '' 's/&#x201C;/"/g' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/&#x201D;/"/g' TEMPORARY_html_pandoc_source_latex/main.html
+  sed -i '' 's/&#x201C;/"/g' TEMPORARY_html_pandoc_source_latex/main.html
 
   # copyright symbol
   #sed -i '' 's/&#xA9;/\(C\)/g' latex/main.html
 
   # em dash
-  sed -i '' 's/&#x2013;/--/g' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/&#x2013;/--/g' TEMPORARY_html_pandoc_source_latex/main.html
 
   # footnote return indicator
-  sed -i '' 's/&#x21A9;&#xFE0E;/\&nbsp;return to text/g' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/&#x21A9;&#xFE0E;/\&nbsp;Return to text/g' TEMPORARY_html_pandoc_source_latex/main.html
 
   # fix hyperlinked chapter numbers
   # CAVEAT: this is a fragile fix since the chapter numbers are hard-coded.
-  sed -i '' 's/>\[sec:introduction\]</>1</' TEMPORARY_html_pandoc_source/main.html
-  sed -i '' 's/>\[sec:why-bur-hard\]</>4</' TEMPORARY_html_pandoc_source/main.html
-  sed -i '' 's/>\[sec:individual-in-org\]</>5</' TEMPORARY_html_pandoc_source/main.html
-  sed -i '' 's/>\[sec:process\]</>8</' TEMPORARY_html_pandoc_source/main.html
-  sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/>\[sec:introduction\]</>1</' TEMPORARY_html_pandoc_source_latex/main.html
+  sed -i '' 's/>\[sec:why-bur-hard\]</>4</' TEMPORARY_html_pandoc_source_latex/main.html
+  sed -i '' 's/>\[sec:individual-in-org\]</>5</' TEMPORARY_html_pandoc_source_latex/main.html
+  sed -i '' 's/>\[sec:process\]</>8</' TEMPORARY_html_pandoc_source_latex/main.html
+  sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' TEMPORARY_html_pandoc_source_latex/main.html
 
 }
 
