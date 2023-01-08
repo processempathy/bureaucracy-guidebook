@@ -2,6 +2,7 @@
 
 import glob
 import re
+import sys
 
 """
  Pandoc doesn't interpret "\iftoggle{}"
@@ -22,7 +23,24 @@ and the use looks like
 
 """
 
-main_file = "latex/main.tex"
+arguments = sys.argv[1:]
+count = len(arguments)
+if count==0:
+    print("ERROR")
+    print("requires 1 argument:")
+    print("  latex/main.tex")
+    print("example:")
+    print("evaluate_boolean_toggles.py latex/main.tex")
+    exit()
+if count>1:
+    print("only takes one argument")
+
+folder_containing_main = '/'.join(arguments[0].split('/')[:-1])
+file_name_for_main = arguments[0].split('/')[-1]
+print("folder:",folder_containing_main)
+print(".tex file:", file_name_for_main)
+
+main_file = folder_containing_main+"/"+file_name_for_main
 
 with open(main_file,'r') as file_handle:
     file_content_as_list = file_handle.readlines()
@@ -49,9 +67,10 @@ for toggle in list_of_toggles:
 
 #print(toggle_values)
 
-list_of_files = glob.glob("latex/*.tex")
+list_of_files = glob.glob(folder_containing_main+"/*.tex")
 
 list_of_replacements = []
+#print("main_file=",main_file)
 for toggle_name, toggle_bool_value in toggle_values.items():
     #print("toggle=",toggle_name,"value=",toggle_bool_value)
     for file_name in list_of_files:
@@ -88,11 +107,11 @@ for toggle_name, toggle_bool_value in toggle_values.items():
                      "replace with": replace_with})
 
 for replacement_dict in list_of_replacements:
+    print(replacement_dict)
     with open(replacement_dict["file name"], 'r') as file_handle:
         file_content = file_handle.read()
 
-    file_content.replace(replacement_dict["to replace"],replacement_dict["replace with"])
+    revised=file_content.replace(replacement_dict["to replace"],replacement_dict["replace with"])
 
-     with open(replacement_dict["file name"], 'w') as file_handle:
-         file_handle.write(file_content)
-         
+    with open(replacement_dict["file name"], 'w') as file_handle:
+        file_handle.write(revised)

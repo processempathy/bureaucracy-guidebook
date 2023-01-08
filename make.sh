@@ -51,28 +51,45 @@ function epub_pandoc {
   # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
   # so merge all \input{}  so that all content is in one file, as per
   # https://tex.stackexchange.com/a/21840/235813
-  cd latex
-  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
-  cd ..
+  #cd latex
+  #time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
+  #cd ..
+  #mv latex/main_merged.tex latex/main_epub_pandoc.tex
 
-  mv latex/main_merged.tex latex/main_epub_pandoc.tex
+  rm -rf TEMPORARY_epub_source
+  mkdir TEMPORARY_epub_source
+  cp -r latex/* TEMPORARY_epub_source/
+  rm -rf TEMPORARY_epub_source/main_*
+  mv TEMPORARY_epub_source/main.tex TEMPORARY_epub_source/main_epub_pandoc.tex
+
+  # DEPRECATED -- fancy and fragile
+  # python3 evaluate_boolean_toggles.py TEMPORARY_epub_source/main_epub_pandoc.tex
+  for f in TEMPORARY_epub_source/*.tex; do
+      # haspagenumbers == true
+      #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
+      # haspagenumbers == false
+      sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/' $f
+      # glossarysubstitutionworks == false
+      sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
+      # showminitoc == true
+      sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+  done
+
+
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\usepackage.*{geometry}/d" latex/main_epub_pandoc.tex
+  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_epub_source/main_epub_pandoc.tex
 
-  sed -i '' "/\\newif/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\else/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\fi/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\boundbook/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\ifboundbook/d" latex/main_epub_pandoc.tex
+  sed -i '' "/\\newif/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/\\else/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/\\fi/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/\\boundbook/d" TEMPORARY_epub_source/main_epub_pandoc.tex
+  sed -i '' "/\\ifboundbook/d" TEMPORARY_epub_source/main_epub_pandoc.tex
 
-  sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_epub_pandoc.tex
-  sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_epub_pandoc.tex
-
-  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_epub_pandoc.tex
-  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_epub_pandoc.tex
-  cd latex;
+  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" TEMPORARY_epub_source/main_epub_pandoc.tex
+  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" TEMPORARY_epub_source/main_epub_pandoc.tex
+  cd TEMPORARY_epub_source;
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_epub_pandoc.tex -f latex \
 	       --epub-metadata=metadata_epub.xml \
 	       --citeproc \
@@ -84,7 +101,7 @@ function epub_pandoc {
 		-t epub3 \
 		-o main_epub_pandoc.epub
     cd ..
-  mv -f latex/main_epub_pandoc.epub bin/bureaucracy.epub
+  mv -f TEMPORARY_epub_source/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 }
 
@@ -95,28 +112,45 @@ function html_pandoc {
   # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
   # so merge all \input{}  so that all content is in one file, as per
   # https://tex.stackexchange.com/a/21840/235813
-  cd latex
-  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
-  cd ..
+  #cd latex
+  #time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
+  #cd ..
+  #cp latex/main_merged.tex latex/main_html_pandoc.tex
 
-  cp latex/main_merged.tex latex/main_html_pandoc.tex
+  rm -rf TEMPORARY_html_pandoc_source
+  mkdir TEMPORARY_html_pandoc_source
+  cp -r latex/* TEMPORARY_html_pandoc_source/
+  rm -rf TEMPORARY_html_pandoc_source/main_*
+  mv TEMPORARY_html_pandoc_source/main.tex TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+
+  # DEPRECATED -- fancy and fragile
+  # python3 evaluate_boolean_toggles.py TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  for f in TEMPORARY_html_pandoc_source/*.tex; do
+      # haspagenumbers == true
+      #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
+      # haspagenumbers == false
+      sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/' $f
+      # glossarysubstitutionworks == false
+      sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
+      # showminitoc == true
+      sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+  done
+
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\usepackage.*{geometry}/d" latex/main_html_pandoc.tex
+  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
 
-  sed -i '' "/\\newif/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\else/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\fi/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\boundbook/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\ifboundbook/d" latex/main_html_pandoc.tex
+  sed -i '' "/\\newif/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/\\else/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/\\fi/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/\\boundbook/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  sed -i '' "/\\ifboundbook/d" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
 
-  sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_pandoc.tex
-  sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_pandoc.tex
+  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
+  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" TEMPORARY_html_pandoc_source/main_html_pandoc.tex
 
-  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_html_pandoc.tex
-  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_html_pandoc.tex
-  cd latex; \
+  cd TEMPORARY_html_pandoc_source; \
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_html_pandoc.tex -f latex \
 		-t html --standalone \
 		-o main.html \
@@ -133,6 +167,7 @@ function html_pandoc {
 }
 
 function html_latex2html {
+
   cp latex/main.tex latex/main_html_l2h.tex
   sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_l2h.tex
   #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_l2h.tex
@@ -210,53 +245,54 @@ EOF
   cd ..
   zip bureaucracy.epub -r *
   pwd
-  mv -f bureaucracy.epub ../bin/bureaucracy.epub
+  mv -f bureaucracy.epub ../bin/bureaucracy_improved.epub
   cd ..
 }
 
 function postprocess_html {
   # replace PDF with PNG for images
-  sed -i '' 's/\("images\/.*\)pdf"/\1png"/' latex/main.html
+  sed -i '' 's/\("images\/.*\)pdf"/\1png"/' TEMPORARY_html_pandoc_source/main.html
 
   # instead of embedded images, just point to the PNG as an IMG
-  sed -i '' 's/<embed/<img/' latex/main.html
+  sed -i '' 's/<embed/<img/' TEMPORARY_html_pandoc_source/main.html
 
   # replace tilted quote with straight quote
   #sed -i '' "s/’/'/g" main.html
   #sed -i '' 's/“/"/g' main.html
 
   # single quote
-  sed -i '' "s/&#x2018;/'/g" latex/main.html
-  sed -i '' "s/&#x2019;/'/g" latex/main.html
+  sed -i '' "s/&#x2018;/'/g" TEMPORARY_html_pandoc_source/main.html
+  sed -i '' "s/&#x2019;/'/g" TEMPORARY_html_pandoc_source/main.html
 
   # CAVEAT: ampersand needs to be escaped in the output because it means "match" for sed
   # space
-  sed -i '' "s/&#xA0;/\&nbsp;/g" latex/main.html
+  sed -i '' "s/&#xA0;/\&nbsp;/g" TEMPORARY_html_pandoc_source/main.html
 
   # double quote
-  sed -i '' 's/&#x201D;/"/g' latex/main.html
-  sed -i '' 's/&#x201C;/"/g' latex/main.html
+  sed -i '' 's/&#x201D;/"/g' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/&#x201C;/"/g' TEMPORARY_html_pandoc_source/main.html
 
   # copyright symbol
   #sed -i '' 's/&#xA9;/\(C\)/g' latex/main.html
 
   # em dash
-  sed -i '' 's/&#x2013;/--/g' latex/main.html
+  sed -i '' 's/&#x2013;/--/g' TEMPORARY_html_pandoc_source/main.html
 
   # footnote return indicator
-  sed -i '' 's/&#x21A9;&#xFE0E;/\&nbsp;return to text/g' latex/main.html
+  sed -i '' 's/&#x21A9;&#xFE0E;/\&nbsp;return to text/g' TEMPORARY_html_pandoc_source/main.html
 
   # fix hyperlinked chapter numbers
   # CAVEAT: this is a fragile fix since the chapter numbers are hard-coded.
-  sed -i '' 's/>\[sec:introduction\]</>1</' latex/main.html
-  sed -i '' 's/>\[sec:why-bur-hard\]</>4</' latex/main.html
-  sed -i '' 's/>\[sec:individual-in-org\]</>5</' latex/main.html
-  sed -i '' 's/>\[sec:process\]</>8</' latex/main.html
-  sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' latex/main.html
+  sed -i '' 's/>\[sec:introduction\]</>1</' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/>\[sec:why-bur-hard\]</>4</' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/>\[sec:individual-in-org\]</>5</' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/>\[sec:process\]</>8</' TEMPORARY_html_pandoc_source/main.html
+  sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' TEMPORARY_html_pandoc_source/main.html
 
 }
 
 function all {
+  rm -rf TEMPORARY_*
   pdf_not_bound
   pdf_for_binding
   html_pandoc

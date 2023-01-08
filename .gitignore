@@ -1,6 +1,8 @@
 .DS_Store
 bin/
 
+latex/main_*.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.mtc
 *.aux
