@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# This script produces multiple formats of the same content.
+# Latex source code in the latex/ folder is used to create
+# * PDF for printing a paper book
+# * PDF for electronic format
+# * EPUB
+# * HTML
+# The conversion process uses Latex commands and pandoc,
+# both of which are in a container
+
 # strict error handling
 set -o pipefail  # trace ERR through pipes
 set -o errtrace  # trace ERR through 'time command' and other functions
@@ -8,9 +17,9 @@ set -o errexit   # set -e : exit the script if any statement returns a non-true 
 set -o xtrace    # set -x : show commands as the script executes
 
 echo "use:"
-echo "$0 pdf_not_bound; $0 pdf_for_binding; $0 epub_pandoc; $0 html_pandoc"
+echo "$0 pdf_not_bound; $0 pdf_for_binding; $0 epub_pandoc; $0 html_pandoc; $0 html_latex2html"
 echo "or"
-echo "$0 all"
+echo "/usr/bin/time $0 all"
 
 function pdf_not_bound {
   pwd
@@ -26,6 +35,8 @@ function pdf_not_bound {
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log5_pdf_not_bound.log
     cd ..
   mv -f latex/main_pdf_not_bound.pdf bin/bureaucracy_not_bound.pdf
+
+  mv latex/main_pdf_not_bound.tex latex/main_pdf_not_bound.tex.log
 }
 
 function pdf_for_binding {
@@ -43,6 +54,7 @@ function pdf_for_binding {
     cd ..
   mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
 
+  mv latex/main_for_binding.tex latex/main_for_binding.tex.log
 }
 
 function epub_pandoc {
@@ -168,17 +180,33 @@ function html_pandoc {
 
 function html_latex2html {
 
-  cp latex/main.tex latex/main_html_l2h.tex
-  sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_l2h.tex
-  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_l2h.tex
+  rm -rf TEMPORARY_html_latex2html_source_latex
+  mkdir TEMPORARY_html_latex2html_source_latex
+  cp -r latex/* TEMPORARY_html_latex2html_source_latex/
+  rm -rf TEMPORARY_html_latex2html_source_latex/main_*
+  mv TEMPORARY_html_latex2html_source_latex/main.tex TEMPORARY_html_latex2html_source_latex/main_html_latex2html.tex
 
-	cd latex
+  for f in TEMPORARY_html_latex2html_source_latex/*.tex; do
+      # haspagenumbers == true
+      #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
+      # haspagenumbers == false
+      sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/' $f
+      # glossarysubstitutionworks == false
+      sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
+      # showminitoc == true
+      sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+  done
+
+  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_latex2html.tex
+  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_latex2html.tex
+
+	cd TEMPORARY_html_latex2html_source_latex
     # Need to get glossary and bibliography before generating HTML
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_latex2html.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_latex2html.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3_latex2html.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_html_latex2html > log1_latex2html.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_html_latex2html         > log2_latex2html.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_html_latex2html                 > log3_latex2html.log; \
 
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latex2html main_html_l2h \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latex2html main_html_latex2html \
 		-index_in_navigation \
 		-contents_in_navigation \
 		-next_page_in_navigation \
@@ -234,6 +262,13 @@ EOF
 
       # replace PDF with PNG for images
       sed -i '' 's/\(media\/.*\)pdf"/\1png"/' $f
+
+      sed -i '' 's/>\[sec:introduction\]</>1</' $f
+      sed -i '' 's/>\[sec:why-bur-hard\]</>4</' $f
+      sed -i '' 's/>\[sec:individual-in-org\]</>5</' $f
+      sed -i '' 's/>\[sec:process\]</>8</' $f
+      sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' $f
+
   done
   cd ..
   sed -i '' 's/<embed/<img/' nav.xhtml
@@ -289,10 +324,15 @@ function postprocess_html {
   sed -i '' 's/>\[sec:process\]</>8</' TEMPORARY_html_pandoc_source_latex/main.html
   sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' TEMPORARY_html_pandoc_source_latex/main.html
 
+  cp TEMPORARY_html_pandoc_source_latex/main.html latex/main.html
+
 }
 
 function all {
   rm -rf TEMPORARY_*
+  # The following could be launched using independent subshells
+  #   since they are each independent
+  # I don't have the CPUs or memory to support that
   pdf_not_bound
   pdf_for_binding
   html_pandoc

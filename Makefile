@@ -1,4 +1,9 @@
-
+# Many targets have been moved into "make.sh"
+# because I was running into translation problems with launching 
+# sed commands and bash scripts from this Makefile.
+# The DEPRECATED commands have been left here 
+# 1) in case I want to revert back to this Makefile-based approach and
+# 2) as an example for folks interested in the build process
 
 
 help:
@@ -28,7 +33,7 @@ todo:
 notes:
 	grep -E -R "[A-Z]{5,}" latex/*.tex
 
-out: pdf html epub
+DEPRECATED_out: pdf html epub
 
 # graph of dilemmas
 dilgraph:
@@ -43,7 +48,7 @@ dilgraphkeywords:
 # --standalone		without it, you'd only get a snippet instead of a complete document.		https://pandoc.org/MANUAL.html#option--standalone
 # --citeproc		Process the citations in the file, replacing them with rendered citations and adding a bibliography.
 # --metadata-file	Read metadata from the supplied YAML (or JSON) file.				https://pandoc.org/MANUAL.html#option--metadata-file
-docx: pdf
+DEPRECATED_docx: pdf
 	cd latex; \
 		pandoc main.tex -o main.docx \
 		--metadata-file metadata_pandoc.yml \
@@ -54,12 +59,12 @@ docx: pdf
 		--bibliography=biblio_bureaucracy.bib
 	mv latex/main.docx bin/
 
-#html: pdf html_latex2html html_pandoc
-html: pdf html_pandoc
+#DEPRECATED_html: pdf html_latex2html html_pandoc
+DEPRECATED_html: pdf html_pandoc
 
 # "split 0" makes one giant HTML file.
 # maximum verbosity is 4. Using 4 slows the process down due to printing to terminal
-html_latex2html: 
+DEPRECATED_html_latex2html: 
 	cd latex; latex2html main \
 		-index_in_navigation \
 		-contents_in_navigation \
@@ -72,7 +77,7 @@ html_latex2html:
 
 
 # --ascii = 	Use only ASCII characters in output. 
-html_pandoc: 
+DEPRECATED_html_pandoc: 
 	cd latex; \
 		pandoc main.tex -f latex \
 		-t html --standalone \
@@ -87,14 +92,11 @@ html_pandoc:
 		--bibliography=biblio_bureaucracy.bib
 #	$(shell ./convert_html_pdf_to_png.sh)
 
-test:
-	$(shell sed -i '' 's/haspagenumbersfalse/haspagenumberstrue/' latex/main.tex)
-	cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
 
 # toggle the boolean for page numbers being present
 # default should be "false"; toggle to "true" during PDF compilation
 # -shell-escape enables TeX to execute other commands
-pdf: clean
+DEPRECATED_pdf: clean
 	$(shell sed -i '' 's/haspagenumbersfalse/haspagenumberstrue/' latex/main.tex)
 	cp latex/main.tex latex/main_EDITED_BY_SED_BY_MAKEFILE.tex
 	cd latex; \
@@ -114,7 +116,7 @@ pdf: clean
 # BHP removed
 # --metadata-file metadata_pandoc.yml
 # so there's no conflict with the epub metadata
-epub: html
+DEPRECATED_epub: html
 	cd latex; \
 		pandoc main.tex -f latex \
 		--epub-metadata=metadata_epub.xml \
@@ -155,13 +157,13 @@ docker_live:
 		--user $(id -u):$(id -g) \
 		latex_debian /bin/bash
 
-dpdf:
+DEPRECATED_dpdf:
 	time docker run --rm \
 		-v `pwd`:/scratch -w /scratch/ \
 		--user $(id -u):$(id -g) \
 		latex_debian make pdf 
 
-dout:
+DEPRECATED_dout:
 	time docker run --rm \
 		-v `pwd`:/scratch -w /scratch/ \
 		--user $(id -u):$(id -g) \
