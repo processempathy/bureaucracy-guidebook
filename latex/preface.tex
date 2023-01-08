@@ -22,11 +22,7 @@ I have bad news for you if you have a negative impression of bureaucracy: bureau
 Having a precise definition of bureaucracy enables a more nuanced discussion. 
 \begin{quote}
 \textbf{Definition}: 
-\ifglossarysubstitutionworks
-\Gls{bureaucracy} 
-\else
-Bureaucracy
-\fi
+\iftoggle{glossarysubstitutionworks}{\Gls{bureaucracy}}{Bureaucracy}
 is the set of subjective decisions made by individual participants in an organization responsible for a shared resource. Because no one member knows everything and no one person decides everything, bureaucracy relies on distributed knowledge and distributed decision-making.
 The resources managed by an organization can be either tangible or in the form of expertise.  
 \end{quote}
@@ -184,34 +180,22 @@ in terms of managing shared resources. The second view is structural (e.g., hier
 \marginpar{See page~\pageref{sec:fundamentals-of-b}.}
 will be familiar to experienced bureaucrats. 
 The third view is based on the experience of a practicing bureaucrat -- 
-\hyperref[sec:dilemma-trilemma]{dilemmas}\ifhaspagenumbers
-~(page~\pageref{sec:dilemma-trilemma}),\else,\ \fi
-\ \hyperref[sec:unavoidable-hazards]{unavoidable hazards}\ifhaspagenumbers
- ~(page~\pageref{sec:unavoidable-hazards}), \else, \fi
+\hyperref[sec:dilemma-trilemma]{dilemmas}\iftoggle{haspagenumbers}{(page~\pageref{sec:dilemma-trilemma}),}{,}
+\ \hyperref[sec:unavoidable-hazards]{unavoidable hazards}\iftoggle{haspagenumbers}{ (page~\pageref{sec:unavoidable-hazards}),}{,}
 and 
-\hyperref[sec:effective-bureaucrat]{tips on how to be effective}\ifhaspagenumbers
-~(page~\pageref{sec:effective-bureaucrat}).  
-\else.\fi
+\hyperref[sec:effective-bureaucrat]{tips on how to be effective}\iftoggle{haspagenumbers}{ (page~\pageref{sec:effective-bureaucrat}).}{.}
 
 %The three productive views of bureaucracy (concept, structure, experience) are contrasted with~\hyperref[sec:alternative-views-from-within]{how other bureaucrats view bureaucracy} and~\hyperref[sec:models-of-bureaucracy]{other models of bureaucracy}.
 
 Chapters~\ref{sec:introduction} 
-\ifhaspagenumbers
-(page~\pageref{sec:introduction}) 
-\fi
+\iftoggle{haspagenumbers}{(page~\pageref{sec:introduction}) }{}
 through~\ref{sec:why-bur-hard} 
-\ifhaspagenumbers
-(page~\pageref{sec:why-bur-hard}) 
-\fi
+\iftoggle{haspagenumbers}{(page~\pageref{sec:why-bur-hard}) }{}
 provide background context for bureaucracy. 
 Chapters~\ref{sec:individual-in-org} 
-\ifhaspagenumbers
-(page~\pageref{sec:individual-in-org}) 
-\fi
+\iftoggle{haspagenumbers}{(page~\pageref{sec:individual-in-org}) }{}
 through~\ref{sec:process} 
-\ifhaspagenumbers
-(page~\pageref{sec:process}) 
-\fi
+\iftoggle{haspagenumbers}{(page~\pageref{sec:process}) }{}
 are the field guide. 
 Each chapter of the field guide can be read independently. 
 

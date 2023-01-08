@@ -55,11 +55,7 @@ description={A person who is expected to take action or make contribution}
 name={essential bureaucracy},
 text={Essential bureaucracy},
 description={The minimum 
-\ifglossarysubstitutionworks
-\glspl{process} 
-\else
-processes
-\fi
+\iftoggle{glossarysubstitutionworks}{\glspl{process}}{processes}
 and staffing and skills necessary to address the complexity of the problem space}
 }
 
@@ -115,11 +111,7 @@ at first sound reasonable but, upon reflection and analysis, are incorrect}
     name={bureaucrat},
     plural={bureaucrats},
     description={A person responsible for subjective implementation of policy addressing access to 
-\ifglossarysubstitutionworks
-\glspl{shared resource}. 
-\else
-shared resources.
-\fi
+\iftoggle{glossarysubstitutionworks}{\glspl{shared resource}.}{shared resources.}
     Conventional examples of roles filled by bureaucrats: teacher, police, government employee}
 }
 
@@ -174,25 +166,13 @@ Private or public is irrelevant; commercial or non-profit is irrelevant}
     text={bureaucracy},
     description={
     The set of subjective decisions made by individual participants in an \gls{organization}. The decisions originate from the management of 
-\ifglossarysubstitutionworks
-\glspl{shared resource}.
-\else
-shared resources.
-\fi
+\iftoggle{glossarysubstitutionworks}{\glspl{shared resource}.}{shared resources.}
 The resources can be either tangible or in the form of expertise. Bureaucracy relies on distributed knowledge and distributed decision-making. 
     \\
     An organization of 
-\ifglossarysubstitutionworks
-\glspl{bureaucrat} 
-\else
-bureaucrats
-\fi
+\iftoggle{glossarysubstitutionworks}{\glspl{bureaucrat}}{bureaucrats}
 comprises a bureaucracy. A bureaucracy facilitates coordination of 
-\ifglossarysubstitutionworks
-\glspl{stakeholder}. 
-\else
-stakeholders.
-\fi
+\iftoggle{glossarysubstitutionworks}{\glspl{stakeholder}.}{stakeholders.}
     Bureaucracy is how large organizations make distributed decisions using distributed knowledge.    \\
     Every policy in a bureaucracy is made up by other people. \\
     Bureaucracy is a macroscopic phenomenon emergent at sufficient scale. The scale is important because there is no longer dependence on individual relationships. \\
@@ -218,22 +198,18 @@ description={A decision-maker selects an option and that propagates to schedule,
 name={visible bureaucracy},
     %name={bureaucracy, visible},
     description={
-\ifglossarysubstitutionworks
-\Glspl{process} \else Processes\fi
+\iftoggle{glossarysubstitutionworks}{\Glspl{process}}{Processes}
 are written down and can be discovered by 
-\ifglossarysubstitutionworks
-\glspl{stakeholder} \else stakeholders\fi}
+\iftoggle{glossarysubstitutionworks}{\glspl{stakeholder}}{stakeholders}}
 }
 
 \newglossaryentry{invisible bureaucracy}{
 name={invisible bureaucracy},
     %name={bureaucracy, invisible},
     description={
-\ifglossarysubstitutionworks
-\Glspl{process} \else Processes \fi
+\iftoggle{glossarysubstitutionworks}{\Glspl{process}}{Processes}
 are known to some 
-\ifglossarysubstitutionworks
-\glspl{stakeholder} \else stakeholders \fi
+\iftoggle{glossarysubstitutionworks}{\glspl{stakeholder}}{stakeholders} 
 and are conveyed verbally to some of the other stakeholders}
 }
 
@@ -244,12 +220,9 @@ plural={processes},
 % https://graphthinking.blogspot.com/2017/02/breaking-down-bureaucracy-process-roles.html
 description={A task broken into a specified set of subtask dependencies, typically with subtasks in a sequence. 
 Each task is associated with the application of 
-\ifglossarysubstitutionworks
-\glspl{policy} \else policies \fi
+\iftoggle{glossarysubstitutionworks}{\glspl{policy}}{policies}
 enforced by 
-\ifglossarysubstitutionworks
-\glspl{bureaucrat}. \else bureaucrats.
-\fi
+\iftoggle{glossarysubstitutionworks}{\glspl{bureaucrat}.}{bureaucrats.}
 % Also known as a procedure. 
 Two distinguishing features in the context of bureaucracy are authorization and justification.  
 A process has inputs and outputs. 

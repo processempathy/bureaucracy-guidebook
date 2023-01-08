@@ -4,11 +4,7 @@ While you may know it when you see or experience bureaucracy
 \footnote{\href{https://en.wikipedia.org/wiki/I_know_it_when_I_see_it}{``I know it when I see it."}}, for this book definitions are helpful. Throughout the book I'll refer back to these definitions as I explain concepts needed to understand bureaucracy.
 
 \index{bureaucracy!definition of}
-\ifglossarysubstitutionworks
-\Gls{bureaucracy} 
-\else
-Bureaucracy
-\fi
+\iftoggle{glossarysubstitutionworks}{\Gls{bureaucracy}}{Bureaucracy}
 \marginpar{[Glossary]}
 involves the creation and execution of \glspl{policy} for managing shared resources. Creating and carrying out policies usually involves multiple people, each having specialized roles. Motivated by scalability (how many widgets), complexity (number of tasks per widget), or latency (time per widget), members with distinct roles form a hierarchical organization to facilitate coordination. The organization has control over the disbursement of resources relevant to the society the organization works within, or the organization administers a policy within that society. Resources managed by the organization are either tangible (e.g., water, air, land) or expertise.  
 
@@ -56,10 +52,8 @@ A vital aspect of bureaucracy is that everything is arbitrary -- as determined b
 The consequence of subjectivity is that everything is negotiable. Bureaucracy relies on negotiation to adjust to nuanced circumstances not foreseen when policies were designed.  You (whether in the role of either a subject or a bureaucrat) need to know both who to negotiate with and how to negotiate changes you seek. 
 
 Bureaucracy is arbitrary, but there are actual rules that constrain us. The mathematical physics that describe nature are not negotiable. Everything in your environment is either naturally occurring macroscopic emergent phenomena (e.g., chemistry, biology) or humans making up labels and norms. Distinguishing the two is critical to knowing what you can change and what you have to work within. See figure~\ref{fig:am-I-a-bureaucrat}
-\ifhaspagenumbers
-on page~\pageref{fig:am-I-a-bureaucrat}
-\fi
-for an illustration of the decision sequence.
+\iftoggle{haspagenumbers}{on page~\pageref{fig:am-I-a-bureaucrat}}{}
+ for an illustration of the decision sequence.
 
 Bureaucracy arises when there is no common, objectively quantifiable feedback mechanism for individual participants in the organization. This aspect is why governments, schools, and prisons are characterized as bureaucratic. 
 \index{exemplar!school}

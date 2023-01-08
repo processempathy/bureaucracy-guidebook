@@ -6,11 +6,7 @@ Suppose a \gls{process} is enacted and later found to be ineffective. Some work 
 %\ifsectionref
 %; see section~\ref{sec:exceptions-to-process}).
 %\fi
-\ifglossarysubstitutionworks
-\Gls{bureaucratic debt}
-\else
-Bureaucratic debt
-\fi
+\iftoggle{glossarysubstitutionworks}{\Gls{bureaucratic debt}}{Bureaucratic debt}
 is 
 \marginpar{[Tag] Definition} the work needed to change a process\footnote{Similar to \href{https://en.wikipedia.org/wiki/Technical_debt}{technical debt}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Technical_debt}{technical debt}}

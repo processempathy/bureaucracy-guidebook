@@ -249,11 +249,7 @@ In a bureaucracy the actual time spent working is less than the number of hours 
 See 
 %section~\ref{sec:innovation} for 
 notes on 
-\ifhaspagenumbers
-\hyperref[sec:innovation]{innovation} on page~\pageref{sec:innovation}.
-\else
-\hyperref[sec:innovation]{innovation}.
-\fi
+\hyperref[sec:innovation]{innovation}\iftoggle{haspagenumbers}{ on page~\pageref{sec:innovation}.}{.}
 \end{samepage}
 
 \ \\

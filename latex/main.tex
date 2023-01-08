@@ -14,12 +14,41 @@
 % https://ctan.org/pkg/book?lang=en
 
 
-\newif\ifhaspagenumbers
-\haspagenumberstrue
-\newif\ifglossarysubstitutionworks
-\glossarysubstitutionworkstrue
-\newif\ifshowminitoc
-\showminitoctrue
+% standard "if" conditional statement breaks pandoc when used inside a caption. 
+
+% OLD, DEPRECATED \newif\ifhaspagenumbers
+% OLD, DEPRECATED \haspagenumberstrue
+% OLD, DEPRECATED \newif\ifglossarysubstitutionworks
+% OLD, DEPRECATED \glossarysubstitutionworkstrue
+% OLD, DEPRECATED \newif\ifshowminitoc
+% OLD, DEPRECATED \showminitoctrue
+
+
+% Therefore, as per
+% https://tex.stackexchange.com/a/5896/235813
+
+% the following is used as a boolean toggle
+% when generating PDFs and paper books (which have page numbers)
+% whereas EPUB, HTML, MOBI do not have page numbers
+
+\usepackage{etoolbox}
+\newtoggle{haspagenumbers}
+\togglefalse{haspagenumbers}
+%\iftoggle{haspagenumbers}{
+
+\newtoggle{glossarysubstitutionworks}
+\togglefalse{glossarysubstitutionworks}
+%\iftoggle{glossarysubstitutionworks}{
+
+\newtoggle{showminitoc}
+\togglefalse{showminitoc}
+%\iftoggle{showminitoc}{
+
+% PROBLEM: 
+% https://github.com/jgm/pandoc/issues/3853
+% Pandoc only interprets toggles within one file
+
+
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
@@ -72,10 +101,6 @@
 \usepackage{float}
 % https://tex.stackexchange.com/a/20380/235813
 
-
-% standard "if" conditional statement breaks pandoc when used inside a caption. Therefore, as per
-% https://tex.stackexchange.com/a/5896/235813
-%\usepackage{etoolbox}
 
 \usepackage{graphicx}
 
@@ -198,16 +223,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 %\pagereffalse
 %\sectionreffalse
 
-% etoolbox
-%\newtoggle{pageref}
-%\newtoggle{sectionref}
 
-%\togglefalse{pageref}
-%\togglefalse{sectionref}
-
-% the following is used as a boolean toggle
-% when generating PDFs and paper books (which have page numbers)
-% whereas EPUB, HTML, MOBI do not have page numbers
 
 
 \frontmatter % the front of the book has roman numerals
@@ -234,9 +250,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \chapter{Introduction\label{sec:introduction}}
 {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
-\ifshowminitoc
-\minitoc
-\fi
+\iftoggle{showminitoc}{\minitoc}{}
 %  Section~\ref{sec:define-bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative-views-from-within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
   \input{motivating_logic} \clearpage
@@ -273,18 +287,14 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \chapter{Why Bureaucracy is Hard\label{sec:why-bur-hard}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
-  \ifshowminitoc
-  \minitoc
-  \fi
+  \iftoggle{showminitoc}{\minitoc}{}
   \input{why_is_bureaucracy_hard} \clearpage
   \input{dilemmas_and_trilemmas} \clearpage
   \input{unavoidable_hazards} \clearpage    
 
 \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
-  \ifshowminitoc
-  \minitoc
-  \fi
+  \iftoggle{showminitoc}{\minitoc}{}
     This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This chapter is a prelude to the next chapter, 
     \hyperref[sec:working-with-other-bureaucrats]{working with others}.
     \marginpar{See page~\pageref{sec:working-with-other-bureaucrats}.}
@@ -334,11 +344,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
     % "Making of a Manager" has chapter 6 (pages 139-159)
     % How is this section (in a book about bureaucracy) distinct?
     % how does understanding bureaucracy matter in the context of a meeting? what's the change in behavior for the effective bureaucrat?
-\ifglossarysubstitutionworks
-\Gls{bureaucracy} 
-\else
-Bureaucracy
-\fi
+\iftoggle{glossarysubstitutionworks}{\Gls{bureaucracy}}{Bureaucracy}
     is distributed decision-making and distributed knowledge associated with management of shared resources. Bureaucrats rely on a variety of mechanisms to communicate, one of which is a meeting with other bureaucrats. 
 
     Every participant in an organization is invested the outcome of every decision made because there is consequence to how resources are divided and the direction of the organization. Every bureaucrat has an opinion, even when lacking experience or expertise. 
@@ -359,9 +365,7 @@ Bureaucracy
   % multi-person interactions = process
   \chapter{Bureaucratic Processes\label{sec:process}}
   {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
-  \ifshowminitoc
-  \minitoc
-  \fi
+  \iftoggle{showminitoc}{\minitoc}{}
     \input{process_context_habits} \clearpage
     \input{process_definition} \clearpage
     \input{process_why_exist} \clearpage

@@ -6,13 +6,10 @@ The motivating logic for this book is a sequence of claims:
     requires making and enforcing policies that apply to community members. 
     \item When more than one person is responsible for making and enforcing policies, distributed knowledge and distributed decision-making is required. 
     \item 
-\ifglossarysubstitutionworks
-\Gls{bureaucracy} 
-\else
-Bureaucracy
-\fi
-    \marginpar{[Glossary]}
-    is defined as multiple people managing access to \glspl{shared resource}. 
+\iftoggle{glossarysubstitutionworks}{\Gls{bureaucracy}}{Bureaucracy}
+\marginpar{[Glossary]}
+    is defined as multiple people managing access to 
+\iftoggle{glossarysubstitutionworks}{\glspl{shared resource}.}{shared resources.} 
     \item Whether you're a \gls{bureaucrat} 
     \marginpar{[Glossary]}
     or a subject of bureaucracy, you can be more effective by applying \hyperref[sec:process-empathy]{process empathy}.
