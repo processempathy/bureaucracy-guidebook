@@ -16,14 +16,14 @@ function pdf_not_bound {
   pwd
   cp latex/main.tex latex/main_pdf_not_bound.tex
   sed -i '' "s/boundbooktrue/boundbookfalse/" latex/main_pdf_not_bound.tex
-  sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main_pdf_not_bound.tex
-  sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" latex/main_pdf_not_bound.tex
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log4.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log5.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_pdf_not_bound.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_pdf_not_bound.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3_pdf_not_bound.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log4_pdf_not_bound.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log5_pdf_not_bound.log
     cd ..
   mv -f latex/main_pdf_not_bound.pdf bin/bureaucracy_not_bound.pdf
 }
@@ -32,21 +32,30 @@ function pdf_for_binding {
   pwd
   cp latex/main.tex latex/main_for_binding.tex
   sed -i '' "s/boundbookfalse/boundbooktrue/" latex/main_for_binding.tex
-  sed -i '' "s/haspagenumbersfalse/haspagenumberstrue/" latex/main_for_binding.tex
-  sed -i '' "s/glossarysubstitutionworksfalse/glossarysubstitutionworkstrue/" latex/main_for_binding.tex
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" latex/main_for_binding.tex
+  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" latex/main_for_binding.tex
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_for_binding                 > log3.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log4.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log5.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1_for_binding.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2_for_binding.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_for_binding                 > log3_for_binding.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log4_for_binding.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log_for_binding5.log
     cd ..
   mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
 
 }
 
 function epub_pandoc {
-  cp latex/main.tex latex/main_epub_pandoc.tex
+  pwd
+
+  # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
+  # so merge all \input{}  so that all content is in one file, as per
+  # https://tex.stackexchange.com/a/21840/235813
+  cd latex
+  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
+  cd ..
+
+  mv latex/main_merged.tex latex/main_epub_pandoc.tex
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
   sed -i '' "/documentclass\[oneside\]{book}/d" latex/main_epub_pandoc.tex
@@ -57,9 +66,9 @@ function epub_pandoc {
   sed -i '' "/\\fi/d" latex/main_epub_pandoc.tex
   sed -i '' "/\\boundbook/d" latex/main_epub_pandoc.tex
   sed -i '' "/\\ifboundbook/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\haspagenumbers/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\glossarysubstitutionworks/d" latex/main_epub_pandoc.tex
-  sed -i '' "/\\showminitoc/d" latex/main_epub_pandoc.tex
+
+  sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_epub_pandoc.tex
+  sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_epub_pandoc.tex
 
   #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_epub_pandoc.tex
   #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_epub_pandoc.tex
@@ -82,7 +91,15 @@ function epub_pandoc {
 # --ascii = 	Use only ASCII characters in output.
 function html_pandoc {
   pwd
-  cp latex/main.tex latex/main_html_pandoc.tex
+
+  # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
+  # so merge all \input{}  so that all content is in one file, as per
+  # https://tex.stackexchange.com/a/21840/235813
+  cd latex
+  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
+  cd ..
+
+  cp latex/main_merged.tex latex/main_html_pandoc.tex
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
   sed -i '' "/documentclass\[oneside\]{book}/d" latex/main_html_pandoc.tex
@@ -93,9 +110,9 @@ function html_pandoc {
   sed -i '' "/\\fi/d" latex/main_html_pandoc.tex
   sed -i '' "/\\boundbook/d" latex/main_html_pandoc.tex
   sed -i '' "/\\ifboundbook/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\haspagenumbers/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\glossarysubstitutionworks/d" latex/main_html_pandoc.tex
-  sed -i '' "/\\showminitoc/d" latex/main_html_pandoc.tex
+
+  sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_pandoc.tex
+  sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_pandoc.tex
 
   #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_html_pandoc.tex
   #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_html_pandoc.tex
@@ -117,13 +134,14 @@ function html_pandoc {
 
 function html_latex2html {
   cp latex/main.tex latex/main_html_l2h.tex
-  sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" latex/main_html_l2h.tex
-  sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" latex/main_html_l2h.tex
+  sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_l2h.tex
+  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_l2h.tex
 
 	cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2.log; \
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3.log; \
+    # Need to get glossary and bibliography before generating HTML
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_latex2html.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_latex2html.log; \
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3_latex2html.log; \
 
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latex2html main_html_l2h \
 		-index_in_navigation \
@@ -134,6 +152,7 @@ function html_latex2html {
 		-split 2 \
 		-verbosity 2 \
 		-html_version "5.0"
+  cd ..
 }
 
 function postprocess_epub {
