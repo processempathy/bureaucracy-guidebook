@@ -23,11 +23,12 @@ echo "/usr/bin/time $0 all"
 
 function pdf_not_bound {
   pwd
-  cp latex/main.tex latex/main_pdf_not_bound.tex
-  sed -i '' "s/boundbooktrue/boundbookfalse/" latex/main_pdf_not_bound.tex
-  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" latex/main_pdf_not_bound.tex
-  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" latex/main_pdf_not_bound.tex
-  sed -i '' "s/togglefalse{showbacktotoc}/toggletrue{showbacktotoc}/" latex/main_pdf_not_bound.tex
+  tex_file="latex/main_pdf_not_bound.tex"
+  cp latex/main.tex ${tex_file}
+  sed -i '' "s/boundbooktrue/boundbookfalse/" ${tex_file}
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
+  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
+  sed -i '' "s/togglefalse{showbacktotoc}/toggletrue{showbacktotoc}/" ${tex_file}
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_pdf_not_bound.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_pdf_not_bound.log
@@ -37,24 +38,25 @@ function pdf_not_bound {
     cd ..
   mv -f latex/main_pdf_not_bound.pdf bin/bureaucracy_not_bound.pdf
 
-  mv latex/main_pdf_not_bound.tex latex/main_pdf_not_bound.tex.log
+  mv ${tex_file} ${tex_file}.log
 }
 
 function pdf_for_binding {
   pwd
-  cp latex/main.tex latex/main_for_binding.tex
+  tex_file="latex/main_for_binding.tex"
+  cp latex/main.tex ${tex_file}
   # book is going to be bound; set boolean to true
-  sed -i '' "s/boundbookfalse/boundbooktrue/" latex/main_for_binding.tex
+  sed -i '' "s/boundbookfalse/boundbooktrue/" ${tex_file}
   # book has page numbers; set toggle to true
-  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" latex/main_for_binding.tex
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
   # because this uses pdflatex, glossary substitution works; set toggle to true
-  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" latex/main_for_binding.tex
+  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
   # books don't need hyperlinks to the toc; set toggle to false
-  sed -i '' "s/toggletrue{showbacktotoc}/togglefalse{showbacktotoc}/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/toggletrue{showbacktotoc}/togglefalse{showbacktotoc}/" ${tex_file}
   # book is black-and-white; don't use blue for hyperlink
-  sed -i '' "s/colorlinks=true,/colorlinks=false,/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/colorlinks=true,/colorlinks=false,/" ${tex_file}
   # when colorlinks=false, hyperref package uses rectangles around tex. Disable those
-  sed -i '' "s/usepackage{hyperref}/usepackage[hidelinks]{hyperref}/" latex/main_pdf_not_bound.tex
+  sed -i '' "s/usepackage{hyperref}/usepackage[hidelinks]{hyperref}/" ${tex_file}
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1_for_binding.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2_for_binding.log
@@ -64,7 +66,7 @@ function pdf_for_binding {
     cd ..
   mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
 
-  mv latex/main_for_binding.tex latex/main_for_binding.tex.log
+  mv ${tex_file} ${tex_file}.log
 }
 
 function epub_pandoc {
@@ -78,14 +80,16 @@ function epub_pandoc {
   #cd ..
   #mv latex/main_merged.tex latex/main_epub_pandoc.tex
 
+  tex_file="TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex"
+
   rm -rf TEMPORARY_epub_source_html_source_latex
   mkdir TEMPORARY_epub_source_html_source_latex
   cp -r latex/* TEMPORARY_epub_source_html_source_latex/
   rm -rf TEMPORARY_epub_source_html_source_latex/main_*
-  mv TEMPORARY_epub_source_html_source_latex/main.tex TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  mv TEMPORARY_epub_source_html_source_latex/main.tex ${tex_file}
 
   # DEPRECATED -- fancy and fragile
-  # python3 evaluate_boolean_toggles.py TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  # python3 evaluate_boolean_toggles.py ${tex_file}
   for f in TEMPORARY_epub_source_html_source_latex/*.tex; do
       # haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
@@ -102,17 +106,17 @@ function epub_pandoc {
 
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
-  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/documentclass\[oneside\]{book}/d" ${tex_file}
+  sed -i '' "/\\usepackage.*{geometry}/d" ${tex_file}
 
-  sed -i '' "/\\newif/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
-  sed -i '' "/\\else/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
-  sed -i '' "/\\fi/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
-  sed -i '' "/\\boundbook/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
-  sed -i '' "/\\ifboundbook/d" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  sed -i '' "/\\newif/d" ${tex_file}
+  sed -i '' "/\\else/d" ${tex_file}
+  sed -i '' "/\\fi/d" ${tex_file}
+  sed -i '' "/\\boundbook/d" ${tex_file}
+  sed -i '' "/\\ifboundbook/d" ${tex_file}
 
-  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
-  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex
+  #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" ${tex_file}
+  #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" ${tex_file}
   cd TEMPORARY_epub_source_html_source_latex;
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_epub_pandoc.tex -f latex \
 	       --epub-metadata=metadata_epub.xml \
@@ -141,14 +145,16 @@ function html_pandoc {
   #cd ..
   #cp latex/main_merged.tex latex/main_html_pandoc.tex
 
+  tex_file="TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex"
+
   rm -rf TEMPORARY_html_pandoc_source_latex
   mkdir TEMPORARY_html_pandoc_source_latex
   cp -r latex/* TEMPORARY_html_pandoc_source_latex/
   rm -rf TEMPORARY_html_pandoc_source_latex/main_*
-  mv TEMPORARY_html_pandoc_source_latex/main.tex TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  mv TEMPORARY_html_pandoc_source_latex/main.tex ${tex_file}
 
   # DEPRECATED -- fancy and fragile
-  # python3 evaluate_boolean_toggles.py TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  # python3 evaluate_boolean_toggles.py ${tex_file}
   for f in TEMPORARY_html_pandoc_source_latex/*.tex; do
       # haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
@@ -164,17 +170,17 @@ function html_pandoc {
 
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
-  sed -i '' "/\\usepackage.*{geometry}/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/documentclass\[oneside\]{book}/d" ${tex_file}
+  sed -i '' "/\\usepackage.*{geometry}/d" ${tex_file}
 
-  sed -i '' "/\\newif/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
-  sed -i '' "/\\else/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
-  sed -i '' "/\\fi/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
-  sed -i '' "/\\boundbook/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
-  sed -i '' "/\\ifboundbook/d" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  sed -i '' "/\\newif/d" ${tex_file}
+  sed -i '' "/\\else/d" ${tex_file}
+  sed -i '' "/\\fi/d" ${tex_file}
+  sed -i '' "/\\boundbook/d" ${tex_file}
+  sed -i '' "/\\ifboundbook/d" ${tex_file}
 
-  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
-  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex
+  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" ${tex_file}
+  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" ${tex_file}
 
   cd TEMPORARY_html_pandoc_source_latex; \
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_html_pandoc.tex -f latex \

@@ -44,6 +44,10 @@
 \togglefalse{showminitoc}
 %\iftoggle{showminitoc}{
 
+\newtoggle{showbacktotoc}
+\togglefalse{showbacktotoc}
+%\iftoggle{showbacktotoc}{
+
 % PROBLEM: 
 % https://github.com/jgm/pandoc/issues/3853
 % Pandoc only interprets toggles within one file
@@ -66,17 +70,16 @@
 % https://www.overleaf.com/learn/latex/Questions/Creating_multiple_bibliographies_in_the_same_document
 
 % https://www.overleaf.com/learn/latex/Multibib
-\usepackage{multibib}
-\newcites{bureaucracy}{Bureaucracy References}
-\newcites{email}{Email References}
-\newcites{meetings}{Meeting References}
-\newcites{ooom}{One-on-one Meeting References}
+%\usepackage{multibib}
+%\newcites{bureaucracy}{Bureaucracy References}
+%\newcites{email}{Email References}
+%\newcites{meetings}{Meeting References}
+%\newcites{ooom}{One-on-one Meeting References}
 
 
 % https://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
 % https://texfaq.org/FAQ-minitoc
-\usepackage{minitoc}
-
+\iftoggle{showminitoc}{\usepackage{minitoc}}{}
 
 % box text 
 % https://tex.stackexchange.com/a/36528/235813
@@ -131,16 +134,19 @@
 % https://tex.stackexchange.com/a/8459/235813
 \usepackage[nottoc]{tocbibind}
 
-\usepackage{hyperref}
+
+% to indicate pages in the Bibliography where citation shows up
+% use [pagebackref] as an argument
+\usepackage[pagebackref]{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Bureaucracy Field Guide},
+    pdftitle={Process Empathy: A Field Guide for Effective Bureaucrats},
     pdfsubject={How to be an Effective Bureaucrat},
     pdfauthor={Ben Payne},
-    pdfkeywords={Bureaucrat, Bureaucracy},
+    pdfkeywords={Process Empathy, Field Guide, Bureaucrat, Bureaucracy},
     pdfpagemode=FullScreen,
     }
 
@@ -233,7 +239,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 \input{dedication}%\clearpage
 %\pagenumbering{roman}
 
-\dominitoc % Initialization
+\iftoggle{showminitoc}{\dominitoc}{} % Initialization
 \hypertarget{contents}{}
 % https://tex.stackexchange.com/questions/553758/different-mechanics-of-hyperlink-vs-hyperref
 \tableofcontents\label{sec:toc}
@@ -249,7 +255,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 % https://tex.stackexchange.com/questions/2958/why-is-newpage-ignored-sometimes
 
 \chapter{Introduction\label{sec:introduction}}
-{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+\iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
 \iftoggle{showminitoc}{\minitoc}{}
 %  Section~\ref{sec:define-bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative-views-from-within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
@@ -272,8 +278,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
   \clearpage 
 
 \chapter{Bureaucracy in General\label{sec:bureaucracy-in-general}}
-{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
-\minitoc
+\iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
+\iftoggle{showminitoc}{\minitoc}{}
+
   \input{avoiding_bureaucracy_is_nearly_impossible} \clearpage
   \input{phases_of_life} \clearpage
   \input{alternatives_to_bureacracy} \clearpage
@@ -286,18 +293,19 @@ The Field Guide for\\ Effective Bureaucrats}\\
   \input{effective_bureaucrat} \clearpage
 
 \chapter{Why Bureaucracy is Hard\label{sec:why-bur-hard}}
-  {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+  \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
   \iftoggle{showminitoc}{\minitoc}{}
+  
   \input{why_is_bureaucracy_hard} \clearpage
   \input{dilemmas_and_trilemmas} \clearpage
   \input{unavoidable_hazards} \clearpage    
 
 \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
-  {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+  \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
   \iftoggle{showminitoc}{\minitoc}{}
+  
     This section focuses on an individual bureaucrat operating within an organization. What actions can you take?  This chapter is a prelude to the next chapter, 
-    \hyperref[sec:working-with-other-bureaucrats]{working with others}.
-    \marginpar{See page~\pageref{sec:working-with-other-bureaucrats}.}
+    \hyperref[sec:working-with-other-bureaucrats]{working with others}\iftoggle{haspagenumbers}{ (see page~\pageref{sec:working-with-other-bureaucrats}).}{.}
     
     As a bureaucrat, understanding your options for action matters. If you don't know what your options are, you're less effective. If you are ok with being ineffective, or are not feeling the harm of your ineffectiveness, keep in mind that
     there is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
@@ -364,8 +372,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
   % multi-person interactions = process
   \chapter{Bureaucratic Processes\label{sec:process}}
-  {\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}
+  \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
   \iftoggle{showminitoc}{\minitoc}{}
+  
     \input{process_context_habits} \clearpage
     \input{process_definition} \clearpage
     \input{process_why_exist} \clearpage
