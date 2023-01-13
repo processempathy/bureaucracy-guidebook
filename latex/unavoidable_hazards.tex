@@ -98,14 +98,16 @@ Consider the perspectives of an office worker, an office manager, a building man
 
 \index{story time!layers of margins}
 %\marginpar{[Tag] Story Time}
-\begin{storytime}{Layers of Margins}
+%\begin{storytime}{Layers of Margins}
+\begin{mdframed}[frametitle={Layers of Margins},frametitlerule=true,frametitlealignment=\centering]
 An office worker wants to plug in a toaster oven in the office kitchen (see figure~\ref{fig:toaster_oven}). The owner of the toaster oven files a notice with the office manager who tracks electrical loads in the kitchen. 
 The toaster owner uses the power number (1200 \href{https://en.wikipedia.org/wiki/Watt}{Watts}) 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Watt}{Watts}}
 from the manufacturer's website. In practice the toast oven doesn't actually use that much power, that's just the maximum rating for the device. 
 
 The office manager aggregates power from the devices in the kitchen. The office manager has a power budget for the team's kitchen equipment and keeps a margin of 10\% spare capacity for flexibility. The office manager's power budget is provided to the building manager (who keeps a margin of 10\% for flexibility). The building is one of many sharing the electrical substation. The electrical substation owner sees the power consumption is below the rated capacity but the subscription for available power is full -- no new users can be supported.
-\end{storytime}
+%\end{storytime}
+\end{mdframed}
 Lesson: in a system of aggregated layers, each person only sees adjacent layers. When each person builds in safety into their budget, the accumulated slack is excessive and is wasteful.
 
 Similar situations arise for temporal planning (schedule), financial budgets, and spatial planning. 
@@ -152,12 +154,14 @@ As a team member, you typically get little input on who you work with. Even as a
 Current suffering is tolerable compared to the uncertainty of change, especially when the suffering isn't felt by the decision-maker.
 
 By identifying this fear in yourself or those you collaborate with, you can discuss specific concerns and work to address them.
-\marginpar{[Tag] Actionable Advice} 
+\marginpar{$>>$ Actionable Advice} 
 \index{actionable advice}
 
 \ \\
+\begin{samepage}
 \textit{Hazard}: \textbf{Fear of change.} \\
 Change disrupts the status quo, putting accumulated power at risk and altering relationships. 
+\end{samepage}
 
 An emotional basis for decision-making (or avoidance of decision-making) may or may not be rational. Discussing the fear with fellow bureaucrats can ease the burden. 
 
@@ -284,8 +288,7 @@ Adding more people to a hierarchical organization results in diminishing returns
 
 \ \\
 \textit{Hazard}: \textbf{Each person in a bureaucracy has multiple roles}.\\
-To limit the expansion of the bureaucracy. The multiple roles come from multiple relationships necessary to span an organization larger than \href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number}. 
-\marginpar{[Wikipedia] Dunbar's\\number}
+To limit the expansion of the bureaucracy. The multiple roles come from multiple relationships necessary to span an organization larger than \href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number}. \iftoggle{WPinmargin}{\marginpar{[Wikipedia] Dunbar's\\number}}{}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number}}
 
 \ \\
@@ -307,8 +310,7 @@ Because decisions by bureaucrats are subjective, there is significant risk of be
 cover your ass}\footnote{
 \cite{1996_unknown}: ``the preferred options are to make sure somebody else does the failing, or to elegantly explain why it looks like a failure, sounds like a failure, but is actually a brilliant advance in an unexpected direction.''}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Cover_your_ass}{
-cover your ass}}
-\marginpar{[Wikipedia] Cover\\your ass}
+cover your ass}}\iftoggle{WPinmargin}{\marginpar{[Wikipedia] Cover\\your ass}}{}
 for decisions made. Unnecessary work is carried out. 
 
 Different participants have different motives, and the aggregation needed for coordination is inefficient regardless of what metric efficiency is measured against.

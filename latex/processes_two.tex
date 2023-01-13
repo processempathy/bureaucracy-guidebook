@@ -1,4 +1,4 @@
-\section{Processes involving Two Organizations\label{sec:processes-two-organizations}}
+\section{Processes Involving Two Organizations\label{sec:processes-two-organizations}}
 
 When two independently-managed processes interact across organizational boundaries there can be friction. Process friction, especially between two  organizations that lack shared coordination, results in either \hyperref[sec:exceptions-to-process]{exceptions to the process} 
 %\ifsectionref
@@ -12,11 +12,12 @@ or lying or a \hyperref[sec:change-a-process]{change in process}.
 
 The following stories illustrate process friction between teams within an organization and process friction between organizations. The teams within an organization have shared objectives (set by the organization), whereas separate organizations lack incentive to coordinate. 
 
-\subsection*{Data Transfer from one Team to Another}
+%\subsection*{Data Transfer }
 
 %\marginpar{[Tag] Story Time}
 \index{story time!data transfer}
-\begin{storytime}{Data Transfer}
+%\begin{storytime}{Data Transfer}
+\begin{mdframed}[frametitle={Data Transfer from one Team to Another},frametitlerule=true,frametitlealignment=\centering]
 Two teams in an organization have a relationship, and each has data storage and data processing capability. Allen's team sends Bob's team data on a weekly basis. Because the teams were built for different purposes and at different times by different people, the data storage capabilities used by each team are not compatible. Members of Allen's team print all the records (usually about a hundred pages) and then delivers the paper documents to Bob's team. Members of Bob's team then retype all the information into the data storage used by Bob's team.
 
 Recently the office went paperless. Now Allen's team sends Bob's team a set of PDF files. Member's of Bob's team type in the content from the PDFs into the database for Bob's team. This is deemed a win for efficiency -- no more printing of paper documents each week!
@@ -24,12 +25,12 @@ Recently the office went paperless. Now Allen's team sends Bob's team a set of P
 \ \\
 
 Why doesn't the organization common to both teams hire a data scientist to automate the recurring data transfer? Or train the current staff to learn to program a solution? Or create a third team that manages a common server?
-
 Because the current staff skill set supports printing and typing (data entry). Training someone with a new skill set takes an investment of money, time, is an opportunity cost, and makes them a flight risk.
 Hiring a data scientist is expensive. Whether the task is feasible is uncertain from the view of Bob and his manager (they both lack experience with the needed technology), and how long the task will take is uncertain. Even once they create a connection, then a person with the skill set to maintain it is needed. The cost of ongoing maintenance and implementation is unknown.
 
 Known working suboptimal with known cost versus unknown potential improvement of unknown degree for an unknown capital and ongoing cost. And if that improvement works out, staff who were implementing the old solution now need to find new work.
-\end{storytime}
+\end{mdframed}
+%\end{storytime}
 
 Two teams operating within an organization, with a shared intent and working relationship, may be stuck with the process they have even when the friction is clear. When organizations lack a common objective, the friction can be even more significant. 
 
@@ -40,7 +41,8 @@ Submitting the receipt shifts the accountability and justification burden to the
 % https://graphthinking.blogspot.com/2017/02/financial-motivation-in-bureaucracy.html
 %\marginpar{[Tag] Story Time}
 \index{story time!dental insurance}
-\begin{storytime}{Dental Insurance}
+%\begin{storytime}{Dental Insurance}
+\begin{mdframed}[frametitle={Dental Insurance},frametitlerule=true,frametitlealignment=\centering]
 I have dental insurance. I visited the dentist December 2 and one of the procedures during a routine cleaning was ``bitewing x-rays." This procedure is covered by my insurance, so I was surprised when I received a bill for it from my dentist a few weeks after my visit.
 
 I called my dentist and they explained that the dental insurance had declined to pay for the procedure. I called the insurance company January 3 and they confirmed that the procedure was covered by my policy. 
@@ -55,7 +57,8 @@ From the perspective of the insurance company, delaying payment on a claim makes
 From my perspective, the question is whether chasing this issue makes financial sense. I think of my hourly rate as \$40, so after an hour the charge of \$38 would have been better to pay out of pocket. Effectively I'm devaluing my time. The emotional stress and thought-cycles spent are also relevant, though harder to quantify.
 
 Streamlining bureaucratic processes does not occur automatically. There needs to be both incentive to change and authority to make the change. 
-\end{storytime}
+%\end{storytime}
+\end{mdframed}
 
 In the above story the dental office wanted to be paid for services provided. The insurance company wanted to minimize the number of payments made. And I wanted to minimize my costs. While none of those are conflicting, each organization has separate objectives.
 

@@ -5,7 +5,7 @@
 \else
 \documentclass[oneside]{book}
 % https://tex.stackexchange.com/a/137024/235813
-\usepackage[left=0.75in,textwidth=5.5in,marginparsep=0.25in,marginparwidth=1.5in]{geometry}
+\usepackage[left=0.75in,textwidth=5.5in,marginparsep=0.25in,marginparwidth=1.5in,bottom=1.25in]{geometry}
 \fi
 % to set font size use
 % \documentclass[12pt]{book}
@@ -48,11 +48,12 @@
 \togglefalse{showbacktotoc}
 %\iftoggle{showbacktotoc}{
 
+\newtoggle{WPinmargin}
+\togglefalse{WPinmargin}
+
 % PROBLEM: 
 % https://github.com/jgm/pandoc/issues/3853
 % Pandoc only interprets toggles within one file
-
-
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
@@ -83,12 +84,15 @@
 
 % box text 
 % https://tex.stackexchange.com/a/36528/235813
-%\usepackage{mdframed}
+\usepackage{mdframed}
 
 % https://tex.stackexchange.com/a/172608/235813
 \usepackage{tcolorbox}
+%%%\tcbuselibrary{breakable}
+%%%tcbsetforeverylayer{breakable}
+
 \newtcolorbox{quizbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
-\newtcolorbox{storytime}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
+%\newtcolorbox{storytime}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
 
 % how to hyphenate words
 \usepackage[USenglish]{babel}
@@ -171,7 +175,7 @@
 \title{\huge{Process Empathy:\\
 The Field Guide for\\ Effective Bureaucrats}\\
 \vfill
-\includegraphics[width=0.8\textwidth]{images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.pdf}
+\includegraphics[width=0.7\textwidth]{images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.pdf}
 }
 
 % This isn't monograph 
@@ -269,9 +273,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
     % define the core concepts 
     \input{decision_making}  \clearpage% Process and policy
     \input{hierarchy_of_roles_in_bureaucracy} % subsubsection, so no clearpage
-    \input{org_chart_as_guide_and_as_lie} \clearpage
-    \input{meetings_for_coordination} \clearpage
-    \input{communication_written} \clearpage
+    \input{org_chart_as_guide_and_as_lie} %\clearpage
+    \input{meetings_for_coordination} %\clearpage
+    \input{communication_written} %\clearpage
     \input{feedback_loops}  \clearpage% subsection
   \clearpage
   \input{history} % section
@@ -401,12 +405,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \appendix
 
-\chapter{Assessments for Publication}
+%\chapter{Assessments for Publication}
  % \input{readers_report}\clearpage % section
  % \input{audience_analysis}\clearpage  % section
-
-\chapter{Author Biography}
-\input{author_biography}
 
 
 \chapter{Resources}
