@@ -29,6 +29,7 @@ function pdf_not_bound {
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
   sed -i '' "s/togglefalse{showbacktotoc}/toggletrue{showbacktotoc}/" ${tex_file}
+  sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_pdf_not_bound.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_pdf_not_bound.log
@@ -52,6 +53,7 @@ function pdf_for_binding {
   sed -i '' "s/boundbookfalse/boundbooktrue/" ${tex_file}
   # book has page numbers; set toggle to true
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
+  sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
   # because this uses pdflatex, glossary substitution works; set toggle to true
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
   # books don't need hyperlinks to the toc; set toggle to false
@@ -111,6 +113,9 @@ function epub_pandoc {
       sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/' $f
       # clearpage after each section == false
       sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
+      # show glossary in margin == false
+      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{(.*)}{(.*)}/\2/' $f
+
   done
 
 
@@ -183,6 +188,8 @@ function html_pandoc {
       sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/' $f
       # clearpage after each section == false
       sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
+      # show glossary in margin == false
+      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{(.*)}{(.*)}/\2/' $f
   done
 
   # The version of Pandoc I'm using doesn't understand \newif
