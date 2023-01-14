@@ -35,7 +35,10 @@ function pdf_not_bound {
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3_pdf_not_bound.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log4_pdf_not_bound.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log5_pdf_not_bound.log
+    pwd
     cd ..
+  pwd
+  mkdir -p bin/
   mv -f latex/main_pdf_not_bound.pdf bin/bureaucracy_not_bound.pdf
 
   mv ${tex_file} ${tex_file}.log
@@ -63,7 +66,10 @@ function pdf_for_binding {
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_for_binding                 > log3_for_binding.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log4_for_binding.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log_for_binding5.log
+    pwd
     cd ..
+  pwd
+  mkdir -p bin/
   mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
 
   mv ${tex_file} ${tex_file}.log
@@ -101,6 +107,10 @@ function epub_pandoc {
       sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
       # showbacktotoc == true
       sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
+      # Wikipedia in margin == false
+      sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/' $f
+      # clearpage after each section == false
+      sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
   done
 
 
@@ -128,7 +138,10 @@ function epub_pandoc {
 		--gladtex \
 		-t epub3 \
 		-o main_epub_pandoc.epub
+    pwd
     cd ..
+  pwd
+  mkdir -p bin/
   mv -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 }
@@ -166,6 +179,10 @@ function html_pandoc {
       sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
       # showbacktotoc == true
       sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
+      # Wikipedia in margin == false
+      sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/' $f
+      # clearpage after each section == false
+      sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
   done
 
   # The version of Pandoc I'm using doesn't understand \newif
@@ -194,7 +211,9 @@ function html_pandoc {
 		--number-sections \
 		--mathjax \
 		--bibliography=biblio_bureaucracy.bib
+    pwd
     cd ..
+  pwd
   postprocess_html
 }
 
@@ -222,6 +241,7 @@ function html_latex2html {
   #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" latex/main_html_latex2html.tex
   #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" latex/main_html_latex2html.tex
 
+  pwd
 	cd TEMPORARY_html_latex2html_source_latex
     # Need to get glossary and bibliography before generating HTML
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_html_latex2html > log1_latex2html.log; \
@@ -238,6 +258,7 @@ function html_latex2html {
 		-verbosity 2 \
 		-html_version "5.0"
   cd ..
+  pwd
 }
 
 function postprocess_epub {
@@ -246,12 +267,14 @@ function postprocess_epub {
   mkdir TEMPORARY_epub_source_html
   cd TEMPORARY_epub_source_html/
 
+  pwd
   cp ../bin/bureaucracy.epub .
 
   unzip bureaucracy.epub
   rm bureaucracy.epub
 
   cd EPUB
+  pwd
 
   mv content.opf content.opf_ORIGINAL
   head -n 4 content.opf_ORIGINAL > content.opf
@@ -292,7 +315,9 @@ EOF
       sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' $f
 
   done
+  pwd
   cd ..
+  pwd
   sed -i '' 's/<embed/<img/' nav.xhtml
   sed -i '' 's/\(media\/.*\)pdf"/\1png"/' nav.xhtml
 
@@ -302,11 +327,14 @@ EOF
   cd ..
   zip bureaucracy.epub -r *
   pwd
+  mkdir -p ../bin/
   mv -f bureaucracy.epub ../bin/bureaucracy_improved.epub
   cd ..
+  pwd
 }
 
 function postprocess_html {
+  pwd
   # replace PDF with PNG for images
   sed -i '' 's/\("images\/.*\)pdf"/\1png"/' TEMPORARY_html_pandoc_source_latex/main.html
 
@@ -347,7 +375,7 @@ function postprocess_html {
   sed -i '' 's/>\[sec:communication-within-bureaucracy\]</>6</' TEMPORARY_html_pandoc_source_latex/main.html
 
   cp TEMPORARY_html_pandoc_source_latex/main.html latex/main.html
-
+  pwd
 }
 
 function all {
