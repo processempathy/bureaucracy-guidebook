@@ -75,6 +75,14 @@ function pdf_for_binding {
   mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
 
   mv ${tex_file} ${tex_file}.log
+
+  pwd
+  cd bin/
+    # https://stackoverflow.com/a/22796608/1164295
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian gs   -sDEVICE=pdfwrite   -dProcessColorModel=/DeviceGray   -dColorConversionStrategy=/Gray   -dPDFUseOldCMS=false   -dNOPAUSE -dBATCH -q   -o bureaucracy_for_binding_grayscale.pdf -f bureaucracy_for_binding.pdf
+  cd ..
+  pwd
+
 }
 
 function epub_pandoc {
