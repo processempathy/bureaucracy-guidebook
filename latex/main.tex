@@ -51,6 +51,9 @@
 \newtoggle{WPinmargin}
 \togglefalse{WPinmargin}
 
+\newtoggle{cpforsection}
+\togglefalse{cpforsection}
+
 % PROBLEM: 
 % https://github.com/jgm/pandoc/issues/3853
 % Pandoc only interprets toggles within one file
@@ -263,21 +266,20 @@ The Field Guide for\\ Effective Bureaucrats}\\
 \iftoggle{showminitoc}{\minitoc}{}
 %  Section~\ref{sec:define-bureaucracy} defines bureaucracy and associated terminology for specific roles. That is contrasted in section~\ref{sec:alternative-views-from-within} with how bureaucrats view themselves and their interactions. In section~\ref{sec:models-of-bureaucracy} a summary of external perspectives of bureaucracy is provided. 
   
-  \input{motivating_logic} \clearpage
-  \input{process_empathy} \clearpage
-  \input{what_is_bureaucracy}  \clearpage
+  \input{motivating_logic} \iftoggle{cpforsection}{\clearpage}{}
+  \input{process_empathy} \iftoggle{cpforsection}{\clearpage}{}
+  \input{what_is_bureaucracy}  \iftoggle{cpforsection}{\clearpage}{}
   \input{scope_of_bureaucracy}
-    \input{who_is_a_bureaucrat}  \clearpage% subsection
-    \input{number_of_people_in_a_bureacracy}  \clearpage
+    \input{who_is_a_bureaucrat}  \iftoggle{cpforsection}{\clearpage}{}% subsection
+    \input{number_of_people_in_a_bureacracy}  \iftoggle{cpforsection}{\clearpage}{}
   \input{fundamentals_of_bureaucracy} % section
     % define the core concepts 
-    \input{decision_making}  \clearpage% Process and policy
-    \input{hierarchy_of_roles_in_bureaucracy} % subsubsection, so no clearpage
-    \input{org_chart_as_guide_and_as_lie} %\clearpage
-    \input{meetings_for_coordination} %\clearpage
-    \input{communication_written} %\clearpage
-    \input{feedback_loops}  \clearpage% subsection
-  \clearpage
+    \input{decision_making}  \iftoggle{cpforsection}{\clearpage}{}% Process and policy
+    \input{hierarchy_of_roles_in_bureaucracy} 
+    \input{org_chart_as_guide_and_as_lie} 
+    \input{meetings_for_coordination} 
+    \input{communication_written} 
+    \input{feedback_loops}  \iftoggle{cpforsection}{\clearpage}{}% subsection
   \input{history} % section
   \clearpage 
 
@@ -285,24 +287,24 @@ The Field Guide for\\ Effective Bureaucrats}\\
 \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
 \iftoggle{showminitoc}{\minitoc}{}
 
-  \input{avoiding_bureaucracy_is_nearly_impossible} \clearpage
-  \input{phases_of_life} \clearpage
-  \input{alternatives_to_bureacracy} \clearpage
-  \input{alternative_views_of_bureaucracy_from_within} \clearpage
-  \input{models_of_bureaucracy} \clearpage 
-  \input{not_many_options_for_organizations} \clearpage
-  \input{accidental_and_essential_bureaucracy} \clearpage
-  \input{fallacies} \clearpage
-  \input{reducing_administrative_overhead} \clearpage
-  \input{effective_bureaucrat} \clearpage
+  \input{avoiding_bureaucracy_is_nearly_impossible} \iftoggle{cpforsection}{\clearpage}{}
+  \input{phases_of_life} \iftoggle{cpforsection}{\clearpage}{}
+  \input{alternatives_to_bureacracy} \iftoggle{cpforsection}{\clearpage}{}
+  \input{alternative_views_of_bureaucracy_from_within} \iftoggle{cpforsection}{\clearpage}{}
+  \input{models_of_bureaucracy} \iftoggle{cpforsection}{\clearpage}{} 
+  \input{not_many_options_for_organizations} \iftoggle{cpforsection}{\clearpage}{}
+  \input{accidental_and_essential_bureaucracy} \iftoggle{cpforsection}{\clearpage}{}
+  \input{fallacies} \iftoggle{cpforsection}{\clearpage}{}
+  \input{reducing_administrative_overhead} \iftoggle{cpforsection}{\clearpage}{}
+  \input{effective_bureaucrat} \iftoggle{cpforsection}{\clearpage}{}
 
 \chapter{Why Bureaucracy is Hard\label{sec:why-bur-hard}}
   \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
   \iftoggle{showminitoc}{\minitoc}{}
   
-  \input{why_is_bureaucracy_hard} \clearpage
-  \input{dilemmas_and_trilemmas} \clearpage
-  \input{unavoidable_hazards} \clearpage    
+  \input{why_is_bureaucracy_hard} \iftoggle{cpforsection}{\clearpage}{}
+  \input{dilemmas_and_trilemmas} \iftoggle{cpforsection}{\clearpage}{}
+  \input{unavoidable_hazards} \iftoggle{cpforsection}{\clearpage}{}    
 
 \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
   \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
@@ -314,41 +316,41 @@ The Field Guide for\\ Effective Bureaucrats}\\
     As a bureaucrat, understanding your options for action matters. If you don't know what your options are, you're less effective. If you are ok with being ineffective, or are not feeling the harm of your ineffectiveness, keep in mind that
     there is no neutral member of a bureaucracy. Either you are contributing to the organization, or you are sapping resources from the organization. This is because the organization operates in a zero-sum game for resource allocation.
 
-    \input{career_hiring} \clearpage
-    \input{tips_for_getting_started} \clearpage
-    \input{setting_your_emotional_state} \clearpage
-    \input{org_chart_orientation} \clearpage
-    \input{learn_from_failure} \clearpage
-    \input{success_in_the_organization_you_are_in} \clearpage
-    \input{career_promotion} \clearpage
+    \input{career_hiring} \iftoggle{cpforsection}{\clearpage}{}
+    \input{tips_for_getting_started} \iftoggle{cpforsection}{\clearpage}{}
+    \input{setting_your_emotional_state} \iftoggle{cpforsection}{\clearpage}{}
+    \input{org_chart_orientation} \iftoggle{cpforsection}{\clearpage}{}
+    \input{learn_from_failure} \iftoggle{cpforsection}{\clearpage}{}
+    \input{success_in_the_organization_you_are_in} \iftoggle{cpforsection}{\clearpage}{}
+    \input{career_promotion} \iftoggle{cpforsection}{\clearpage}{}
 
-    \input{ideas_for_innovation} \clearpage
-    \input{changing_your_environment} \clearpage
-    \input{change_tips_for} \clearpage
-    \input{social_and_bureaucratic_interactions} \clearpage % subsection
-    \input{measures_of_maturity} \clearpage
+    \input{ideas_for_innovation} \iftoggle{cpforsection}{\clearpage}{}
+    \input{changing_your_environment} \iftoggle{cpforsection}{\clearpage}{}
+    \input{change_tips_for} \iftoggle{cpforsection}{\clearpage}{}
+    \input{social_and_bureaucratic_interactions} \iftoggle{cpforsection}{\clearpage}{} % subsection
+    \input{measures_of_maturity} \iftoggle{cpforsection}{\clearpage}{}
 
   % person-to-person relations
-\input{working_with_other_bureaucrats} \clearpage % chapter
-    \input{motivations_of_participants} \clearpage
-    \input{tropes} \clearpage
-    \input{solving_problems} \clearpage
-    \input{not_my_job_task_scope} \clearpage
-    \input{building_managing_spending_reputation} \clearpage
+\input{working_with_other_bureaucrats} \iftoggle{cpforsection}{\clearpage}{} % chapter
+    \input{motivations_of_participants} \iftoggle{cpforsection}{\clearpage}{}
+    \input{tropes} \iftoggle{cpforsection}{\clearpage}{}
+    \input{solving_problems} \iftoggle{cpforsection}{\clearpage}{}
+    \input{not_my_job_task_scope} \iftoggle{cpforsection}{\clearpage}{}
+    \input{building_managing_spending_reputation} \iftoggle{cpforsection}{\clearpage}{}
     \input{teams} % no clearpage here because the next input is a subsection
     \input{friction_between_teams_within_organization} 
-    \clearpage
-    \input{intellectual_empathy} \clearpage
-    \input{leveraging_expertise} \clearpage
-    \input{does_anyone_want_to_volunteer} \clearpage
+    \iftoggle{cpforsection}{\clearpage}{}
+    \input{intellectual_empathy} \iftoggle{cpforsection}{\clearpage}{}
+    \input{leveraging_expertise} \iftoggle{cpforsection}{\clearpage}{}
+    \input{does_anyone_want_to_volunteer} \iftoggle{cpforsection}{\clearpage}{}
 
-\input{communication_within_bureaucracy} \clearpage % chapter
-    \input{communication_reflects_thinking} \clearpage % subsection
-    \input{communicate_failure_to} \clearpage % subsection
-    \input{communication_preferences} \clearpage % subsection
-    \input{communication_vulnerability} \clearpage % subsection
-    \input{communication_techniques} \clearpage % subsection 
-    \input{communication_email_and_reports} \clearpage 
+\input{communication_within_bureaucracy} \iftoggle{cpforsection}{\clearpage}{} % chapter
+    \input{communication_reflects_thinking} \iftoggle{cpforsection}{\clearpage}{} % subsection
+    \input{communicate_failure_to} \iftoggle{cpforsection}{\clearpage}{} % subsection
+    \input{communication_preferences} \iftoggle{cpforsection}{\clearpage}{} % subsection
+    \input{communication_vulnerability} \iftoggle{cpforsection}{\clearpage}{} % subsection
+    \input{communication_techniques} \iftoggle{cpforsection}{\clearpage}{} % subsection 
+    \input{communication_email_and_reports} \iftoggle{cpforsection}{\clearpage}{} 
     
 
     \section{Meetings are Bureaucratic\label{sec:meetings}}
@@ -379,17 +381,17 @@ The Field Guide for\\ Effective Bureaucrats}\\
   \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
   \iftoggle{showminitoc}{\minitoc}{}
   
-    \input{process_context_habits} \clearpage
-    \input{process_definition} \clearpage
-    \input{process_why_exist} \clearpage
-    \input{process_versus_chaos} \clearpage
-    \input{process_involves_new_members} \clearpage
-    \input{process_automation} \clearpage
-    \input{process_exceptions} \clearpage
-    \input{processes_two} \clearpage
-    \input{process_mistakes} \clearpage
-    \input{process_design_of}\clearpage
-    \input{process_change_existing} \clearpage
+    \input{process_context_habits} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_definition} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_why_exist} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_versus_chaos} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_involves_new_members} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_automation} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_exceptions} \iftoggle{cpforsection}{\clearpage}{}
+    \input{processes_two} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_mistakes} \iftoggle{cpforsection}{\clearpage}{}
+    \input{process_design_of}\iftoggle{cpforsection}{\clearpage}{}
+    \input{process_change_existing} \iftoggle{cpforsection}{\clearpage}{}
 
 \input{last_chapter}
 
@@ -405,16 +407,12 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \appendix
 
-%\chapter{Assessments for Publication}
- % \input{readers_report}\clearpage % section
- % \input{audience_analysis}\clearpage  % section
-
 
 \chapter{Resources}
   \input{resources_for_writing}
   \input{resources_for_managers}
 
-\input{career_interview_questions} \clearpage% chapter
+\input{career_interview_questions} 
 
 % https://tex.stackexchange.com/questions/5894/latex-conditional-expression
 %\newif\ifbooknotes
@@ -422,15 +420,15 @@ The Field Guide for\\ Effective Bureaucrats}\\
 %\ifbooknotes
 %\chapter{Book notes}
 %\input{notes
-%\input{notes_on_books/blau_dynamics_of_bureaucracy}\clearpage
-%\input{notes_on_books/dugay_values_of_bureaucracy}\clearpage
-%\input{notes_on_books/farazmand_handbook_of_bureaucracy}\clearpage
-%\input{notes_on_books/graeber_utopia_of_rules}\clearpage
-%\input{notes_on_books/hupe_research_handbook_on_street-level_bureaucracy}\clearpage
-%\input{notes_on_books/lipsky_street-level_bureaucracy}\clearpage
-%\input{notes_on_books/ohearn_bureaucrats_handbook}\clearpage
-%\input{notes_on_books/vine_bureaucracy_a_key_idea_for_business_and_society}\clearpage
-%\input{notes_on_books/vonmises_bureaucracy}\clearpage
+%\input{notes_on_books/blau_dynamics_of_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/dugay_values_of_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/farazmand_handbook_of_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/graeber_utopia_of_rules}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/hupe_research_handbook_on_street-level_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/lipsky_street-level_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/ohearn_bureaucrats_handbook}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/vine_bureaucracy_a_key_idea_for_business_and_society}\iftoggle{cpforsection}{\clearpage}{}
+%\input{notes_on_books/vonmises_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
 %\input{notes_on_books/wilson_bureaucracy}
 
 %\else
