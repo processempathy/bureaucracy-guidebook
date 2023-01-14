@@ -33,11 +33,11 @@
 
 \usepackage{etoolbox}
 \newtoggle{haspagenumbers}
-\togglefalse{haspagenumbers}
+\toggletrue{haspagenumbers}
 %\iftoggle{haspagenumbers}{
 
 \newtoggle{glossarysubstitutionworks}
-\togglefalse{glossarysubstitutionworks}
+\toggletrue{glossarysubstitutionworks}
 %\iftoggle{glossarysubstitutionworks}{
 
 \newtoggle{showminitoc}
@@ -45,11 +45,14 @@
 %\iftoggle{showminitoc}{
 
 \newtoggle{showbacktotoc}
-\togglefalse{showbacktotoc}
+\toggletrue{showbacktotoc}
 %\iftoggle{showbacktotoc}{
 
 \newtoggle{WPinmargin}
 \togglefalse{WPinmargin}
+
+\newtoggle{glossaryinmargin}
+\togglefalse{glossaryinmargin}
 
 \newtoggle{cpforsection}
 \togglefalse{cpforsection}
