@@ -1,5 +1,6 @@
 .DS_Store
 bin/
+*_DOES_NOT_WORK
 
 latex/main_*.tex
 
