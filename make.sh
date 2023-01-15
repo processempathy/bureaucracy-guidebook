@@ -30,6 +30,7 @@ function pdf_not_bound {
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
   sed -i '' "s/togglefalse{showbacktotoc}/toggletrue{showbacktotoc}/" ${tex_file}
   sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
+  sed -i '' "s/toggletrue{boundbook}/togglefalse{boundbook}/" ${tex_file}
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_pdf_not_bound.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_pdf_not_bound.log
@@ -51,6 +52,8 @@ function pdf_for_binding {
   cp latex/main.tex ${tex_file}
   # book is going to be bound; set boolean to true
   sed -i '' "s/boundbookfalse/boundbooktrue/" ${tex_file}
+  # toggle variable for same purpose
+  sed -i '' "s/togglefalse{boundbook}/toggletrue{boundbook}/" ${tex_file}
   # book has page numbers; set toggle to true
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
   sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
@@ -85,8 +88,7 @@ function pdf_for_binding {
 
 }
 
-function epub_pandoc {
-  pwd
+function pandoc_preprocess {
 
   # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
   # so merge all \input{}  so that all content is in one file, as per
@@ -94,19 +96,22 @@ function epub_pandoc {
   #cd latex
   #time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
   #cd ..
-  #mv latex/main_merged.tex latex/main_epub_pandoc.tex
+  #cp latex/main_merged.tex latex/main_html_pandoc.tex
 
-  tex_file="TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.tex"
+  FOLDER_NAME=${1}
+  TEX_NAME=${2}
 
-  rm -rf TEMPORARY_epub_source_html_source_latex
-  mkdir TEMPORARY_epub_source_html_source_latex
-  cp -r latex/* TEMPORARY_epub_source_html_source_latex/
-  rm -rf TEMPORARY_epub_source_html_source_latex/main_*
-  mv TEMPORARY_epub_source_html_source_latex/main.tex ${tex_file}
+  TEX_FILE_PATH=${FOLDER_NAME}/${TEX_NAME}
+
+  rm -rf ${FOLDER_NAME}
+  mkdir ${FOLDER_NAME}
+  cp -r latex/* ${FOLDER_NAME}
+  rm -rf ${FOLDER_NAME}/main_*
+  mv ${FOLDER_NAME}/main.tex ${TEX_FILE_PATH}
 
   # DEPRECATED -- fancy and fragile
   # python3 evaluate_boolean_toggles.py ${tex_file}
-  for f in TEMPORARY_epub_source_html_source_latex/*.tex; do
+  for f in ${FOLDER_NAME}/*.tex; do
       # haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
       # haspagenumbers == false
@@ -122,24 +127,31 @@ function epub_pandoc {
       # clearpage after each section == false
       sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
       # show glossary in margin == false
-      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{(.*)}{(.*)}/\2/' $f
-
+      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{\\marginpar{\[Glossary\]}}{}//' $f
   done
 
 
   # The version of Pandoc I'm using doesn't understand \newif
   # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" ${tex_file}
-  sed -i '' "/\\usepackage.*{geometry}/d" ${tex_file}
+  sed -i '' "/documentclass\[oneside\]{book}/d" ${TEX_FILE_PATH}
+  sed -i '' "/\\usepackage.*{geometry}/d" ${TEX_FILE_PATH}
 
-  sed -i '' "/\\newif/d" ${tex_file}
-  sed -i '' "/\\else/d" ${tex_file}
-  sed -i '' "/\\fi/d" ${tex_file}
-  sed -i '' "/\\boundbook/d" ${tex_file}
-  sed -i '' "/\\ifboundbook/d" ${tex_file}
+  sed -i '' "/\\newif/d" ${TEX_FILE_PATH}
+  sed -i '' "/\\else/d" ${TEX_FILE_PATH}
+  sed -i '' "/\\fi/d" ${TEX_FILE_PATH}
+  sed -i '' "/\\boundbook/d" ${TEX_FILE_PATH}
+  sed -i '' "/\\ifboundbook/d" ${TEX_FILE_PATH}
 
   #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" ${tex_file}
   #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" ${tex_file}
+
+}
+
+function epub_pandoc {
+  pwd
+
+  pandoc_preprocess TEMPORARY_epub_source_html_source_latex main_epub_pandoc.tex
+
   cd TEMPORARY_epub_source_html_source_latex;
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_epub_pandoc.tex -f latex \
 	       --epub-metadata=metadata_epub.xml \
@@ -163,56 +175,7 @@ function epub_pandoc {
 function html_pandoc {
   pwd
 
-  # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
-  # so merge all \input{}  so that all content is in one file, as per
-  # https://tex.stackexchange.com/a/21840/235813
-  #cd latex
-  #time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
-  #cd ..
-  #cp latex/main_merged.tex latex/main_html_pandoc.tex
-
-  tex_file="TEMPORARY_html_pandoc_source_latex/main_html_pandoc.tex"
-
-  rm -rf TEMPORARY_html_pandoc_source_latex
-  mkdir TEMPORARY_html_pandoc_source_latex
-  cp -r latex/* TEMPORARY_html_pandoc_source_latex/
-  rm -rf TEMPORARY_html_pandoc_source_latex/main_*
-  mv TEMPORARY_html_pandoc_source_latex/main.tex ${tex_file}
-
-  # DEPRECATED -- fancy and fragile
-  # python3 evaluate_boolean_toggles.py ${tex_file}
-  for f in TEMPORARY_html_pandoc_source_latex/*.tex; do
-      # haspagenumbers == true
-      #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
-      # haspagenumbers == false
-      sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/' $f
-      # glossarysubstitutionworks == false
-      sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
-      # showminitoc == true
-      sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
-      # showbacktotoc == true
-      sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
-      # Wikipedia in margin == false
-      sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/' $f
-      # clearpage after each section == false
-      sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
-      # show glossary in margin == false
-      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{(.*)}{(.*)}/\2/' $f
-  done
-
-  # The version of Pandoc I'm using doesn't understand \newif
-  # https://github.com/jgm/pandoc/issues/6096
-  sed -i '' "/documentclass\[oneside\]{book}/d" ${tex_file}
-  sed -i '' "/\\usepackage.*{geometry}/d" ${tex_file}
-
-  sed -i '' "/\\newif/d" ${tex_file}
-  sed -i '' "/\\else/d" ${tex_file}
-  sed -i '' "/\\fi/d" ${tex_file}
-  sed -i '' "/\\boundbook/d" ${tex_file}
-  sed -i '' "/\\ifboundbook/d" ${tex_file}
-
-  #sed -i '' "s/toggletrue{haspagenumbers}/togglefalse{haspagenumbers}/" ${tex_file}
-  #sed -i '' "s/toggletrue{glossarysubstitutionworks}/togglefalse{glossarysubstitutionworks}/" ${tex_file}
+  pandoc_preprocess TEMPORARY_html_pandoc_source_latex main_html_pandoc.tex
 
   cd TEMPORARY_html_pandoc_source_latex; \
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_html_pandoc.tex -f latex \
