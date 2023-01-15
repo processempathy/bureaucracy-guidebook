@@ -128,6 +128,7 @@ function pandoc_preprocess {
       sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
       # show glossary in margin == false
       sed -i '' -E 's/\\iftoggle{glossaryinmargin}{\\marginpar{\[Glossary\]}}{}//' $f
+      sed -i '' -E 's/\\iftoggle{boundbook}{(.*)}{(.*)}/\2/' $f
   done
 
 
