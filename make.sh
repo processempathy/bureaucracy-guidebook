@@ -115,20 +115,26 @@ function pandoc_preprocess {
       # haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
       # haspagenumbers == false
-      sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/' $f
+      sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/g' $f
       # glossarysubstitutionworks == false
-      sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/' $f
+      sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/g' $f
       # showminitoc == true
-      sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/' $f
+      sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/g' $f
       # showbacktotoc == true
-      sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/' $f
+      sed -i '' -E 's/\\iftoggle{showbacktotoc}{(.*)}{(.*)}/\1/g' $f
       # Wikipedia in margin == false
-      sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/' $f
+      sed -i '' -E 's/\\iftoggle{WPinmargin}{(.*)}{(.*)}/\2/g' $f
       # clearpage after each section == false
-      sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/' $f
+      sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/g' $f
       # show glossary in margin == false
-      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{\\marginpar{\[Glossary\]}}{}//' $f
-      sed -i '' -E 's/\\iftoggle{boundbook}{(.*)}{(.*)}/\2/' $f
+      sed -i '' -E 's/\\iftoggle{glossaryinmargin}{\\marginpar{\[Glossary\]}}{}//g' $f
+      # boundbook == false
+      sed -i '' -E 's/\\iftoggle{boundbook}{(.*)}{(.*)}/\2/g' $f
+      # pandoc doesn't like textsuperscript; https://pandoc.org/MANUAL.html#superscripts-and-subscripts and https://github.com/jgm/pandoc-citeproc/issues/128
+      sed -i '' -E 's/\\textsuperscript{(.*)}/\1/g' $f
+      #sed -i '' -E 's/\\textsuperscript//g' $f
+#      sed -i '' -E 's/\\textsuperscrip//' $f
+#      sed -i '' -E 's/{,}//g' $f
   done
 
 
