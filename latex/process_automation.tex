@@ -2,20 +2,24 @@
 
 % TODO: is this mentioned already?
 % why automation doesn't happen by default:
-% Automation and discovery and search require investment and skills ancillary to the purpose of the team 
+% 
 
 % https://graphthinking.blogspot.com/2022/07/automating-management.html
 
-For bureaucratic organizations that deal with intangibles (referred to as ``\href{https://en.wikipedia.org/wiki/Knowledge_worker}{knowledge work}'') evolving towards automation is well-trod.  (When physical objects are involved, then robotics is necessary for automation.)
+For bureaucratic organizations that deal with intangibles (referred to as ``\href{https://en.wikipedia.org/wiki/Knowledge_worker}{knowledge work}''), the desire to automate processes is wide-spread.  (When physical objects are involved, then robotics is necessary for automation.) Automation has the benefits of consistency, predictability, decreased labor costs, and easier trouble-shooting. 
+
+While benefits of automation are known to participants, there are barriers to automation you will need to address.  
+As with making information discoverable and searchable, automation require investment of time, money, and skills that are ancillary to the purpose of the organization. A transition of manual processes to automated workflows require doing the original work while enabling automation. Creating the conditions that are needed for automation have a delayed pay-off. 
 
 The evolution of automating a process involves
 \begin{enumerate}
-    \item Identify who is involved in the process. How did the process get created and how has it evolved? Who evaluates success of the process? 
-    \item For existing processes transition verbal folklore to written documentation.
-    \item Transition from plain text documentation to structured data. Examples of structured computer-parsable text include  decision trees and workflow diagrams. Implementation could be in Graphviz or Powerpoint.
-    \item Collect metrics (for example, number of times application was opened, time spent on webpage) for existing manual processes to enable cost evaluation for enacting automation. This is the modern version of a \href{https://en.wikipedia.org/wiki/Time_and_motion_study}{time and motion study}.
+    \item Identify who is involved in the process. How did the process get created and how has it evolved up to now? Who evaluates success of the process? 
+    \item For existing processes, transition verbal folklore to written documentation. The purpose of this step is to write down the workflow and business logic and relevant decisions. 
+    \item Transition the documentation in the previous step from plain text documentation to structured data. Examples of structured text that can be parsed by a computer include  decision trees and workflow diagrams. Implementation could be in \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Graphviz}{Graphviz}}
+    \href{https://en.wikipedia.org/wiki/Graphviz}{Graphviz} or \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Microsoft_PowerPoint}{Powerpoint}} \href{https://en.wikipedia.org/wiki/Microsoft_PowerPoint}{Powerpoint}.
+    \item Collect metrics (for example, number of times software application was opened, how frequently the folder was reviewed, how much  time was spent on the webpage) for existing manual processes to enable cost evaluation for implementing automation. This is the modern version of a
     \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Time_and_motion_study}{time and motion study}}
-    \footnote{see \href{https://xkcd.com/1205/}{https://xkcd.com/1205/} and \href{https://xkcd.com/1319/}{https://xkcd.com/1319/}}
+    \href{https://en.wikipedia.org/wiki/Time_and_motion_study}{time and motion study}.\footnote{See \href{https://xkcd.com/1205/}{https://xkcd.com/1205/} and \href{https://xkcd.com/1319/}{https://xkcd.com/1319/}.}
     \index{xkcd!\href{https://xkcd.com/1319/}{1319}}
     \index{xkcd!\href{https://xkcd.com/1205/}{1205}}
     \item Implement stand-alone software (scripts) for each task using personal automation tools like \href{https://pyautogui.readthedocs.io/en/latest/}{PyAutoGUI} or \href{https://www.autoitscript.com/site/}{AutoIt}.
@@ -41,22 +45,22 @@ At the organizational level, there are system-level changes like
     \item Transition from paper to 
     \href{https://en.wikipedia.org/wiki/PDF}{PDF} 
     \index{Wikipedia!\href{https://en.wikipedia.org/wiki/PDF}{PDF}}
-    to website to \href{https://en.wikipedia.org/wiki/API}{API}. 
+    to a website to an 
     \index{Wikipedia!\href{https://en.wikipedia.org/wiki/API}{API}}
-    %TODO - this isn't self-contained
-    To read about how this worked out at Amazon see \footnote{\href{https://gist.github.com/chitchcock/1281611}{https://gist.github.com/chitchcock/1281611}}
-    \footnote{\href{https://news.ycombinator.com/item?id=3101876}{https://news.ycombinator.com/item?id=3101876}}
-    \footnote{\href{https://news.ycombinator.com/item?id=27566676}{https://news.ycombinator.com/item?id=27566676}}.
+    \href{https://en.wikipedia.org/wiki/API}{API} (application programming interface).\footnote{To read about how this worked out at Amazon, see \href{https://gist.github.com/bhpayne/49c8379a3ea880b7cc079fc8d32c87a7}{S. Yegge, 2011}~\cite{2011_Yegge}.}
+%and \href{https://news.ycombinator.com/item?id=3101876}{https://news.ycombinator.com/item?id=3101876}}
+%and \href{https://news.ycombinator.com/item?id=27566676}{https://news.ycombinator.com/item?id=27566676}.}
     \item Members of bureaucratic teams should be trained to develop software, share code, use \href{https://en.wikipedia.org/wiki/API}{API}s, 
     \index{Wikipedia!\href{https://en.wikipedia.org/wiki/API}{API}}
     create APIs, and maintain APIs.
 \end{itemize}
 
-\ \\
+%\ \\
 
-\noindent\hrulefill
+%\noindent\hrulefill
 
-\ \\
+Automation can reduce labor costs, but designing, implementing, maintaining, and updating automation requires significant investment, change of culture, and new skills for the workforce.  
+
 
 % TRANSITION to next section: process_exceptions
 When automating bureaucratic processes, exceptions disrupt the expected workflow of tasks that comprise the process. Handling exceptions is a tricky subjective topic because exceptions are sometimes critical to allow for and can be abused. Abuse of exceptions to a process can originate from the subjects of a process or from the bureaucrats administering the process.

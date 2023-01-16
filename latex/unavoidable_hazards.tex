@@ -89,7 +89,8 @@ Consider the perspectives of an office worker, an office manager, a building man
 \begin{center}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{images/toaster_oven_in_office_kitchen.pdf}
+    % left> <lower> <right> <upper
+    \includegraphics[width=0.7\textwidth,trim={0 2cm 0 0},clip]{images/toaster_oven_in_office_kitchen.pdf}
     \caption{Toaster oven in the office kitchen.}
     \label{fig:toaster_oven}
 \end{figure}
@@ -214,35 +215,30 @@ To address edge cases and malicious or dumb people. See the \hyperref[table:dile
 
 \ \\
 \textit{Hazard}: \textbf{So much paperwork or forms.}
-Why is Red tape endemic to bureaucracy?\\
+Why is red tape endemic to bureaucracy?\\
 Paperwork as a form of coordination in processes to facilitate decentralized decision-making. 
 
 One of the motives for paperwork is to catch people who are misrepresenting their intent, whether accidental or intentional. Documentation makes prosecution more straightforward.
 
 \ \\
 \textit{Hazard}: \textbf{Everything is slower.}\\
-What is meant is ``slower than desired" or ``slower than I imagined in my simplified model."
+What is meant is ``slower than desired for what I need" or ``slower than I imagined in my simplified model."
 
-One reason progress is slower than expected is because there aren't as many hours available as imagined.
+One reason progress is slower than expected is because there aren't as many hours available as imagined. In a bureaucracy the actual time spent working is less than the number of hours you get paid for. Breaks taken during work, vacation from work, holidays, and sick leave are illustrated in figure~\ref{fig:hours_per_year}. An additional factor is that the people you depend on do not work exclusively on your request -- there are competing investments of attention. 
 
-
-% What's the point of this? Is there a consequence for the reader?
-
-In a bureaucracy the actual time spent working is less than the number of hours you get paid for. Breaks during work, vacation from work, holidays, sick leave. See figure~\ref{fig:hours_per_year}.
+Developing \gls{process empathy} means having a more detailed model that accounts for the cost of coordination and accounts for their being less time available than the naive expectation. 
 
 % https://rescuetime.wpengine.com/work-life-balance-study-2019/
 
-\begin{figure}[H]
+\begin{figure}[!htb] %[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/hours_per_activity_per_employed_year}
     \caption{Hours of ``work'' per year when accounting for the rest of life. Assumes 5 weeks of vacation, 2 days of sick leave, and 11 holidays.}
+    %\href{https://docs.google.com/spreadsheets/d/1ZaOZZXWkEzX4fFltUdlR4A6ENrAXnkzTW4YrjA4tDO8/edit?usp=sharing}{source for calculations}
     % footnotes in caption is not recommended; see https://texfaq.org/FAQ-ftncapt
     % however it can be done; see https://stackoverflow.com/questions/67621322/footnote-in-caption-of-figure-on-latex
     \label{fig:hours_per_year}
 \end{figure}
-
-%TODO
-\footnote{\href{https://docs.google.com/spreadsheets/d/1ZaOZZXWkEzX4fFltUdlR4A6ENrAXnkzTW4YrjA4tDO8/edit?usp=sharing}{source for calculations}}
 
 \ \\
 \begin{samepage}
@@ -298,31 +294,35 @@ Bureaucracy administers access to resources, whether tangible items (water, air)
 
 \ \\
 \textit{Hazard}: \textbf{Bureaucracy is inefficient and wasteful.}\\
-The inefficiency of an organization is not just due to a breakdown of communication among its many members. Different individuals in different roles faced distinct incentives and have a different view of what problem is most relevant. There is a mixture of competition and cooperation internally for resources.
-
-%TODO
-Can you explain a Pareto frontier for multiple objectives like speed, cost, accuracy?
-
-%TODO
-Because decisions by bureaucrats are subjective, there is significant risk of being wrong or being called out by others as being wrong. Therefore, a motive to 
+The inefficiency of an organization is not just due to a breakdown of communication among its many members. Other sources include 
+\begin{itemize}
+    \item Individuals in different roles face distinct external incentives which drive a diversity of investments. Work that is not aligned results in wasted effort.
+    \item Participants have a different views of what constitutes a problem and which problem is most relevant. Coordinating to resolve disagreements appears inefficient regardless of which metric is used to measure efficiency.
+    \item Within the organization there can competition  for resources. Competition leads to wasted effort.
+    \item Because decisions by bureaucrats are subjective, there is significant risk of being wrong or being called out by others as being wrong. The incentive to 
 \href{https://en.wikipedia.org/wiki/Cover_your_ass}{
 cover your ass}\footnote{
 \cite{1996_unknown}: ``the preferred options are to make sure somebody else does the failing, or to elegantly explain why it looks like a failure, sounds like a failure, but is actually a brilliant advance in an unexpected direction.''}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Cover_your_ass}{
 cover your ass}}\iftoggle{WPinmargin}{\marginpar{[Wikipedia] Cover\\your ass}}{}
-for decisions made. Unnecessary work is carried out. 
+exists for decisions. As a result, unnecessary work is carried out to limit blame. 
+\item Situations and constraints change faster than the time it takes to complete a task.  Then you are faced with either continuing under the initial assumptions or pivoting a project partway through. If an objective quantitative measure of value is available, the return on investment could be determined.
+\end{itemize}
 
-Different participants have different motives, and the aggregation needed for coordination is inefficient regardless of what metric efficiency is measured against.
 
-Another example: Inefficiency of changing the requirements on a project partway through. If an objective quantitative measure were available, the return on investment could be determined. 
+Efficiency is typically assessed from the perspective of a serial process -- a single worker could do this task faster, so why involve ten people and get a slower, more burdensome result? Specialization of skills, resilience, validation checks, and increased throughput all  motivate the addition of bureaucrats to processes.
 
-Efficiency is typically assessed from the perspective of a serial process -- a single worker could do this task faster, so why involve 10 people and get a slower, more burdensome result? The Mythical Man Month manifests \href{https://en.wikipedia.org/wiki/Amdahl\%27s_law}{Amdahl's law}.
+Brook's Mythical Man Month~\cite{1975_brooks} points out that dividing a task among ten people does not make the task finish in a tenth of the time. There is overhead of coordination and the training of new members who are intended to help. 
+
+\href{https://en.wikipedia.org/wiki/Amdahl\%27s_law}{Amdahl's law}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Amdahl\%27s_law}{Amdahl's law}}
-Dividing a task among 10 people does not make the task 10x quicker. It's not valid to expect that a task which takes 1 person 1 hour to perfectly scale so 10 people should be able to accomplish 10 results in 1 hour.
+is the quantification that a task which takes one person one hour is unlikely to scale to ten people accomplishing ten results in one hour.
+The consequence is that you can't evaluate what should be considered wasteful by considering a single person's throughput and then multiplying by the number of people on a team.
 
-Inefficiency of process is similar. I need to file a request to replace the lightbulb in my office. Compared to the serial ``I'll just replace the lightbulb myself by running to the hardware store and purchasing one."
 
-The excess resources characterized as waste are similarly driven by the serial-based assessment of what one person would require to carry out the task. 
+%Inefficiency of process is similar. I need to file a request to replace the lightbulb in my office. Compared to the serial ``I'll just replace the lightbulb myself by running to the hardware store and purchasing one."
+
+
 
 \ \\
 % https://graphthinking.blogspot.com/2020/07/scope-creep-is-experienced-differently.html

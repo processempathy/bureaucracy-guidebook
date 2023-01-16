@@ -33,6 +33,7 @@
 
 \usepackage{etoolbox}
 \newtoggle{boundbook}
+%\toggletrue{boundbook}
 \togglefalse{boundbook}
 
 \newtoggle{haspagenumbers}
@@ -76,7 +77,7 @@
 % https://texfaq.org/FAQ-chapbib
 %\usepackage{chapterbib}
 
-% TODO: 
+% TODO (aspirational): multiple bibliographies
 % https://www.overleaf.com/learn/latex/Questions/Creating_multiple_bibliographies_in_the_same_document
 
 % https://www.overleaf.com/learn/latex/Multibib
@@ -124,7 +125,7 @@
 
 \usepackage{graphicx}
 
-\usepackage{lineno}
+%\usepackage{lineno}
 
 % https://www.overleaf.com/learn/latex/Indices
 % https://latex-tutorial.com/creating-index-latex/
@@ -238,7 +239,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 
 \begin{titlepage}
-\maketitle
+\iftoggle{boundbook}{}{\maketitle}
 \thispagestyle{empty}
 \end{titlepage}
 \clearpage
@@ -309,6 +310,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
   \input{alternative_views_of_bureaucracy_from_within} \iftoggle{cpforsection}{\clearpage}{}
   \input{models_of_bureaucracy} \iftoggle{cpforsection}{\clearpage}{} 
   \input{not_many_options_for_organizations} \iftoggle{cpforsection}{\clearpage}{}
+      \input{teams} % no clearpage here because the next input is a subsection
+    \input{friction_between_teams_within_organization} 
+    \iftoggle{cpforsection}{\clearpage}{}
   \input{accidental_and_essential_bureaucracy} \iftoggle{cpforsection}{\clearpage}{}
   \input{fallacies} \iftoggle{cpforsection}{\clearpage}{}
   \input{reducing_administrative_overhead} \iftoggle{cpforsection}{\clearpage}{}
@@ -356,9 +360,6 @@ The Field Guide for\\ Effective Bureaucrats}\\
     \input{solving_problems} \iftoggle{cpforsection}{\clearpage}{}
     \input{not_my_job_task_scope} \iftoggle{cpforsection}{\clearpage}{}
     \input{building_managing_spending_reputation} \iftoggle{cpforsection}{\clearpage}{}
-    \input{teams} % no clearpage here because the next input is a subsection
-    \input{friction_between_teams_within_organization} 
-    \iftoggle{cpforsection}{\clearpage}{}
     \input{intellectual_empathy} \iftoggle{cpforsection}{\clearpage}{}
     \input{leveraging_expertise} \iftoggle{cpforsection}{\clearpage}{}
     \input{does_anyone_want_to_volunteer} \iftoggle{cpforsection}{\clearpage}{}

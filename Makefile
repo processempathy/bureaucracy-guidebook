@@ -29,6 +29,10 @@ help:
 todo:
 	grep -R -i TODO latex/*.tex
 
+spaces:
+	grep -R "\\\\ \\\\\\\\" latex/*.tex
+
+
 # review notes to self
 notes:
 	grep -E -R "[A-Z]{5,}" latex/*.tex

@@ -1,13 +1,32 @@
-\subsection*{Friction between teams within an organization}
+\subsection*{Sources of Friction between Teams within an Organization}
 
-Ideally there is a clear division of responsibilities among different teams. (Because a team's scope tends to align with skills of the team members, the division of  responsibilities isn't always clear.)
-With separate teams there is necessarily some interaction among teams -- one team may depend on the output from another team. Coordination among the teams regarding transfer of data or products or projects or knowledge is critical to the smooth operation of the organization. 
+Ideally there is a clear division of responsibilities among different teams. Having separate teams requires interaction among teams -- one team may depend on the output from another team. Coordination among the teams regarding transfer of data, products, projects, or knowledge is critical to the smooth operation of the organization. Separation allows for de-duplication of work and easier transitions for work that spans teams. 
 
-An organization has finite staffing, money, and time. Therefore, teams within the organization face a \href{https://en.wikipedia.org/wiki/Zero-sum_game}{zero-sum}
+The division of  responsibilities between teams can become unclear because a team's scope tends to align with skills of the team members. One team may be responsible for on aspect of a task workflow, but if members of another team also have those skills (e.g., due to cross-training), the separation between responsibilities can be blurred. 
+ 
+
+Another factor that leads to friction is the constraint that organizations have finite staffing, money, and time. Therefore, teams within the organization face a \href{https://en.wikipedia.org/wiki/Zero-sum_game}{zero-sum}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Zero-sum_game}{zero-sum game}}
-distribution of resources.
+distribution of resources. While cooperation among teams would be efficient, competition is created in the allocation of resources.
 
-% TODO
-Differences in decision-making perspective based on local conditions, stupidity, or different incentives, different definitions of success
+As with coordination among individual bureaucrats, a source of friction for teams are the differences in perspective based on local conditions, having insufficient education or experience, different incentives, or different definitions of success. Ideally each team shares the organization's vision, but in practice local conditions influence decision-makers.
 
-When attempting to resolve friction between teams, there is an authority common to the teams, but that person lacks the nuanced insight, doesn't have time to get involved in every challenge, and doesn't want to micromanage multiple teams.
+When attempting to resolve friction between teams, there is an authority common to the teams due to the hierarchical structure of responsibilities. That person who, by position, is responsible for resolving conflict, lacks the nuanced insight, doesn't have time to get involved in every challenge, and doesn't want to micromanage multiple teams. The resolution is often left to the respective teams. 
+
+%\subsection*{Data Transfer }
+
+%\marginpar{[Tag] Story Time}
+\index{story time!data transfer}
+%\begin{storytime}{Data Transfer}
+\begin{mdframed}[frametitle={Data Transfer from one Team to Another},frametitlerule=true,frametitlealignment=\centering]
+Two teams in an organization have a relationship, and each has data storage and data processing capability. Allen's team sends Bob's team data on a weekly basis. Because the teams were built for different purposes and at different times by different people, the data storage capabilities used by each team are not compatible. Members of Allen's team print all the records (usually about a hundred pages) and then delivers the paper documents to Bob's team. Members of Bob's team then retype all the information into the data storage used by Bob's team.
+
+Recently the office went paperless. Now Allen's team sends Bob's team a set of PDF files. Member's of Bob's team type in the content from the PDFs into the database for Bob's team. This is deemed a win for efficiency -- no more printing of paper documents each week!
+
+Why doesn't the organization common to both teams hire a data scientist to automate the recurring data transfer? Or train the current staff to learn to program a solution? Or create a third team that manages a common server?
+Because the current staff skill set supports printing and typing (data entry). Training someone with a new skill set takes an investment of money, time, is an opportunity cost, and makes them a flight risk.
+Hiring a data scientist is expensive. Whether the task is feasible is uncertain from the view of Bob and his manager (they both lack experience with the needed technology), and how long the task will take is uncertain. Even once they create a connection, then a person with the skill set to maintain it is needed. The cost of ongoing maintenance and implementation is unknown.
+
+Known working suboptimal with known cost versus unknown potential improvement of unknown degree for an unknown capital and ongoing cost. And if that improvement works out, staff who were implementing the old solution now need to find new work.
+\end{mdframed}
+%\end{storytime}
