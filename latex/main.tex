@@ -430,13 +430,18 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \appendix
 \cleardoublepage
-\input{author_biography}
+\input{author_biography} % section*
+
+\chapter{Summaries of This Book}
+\input{summary_paragraph}\clearpage% section*
+
+\input{summary_page}  % section*
 
 \iftoggle{boundbook}{}{\chapter{Online Resources}}
 \iftoggle{boundbook}{}{  \input{resources_for_writing}}
 \iftoggle{boundbook}{}{  \input{resources_for_managers}}
 
-\input{career_interview_questions} 
+\input{career_interview_questions} % chapter
 
 % https://tex.stackexchange.com/questions/5894/latex-conditional-expression
 %\newif\ifbooknotes
