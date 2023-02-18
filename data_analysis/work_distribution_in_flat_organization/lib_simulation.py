@@ -149,14 +149,14 @@ def pick_a_random_person(person_index: int,
     return None
 
 
-def simulate(show_narrative:bool,
-             work_journal:bool,
-             skill_set_for_tasks:list,
+def simulate(skill_set_for_tasks:list,
              max_skill_level_per_task: int,
              max_ticks_to_simulate: int,
              max_task_duration_in_ticks:int,
              list_of_people: list,
-             tasks_dict: dict):
+             tasks_dict: dict,
+             show_narrative:bool,
+             work_journal:bool):
     """
     """
     tick=-1
