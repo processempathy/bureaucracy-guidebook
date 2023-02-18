@@ -33,8 +33,9 @@
 
 \usepackage{etoolbox}
 \newtoggle{boundbook}
-%\toggletrue{boundbook}
-\togglefalse{boundbook}
+% confusingly, I use the same "boundbook" boolean at the top of this file
+\toggletrue{boundbook}
+%\togglefalse{boundbook}
 
 \newtoggle{haspagenumbers}
 \toggletrue{haspagenumbers}
@@ -442,6 +443,8 @@ The Field Guide for\\ Effective Bureaucrats}\\
 \iftoggle{boundbook}{}{  \input{resources_for_managers}}
 
 \input{career_interview_questions} % chapter
+
+\input{work_distribution_in_flat_organization} % chapter
 
 % https://tex.stackexchange.com/questions/5894/latex-conditional-expression
 %\newif\ifbooknotes
