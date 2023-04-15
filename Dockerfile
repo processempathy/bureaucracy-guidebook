@@ -42,6 +42,8 @@ RUN apt-get install -f -y --no-install-recommends \
           pdf2svg \
           poppler-utils \
           psutils \
+          python3-pip \
+          python3-pygments \
           tex4ht \
           texlive-base \
           texlive-bibtex-extra \
@@ -78,6 +80,8 @@ RUN apt-get install -f -y --no-install-recommends \
 # update font cache
     echo "Update font cache." &&\
     fc-cache -fv &&\
+#https://stackoverflow.com/a/26955537/1164295
+    apt-get install -y --reinstall python-pkg-resources &&\
 # clean up all temporary files
     echo "Clean up all temporary files." &&\
     apt-get clean -y &&\
@@ -102,6 +106,7 @@ RUN apt-get install -f -y --no-install-recommends \
     mkdir -p /usr/share/texlive/texmf-dist/source &&\
     echo "All done."
 
+RUN pip3 install setuptools
 
 # as per https://askubuntu.com/a/687676
 # https://github.com/jgm/pandoc/releases/
