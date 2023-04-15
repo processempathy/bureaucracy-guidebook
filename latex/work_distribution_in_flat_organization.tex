@@ -69,7 +69,7 @@ The conclusions drawn from the model map to real-world organizations even withou
 
 Suppose the model is configured to simulate three specializations (A, B, C) and three skill-levels (1, 2, 3). 
 
-\subsection*{Example People}
+\subsection*{Example People\label{sec:example-people}}
 
 A person with skill-level 3 in specialization A and skill-level 1 in specialization C would be labeled ``A3,C1''. A visualization of their capabilities would be the following table:
 
@@ -215,7 +215,11 @@ A process is a sequence of tasks. For example, the list ``B2:10, A1:5, C3:7" des
     \item Task requiring specialization C and skill-level 3; duration of 7 minutes.    
 \end{enumerate}
 
-\section{Configurations of the Model}
+\section{Configurations of the Task Distribution Model}
+
+Comparing different configurations of the model requires a metric. 
+Task throughput is a way to characterize the productivity of an organization. 
+
 
 \subsection*{Scenario: Everyone is an A1}
 
@@ -233,22 +237,22 @@ Suppose every person in the organization is an A1 and every task is an A1.
 
 As a consequence of this configuration, no coordination is required because each person can do every task. Observations about this configuration include:
 \begin{itemize}
-    \item The number of people each person knows is irrelevant.
+    \item The number of people each person knows is irrelevant because coordination is unnecessary.
     \item This configuration yields the maximum throughput tasks for the organization.
     \item Adding more people increases the throughput.
 \end{itemize}
 
 These same conclusions hold for any configuration of an organization comprised of unicorns. 
-The concept of every member being able to do every task is the model 
+The concept of every member being able to do any task is the model 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}}
-\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy} advocates. 
-
-%TODO: Plot throughput versus organization size 
+\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy} advocates. The feasibility of gathering people with the relevant talents becomes challenging as the task complexity increases or increased throughput is needed. That is why organizations hire people who are not unicorns. 
 
 
-\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration = coordination duration)\\with no social circle}
 
-The simplest non-trivial scenario is when not every member of an organization can do every task. There are two specializations (A, B) and one skill level: 
+%\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration = coordination duration)\\with no social circle}
+\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0}
+
+The simplest non-trivial scenario occurs when not every member of an organization can do every task. For example, suppose  there are two specializations (A, B) and one skill level: 
 
 \begin{center}
 \begin{tabular}{c|c|c|}
@@ -283,26 +287,25 @@ The simplest non-trivial scenario is when not every member of an organization ca
 \cline{2-3}
 \end{tabular}
 \end{center}
-In this configuration, the person qualified as A1,B1 is labeled a Unicorn -- they can do any task. Whether you consider inclusion of A0,B0 (a person who does does no work and can only coordinate) to be relevant depends on your personal experience. Most organizations label these members as ``managers.'' 
+In this configuration, the person qualified as A1,B1 is labeled a unicorn -- they can do any task. Whether you consider inclusion of A0,B0 (a person who does does no work and can only coordinate) to be relevant depends on your personal experience. Most organizations label these members as ``managers.'' 
 
 When a person does not have all the specializations, then a task randomly assigned to one person may need to be given to someone else in the organization. For example, if I am an A1 and am given a B1 task, I need to find a coworker who is either qualified as B1 or A1,B1. Sharing tasks among members of the organization requires coordination.
 
 
-Task throughput is a metric for comparing different configurations of the model. Rather than count tasks per tick during steady-state, here we count number of tasks completed in 100 ticks. 
 
 
-\begin{figure}
+\begin{figure}[H] % [!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
 \includegraphics[width=1\textwidth]{images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
-\caption{Tasks completed by each person in an organization with six people. Persons 3 and 5 both have maximum throughput of tasks since they are unicorns. Person 0 has no throughput and only delegates tasks. Everyone is busy (no one is idle), but the level of productivity (tasks completed per time) varies.}
+\caption{Tasks completed by each person in an organization with six people. Rather than count tasks per tick during steady-state, here we count number of tasks completed in 100 ticks. Persons 3 and 5 both have maximum throughput of tasks since they are unicorns. Person 0 has no throughput and only delegates tasks. Everyone is busy (no one is idle), but the level of productivity (tasks completed per time) varies.}
 \label{fig:task-distribution-tasks-per-person}
 \end{figure}
 
 
 
-\begin{figure}
+\begin{figure}[H] % [!htb]%  https://tex.stackexchange.com/a/32605/235813
 \centering
-\includegraphics{images/task_distribution_backlog_length_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png}
+\includegraphics[width=1\textwidth]{images/task_distribution_backlog_length_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png}
 \caption{The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure~\ref{fig:task-distribution-tasks-per-person}. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 has a longer backlog because they are capable of doing any task.}
 \label{fig:task-distribution-backlog-length}
 \end{figure}
@@ -311,9 +314,9 @@ Task throughput is a metric for comparing different configurations of the model.
 
 
 
-\begin{figure}
+\begin{figure}[H] % [!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
-\includegraphics{images/task_distribution_percent_of_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
+\includegraphics[width=1\textwidth]{images/task_distribution_percent_of_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
 \caption{This is the same simulation as shown in Figures~\ref{fig:task-distribution-tasks-per-person} and~\ref{fig:task-distribution-backlog-length}. The steady-state distribution emerges around 50 ticks. Person 3 and person 5 are both unicorns and have similar task throughput. Person 3 does not appear in this figure because they completed no tasks.}
 \label{fig:task-distribution-percent-of-tasks}
 \end{figure}
@@ -323,6 +326,7 @@ Task throughput is a metric for comparing different configurations of the model.
 %a metric of interest is the number of task per simulated tick as a function of the number of people present in the organization.
 
 
+
 The need for coordination can be blamed on the random delegation of task not being aligned to the specializations and skill-levels of the workers. 
 The distribution of skills and specializations of people in an organization is set by the hiring process.
 %But that only applies if the tasks are atomic and independent.
@@ -330,109 +334,126 @@ The distribution of skills and specializations of people in an organization is s
 %If tasks are part of a process, and a person owns the process, and task in a process cannot be handled by one person, then coordination re-emerges as a requirement.
 
 
-
-Conclusions from this configuration:
+\begin{samepage}
+Conclusions from this configuration of the model:
 \begin{itemize}
-    \item The reward for good work is more work.
-    \item Coordination means lower throughput (with social size 0)
+    \item The reward for good work is more work. People with more specializations and more skills do more work than their coworkers.
+    \item Time spent coordinating results in lower throughput of tasks.
 \end{itemize}
+\end{samepage}
 
+The last question for this configuration is how the throughput scales as the number of people in the organization is increased.
+The overhead of coordination among less-skilled people means that doubling the number of participants does not double the task throughput. This observation was made by 
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Fred_Brooks}{Fred Brooks}}
+\href{https://en.wikipedia.org/wiki/Fred_Brooks}{Brooks} in his book 
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/The_Mythical_Man-Month}{Mythical Man Month}}
+\href{https://en.wikipedia.org/wiki/The_Mythical_Man-Month}{Mythical Man Month}~\cite{1975_brooks}. 
 
-\begin{figure}
+\begin{figure}[!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
-\includegraphics{images/task_distribution_completed_versus_size_simCount25_skills2_levels1_taskduration1_people2_social0_ticks100.pdf}
-\caption{Task throughput after 100 ticks versus organization size. 25 simulations were run for each organization size. 
-Adding people does increase throughput, but the variance of throughput increases due to dependence on the the distribution of specializations and skill-levels of the participants. The instances where task completion is near zero occur when no members of the organization have sufficient skills to address tasks. 
+\includegraphics[width=1\textwidth]{images/task_distribution_completed_versus_size_simCount25_skills2_levels1_taskduration1_people2_social0_ticks100.pdf}
+\caption{Task throughput after 100 ticks versus number of people in the organization. 25 simulations were run for each organization size. 
+Adding people does increase throughput, but the variance of throughput increases due to dependence on the the distribution of specializations and skill-levels of the participants. The instances where task completion is near zero occur when no members of the organization have sufficient skills to address tasks. That condition is less likely as the number of people increases.
 %This configuration of the model has no social circle and the task duration is the same as the coordination duration.
 }
 \label{fig:task-distribution-completed-vs-size}
 \end{figure}
 
 
-\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration = coordination duration)\\with social circle}
+When people in an organization are not unicorns (there are some tasks a person is unable to do), then the task throughput is lower. If an organization comprised of unicorns would operate faster, why distribute work to people who lack the skills and rely on coordination?
+Because the specialization of skills is too diverse for anyone person to master everything. This is easy to understand when the organization is society. It would be faster for you to 
+ inspect your own meat for food safety, monitor the emissions of a coal-fired power plan, build your own semiconductor chips, manufacture your own airplane. However, you don't have all those skills and you want the results quicker than you can complete the tasks yourself. Therefore, the tasks are distributed among an organization of people with different skills. The cost of coordination is that the throughput is lower.
 
-The amount of time a person assigned a task spends searching the organization depends on who else that person already knows. 
 
-If I'm qualified as ``A1" and the task is ``B1," then I can give the task to a coworker who I know is qualified as ``B1." If I don't know anyone with the relevant specialization and skill-level, then I have to search the rest of the organization.
-The amount of time spent searching depends on the number of people you know. 
 
-With this feature in the model, we can look for a tipping point when the organization is larger than the size of each member's social circle. We expect a change in throughput when the organization exceeds Dunbar's number.
+%\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration = coordination duration)\\with social circle}
 
-Result: social circle size matters to throughput 
-Plot throughput versus social size for fixed organization size.
+%When a person is assigned a task they are unable to do, they spend time searching for a coworker capable of doing the task.
+%The amount of time a person spends searching the organization depends on who else that person already knows. 
 
-A person who is an A1,B1 will have no contact list because there is no handoff needed. A person who is A0,B0 will have a randomly populated contact list. A person who is A1,B0 will have a contact list populated with people who have B1.
+%If I'm qualified as ``A1" and the task is ``B1," then I can give the task to a coworker who I know is qualified as ``B1." If I don't know anyone with the relevant specialization and skill-level, then I have to search the rest of the organization.
+%The more people I know the less time I spend searching.
+
+%A person who is an A1,B1 will have no contact list because there is no handoff needed. A person who is A0,B0 will have a randomly populated contact list. A person who is A1,B0 will have a contact list populated with people who have B1.
+
+%With this feature in the model, we can look for a tipping point when the organization is larger than the size of each member's social circle. We expect a change in throughput when the organization exceeds \href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number}.
+
+%Result: social circle size matters to throughput 
+%Plot throughput versus social size for fixed organization size.
+
+
 
 
 % TODO: https://en.wikipedia.org/wiki/Little%27s_law
 
 
-\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration $>$ coordination duration)\\with no social circle}
+%\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration $>$ coordination duration)\\with no social circle}
 
-Result: whether throughput is lower or higher than one person is sensitive to ratio of task:coord
+%Result: whether throughput is lower or higher than one person is sensitive to ratio of task:coord
 
-Result: social circle size matters to throughput 
-
-Result: reward for good work is more work 
-
-\subsection*{xxx}
-
-A person who is an A3 B3 c3 will have no contact list because there is no handoff needed. A person who is a0 b0 c0 will have a randomly populated contact list. A person who is A3B0C0 will have a contact list populated with people who have non-zero skills in B and C
-
-\section{to investigate}
-
-The minimum throughput is no unicorns. What is the spread?
-
-Does the system reach steady state? 
-Or do task backlogs grow unbounded?
-
-What is the relevance of unicorns who can do every task well for throughput or minimum task completion time?
-(Characterization) What is the density of unicorns?
+%Result: social circle size matters to throughput 
 
 
+%\subsection*{xxx}
 
-My guess is that under certain conditions, the simulated time is much greater than the task took time, which indicates that doing the work yourself would be quicker rather than distributing the work among an organization.
-Why then would one distribute work among the organization?Because the specialization of skills is two diverse for anyone person to master everything. For example if you inspected your own meat for food safety, and monitor the emissions of a whole-fired power plan, and built your own semiconductor ships and built your own airplane, it might be quicker than distributing it among an organization of people with different skills.
+%A person who is an A3 B3 c3 will have no contact list because there is no handoff needed. A person who is a0 b0 c0 will have a randomly populated contact list. A person who is A3B0C0 will have a contact list populated with people who have non-zero skills in B and C
 
+%\section{to investigate}
 
-The search time when the organization is smaller than a socialist goal is negligible, whereas when the organization is larger than their social circle the search time increases proportional to the number of people never organization. This is an obvious statement, but it indicates why larger organizations feel different than a small group of people working together who know each other
-Hierarchy is not included in this numerical model, but it is one way of addressing this? Of how to coordinate outside of your social circle.
+%The minimum throughput is no unicorns. What is the spread?
+
+%Does the system reach steady state? 
+%Or do task backlogs grow unbounded?
+
+%What is the relevance of unicorns who can do every task well for throughput or minimum task completion time?
+%(Characterization) What is the density of unicorns?
 
 
 
-\section{So What?}
+
+%The search time when the organization is smaller than a socialist goal is negligible, whereas when the organization is larger than their social circle the search time increases proportional to the number of people never organization. This is an obvious statement, but it indicates why larger organizations feel different than a small group of people working together who know each other.
+%Hierarchy is not included in this numerical model, but it is one way of addressing this? Of how to coordinate outside of your social circle.
+
+
+
+\section{What to Do about Too Many Tasks}
 
 % source: https://graphthinking.blogspot.com/2023/02/prioritization-of-tasks.html
 
-When there is more work than person hours, prioritization becomes critical. Without prioritization, tasks get started and do not get completed.
+Because unicorns can do any task, one way to improve throughput is to invest in training people. Training in the context of this model have the purpose of  increased breadth (additional specializations) or increased depth (improved skill-level for a specialization). One reason there are not more unicorns in an organization is that not everyone wants to know and do everything. Knowing how to create a webpage, analyze data, manage a server, initiate a contract, interact with customers, gather requirements, and run a team can feel overwhelming. Another reason unicorns are rare is turn-over. When a person outgrows their assigned role,  they may look to other opportunities to feel more fulfilled. Retaining unicorns is challenging.
 
-Prioritization requires sacrifice (what are you not doing) and induces risk (there is consequence to not doing things) and spends your reputation (not doing things effects other people).
+A separate approach to having too many tasks relative to the number of people in the workforce is to prioritize the work. Prioritization doesn't necessarily increase task throughput, but without prioritization, tasks get started and may not get completed. (The problem of ``start task but don't finish it" isn't part of the numerical model but does happen in real organizations.)
 
-There are two conditions under which prioritization becomes important. 
+Prioritization requires sacrifice (what tasks are you not doing) and induces risk (there is consequence to not doing tasks) and spends your reputation (not doing tasks effects other people).
+
+There are two conditions under which prioritization becomes important:
 \begin{itemize}
-    \item The amount of work is less than or equal to the amount of staff available and skill over the staff. Then prioritization is merely ordering of work.
-    \item When work exceeds staff and skill-level per person, you won't get to everything as an oversubscribed person. Saying no is important but harms your reputation.
+    \item The number of tasks is less than or equal to the amount of staff attention available and skill. Then prioritization is merely ordering of the sequence of tasks.
+    \item When the number of tasks exceeds staff and skill-level per person, an oversubscribed person won't get to every task. Saying no is important but harms your reputation.
 \end{itemize}
 
 
-Prioritization strategies
+Prioritization strategies options
 \begin{itemize}
-    \item Don't prioritize. Work on task as they are identified and don't complete anything because it gets interrupted by the next task
+    \item Don't prioritize. Work on tasks as they are identified and don't complete anything because it gets interrupted by the next task
 Static prioritization that is exclusive. Only work on one thing to the exclusion of everything else.
-    \item Shifting prioritization (prioritization changes over time)
+    \item Shifting prioritization (prioritization changes over time); either:
     \begin{itemize}
-        \item Prioritization that evolves slower than task can be completed
+        \item Prioritization that evolves slower than task can be completed.
         \item Prioritization that shifts faster than task can be completed is ineffective because it is indistinguishable from responding to task as they arise.
     \end{itemize}
-    \item Proportional allocation for task prioritization. 10\% of your time for area one, 20\% of your time for two. 
+    \item Static prioritization by category. Likely to harm your reputation with people come to you with tasks that aren't in your primary category.
+    \item Prioritization proportionally allocated to task categories. For example, suppose you have three categories of tasks. You allocate 10\% of your time for the first category, 20\% of your time for the second, and your remaining time to  the third category. 
 \end{itemize}
 
 \clearpage
-\section{Python 3}
+\section{Software implementation of Simulation Model}
 
-Functions written in Python 3 used to generate data used for figures in this appendix.
+The model referenced in this Appendix is implemented in \href{https://en.wikipedia.org/wiki/Python_(programming_language)}{Python 3}. The primary functions used to generate data used for figures in this appendix are below. The complete source code for this book is available at \href{https://github.com/processempathy/bureaucracy-guidebook}{https://github.com/processempathy/bureaucracy-guidebook}.
 
-The entity in this simulation is a person. 
+The entity in this
+\href{https://en.wikipedia.org/wiki/Agent-based_model}{agent-based model} is a person. For more description and context, see 
+\iftoggle{haspagenumbers}{page~\pageref{sec:example-people}}{section~\ref{sec:example-people}}.
 \inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__create_person.py}
 
 The simulation depends on the following helper functions.

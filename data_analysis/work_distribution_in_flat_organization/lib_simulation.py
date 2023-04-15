@@ -18,7 +18,7 @@ class CreatePerson():
                  unique_id:int,
                  skill_set_for_people:list,
                  max_skill_level_per_person:int):
-        self.unique_id = unique_id 
+        self.unique_id = unique_id
         self.backlog_of_tasks = []
         self.status = "idle"
         self.assigned_task = None
@@ -115,13 +115,6 @@ def current_status_of_people(list_of_people: list):
     what is each person doing?
     """
     for person in list_of_people:
-        #if person.assigned_task:
-        #    if len(person.assigned_task)>0:
-        #        task=person.assigned_task
-        #    else:
-        #        task = None
-        #else:
-         #   task = None
         print('person id',person.unique_id,
                   'has status',person.status,
                   'with task=',person.assigned_task,
@@ -145,20 +138,15 @@ def pick_a_random_person(person_index: int,
     """
     find someone who is not myself and is not someone I already know
     """
-    #print('person_index=', person_index)
     try:
         len(contacts)
     except TypeError: # contacts is None
         contacts=[]
-    #print('contacts=', contacts)
-    #print('list of people=',list_of_people) 
     attempts = 0
     list_of_person_IDs = [person.unique_id for person in list_of_people]
-    #print('list_of_person_IDs=',list_of_person_IDs)
     while (attempts<100):
         attempts+=1
         another_person = random.choice(list_of_person_IDs)
-        #print('another_person=',another_person)
         if ((another_person not in contacts) and
             (another_person != person_index)):
             return another_person
@@ -214,7 +202,7 @@ def simulate(skill_set_for_tasks:list,
                     if work_journal:
                         list_of_people[person_index].work_journal_per_tick[tick]['task from'] = 'my own backlog'
                 else: # pop from empty list
-                    if len(tasks_dict)==0: 
+                    if len(tasks_dict)==0:
                         task_id = 0
                     else:
                         task_id = max(tasks_dict.keys())+1
@@ -262,10 +250,8 @@ def simulate(skill_set_for_tasks:list,
             else: # person doesn't have sufficient skill for task; person needs to find someone else
                 if show_narrative: print("   person",person_index,"does not have sufficient skill")
                 list_of_people[person_index].status="coordinating"
-                if work_journal:
-                    list_of_people[person_index].work_journal_per_tick[tick]['status was'] = "idle"
-                if work_journal:
-                    list_of_people[person_index].work_journal_per_tick[tick]['status is now'] = "coordinating"
+                if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status was'] = "idle"
+                if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status is now'] = "coordinating"
 
             # no person is idle
             assert((list_of_people[person_index].status=="working") or
@@ -297,8 +283,7 @@ def simulate(skill_set_for_tasks:list,
                             list_of_people[contact_id].backlog_of_tasks.append(list_of_people[person_index].assigned_task)
                             list_of_people[person_index].assigned_task = None
                             list_of_people[person_index].status = "idle" # next tick will get new task from my own backlog or infinite backlog
-                            if show_narrative: print("   person",
-                                                     person_index,"gave task to person",
+                            if show_narrative: print("   person",person_index,"gave task to person",
                                                      contact_id,"from contact list")
                             if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome'] = (
                                     "gave task to person "+str(contact_id)+" from contact list")
@@ -323,8 +308,7 @@ def simulate(skill_set_for_tasks:list,
                         if show_narrative: print("   person",person_index,"added",another_person_id,"to list of contacts")
                         if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status is now'] = "idle"
                     else:
-                        if show_narrative: print("   person",
-                                                 person_index,"not able give to",
+                        if show_narrative: print("   person",person_index,"not able give to",
                                                  another_person_id,"from random search")
                         if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome'] = (
                             "not able to give to person "+str(another_person_id)+" from random search")

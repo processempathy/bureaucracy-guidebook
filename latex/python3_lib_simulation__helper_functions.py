@@ -1,11 +1,18 @@
-def show_all_people(list_of_people):
+def show_all_people(list_of_people: list):
+    """
+    assessment of whether `list_of_people` is correct
+    """
     for person in list_of_people:
-        print('id=',person.unique_id, 
+        print('id=',person.unique_id,
               '; skill matrix=',person.skill_specialization_dict)
+    return
 
 def get_aggregate_person_dict(list_of_people:list,
                               skill_set_for_people:list,
                               max_skill_level_per_person: int):
+    """
+    create data structure for visualization of the population
+    """
     # initialize data structure
     aggregate_person_dict = {}
     for specialization in skill_set_for_people:
@@ -17,10 +24,10 @@ def get_aggregate_person_dict(list_of_people:list,
             #print(person_id, specialization, skilllevel)
             if skilllevel>0:
                 aggregate_person_dict[specialization][skilllevel-1] += 1
-                
+
     return aggregate_person_dict
-        
-def check_population_for_capability(list_of_people,
+
+def check_population_for_capability(list_of_people: list,
                                     skill_set_for_people,
                                     max_skill_level_per_person):
     """
@@ -42,7 +49,7 @@ def check_population_for_capability(list_of_people,
     for specialization, skilllevel in max_skill_per_specialization.items():
         if skilllevel<max_skill_level_per_person:
             print("WARNING: population lacks max skill-level for",specialization)
-            print("As a consquence, some tasks cannot be completed by this population")        
+            print("As a consquence, some tasks cannot be completed by this population")
     return
 
 # use defaults to avoid having to specify variables each time
@@ -67,14 +74,7 @@ def current_status_of_people(list_of_people: list):
     what is each person doing?
     """
     for person in list_of_people:
-        #if person.assigned_task:
-        #    if len(person.assigned_task)>0:
-        #        task=person.assigned_task
-        #    else:
-        #        task = None
-        #else:
-         #   task = None
-        print('person id',person.unique_id, 
+        print('person id',person.unique_id,
                   'has status',person.status,
                   'with task=',person.assigned_task,
                   'and has',len(person.backlog_of_tasks),
@@ -82,27 +82,32 @@ def current_status_of_people(list_of_people: list):
     return
 
 def cumulative_task_backlog_size(list_of_people):
+    """
+    value needed to create visualization of backlog versus time
+    """
     backlog_count = 0
     for person in list_of_people:
         backlog_count += len(person.backlog_of_tasks)
     return backlog_count
 
 
-def pick_a_random_person(person_index: int, 
-                         contacts: list, 
+def pick_a_random_person(person_index: int,
+                         contacts: list,
                          list_of_people: list):
     """
     find someone who is not myself and is not someone I already know
     """
-    attempts = 0
     try:
         len(contacts)
     except TypeError: # contacts is None
         contacts=[]
+    attempts = 0
+    list_of_person_IDs = [person.unique_id for person in list_of_people]
     while (attempts<100):
-        another_person = random.choice(range(len(list_of_people)))
-        if ((another_person not in contacts) and 
+        attempts+=1
+        another_person = random.choice(list_of_person_IDs)
+        if ((another_person not in contacts) and
             (another_person != person_index)):
             return another_person
-    print("failed to find another person who is not a contact")
-    return None
+    #print("failed to find another person who is not a contact")
+    return person_index
