@@ -2,9 +2,9 @@
 
 \iftoggle{glossarysubstitutionworks}{\Gls{bureaucracy}}{Bureaucracy}  
 forms part of the explanation for patterns observed when people interact. Another explanatory aspect is how tasks get distributed among members of an organization. These two aspects of participating in an organization are often confounded. This chapter describes a model of processes and tasks that involve coordination. 
-The model is useful for distinguishing the effects of bureaucracy (distributed knowledge and distributed decision making) from the distribution of tasks in an organization.
+The model is useful for distinguishing the effects of bureaucracy (distributed knowledge and distributed decision-making) from the distribution of tasks in an organization.
 
-The model of task distribution in an organization is sufficiently detailed to illustrate commonly observed situations, but is agnostic to the specific tasks or work roles. Improvements to the model intended to increase the realism could be made, but risk decreasing the clarity of the model.
+The model of task distribution in an organization is sufficiently detailed to illustrate commonly observed situations but is agnostic to the specific tasks or work roles. Improvements to the model intended to increase the realism could be made, but risk decreasing the clarity of the model.
 
 \section{Assumptions in the Model of Task Distribution}
 
@@ -32,14 +32,14 @@ Each participant in the organization has the same amount of attention-time to sp
 %A simple process is a sequence of few tasks, and each task does not require significant specialization or skill-level.
 %A complex process is a sequence of many tasks, and each task requires specialized skills, and the number of distinct specializations is high.
 
-When a person is assigned a task they don't have the specialization for, or lack sufficient skill-level in that specialization, then they have to find someone else in the organization who is capable of doing the task. 
-In the numerical model the random selection of someone else who has the necessary specialization and skill-level is insensitive to the size of their backlog. This is reflects my experience in  large organizations where task backlogs are not visible. As a consequence you merely add something to their backlog and hope they will get to it eventually.
+When a person is assigned a task they don't have the specialization for or lack sufficient skill-level in that specialization, then they have to find someone else in the organization who is capable of doing the task. 
+In the numerical model the random selection of someone else who has the necessary specialization and skill-level is insensitive to the size of their backlog. This reflects my experience in  large organizations where task backlogs are not visible. As a consequence, you merely add something to their backlog and hope they will get to it eventually.
 
 
 
 The model relies on a process being a sequence of tasks. That might not be realistic when branching is part of a process (conditional branching or splitting).
 Real processes feature branching in two senses. The first sense of branching is the conditional logic: ``if this else that.''
-The second sense of branching is that a task be the initiation point of another process. 
+The second sense of branching is that a task is the initiation point of another process. 
 In either of those two senses of branching the processes can be treated as independent sequences of tasks.
 
 
@@ -52,14 +52,14 @@ Simplifying assumptions about what isn't in the numerical model:
     \item People in the model don't get to refuse any task that is assigned to them for which they have the specialization and relevant skill-level.
     \item No overtime. Every person gets the same amount of time to do work.
     \item No support staff. All infrastructure for communication and tasks works without failure.
-    \item No dark patterns. Everyone does work assigned promptly and correctly.
+    \item No dark patterns. Everyone does the task assigned promptly and correctly.
     \item No turnover of staff during the simulation.
-    \item No improvement of skill-level per person, or additional specialization.
+    \item No improvement of skill-level per person, or added specialization.
 \end{itemize}
 The complexities above are not included in the model because the point of the model is to show what arises from simple constraints. 
 
-Within the constraints there are improvements that could be made to the model.  %, but are not expected to alter the conclusions:
-The conclusions drawn from the model map to real-world organizations even without these features: 
+Within the constraints, improvements could be made to the model.  %, but are not expected to alter the conclusions:
+However,  conclusions drawn from the model map to real-world organizations even without these features: 
 \begin{itemize}
     \item Use realistic distributions (e.g., power law) instead of uniform distributions.
     \item When a person is not qualified to do a task, instead of searching randomly, search second-order contacts.
@@ -71,7 +71,7 @@ Suppose the model is configured to simulate three specializations (A, B, C) and 
 
 \subsection*{Example People\label{sec:example-people}}
 
-A person with skill-level 3 in specialization A and skill-level 1 in specialization C would be labeled ``A3,C1''. A visualization of their capabilities would be the following table:
+A person with skill-level 3 in specialization A and skill-level 1 in specialization C is labeled ``A3,C1''. A visualization of their capabilities is the following table:
 
 \begin{center}
 \begin{tabular}{c|c|c|c|}
@@ -126,7 +126,7 @@ $\left\{
 \right.$
 \end{center}
 
-A generalist (here~``A1,B1,C1") is not an expert at anything, but is capable in multiple specializations. A unicorn (here a~``A3,B3,C3") can do everything well.
+A generalist (here~``A1,B1,C1") is not an expert at anything but is capable in multiple specializations. A unicorn (here~``A3,B3,C3") can do everything well.
 \begin{center}
 Generalist:
 $\left\{
@@ -183,7 +183,7 @@ $\left\{
 
 \subsection*{Tasks and Processes}
 
-A task that requires skill-level 2 in specialization B would be labeled ``B2.''
+A task that requires skill-level 2 in specialization B is labeled ``B2.''
 %\begin{center}
 %\begin{tabular}{|c|c|c|}
 %\multicolumn{3}{c}{\footnotesize Specializations}\\
@@ -200,7 +200,7 @@ A task that requires skill-level 2 in specialization B would be labeled ``B2.''
 %\end{center}
 The assumption that a task requires one specialization is based on the idea that a process can be broken into atomic units. 
 
-If a task requires specialization skill level 2 and takes 10 minutes, then
+If a task requires skill-level 2 and takes 10 minutes, then
 \begin{itemize}
     \item A person with skill-level 2 completes the task in 10 minutes.
     \item A person with skill-level 3 completes the task in  7 minutes (=10/(3/2)).
@@ -245,7 +245,7 @@ As a consequence of this configuration, no coordination is required because each
 These same conclusions hold for any configuration of an organization comprised of unicorns. 
 The concept of every member being able to do any task is the model 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}}
-\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy} advocates. The feasibility of gathering people with the relevant talents becomes challenging as the task complexity increases or increased throughput is needed. That is why organizations hire people who are not unicorns. 
+\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy} advocates. The feasibility of gathering people with relevant talents becomes challenging as the task complexity increases or increased throughput is needed. That is why organizations hire people who are not unicorns. 
 
 
 
@@ -287,7 +287,7 @@ The simplest non-trivial scenario occurs when not every member of an organizatio
 \cline{2-3}
 \end{tabular}
 \end{center}
-In this configuration, the person qualified as A1,B1 is labeled a unicorn -- they can do any task. Whether you consider inclusion of A0,B0 (a person who does does no work and can only coordinate) to be relevant depends on your personal experience. Most organizations label these members as ``managers.'' 
+In this configuration, the person qualified as A1,B1 is labeled a unicorn -- they can do any task. Whether you consider inclusion of A0,B0 (a person who does no work and can only coordinate) to be relevant depends on your personal experience. Most organizations label these members as ``managers.'' 
 
 When a person does not have all the specializations, then a task randomly assigned to one person may need to be given to someone else in the organization. For example, if I am an A1 and am given a B1 task, I need to find a coworker who is either qualified as B1 or A1,B1. Sharing tasks among members of the organization requires coordination.
 
@@ -297,7 +297,7 @@ When a person does not have all the specializations, then a task randomly assign
 \begin{figure}[H] % [!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
 \includegraphics[width=1\textwidth]{images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
-\caption{Tasks completed by each person in an organization with six people. Rather than count tasks per tick during steady-state, here we count number of tasks completed in 100 ticks. Persons 3 and 5 both have maximum throughput of tasks since they are unicorns. Person 0 has no throughput and only delegates tasks. Everyone is busy (no one is idle), but the level of productivity (tasks completed per time) varies.}
+\caption{Tasks completed by each person in an organization with six people. Rather than count tasks per tick during steady-state, here we count the number of tasks completed in 100 ticks. Persons 3 and 5 both have the maximum throughput of tasks since they are unicorns. Person 0 has no throughput and only delegates tasks. Everyone is busy (no one is idle), but the level of productivity (tasks completed per time) varies.}
 \label{fig:task-distribution-tasks-per-person}
 \end{figure}
 
@@ -327,7 +327,7 @@ When a person does not have all the specializations, then a task randomly assign
 
 
 
-The need for coordination can be blamed on the random delegation of task not being aligned to the specializations and skill-levels of the workers. 
+The need for coordination can be blamed on the random delegation of tasks not being aligned to the specializations and skill-levels of the workers. 
 The distribution of skills and specializations of people in an organization is set by the hiring process.
 %But that only applies if the tasks are atomic and independent.
 
@@ -346,14 +346,14 @@ The last question for this configuration is how the throughput scales as the num
 The overhead of coordination among less-skilled people means that doubling the number of participants does not double the task throughput. This observation was made by 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Fred_Brooks}{Fred Brooks}}
 \href{https://en.wikipedia.org/wiki/Fred_Brooks}{Brooks} in his book 
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/The_Mythical_Man-Month}{Mythical Man Month}}
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/The_Mythical_Man-Month}{Mythical Man-Month}}
 \href{https://en.wikipedia.org/wiki/The_Mythical_Man-Month}{Mythical Man Month}~\cite{1975_brooks}. 
 
 \begin{figure}[!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
 \includegraphics[width=1\textwidth]{images/task_distribution_completed_versus_size_simCount25_skills2_levels1_taskduration1_people2_social0_ticks100.pdf}
 \caption{Task throughput after 100 ticks versus number of people in the organization. 25 simulations were run for each organization size. 
-Adding people does increase throughput, but the variance of throughput increases due to dependence on the the distribution of specializations and skill-levels of the participants. The instances where task completion is near zero occur when no members of the organization have sufficient skills to address tasks. That condition is less likely as the number of people increases.
+Adding people does increase throughput, but the variance of throughput increases due to dependence on the distribution of specializations and skill-levels of the participants. The instances where task completion is near zero occur when no members of the organization have sufficient skills to address tasks. That condition is less likely as the number of people increases.
 %This configuration of the model has no social circle and the task duration is the same as the coordination duration.
 }
 \label{fig:task-distribution-completed-vs-size}
@@ -361,8 +361,8 @@ Adding people does increase throughput, but the variance of throughput increases
 
 
 When people in an organization are not unicorns (there are some tasks a person is unable to do), then the task throughput is lower. If an organization comprised of unicorns would operate faster, why distribute work to people who lack the skills and rely on coordination?
-Because the specialization of skills is too diverse for anyone person to master everything. This is easy to understand when the organization is society. It would be faster for you to 
- inspect your own meat for food safety, monitor the emissions of a coal-fired power plan, build your own semiconductor chips, manufacture your own airplane. However, you don't have all those skills and you want the results quicker than you can complete the tasks yourself. Therefore, the tasks are distributed among an organization of people with different skills. The cost of coordination is that the throughput is lower.
+Because the specialization of skills is too diverse for any one person to master everything. This is easy to understand when the organization is society. It would be faster for you to 
+ inspect your own meat for food safety, monitor the emissions of a coal-fired power plant, build your own semiconductor chips, and manufacture your own airplane. However, you don't have all those skills and you want the results quicker than you can complete the tasks yourself. Therefore, the tasks are distributed among an organization of people with different skills. The cost of coordination is that the throughput is lower.
 
 
 
@@ -420,16 +420,16 @@ Because the specialization of skills is too diverse for anyone person to master 
 
 % source: https://graphthinking.blogspot.com/2023/02/prioritization-of-tasks.html
 
-Because unicorns can do any task, one way to improve throughput is to invest in training people. Training in the context of this model have the purpose of  increased breadth (additional specializations) or increased depth (improved skill-level for a specialization). One reason there are not more unicorns in an organization is that not everyone wants to know and do everything. Knowing how to create a webpage, analyze data, manage a server, initiate a contract, interact with customers, gather requirements, and run a team can feel overwhelming. Another reason unicorns are rare is turn-over. When a person outgrows their assigned role,  they may look to other opportunities to feel more fulfilled. Retaining unicorns is challenging.
+Because unicorns can do any task, one way to improve throughput is to invest in training people. Training in the context of this model has the purpose of  increased breadth (added specializations) or increased depth (improved skill-level for a specialization). One reason there are not more unicorns in an organization is that not everyone wants to know and do everything. Knowing how to create a webpage, analyze data, manage a server, initiate a contract, interact with customers, gather requirements, and run a team can feel overwhelming. Another reason unicorns are rare is turnover. When a person outgrows their assigned role,  they may look to other opportunities to feel more fulfilled. Retaining unicorns is challenging.
 
-A separate approach to having too many tasks relative to the number of people in the workforce is to prioritize the work. Prioritization doesn't necessarily increase task throughput, but without prioritization, tasks get started and may not get completed. (The problem of ``start task but don't finish it" isn't part of the numerical model but does happen in real organizations.)
+A separate approach to having too many tasks relative to the number of people in the workforce is to prioritize the work. Prioritization doesn't necessarily increase task throughput, but without prioritization, tasks get started and may not get completed. (The problem of ``start a task but don't finish it" isn't part of the numerical model but does happen in real organizations.)
 
-Prioritization requires sacrifice (what tasks are you not doing) and induces risk (there is consequence to not doing tasks) and spends your reputation (not doing tasks effects other people).
+Prioritization requires sacrifice (what tasks are you not doing) and induces risk (there are consequences to not doing tasks) and spends your reputation (not doing tasks affects other people).
 
 There are two conditions under which prioritization becomes important:
 \begin{itemize}
-    \item The number of tasks is less than or equal to the amount of staff attention available and skill. Then prioritization is merely ordering of the sequence of tasks.
-    \item When the number of tasks exceeds staff and skill-level per person, an oversubscribed person won't get to every task. Saying no is important but harms your reputation.
+    \item The number of tasks is less than or equal to the amount of staff attention available and skill. Then prioritization is merely ordering the sequence of tasks.
+    \item When the number of tasks exceeds staffing capacity and skill-level per person, an oversubscribed person won't get to every task. Saying no is important but harms your reputation.
 \end{itemize}
 
 
@@ -439,15 +439,15 @@ Prioritization strategies options
 Static prioritization that is exclusive. Only work on one thing to the exclusion of everything else.
     \item Shifting prioritization (prioritization changes over time); either:
     \begin{itemize}
-        \item Prioritization that evolves slower than task can be completed.
-        \item Prioritization that shifts faster than task can be completed is ineffective because it is indistinguishable from responding to task as they arise.
+        \item Prioritization evolves slower than tasks can be completed.
+        \item Prioritization shifts faster than tasks can be completed is ineffective because it is indistinguishable from responding to tasks as they arise.
     \end{itemize}
     \item Static prioritization by category. Likely to harm your reputation with people come to you with tasks that aren't in your primary category.
-    \item Prioritization proportionally allocated to task categories. For example, suppose you have three categories of tasks. You allocate 10\% of your time for the first category, 20\% of your time for the second, and your remaining time to  the third category. 
+    \item Prioritization within proportionally allocated task categories. For example, suppose you have three categories of tasks. You allocate 10\% of your time to the first category, 20\% of your time to the second, and your remaining time to  the third category. 
 \end{itemize}
 
 \clearpage
-\section{Software implementation of Simulation Model}
+\section{Software Implementation of the Simulation Model}
 
 The model referenced in this Appendix is implemented in \href{https://en.wikipedia.org/wiki/Python_(programming_language)}{Python 3}. The primary functions used to generate data used for figures in this appendix are below. The complete source code for this book is available at \href{https://github.com/processempathy/bureaucracy-guidebook}{https://github.com/processempathy/bureaucracy-guidebook}.
 

@@ -21,6 +21,20 @@ echo "$0 pdf_not_bound; $0 pdf_for_binding; $0 epub_pandoc; $0 html_pandoc; $0 h
 echo "or"
 echo "/usr/bin/time $0 all"
 
+
+# from https://stackoverflow.com/a/48843074/1164295
+if (! docker stats --no-stream ); then
+  # On Mac OS this would be the terminal command to launch Docker
+  open /Applications/Docker.app
+ #Wait until Docker daemon is running and has completed initialisation
+while (! docker stats --no-stream ); do
+  # Docker takes a few seconds to initialize
+  echo "Waiting for Docker to launch..."
+  sleep 1
+done
+fi
+
+
 function pdf_not_bound {
   pwd
   tex_file="latex/main_pdf_not_bound.tex"
