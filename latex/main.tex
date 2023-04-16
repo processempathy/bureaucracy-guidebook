@@ -13,6 +13,7 @@
 % https://www.overleaf.com/learn/latex/Single_sided_and_double_sided_documents
 % https://ctan.org/pkg/book?lang=en
 
+\finalhyphendemerits=1000000
 
 % standard "if" conditional statement breaks pandoc when used inside a caption. 
 
@@ -152,6 +153,11 @@
 
 % https://tex.stackexchange.com/a/8459/235813
 \usepackage[nottoc]{tocbibind}
+
+% https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
+\usepackage[cache=false]{minted}
+
+\usepackage{lscape}
 
 
 % to indicate pages in the Bibliography where citation shows up

@@ -64,7 +64,7 @@ function pdf_for_binding {
   # book is black-and-white; don't use blue for hyperlink
   sed -i '' "s/colorlinks=true,/colorlinks=false,/" ${tex_file}
   # when colorlinks=false, hyperref package uses rectangles around tex. Disable those
-  sed -i '' "s/usepackage{hyperref}/usepackage[hidelinks]{hyperref}/" ${tex_file}
+  sed -i '' "s/usepackage\[pagebackref\]{hyperref}/usepackage[pagebackref,hidelinks]{hyperref}/" ${tex_file}
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1_for_binding.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2_for_binding.log
