@@ -17,7 +17,7 @@ set -o errexit   # set -e : exit the script if any statement returns a non-true 
 set -o xtrace    # set -x : show commands as the script executes
 
 echo "use:"
-echo "$0 pdf_not_bound; $0 pdf_for_binding; $0 epub_pandoc; $0 html_pandoc; $0 html_latex2html"
+echo "$0 pdf_not_bound; $0 pdf_for_binding; $0 epub_pandoc; $0 html_pandoc; $0 html_latex2html; $0 bookcover;"
 echo "or"
 echo "/usr/bin/time $0 all"
 
@@ -67,7 +67,8 @@ function pdf_for_binding {
   # book is going to be bound; set boolean to true
   sed -i '' "s/boundbookfalse/boundbooktrue/" ${tex_file}
   # toggle variable for same purpose
-  sed -i '' "s/togglefalse{boundbook}/toggletrue{boundbook}/" ${tex_file}
+  sed -i '' "s/togglefalse{printedonpaper}/toggletrue{printedonpaper}/" ${tex_file}
+  sed -i '' "s/togglefalse{narrowpage}/toggletrue{narrowpage}/" ${tex_file}
   # book has page numbers; set toggle to true
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
   sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
@@ -377,6 +378,22 @@ function postprocess_html {
   pwd
 }
 
+function bookcover {
+  pwd
+  cd bookcover
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1_pdflatex.log;
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1_pdflatex.log;
+  cd ..
+  cp bookcover/main.pdf bin/bookcover.pdf
+
+  # using GhostScript to combine PDFs works but the resulting PDFs lose hyperlinks
+  # gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=merged_file.pdf -dBATCH bookcover/main.pdf bin/bureaucracy_for_binding.pdf
+
+  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_for_binding.pdf cat output bin/bureaucracy_for_binding_with_cover.pdf
+
+  pwd
+}
+
 function all {
   rm -rf TEMPORARY_*
   # The following could be launched using independent subshells
@@ -384,6 +401,7 @@ function all {
   # I don't have the CPUs or memory to support that
   pdf_not_bound
   pdf_for_binding
+  bookcover
   html_pandoc
   html_latex2html
   epub_pandoc
@@ -396,6 +414,7 @@ case "$1" in
     all) "$@"; exit;;
     pdf_not_bound) "$@"; exit;;
     pdf_for_binding) "$@"; exit;;
+    bookcover) "$@"; exit;;
     epub_pandoc) "$@"; exit;;
     html_pandoc) "$@"; exit;;
     html_latex2html) "$@"; exit;;
