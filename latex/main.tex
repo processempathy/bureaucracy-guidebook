@@ -2,16 +2,35 @@
 \boundbookfalse
 \ifboundbook
 \documentclass[openright]{book}
+\usepackage[marginparwidth=.8in,paperwidth=5.5in,paperheight=8.5in,textwidth=3.75in,top=.75in,bottom=.5in, inner=.7in]{geometry}
 \else
+% "the default page size for all standard document classes is US letter" - https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_size
 \documentclass[oneside]{book}
 % https://tex.stackexchange.com/a/137024/235813
-\usepackage[left=0.75in,textwidth=5.5in,marginparsep=0.25in,marginparwidth=1.5in,bottom=1.25in]{geometry}
+\usepackage[left=0.75in,textwidth=5.5in,marginparsep=0.25in,marginparwidth=1.5in,bottom=1in,top=1in]{geometry}
 \fi
+
+% 5.5" wide book has .6" separation between binding and text
+
+% "marginparwidth" should be wide enough to accomodate my margin notes
+
+% show the margins
+%\usepackage{showframe}
+
+
 % to set font size use
 % \documentclass[12pt]{book}
 % The book class is two-sided by default so you do not need to add the twoside option.
 % https://www.overleaf.com/learn/latex/Single_sided_and_double_sided_documents
 % https://ctan.org/pkg/book?lang=en
+
+% What documents are supported:
+% * printed bound book. 5.5x8.5".       No hyperlinks. Has page numbers.  No margin comments.
+% * electronic PDF (8.5x11).      Supports hyperlinks. Has page numbers. Has margin comments.
+% * printed PDF (8.5x11), single sided. No hyperlinks. Has page numbers. Has margin comments.
+% * printed PDF (8.5x11), double sided. No hyperlinks. Has page numbers. Has margin comments.
+% * HTML and epub.                Supports hyperlinks.  No page numbers.  No margin comments.
+
 
 \finalhyphendemerits=100000000
 
@@ -32,35 +51,41 @@
 % when generating PDFs and paper books (which have page numbers)
 % whereas EPUB, HTML, MOBI do not have page numbers
 
-\usepackage{etoolbox}
-\newtoggle{boundbook}
-% confusingly, I use the same "boundbook" boolean at the top of this file
-\toggletrue{boundbook}
-%\togglefalse{boundbook}
+\usepackage{etoolbox} % provides toggle macro
 
-\newtoggle{haspagenumbers}
-\toggletrue{haspagenumbers}
+\newtoggle{printedonpaper} % hyperlinks don't work; need to indicate URL
+%\toggletrue{printedonpaper}
+\togglefalse{printedonpaper}
+
+\newtoggle{narrowpage} % for bound books
+%\toggletrue{narrowpage} 
+\togglefalse{narrowpage} 
+
+\newtoggle{haspagenumbers} 
+\toggletrue{haspagenumbers} % for bound books, for electronic PDF, for printed PDF
+% \togglefalse{haspagenumbers} % for HTML and EPUB
 %\iftoggle{haspagenumbers}{
 
-\newtoggle{glossarysubstitutionworks}
+\newtoggle{glossarysubstitutionworks} % glossary substitution doesn't work for pandoc to HTML
 \toggletrue{glossarysubstitutionworks}
+%\togglefalse{glossarysubstitutionworks}
 %\iftoggle{glossarysubstitutionworks}{
 
-\newtoggle{showminitoc}
+\newtoggle{showminitoc} % useful for HTML
 \togglefalse{showminitoc}
 %\iftoggle{showminitoc}{
 
-\newtoggle{showbacktotoc}
+\newtoggle{showbacktotoc}  % useful for HTML and electronic PDF
 \toggletrue{showbacktotoc}
 %\iftoggle{showbacktotoc}{
 
-\newtoggle{WPinmargin}
+\newtoggle{WPinmargin} % wikipedia in margin. Useful for printed on paper
 \togglefalse{WPinmargin}
 
 \newtoggle{glossaryinmargin}
-\togglefalse{glossaryinmargin}
+\togglefalse{glossaryinmargin} % useful for printedonpaper
 
-\newtoggle{cpforsection}
+\newtoggle{cpforsection} % clear page for section. Drastically increases page count
 \togglefalse{cpforsection}
 
 % PROBLEM: 
@@ -69,7 +94,8 @@
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
-\newcommand{\dilemmatablewidth}{5.5cm}
+\iftoggle{narrowpage}{\newcommand{\dilemmatablewidth}{4.3cm}}{\newcommand{\dilemmatablewidth}{6.5cm}}
+
 
 % draw pictures
 \usepackage{tikz} 
@@ -246,7 +272,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 
 \begin{titlepage}
-\iftoggle{boundbook}{}{\maketitle}
+\iftoggle{printedonpaper}{}{\maketitle}
 \thispagestyle{empty}
 \end{titlepage}
 \clearpage
@@ -444,9 +470,9 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \input{summary_page}  % section*
 
-\iftoggle{boundbook}{}{\chapter{Online Resources}}
-\iftoggle{boundbook}{}{  \input{resources_for_writing}}
-\iftoggle{boundbook}{}{  \input{resources_for_managers}}
+\iftoggle{printedonpaper}{}{\chapter{Online Resources}}
+\iftoggle{printedonpaper}{}{  \input{resources_for_writing}}
+\iftoggle{printedonpaper}{}{  \input{resources_for_managers}}
 
 \input{career_interview_questions} % chapter
 
