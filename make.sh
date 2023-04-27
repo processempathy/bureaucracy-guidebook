@@ -2,10 +2,26 @@
 
 # This script produces multiple formats of the same content.
 # Latex source code in the latex/ folder is used to create
-# * PDF for printing a paper book
-# * PDF for electronic format
-# * EPUB
-# * HTML
+#
+#   * PDF for book = pdf_for_printing_and_binding
+#      * small page size (5.5"x8.5")
+#      * on paper, so no hyperlinks
+#      * no margin notes
+#      * binding margin
+#      * both sides of paper (duplex)
+#   * PDF for printing on 8.5"x11" paper = pdf_85x11_print_single_sided
+#      * on paper, so no hyperlinks
+#      * margin notes
+#      * no binding margin
+#      * single sided page (simplex)
+#   * PDF for electronic format = pdf_85x11_electronic_single_sided
+#      * 8.5"x11"
+#      * hyperlinks
+#      * margin notes
+#      * no binding margin
+#      * single sided page (simplex)
+#   * EPUB
+#   * HTML
 # The conversion process uses Latex commands and pandoc,
 # both of which are in a container
 
@@ -35,34 +51,75 @@ done
 fi
 
 
-function pdf_not_bound {
+function pdf_85x11_electronic_single_sided {
   pwd
-  tex_file="latex/main_pdf_not_bound.tex"
+  filename="main_pdf_85x11_electronic_single_sided"
+  tex_file="latex/"${filename}".tex"
   cp latex/main.tex ${tex_file}
   sed -i '' "s/boundbooktrue/boundbookfalse/" ${tex_file}
+  sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${tex_file}
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
   sed -i '' "s/togglefalse{showbacktotoc}/toggletrue{showbacktotoc}/" ${tex_file}
   sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
-  sed -i '' "s/toggletrue{boundbook}/togglefalse{boundbook}/" ${tex_file}
+  sed -i '' "s/toggletrue{printedonpaper}/togglefalse{printedonpaper}/" ${tex_file}
+  sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
+  sed -i '' "s/togglefalse{WPinmargin}/toggletrue{WPinmargin}/" ${tex_file}
+  sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log1_pdf_not_bound.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_pdf_not_bound         > log2_pdf_not_bound.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_pdf_not_bound                 > log3_pdf_not_bound.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log4_pdf_not_bound.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_pdf_not_bound > log5_pdf_not_bound.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename}         > log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename}                 > log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log4_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log5_${filename}.log
     pwd
     cd ..
   pwd
   mkdir -p bin/
-  mv -f latex/main_pdf_not_bound.pdf bin/bureaucracy_not_bound.pdf
+  mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
 }
 
-function pdf_for_binding {
+function pdf_85x11_print_single_sided {
   pwd
-  tex_file="latex/main_for_binding.tex"
+  filename="main_pdf_85x11_print_single_sided"
+  tex_file="latex/"${filename}".tex"
+  cp latex/main.tex ${tex_file}
+  sed -i '' "s/boundbooktrue/boundbookfalse/" ${tex_file}
+  sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${tex_file}
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
+  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
+  sed -i '' "s/toggletrue{showbacktotoc}/togglefalse{showbacktotoc}/" ${tex_file}
+  sed -i '' "s/togglefalse{glossaryinmargin}/toggletrue{glossaryinmargin}/" ${tex_file}
+  sed -i '' "s/togglefalse{printedonpaper}/toggletrue{printedonpaper}/" ${tex_file}
+  sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
+  sed -i '' "s/toggletrue{WPinmargin}/togglefalse{WPinmargin}/" ${tex_file}
+  sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
+  sed -i '' "s/colorlinks=true/colorlinks=false/" ${tex_file}
+  sed -i '' "s/linkcolor=blue/linkcolor=black/" ${tex_file}
+  sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
+  sed -i '' "s/urlcolor=cyan/urlcolor=black/" ${tex_file}
+  cd latex
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename}         > log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename}                 > log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log4_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log5_${filename}.log
+    pwd
+    cd ..
+  pwd
+  mkdir -p bin/
+  mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
+
+  mv ${tex_file} ${tex_file}.log
+}
+
+
+function pdf_for_printing_and_binding {
+  pwd
+  filename="main_pdf_for_printing_and_binding"
+  tex_file="latex/"${filename}".tex"
   cp latex/main.tex ${tex_file}
   # book is going to be bound; set boolean to true
   sed -i '' "s/boundbookfalse/boundbooktrue/" ${tex_file}
@@ -80,24 +137,31 @@ function pdf_for_binding {
   sed -i '' "s/colorlinks=true,/colorlinks=false,/" ${tex_file}
   # when colorlinks=false, hyperref package uses rectangles around tex. Disable those
   sed -i '' "s/usepackage\[pagebackref\]{hyperref}/usepackage[pagebackref,hidelinks]{hyperref}/" ${tex_file}
+  sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
+  sed -i '' "s/toggletrue{WPinmargin}/togglefalse{WPinmargin}/" ${tex_file}
+  sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
+  sed -i '' "s/colorlinks=true/colorlinks=false/" ${tex_file}
+  sed -i '' "s/linkcolor=blue/linkcolor=black/" ${tex_file}
+  sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
+  sed -i '' "s/urlcolor=cyan/urlcolor=black/" ${tex_file}
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log1_for_binding.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries main_for_binding         > log2_for_binding.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex main_for_binding                 > log3_for_binding.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log4_for_binding.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main_for_binding > log_for_binding5.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename}         > log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename}                 > log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log4_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log5_${filename}.log
     pwd
     cd ..
   pwd
   mkdir -p bin/
-  mv -f latex/main_for_binding.pdf bin/bureaucracy_for_binding.pdf
+  mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
 
   pwd
   cd bin/
     # https://stackoverflow.com/a/22796608/1164295
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian gs   -sDEVICE=pdfwrite   -dProcessColorModel=/DeviceGray   -dColorConversionStrategy=/Gray   -dPDFUseOldCMS=false   -dNOPAUSE -dBATCH -q   -o bureaucracy_for_binding_grayscale.pdf -f bureaucracy_for_binding.pdf
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian gs   -sDEVICE=pdfwrite   -dProcessColorModel=/DeviceGray   -dColorConversionStrategy=/Gray   -dPDFUseOldCMS=false   -dNOPAUSE -dBATCH -q   -o bureaucracy_${filename}_grayscale.pdf -f bureaucracy_${filename}.pdf
   cd ..
   pwd
 
@@ -106,13 +170,16 @@ function pdf_for_binding {
 function pandoc_preprocess {
 
   # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
-  # so merge all \input{}  so that all content is in one file, as per
+
+  # option 1 of 2 (DEPRECATED) for Pandoc's inability to handle toggle in other .text files is
+  # to merge all \input{}  so that all content is in one file, as per
   # https://tex.stackexchange.com/a/21840/235813
   #cd latex
   #time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian latexpand --keep-comments --output main_merged.tex --fatal main.tex
   #cd ..
   #cp latex/main_merged.tex latex/main_html_pandoc.tex
 
+  # option 2 of 2 is to cycle through all .tex files and set the toggle value
   FOLDER_NAME=${1}
   TEX_NAME=${2}
 
@@ -124,13 +191,22 @@ function pandoc_preprocess {
   rm -rf ${FOLDER_NAME}/main_*
   mv ${FOLDER_NAME}/main.tex ${TEX_FILE_PATH}
 
-  # DEPRECATED -- fancy and fragile
+  # option 2a, DEPRECATED -- fancy and fragile attempt to parse latex using Python:
   # python3 evaluate_boolean_toggles.py ${tex_file}
+
+  # option 2b: flip the toggle using sed
+  # caveat: use of regex is relatively fragile due to line breaks and greedy search for pairs of {}
   for f in ${FOLDER_NAME}/*.tex; do
-      # haspagenumbers == true
+
+      # in the situation where haspagenumbers == true
       #cat $f | grep "iftoggle" | sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\1/'
-      # haspagenumbers == false
+      # xor, when haspagenumbers == false
       sed -i '' -E 's/\\iftoggle{haspagenumbers}{(.*)}{(.*)}/\2/g' $f
+
+      # printedonpaper == false
+      sed -i '' -E 's/\\iftoggle{printedonpaper}{(.*)}{(.*)}/\2/g' $f
+      # narrowpage == false
+      sed -i '' -E 's/\\iftoggle{narrowpage}{(.*)}{(.*)}/\2/g' $f
       # glossarysubstitutionworks == false
       sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/g' $f
       # showminitoc == true
@@ -143,9 +219,10 @@ function pandoc_preprocess {
       sed -i '' -E 's/\\iftoggle{cpforsection}{(.*)}{(.*)}/\2/g' $f
       # show glossary in margin == false
       sed -i '' -E 's/\\iftoggle{glossaryinmargin}{\\marginpar{\[Glossary\]}}{}//g' $f
-      # boundbook == false
-      sed -i '' -E 's/\\iftoggle{boundbook}{(.*)}{(.*)}/\2/g' $f
-      # pandoc doesn't like textsuperscript; https://pandoc.org/MANUAL.html#superscripts-and-subscripts and https://github.com/jgm/pandoc-citeproc/issues/128
+
+      # pandoc doesn't like textsuperscript; see
+      # https://pandoc.org/MANUAL.html#superscripts-and-subscripts and
+      # https://github.com/jgm/pandoc-citeproc/issues/128
       sed -i '' -E 's/\\textsuperscript{(.*)}/\1/g' $f
       #sed -i '' -E 's/\\textsuperscript//g' $f
 #      sed -i '' -E 's/\\textsuperscrip//' $f
@@ -164,8 +241,13 @@ function pandoc_preprocess {
   sed -i '' "/\\boundbook/d" ${TEX_FILE_PATH}
   sed -i '' "/\\ifboundbook/d" ${TEX_FILE_PATH}
 
+  # DEPRECATED since I'm using toggles
   #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" ${tex_file}
   #sed -i '' "s/glossarysubstitutionworkstrue/glossarysubstitutionworksfalse/" ${tex_file}
+
+  # to decrease my own confusion, even though all "iftoggle" statements have been eliminated using sed above,
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${TEX_FILE_PATH}
+  sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${TEX_FILE_PATH}
 
 }
 
@@ -389,7 +471,8 @@ function bookcover {
   # using GhostScript to combine PDFs works but the resulting PDFs lose hyperlinks
   # gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=merged_file.pdf -dBATCH bookcover/main.pdf bin/bureaucracy_for_binding.pdf
 
-  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_for_binding.pdf cat output bin/bureaucracy_for_binding_with_cover.pdf
+  # TODO: add to all PDFs?
+  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_main_pdf_for_printing_and_binding.pdf cat output bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 
   pwd
 }
@@ -399,8 +482,9 @@ function all {
   # The following could be launched using independent subshells
   #   since they are each independent
   # I don't have the CPUs or memory to support that
-  pdf_not_bound
-  pdf_for_binding
+  pdf_85x11_electronic_single_sided
+  pdf_85x11_print_single_sided
+  pdf_for_printing_and_binding
   bookcover
   html_pandoc
   html_latex2html
@@ -412,8 +496,9 @@ function all {
 case "$1" in
     "") ;;
     all) "$@"; exit;;
-    pdf_not_bound) "$@"; exit;;
-    pdf_for_binding) "$@"; exit;;
+    pdf_85x11_electronic_single_sided) "$@"; exit;;
+    pdf_85x11_print_single_sided) "$@"; exit;;
+    pdf_for_printing_and_binding) "$@"; exit;;
     bookcover) "$@"; exit;;
     epub_pandoc) "$@"; exit;;
     html_pandoc) "$@"; exit;;

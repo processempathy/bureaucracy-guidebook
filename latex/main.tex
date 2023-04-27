@@ -1,11 +1,12 @@
 \newif\ifboundbook
-\boundbookfalse
+\boundbooktrue
 \ifboundbook
-\documentclass[openright]{book}
-\usepackage[marginparwidth=.8in,paperwidth=5.5in,paperheight=8.5in,textwidth=3.75in,top=.75in,bottom=.5in, inner=.7in]{geometry}
+% for tips on geometry arguments, see
+% https://texdoc.org/serve/geometry.pdf/0
+\documentclass[openright]{book} % for printing and binding
+\usepackage[marginparwidth=.8in,paperwidth=5.5in,paperheight=8.5in,textwidth=3.75in,top=.75in,bottom=.75in, inner=.7in]{geometry}
 \else
-% "the default page size for all standard document classes is US letter" - https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_size
-\documentclass[oneside]{book}
+\documentclass[oneside]{book} % "the default page size for all standard document classes is US letter" - https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_size
 % https://tex.stackexchange.com/a/137024/235813
 \usepackage[left=0.75in,textwidth=5.5in,marginparsep=0.25in,marginparwidth=1.5in,bottom=1in,top=1in]{geometry}
 \fi
@@ -13,10 +14,16 @@
 % 5.5" wide book has .6" separation between binding and text
 
 % "marginparwidth" should be wide enough to accomodate my margin notes
+% https://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes
+% https://www.overleaf.com/learn/latex/Margin_notes
 
-% show the margins
+% show the page margins -- for evaluating layout
 %\usepackage{showframe}
 
+% https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Widows_and_orphans
+% maximum of 10000. However, it is not recommended to set this value too high, as setting it to 10000 forbids LaTeX from doing this altogether, which might result in strange behavior.
+\widowpenalty=1000
+\clubpenalty=1000
 
 % to set font size use
 % \documentclass[12pt]{book}
@@ -28,7 +35,6 @@
 % * printed bound book. 5.5x8.5".       No hyperlinks. Has page numbers.  No margin comments.
 % * electronic PDF (8.5x11).      Supports hyperlinks. Has page numbers. Has margin comments.
 % * printed PDF (8.5x11), single sided. No hyperlinks. Has page numbers. Has margin comments.
-% * printed PDF (8.5x11), double sided. No hyperlinks. Has page numbers. Has margin comments.
 % * HTML and epub.                Supports hyperlinks.  No page numbers.  No margin comments.
 
 
@@ -94,6 +100,7 @@
 
 % https://www.overleaf.com/learn/latex/Tables
 \usepackage{array}
+% table width depends on page width
 \iftoggle{narrowpage}{\newcommand{\dilemmatablewidth}{4.3cm}}{\newcommand{\dilemmatablewidth}{6.5cm}}
 
 
@@ -189,6 +196,7 @@
 % to indicate pages in the Bibliography where citation shows up
 % use [pagebackref] as an argument
 \usepackage[pagebackref]{hyperref}
+% make.sh changes the colorlinks to false and colors to black
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
