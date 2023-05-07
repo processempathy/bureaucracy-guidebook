@@ -4,9 +4,11 @@
 % https://mirror.mwt.me/ctan/macros/latex/contrib/bookcover/bookcover.pdf
 % https://mirror.math.princeton.edu/pub/CTAN/macros/latex/contrib/bookcover/bookcover.pdf
 
+% 127 mm = 5 inches
+% 203 mm = 8 inches
 \documentclass[marklength=0mm,
-    coverwidth=148.5mm,
-    coverheight=210mm,
+    coverwidth=127mm,
+    coverheight=203mm,
     bleedwidth=0mm,
     spinewidth=10mm]{bookcover}
 
@@ -18,7 +20,7 @@
 
 \begin{document}
 
-%back cover
+% "bg" = background; "back" = back cover
 \setbookcover{bgcolor}{back}{%
 color=blue!20,
 }
@@ -26,20 +28,21 @@ color=blue!20,
 
 \setbookcover{fgfirst}{back}{%
 \centering
-%\begin{minipage}[c]{.7\textwidth}
-%{
 \vspace*{2cm}
 {\Large Why doesn't everything just work better?!}
-\vspace*{2cm}
+\vspace*{1.5cm}
 
-\parbox{11cm}{If most people want to do the right thing, why do the organizations society relies on perpetually operate in suboptimal modes? Good people collaborating on complex challenges consistently yield less-than-ideal outcomes. 
-
-\ \\
-More immediate to you, your choices are constrained by the decisions of people you may not directly interact with. 
-As the population increases and we live closer to each other, shared resources become scarcer, the need for coordination becomes more important.
+%\parbox{11cm}{your text here}
+\begin{minipage}{11cm}
+If most people want to do the right thing, why do the organizations society relies on perpetually operate in suboptimal modes? Good people collaborating on complex challenges consistently yield less-than-ideal outcomes. 
 
 \ \\
-When you're faced with bureaucracy that ranges from mundane and trivial to the Kafkaesque-level, this guidebook empowers you to be more effective. }
+More immediate to you, your choices are constrained by the decisions of people you may not directly interact with. You lack control over things you depend upon. The  control you had decreases as the population grows and everyone is more intertwined with each other.
+The need for coordination becomes more important as shared resources become scarcer.
+
+\ \\
+When you're faced with bureaucracy that ranges from mundane and trivial to the Kafkaesque-level, this guidebook empowers you to be more effective. Insight on how to navigate organizations of people allows you to find better ways to reach your goals. 
+\end{minipage}
 \vfill
 \parbox{9cm}{Ben Payne brings his decades of experience as a professional bureaucrat to illuminate the confusing aspects of everyday life. Ben draws on his military background, participation in small companies, and time in the Federal government.}
 \vfill

@@ -1,5 +1,5 @@
 \newif\ifboundbook
-\boundbooktrue
+\boundbookfalse
 \ifboundbook
 % for tips on geometry arguments, see
 % https://texdoc.org/serve/geometry.pdf/0
@@ -39,6 +39,14 @@
 
 
 \finalhyphendemerits=100000000
+
+% smaller font for marginpar 
+% to distinguish it from primary text content
+% https://lyx-users.lyx.narkive.com/FgNScQfK/marginal-notes-font-size
+% see also https://tex.stackexchange.com/questions/58263/text-style-for-marginpar
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\scriptsize #1]%
+{\raggedright\scriptsize #1}}
 
 % standard "if" conditional statement breaks pandoc when used inside a caption. 
 
@@ -86,7 +94,7 @@
 %\iftoggle{showbacktotoc}{
 
 \newtoggle{WPinmargin} % wikipedia in margin. Useful for printed on paper
-\togglefalse{WPinmargin}
+\toggletrue{WPinmargin}
 
 \newtoggle{glossaryinmargin}
 \togglefalse{glossaryinmargin} % useful for printedonpaper
@@ -196,6 +204,7 @@
 % to indicate pages in the Bibliography where citation shows up
 % use [pagebackref] as an argument
 \usepackage[pagebackref]{hyperref}
+% https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
 % make.sh changes the colorlinks to false and colors to black
 \hypersetup{
     colorlinks=true,

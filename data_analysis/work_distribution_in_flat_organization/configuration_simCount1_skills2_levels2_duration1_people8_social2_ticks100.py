@@ -12,4 +12,4 @@ max_social_circle_size = min_social_circle_size
 
 max_ticks_to_simulate = 100
 
-number_of_simultions = 1
+number_of_simulations = 1

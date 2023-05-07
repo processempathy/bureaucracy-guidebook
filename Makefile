@@ -137,10 +137,15 @@ DEPRECATED_epub: html
 
 
 rm:
-	rm -rf TEMPORARY_*; cd latex; rm -rf *
+	rm -rf TEMPORARY_*
+	rm -rf latex/*
+	rm -rf bookcover/*
+
 
 uz:
-	cd latex; unzip bureaucracy-guidebook.zip; rm bureaucracy-guidebook.zip; git status
+	cd latex; unzip -qq bureaucracy-guidebook.zip; rm -f bureaucracy-guidebook.zip
+	cd bookcover; unzip  -qq bureaucracy-bookcover_using_bookcover.zip; rm -f bureaucracy-bookcover_using_bookcover.zip
+	git status
 
 clean:
 	rm -rf TEMPORARY_*; cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;

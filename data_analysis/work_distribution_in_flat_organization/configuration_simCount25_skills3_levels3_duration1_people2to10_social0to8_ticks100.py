@@ -12,4 +12,4 @@ max_social_circle_size = 8
 
 max_ticks_to_simulate = 100
 
-number_of_simultions = 25
+number_of_simulations = 25
