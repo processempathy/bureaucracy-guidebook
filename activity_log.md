@@ -1,4 +1,8 @@
 
+## 2023-09-12
+
+Met with (volunteer) editor and got feedback. Plan is to address issues and release a second draft to readers prior to publication.
+
 ## 2023-04-15
 
 Gave up on including the analysis of social circle size. 
