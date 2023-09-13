@@ -251,6 +251,26 @@ function pandoc_preprocess {
 
 }
 
+function docx_pandoc {
+  pwd
+
+  pandoc_preprocess TEMPORARY_docx main_docx_pandoc.tex
+
+  cd TEMPORARY_docx;
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pandoc main_docx_pandoc.tex -f latex \
+               --epub-metadata=metadata_epub.xml \
+               --citeproc \
+                --bibliography=biblio_bureaucracy.bib \
+                --table-of-contents \
+                --number-sections \
+                --gladtex \
+                -o main_pandoc.docx
+    pwd
+    cd ..
+  pwd
+
+}
+
 function epub_pandoc {
   pwd
 
@@ -488,6 +508,7 @@ function all {
   bookcover
   html_pandoc
   html_latex2html
+  docx_pandoc
   epub_pandoc
 }
 
@@ -501,6 +522,7 @@ case "$1" in
     pdf_for_printing_and_binding) "$@"; exit;;
     bookcover) "$@"; exit;;
     epub_pandoc) "$@"; exit;;
+    docx_pandoc) "$@"; exit;;
     html_pandoc) "$@"; exit;;
     html_latex2html) "$@"; exit;;
     *) echo "Unkown function: $1()"; exit 2;;
