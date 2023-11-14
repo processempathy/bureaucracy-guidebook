@@ -35,7 +35,7 @@ clear
 # -n              = show line number
 # --color='auto'  = hightlight the match
 
-echo "find incorrect use of href"
+echo "find incorrect use of href: every instance should have http"
 grep -R -i -n --color='auto' href latex/*.tex | grep -i -v http
 if [[ $? -eq 0 ]]; then
     echo "THERE SHOULD BE ZERO INSTANCES!"
@@ -43,12 +43,18 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
-echo "find incorrect use of hyperref"
+echo "find incorrect use of hyperref: no instance should have http"
 grep -R -i -n --color='auto' hyperref latex/*.tex | grep -i http
 if [[ $? -eq 0 ]]; then
     echo "THERE SHOULD BE ZERO INSTANCES!"
     read -p "Press ENTER key to resume ..."
 fi
+clear
+
+echo "are all uses of anchor links consistent?"
+grep -R -i -n --color='auto' href latex/*.tex | grep -n --color "%23"
+grep -R -i -n --color='auto' href latex/*.tex | grep -n --color "#"
+read -p "Press ENTER key to resume ..."
 clear
 
 echo "find duplicate words"
@@ -75,7 +81,7 @@ fi
 clear
 
 echo "Are marginpar consistent?"
-grep -R -i --color='auto' marginpar latex/*.tex | cut -d":" -f2- | sort | uniq -c
+grep -R -i --color='auto' marginpar latex/*.tex | cut -d":" -f2- | sort | uniq -c | sort -n
 if [[ $? -eq 0 ]]; then
     read -p "Press ENTER key to resume ..."
 fi
@@ -262,8 +268,8 @@ fi
 clear
 
 
-echo "sufficient --> enough"
-grep -R -i -n --color='auto' sufficient latex/*.tex | grep --invert-match insufficient
+echo "sufficient --> enough | 3 syllables -> 2 syllables"
+grep -R -i -n --color='auto' sufficient latex/*.tex | grep --invert-match insufficient | grep -i --color='auto' sufficient
 if [[ $? -eq 0 ]]; then
     read -p "Press ENTER key to resume ..."
 fi
@@ -319,7 +325,7 @@ fi
 clear
 
 
-echo "accomplish --> carry out|do"
+echo "accomplish --> carry out|do|achieve"
 grep -R -i -n --color='auto' "accomplish" latex/*.tex
 if [[ $? -eq 0 ]]; then
     read -p "Press ENTER key to resume ..."
