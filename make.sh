@@ -64,7 +64,7 @@ function pdf_85x11_electronic_single_sided {
   sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
   sed -i '' "s/toggletrue{printedonpaper}/togglefalse{printedonpaper}/" ${tex_file}
   sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
-  sed -i '' "s/togglefalse{WPinmargin}/toggletrue{WPinmargin}/" ${tex_file}
+  #sed -i '' "s/togglefalse{WPinmargin}/toggletrue{WPinmargin}/" ${tex_file}
   sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
   cd latex
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
