@@ -98,7 +98,7 @@ function pdf_85x11_print_single_sided {
   sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
   sed -i '' "s/colorlinks=false/colorlinks=true/" ${tex_file}  # remove the boxes around hyperlinks
   sed -i '' "s/linkcolor=blue/linkcolor=black/" ${tex_file}
-  sed -i '' "s/citecolor=green/citecolor=black" ${tex_file}
+  sed -i '' "s/citecolor=green/citecolor=black/" ${tex_file}
   sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
   sed -i '' "s/urlcolor=cyan/urlcolor=black/" ${tex_file}
   cd latex

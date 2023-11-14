@@ -360,9 +360,7 @@ The Practical Guide for\\ Effective Bureaucrats}\\
 
   \input{avoiding_bureaucracy_is_nearly_impossible} \iftoggle{cpforsection}{\clearpage}{}
   \input{phases_of_life} \iftoggle{cpforsection}{\clearpage}{}
-  \input{alternatives_to_bureacracy} \iftoggle{cpforsection}{\clearpage}{}
   \input{alternative_views_of_bureaucracy_from_within} \iftoggle{cpforsection}{\clearpage}{}
-  \input{models_of_bureaucracy} \iftoggle{cpforsection}{\clearpage}{} 
   \input{not_many_options_for_organizations} \iftoggle{cpforsection}{\clearpage}{}
       \input{teams} % no clearpage here because the next input is a subsection
     \input{friction_between_teams_within_organization} 
@@ -489,7 +487,10 @@ The Practical Guide for\\ Effective Bureaucrats}\\
 \chapter{Summaries of This Book}
 \input{summary_paragraph}\clearpage% section*
 
-\input{summary_page}  % section*
+\input{summary_page}  \iftoggle{cpforsection}{\clearpage}{} % section*
+
+\input{models_of_bureaucracy} \iftoggle{cpforsection}{\clearpage}{} 
+\input{alternatives_to_bureacracy} \iftoggle{cpforsection}{\clearpage}{}
 
 % 2023-08-xx: BHP dropped the "online resources" since this isn't central to the book
 %\iftoggle{printedonpaper}{}{\chapter{Online Resources}}
