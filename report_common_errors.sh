@@ -35,6 +35,14 @@ clear
 # -n              = show line number
 # --color='auto'  = hightlight the match
 
+echo "find non-ASCII characters"
+LC_ALL=C grep --color='auto' '[^ -~]' latex/*.tex
+if [[ $? -eq 0 ]]; then
+    echo "THERE SHOULD BE ZERO INSTANCES!"
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
 echo "find incorrect use of href: every instance should have http"
 grep -R -i -n --color='auto' href latex/*.tex | grep -i -v http
 if [[ $? -eq 0 ]]; then
