@@ -100,11 +100,12 @@ served this role before the dominance of bureaucracy.
 
 \subsection*{\textit{Alternative}: Limit Bureaucracy to a Single Decider\label{sec:single-decider}}
 
-Since bureaucracy is distributed knowledge and distributed decision-making, it could be replaced by centralized knowledge and centralized decision-making. If we are going to live in a society and coordinate shared resources, what if we had a single person deciding? How fast could that be? Good decisions are not instantaneous -- there is latency in the
+Since bureaucracy is distributed knowledge and distributed decision-making, it could be replaced by centralized knowledge and centralized decision-making. If we are going to live in a society and coordinate shared resources, what if we had a single person deciding? How fast could that be? Good decisions are not instantaneous. To understand latency in decision making let's use the
 \href{https://en.wikipedia.org/wiki/OODA_loop}{OODA loop} 
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/OODA_loop}{OODA loop}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: OODA loop}}{}
 model. 
 
+OODA stands for Observe, Orient, Decide, Act. OODA applies to individuals as well as teams and organizations. 
 % https://graphthinking.blogspot.com/2016/03/how-to-evolve-organization-community-or.html
 The input for the OODA model is to observe and the output is to act. Observing and acting are measurable; the ``orienting" and ``deciding" phases are not as easy to measure. The ``orient" phase requires labeling data received in the ``observe" phase and connecting that information to what is already known.
 
@@ -120,7 +121,7 @@ Automation isn't free -- it requires creation and maintenance. Unless the same p
 
 
 \href{https://en.wikipedia.org/wiki/Monarchy}{Monarchies} 
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Monarchy}{Monarchy}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Monarchy}}{}
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Monarchy}{Monarchy}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Monarchy}}{} 
 and 
 \href{https://en.wikipedia.org/wiki/Dictator}{dictatorships}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Dictator}{dictatorships}}
@@ -155,8 +156,8 @@ There are multiple origins of what gets considered to be common sense:
 
 \ \\
 
-Proponents of commonsense who work in existing hierarchical bureaucracies may advocate the removal of non-workers (i.e., management). That may sound like a worker's paradise, but then who coordinates the activities when the number of people is above 
-\href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number}?
+Proponents of commonsense who work in existing hierarchical bureaucracies may advocate the removal of non-workers (i.e., management). That may sound like a worker's paradise, but then who coordinates activities when the number of people involved is more than any one member can track (above 
+\href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number})?
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Dunbar\%27s_number}{Dunbar's number}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Dunbar's number}}{}
 
 \ \\
@@ -213,11 +214,10 @@ There are benefits to automation, and automation can be enacted to minimize harm
 Documentation helps  bureaucrats and subjects identify when assumptions made in the automation are incorrect. 
 
 
-There are indicators of when to transition from a manual bureaucratic process to a more automated approach:\footnote{\href{https://xkcd.com/1319/}{https://xkcd.com/1319/} and \href{https://xkcd.com/1205/}{https://xkcd.com/1205/}.}
+There are indicators of when to transition from a manual bureaucratic process to a more automated approach:\footnote{\href{https://xkcd.com/1319/}{https://xkcd.com/1319/} -- the risks of investing in automation.}
 % https://graphthinking.blogspot.com/2019/07/cost-of-creating-and-supporting.html
 \index{automation!when to}
 \index{xkcd!\href{https://xkcd.com/1319/}{1319}}
-\index{xkcd!\href{https://xkcd.com/1205/}{1205}}
 \begin{itemize}
     \item The process to be automated is stable.
     \item The expected lifespan for the process -- how long the process will be needed -- is  longer than the time to enact the automation.
@@ -289,11 +289,14 @@ Companies are motivated by financial profit, whereas bureaucracies like prisons,
 % https://graphthinking.blogspot.com/2017/09/complex-tasks-necessitate-bureaucracies.html
 
 \href{https://en.wikipedia.org/wiki/Adhocracy}{Adhocracy} 
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Adhocracy}{Adhocracy}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Adhocracy}}{}
-has been proposed in reaction to the prevalence of bureaucracy in organizations. To enact Adhocracy, suppose I have a team of diverse experts assembled to tackle a complex challenge.
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Adhocracy}}{} 
+(also referred to as the use of Tiger Teams)
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Tiger_team}{Tiger team}}
+has been proposed in reaction to the prevalence of bureaucracy in organizations. To enact Adhocracy a team of diverse experts is assembled to tackle a complex challenge of limited duration.
 While this may be enough for short-duration tasks, if the challenge lasts more than a day or two there will be new issues beyond the original challenge:
 
 \begin{itemize}
+    \item What happens to the work that was previously being done by the members of this team?
     \item Who pays the salary for this labor?
     \item Who calculates the payroll?
     \item Who pays the rent for facilities used by the team?
@@ -308,14 +311,13 @@ To address these questions that are out-of-scope for the complex challenge, you 
 In the description of a \hyperref[sec:single-decider]{single decider}
 \marginpar{See page~\pageref{sec:single-decider}.}
 %section~\ref{sec:single-decider} 
-the solution was centralization of decision-making and knowledge. The decentralized approaches are market-based or bureaucratic. Another approach to distributed decision-making is to use consensus algorithms like 
+the solution was to centralize decision-making and knowledge. The decentralized approaches are market-based or bureaucratic. Another approach to distributed decision-making is to use consensus algorithms. Modern algorithms like
 \href{https://en.wikipedia.org/wiki/Paxos_(computer_science)}{Paxos} and
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Paxos_(computer_science)}{Paxos}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Paxos}}{}
 \href{https://en.wikipedia.org/wiki/Raft_(algorithm)}{Raft}
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Raft_(algorithm)}{Raft}}.\footnote{For a tutorial on Raft see \href{https://raft.github.io/}{https://raft.github.io/}.}
-These algorithms are widely used for various computer-based tasks. 
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Raft_(algorithm)}{Raft}}\footnote{For a tutorial on Raft see \href{https://raft.github.io/}{https://raft.github.io/}.} are widely used for various computer-based tasks. 
 
-Implementing algorithms using humans is unreliable. Humans game the system rather than operate within it. Also, relying on an algorithm neglects the feature that humans can adapt to unforeseen circumstances.
+Although these algorithms are reliable even when the underlying mechanisms are faulty, the algorithms are not enacted using humans. Humans are unreliable, but more importantly humans game the rules and processes of systems rather than operate within the constraints. Also, relying on an algorithm neglects the feature that humans can adapt to unforeseen circumstances.
 
 \subsection*{\textit{Alternative}: Elected Representatives}
 Governments are composed of politicians and bureaucrats. (Government isn't the only place bureaucrats appear, but for this section we'll focus on government.)
@@ -326,7 +328,7 @@ In contrast, the emergent behavior of bureaucracy is more challenging to underst
 % why not make the entire system out of politicians?
 Suppose that instead of a bureaucracy all members of an organization charged with 
 managing \iftoggle{glossarysubstitutionworks}{\glspl{shared resource}}{shared resources} were 
-elected rather than being selected for their technical skills. This scenario eliminates one of \href{https://en.wikipedia.org/wiki/Bureaucracy#Max_Weber}{Weber's characteristics of bureaucracy}
+elected rather than being selected for their technical skills. This scenario eliminates one of \href{https://en.wikipedia.org/wiki/Bureaucracy\%23Max_Weber}{Weber's characteristics of bureaucracy}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Bureaucracy}{Bureaucracy}}
 -- competence for job appointments. 
 
@@ -353,7 +355,7 @@ Organizing members into teams (teams of teams) introduces new levels of coordina
 %\subsection*{Defending against Malicious Participants}
 
 Suppose  you are part of an organization that doesn't have oversight processes for finances and other resources your organization is responsible for. A small percentage of the population, say 1\%, will take advantage of the lack of oversight for their own gain. Those malicious actors can be either subjects of bureaucracy or bureaucrats within the organization. 
-\href{https://en.wikipedia.org/wiki/Bruce_Schneier}{Bruce Schneier}
+In his book \textit{Liars and Outliers} \href{https://en.wikipedia.org/wiki/Bruce_Schneier}{Bruce Schneier}
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Bruce_Schneier}{Bruce Schneier}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Bruce Schneier}}{}
 calls these people defectors~\cite{2012_Schneier}.
 
@@ -361,8 +363,11 @@ Similarly, suppose a small percentage of the population, say 1\%, is stupid and 
 
 \ \\
 
-If you think bureaucracy sucks and it should be removed or replaced,  consider the parable of \href{https://en.wikipedia.org/wiki/G._K._Chesterton\%23Chesterton\%27s_fence}{Chesterton's fence}. 
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/G._K._Chesterton\%23Chesterton\%27s_fence}{Chesterton's fence}}\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Chesterton's fence}}{}
+If you think bureaucracy sucks and it should be removed or replaced,  consider the parable of 
+\href{https://en.wikipedia.org/wiki/G._K._Chesterton\%23Chesterton\%27s_fence}{Chesterton's fence}. 
+\label{concept:chestertons_fence}
+\index{Wikipedia!\href{https://en.wikipedia.org/wiki/G._K._Chesterton\%23Chesterton\%27s_fence}{Chesterton's fence}}
+\iftoggle{WPinmargin}{\marginpar{$>$Wikipedia: Chesterton's fence}}{}
 \begin{quote}
 There exists ... a fence or gate erected across a road. The more modern type of reformer goes gaily up to it and says, “I don’t see the use of this; let us clear it away.” To which the more intelligent type of reformer will do well to answer: “If you don’t see the use of it, I certainly won’t let you clear it away. Go away and think. Then, when you can come back and tell me that you do see the use of it, I may allow you to destroy it.\footnote{``The Thing'' (1929) Chesterton, in the chapter, ``The Drift from Domesticity''; \href{https://www.chesterton.org/taking-a-fence-down/}{https://www.chesterton.org/taking-a-fence-down/}.}
 \end{quote}

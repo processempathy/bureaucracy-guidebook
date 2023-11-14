@@ -94,7 +94,7 @@
 %\iftoggle{showbacktotoc}{
 
 \newtoggle{WPinmargin} % wikipedia in margin. Useful for printed on paper
-\toggletrue{WPinmargin}
+\togglefalse{WPinmargin}
 
 \newtoggle{glossaryinmargin}
 \togglefalse{glossaryinmargin} % useful for printedonpaper
@@ -113,7 +113,10 @@
 
 
 % draw pictures
-\usepackage{tikz} 
+%\usepackage{tikz} 
+% according to 
+% https://www.overleaf.com/learn/how-to/Fixing_and_preventing_compile_timeouts
+% inclusion of tikz is computationally expensive. 
 
 % https://tex.stackexchange.com/questions/333617/how-to-use-chapterbib-package-syntax
 % https://www.overleaf.com/latex/examples/per-chapter-bibliographies-with-chapterbib/pqzjpxwyyjyd
@@ -211,10 +214,10 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Process Empathy: The Field Guide for Effective Bureaucrats},
+    pdftitle={Process Empathy: The Practical Guide for Effective Bureaucrats},
     pdfsubject={How to be an Effective Bureaucrat},
     pdfauthor={Ben Payne},
-    pdfkeywords={Process Empathy, Field Guide, Bureaucrat, Bureaucracy},
+    pdfkeywords={Process Empathy, Guide, Bureaucrat, Bureaucracy},
     pdfpagemode=FullScreen,
     }
 
@@ -237,7 +240,7 @@
 
 % Strangely, use of \Huge for the title causes a spurious 'b' to appear on the title page
 \title{\huge{Process Empathy:\\
-The Field Guide for\\ Effective Bureaucrats}\\
+The Practical Guide for\\ Effective Bureaucrats}\\
 \vfill
 \includegraphics[width=0.7\textwidth]{images/bureaucrat_empathizing_with_coworkers_in_office_breakroom.pdf}
 }
@@ -487,6 +490,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 
 \input{summary_page}  % section*
 
+% 2023-08-xx: BHP dropped the "online resources" since this isn't central to the book
 %\iftoggle{printedonpaper}{}{\chapter{Online Resources}}
 %\iftoggle{printedonpaper}{}{  \input{resources_for_writing}}
 %\iftoggle{printedonpaper}{}{  \input{resources_for_managers}}
@@ -501,6 +505,7 @@ The Field Guide for\\ Effective Bureaucrats}\\
 %\ifbooknotes
 %\chapter{Book notes}
 %\input{notes
+% 2023-08-xx: BHP dropped the "book notes" since this book isn't a review of other books
 %\input{notes_on_books/blau_dynamics_of_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
 %\input{notes_on_books/dugay_values_of_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
 %\input{notes_on_books/farazmand_handbook_of_bureaucracy}\iftoggle{cpforsection}{\clearpage}{}
