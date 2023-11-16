@@ -67,11 +67,15 @@ function pdf_85x11_electronic_single_sided {
   #sed -i '' "s/togglefalse{WPinmargin}/toggletrue{WPinmargin}/" ${tex_file}
   sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename}         > log2_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename}                 > log3_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log4_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log5_${filename}.log
+
+    # previous I used " > log1_${filename}.log" but I've switched to "| tee" to see the progress.
+
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log1_${filename}.log
+    #sed -i -E 's/href +/href/' ${filename}.idx # https://github.com/processempathy/bureaucracy-guidebook/issues/16
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename} | tee log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename} | tee log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log4_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log5_${filename}.log
     pwd
     cd ..
   pwd
@@ -102,11 +106,12 @@ function pdf_85x11_print_single_sided {
   sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
   sed -i '' "s/urlcolor=cyan/urlcolor=black/" ${tex_file}
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename}         > log2_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename}                 > log3_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log4_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log5_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log1_${filename}.log
+    #sed -i -E 's/href +/href/' ${filename}.idx # for https://github.com/processempathy/bureaucracy-guidebook/issues/16
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename} | tee log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename} | tee log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log4_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log5_${filename}.log
     pwd
     cd ..
   pwd
@@ -146,9 +151,10 @@ function pdf_for_printing_and_binding {
   sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
   sed -i '' "s/urlcolor=cyan/urlcolor=black/" ${tex_file}
   cd latex
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log1_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename}         > log2_${filename}.log
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename}                 > log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log1_${filename}.log
+    #sed -i -E 's/href +/href/' ${filename}.idx  # https://github.com/processempathy/bureaucracy-guidebook/issues/16
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename} | tee log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename} | tee  log3_${filename}.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log4_${filename}.log
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} > log5_${filename}.log
     pwd
