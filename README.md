@@ -26,6 +26,12 @@ make uz
 ./make.sh all
 ```
 
+# Latex Index
+
+* TEXnical Tips for Producing a "Clean" Index - <https://www.ams.org/arc/tex/howto/index/0index-notes.pdf>
+* <https://en.wikibooks.org/wiki/LaTeX/Indexing>
+* <https://latex-tutorial.com/creating-index-latex/>
+
 
 # Readability scoring
 
