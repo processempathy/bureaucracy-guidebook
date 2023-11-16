@@ -176,7 +176,10 @@
 % https://www.overleaf.com/learn/latex/Indices
 % https://latex-tutorial.com/creating-index-latex/
 \usepackage{imakeidx}
-\makeindex
+\makeindex[options=-c]
+% Compress intermediate blanks (ignoring leading and trailing blanks and tabs). By default, blanks in the index key are retained.
+
+
 
 % the following didn't work
 %\usepackage[totoc]{idxlayout}
