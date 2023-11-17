@@ -1,4 +1,7 @@
-
+from https://stackoverflow.com/a/48843074/1164295
+```bash
+alias jup='if (! docker stats --no-stream ); then  open /Applications/Docker.app; while (! docker stats --no-stream ); do    echo "Waiting for Docker to launch...";  sleep 1; done; fi; docker run -it -e JUPYTER_ENABLE_LAB=yes -e GRANT_SUDO=yes --    user root -p 8888:8888 -v `pwd`:/home/jovyan  benislocated/data-science-jupyter start.sh jupyter lab --LabApp.token=""'
+```
 
 ```bash
 docker run --rm  benislocated/data-science-jupyter cat /etc/os-release

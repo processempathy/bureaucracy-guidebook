@@ -2,15 +2,32 @@
 
 
 The following sections explain why organizations rely on \iftoggle{glossarysubstitutionworks}{\glspl{process}}{processes}. 
-The reasoning matters to you in your role as a bureaucrat when you design a process or try to revise an existing process. Similarly, as a person going through a process, the reasoning below explains why you are experiencing \gls{process friction}. 
+The reasoning matters to you in your role as a bureaucrat when you design a process 
+\iftoggle{haspagenumbers}{ (page~\pageref{sec:design-of-processes})}{}
+or try to revise an existing process. Similarly, as a person going through a process, the reasoning below explains why you are experiencing \gls{process friction}. 
+
+A set of \iftoggle{glossarysubstitutionworks}{\glspl{process}}{processes}
+\iftoggle{glossaryinmargin}{\marginpar{[Glossary]}}{} is used by \iftoggle{glossarysubstitutionworks}{\glspl{bureaucrat}}{bureaucrats} to leverage specialization, improve throughput, and enable consistent application of policies. 
 
 \subsection*{Processes Enable Consistent Application of Policy}
 
-Organizations are intended to be insensitive to individual participants. That de-personalization applies to both bureaucrats and subjects. In practice, there is sensitivity to who the bureaucrat is and who the subject is. 
+While social processes may work well for low-volume ad-hoc requests, formalized bureaucratic processes become necessary for recurring high-volume activities.
+
+\index{story time!emergency medical team}
+%\begin{storytime}{Dental Insurance}
+\begin{mdframed}[frametitle={Emergency Medical Team},frametitlerule=true,frametitlealignment=\centering]
+When a medical emergency occurs for a patient already in the hospital, a team of medical staff is called to respond. Every medical team member has the knowledge associated with their role. One approach could be to have the team members negotiate the best approach before engaging the patient. To save time for routine actions a process is developed that eliminates the need for negotiating. 
+
+There is limited time available to respond to a patient emergency by a medical team. To decrease the latency for medical treatment roles are designated before the emergency during training sessions. Where each team member stands with respect to the patient is worked out ahead of time so that even if you don't know the nurse's name, you know she is a nurse based on where she is standing at the bedside. The head doctor stands at the foot of the bed to ensure they have a clear line of sight to the patient and team members.
+
+Training for routine medical events allows emergencies to be handled with less cognitive load for the staff, resulting in fewer mistakes and saving time. 
+\end{mdframed}
+
+Organizations are intended to be insensitive to individual participants. That de-personalization applies to both bureaucrats and subjects. (In practice, there is sensitivity to who the bureaucrat is and who the subject is.) 
 
 % TODO: transition needed here
 
-Processes address risk to the allocated resource and risk to the bureaucrats carrying out the process.
+Consistent application of policies through the use of process decreases risk of mismanaging the shared resource. At the same time, the risk to the bureaucrats carrying out the process is also decreased.
 The use of processes addresses the risk of both current bad behavior and the potential of things going bad in the future. Process is the guardrail limiting harm to bureaucrats and the shared resource. 
 
 One motive for bureaucracy is the \href{https://en.wikipedia.org/wiki/Tragedy_of_the_commons}{Tragedy of the commons}, 
@@ -29,54 +46,47 @@ Each process for oversight, review, or approval may be justifiable when evaluate
 
 
 \subsection*{Processes Enable Simplification}
-Compared to an ad hoc approach, processes are intended to simplify what could otherwise be complicated moral decisions, complex coordination challenges, or financial assessments. %The simplification benefits the bureaucrat's workload; rarely are benefits to the subjects of the bureaucracy.  
+Compared to an ad hoc approach, processes are intended to simplify what could otherwise be complicated moral decisions or complex coordination challenges. 
+%, or financial assessments. 
+Simplification of using processes are intended to benefit the bureaucrats involved and the subject of bureaucracy. The benefits can be challenging to comprehend for stakeholders actively engaged in a process. 
 
 
 The relation between the complexity of a task and the skills of the bureaucratic workforce is another motive for the creation of processes.
 A positive story is that specialization allows narrow focus and thus deeper understanding and skill. An alternative perspective is that specialization allows for dumbing down the role, thus enabling a cheaper workforce. See figure~\ref{fig:complexity-and-size} \iftoggle{haspagenumbers}{on page~\pageref{fig:complexity-and-size}}{}
 for a visualization of the trade-off.
 
-Applying a process allows dumb individuals to do complicated things. The collective talent exceeds that of any individual.  As a specific example, consider the process of designing and building a car. That complexity is feasible to undertake for a skilled and knowledgeable individual, but the cheaper approach is to hire individuals capable of installing the passenger-side doors in an assembly line.
+Applying a process allows dumb individuals to do complicated things. The collective talent exceeds that of any individual.  As a specific example, consider the process of designing and building a car. That complexity is feasible to undertake for a skilled and knowledgeable individual, but the cheaper approach is to hire individuals capable of installing the passenger-side doors in an assembly line. The same reasoning applies to the next reason processes are used -- to improve throughput.
+
 
 % Potential story to inject: founders of AMD left Fairchild
 % https://en.wikipedia.org/wiki/Advanced_Micro_Devices%23History
 
 \subsection*{Processes Enable Increased Throughput}
 
-Processes that leverage specialization can improve scalability. Adam Smith's \href{https://en.wikipedia.org/wiki/Business_process\%23Adam_Smith}{pin factory example} cites a productivity gain of 240x.
+Processes that leverage specialization can improve scalability. Adam Smith's \href{https://en.wikipedia.org/wiki/Business_process\%23Adam_Smith}{example of a pin factory} cites a productivity gain of 240x.
 \index{Wikipedia!\href{https://en.wikipedia.org/wiki/Business_process}{Business process}}
 Similarly, the introduction of moving assembly lines in Ford's car factory produced an 8x improvement in throughput.\footnote{See the Wikipedia entry describing \href{https://en.wikipedia.org/wiki/Assembly_line\%2320th_century}{Ford's assembly line}.
-\index{Wikipedia!\string\href{https://en.wikipedia.org/wiki/Assembly_line\%2320th_century}{Assembly line}}
-} 
+\index{Wikipedia!\string\href{https://en.wikipedia.org/wiki/Assembly_line\%2320th_century}{Assembly line}}} Using processes improves throughput both through simplification described in the previous section and because participation in the process can be more easily increased.
 
-
-While social processes may work well for low-volume ad-hoc requests, formalized bureaucratic processes become necessary for recurring high-volume activities.
-
-\index{story time!emergency medical team}
-%\begin{storytime}{Dental Insurance}
-\begin{mdframed}[frametitle={Emergency Medical Team},frametitlerule=true,frametitlealignment=\centering]
-When a medical emergency occurs for a patient already in the hospital, a team of medical staff is called to respond. Every medical team member has the knowledge associated with their role, so the team members could negotiate the best approach before engage the patient.
-To save time, a process is developed for routine actions. 
-
-There is limited time available to respond to a patient emergency by a medical team. Therefore roles are designated before the emergency, specifically during training sessions. Where each team member stands with respect to the patient is worked out ahead of time so that even if you don't know the nurse's name, you know she is a nurse based on where she is standing at the bedside. The head doctor stands at the foot of the bed to ensure they have a clear line of sight to the patient and team members.
-
-Training for routine medical events allows emergencies to be handled with less cognitive load for the staff, resulting in fewer mistakes and saving time. 
-\end{mdframed}
 
 \subsection*{Processes Enable Less Reliance on Social Relations}
 
-The relation between bureaucratic processes and social bonds was noted by Selznick in his 1943 paper~\cite{1943_Selznick}. The needs of individual members of an organization may be at odds with (or at least not aligned with) the purpose of the organization. This dissonance is observed as the interplay between personal relationships and bureaucratic processes.
+Bureaucratic organizations comprised of humans feature informal relations among the bureaucrats. If there were no processes the policies could still be inflicted through social influence. Processes used by bureaucrats formalize the way that policies get enacted. 
 
-Generalizing claims about social bonds in an organization is unfounded. 
+There is an interplay between personal relationships and bureaucratic processes; you should not rely exclusively on either approach. The relation between bureaucratic processes and social bonds was noted by Selznick in his 1943 paper~\cite{1943_Selznick}. 
+Social influence is not antithetical to processes. There's always a mixture of the two.
+%The needs of individual members of an organization may be at odds with (or at least not aligned with) the purpose of the organization. This dissonance is observed as the 
+
+Attempting to generalize claims about social bonds in an organization is beyond the scope of this book. 
 For a given complexity and given scale, there are people who are more social and less social and therefore desire more or less process.
 There are bureaucrats who want documented processes and are confused as to how things are operating when those aren't present. 
 
-The invisibility of social relationships limits bureaucrats not attuned to the importance of these bonds. 
-Social influence among bureaucrats lacks transparency-- discoverability and documentation. 
-In contrast, processes are easier to understand and track. The counter to social influence is the hierarchical  \iftoggle{glossaryinmargin}{\marginpar{[Glossary]}}{}
+The invisibility of social relationships limits bureaucrats not attuned to the importance of these informal bonds. 
+Social influence among bureaucrats lacks transparency. Social relationships can be hard to uncover and are not documented. 
+In contrast, processes are easier to understand and track. The counter to social influence is the hierarchical \iftoggle{glossaryinmargin}{\marginpar{[Glossary]}}{}
 \gls{org chart}\iftoggle{haspagenumbers}{ described on page~\pageref{sec:org-chart-as-guide-and-lie}.}{.}
-Social influence is not antithetical to processes. There's always a mixture of the two.
 
+Not all members of an organization have social relationships to leverage. The next section describes the benefits of having a process for participants lacking relationships.
 
 \subsection*{Processes Enable New Bureaucrats and Subjects}
 
@@ -89,7 +99,7 @@ Once this motive for processes is recognized, the relevance when onboarding new 
 \index{actionable advice}
 This is described in the section on  
 \hyperref[sec:prisoner-exchange]{Prisoner exchange}\iftoggle{haspagenumbers}{ on page~\pageref{sec:prisoner-exchange}.}{.}
-Where you sit matters to your effectiveness as a bureaucrat.
+Where you sit matters to your effectiveness as a bureaucrat because locality matters for creating relationships.
 
 \subsection*{Processes Enable Promotion}
 
