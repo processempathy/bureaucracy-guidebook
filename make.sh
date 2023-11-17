@@ -146,6 +146,7 @@ function pdf_for_printing_and_binding {
   sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
   sed -i '' "s/toggletrue{WPinmargin}/togglefalse{WPinmargin}/" ${tex_file}
   sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
+  sed -i '' "s/togglefalse{shortsectiontitle}/toggletrue{shortsectiontitle}/" ${tex_file}
   sed -i '' "s/colorlinks=true/colorlinks=false/" ${tex_file}
   sed -i '' "s/linkcolor=blue/linkcolor=black/" ${tex_file}
   sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
@@ -216,6 +217,8 @@ function pandoc_preprocess {
       sed -i '' -E 's/\\iftoggle{narrowpage}{(.*)}{(.*)}/\2/g' $f
       # glossarysubstitutionworks == false
       sed -i '' -E 's/\\iftoggle{glossarysubstitutionworks}{(.*)}{(.*)}/\2/g' $f
+      # glossarysubstitutionworks == false
+      sed -i '' -E 's/\\iftoggle{shortsectiontitle}{(.*)}{(.*)}/\2/g' $f
       # showminitoc == true
       sed -i '' -E 's/\\iftoggle{showminitoc}{(.*)}{(.*)}/\1/g' $f
       # showbacktotoc == true
