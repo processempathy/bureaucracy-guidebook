@@ -67,6 +67,9 @@
 
 \usepackage{etoolbox} % provides toggle macro
 
+\newtoggle{shortsectiontitle} % small page dimensions necessitate sectionmark and chaptermark
+\togglefalse{shortsectiontitle}
+
 \newtoggle{printedonpaper} % hyperlinks don't work; need to indicate URL
 %\toggletrue{printedonpaper}
 \togglefalse{printedonpaper}
@@ -382,7 +385,7 @@ This chapter is primarily descriptive but ends with some prescriptions.
   \input{unavoidable_hazards} \iftoggle{cpforsection}{\clearpage}{}    
 
 \chapter{You are an Individual in an Organization\label{sec:individual-in-org}}
-\chaptermark{You are an Individual}
+\iftoggle{shortsectiontitle}{\chaptermark{You are an Individual}}{}
   \iftoggle{showbacktotoc}{{\footnotesize Back to the \hyperref[sec:toc]{Main Table of Contents}}}{}
 
 \iftoggle{showbacktotoc}{\ \\}{}
