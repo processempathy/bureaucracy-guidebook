@@ -7,7 +7,13 @@ The model is useful for distinguishing the effects of bureaucracy (distributed k
 
 The model of task distribution in an organization is sufficiently detailed to illustrate commonly observed situations but is agnostic to the specific tasks or work roles. Improvements to the model intended to increase the realism could be made, but risk decreasing the clarity of the model.
 
-\section{Assumptions in the Model of Task Distribution}
+\section[Assumptions in the Model of Task Distribution]{Assumptions in the Model of Task Distribution\iftoggle{shortsectiontitle}{\sectionmark{Assumptions in the Model}}{}}
+\iftoggle{shortsectiontitle}{\sectionmark{Assumptions in the Model}}{}
+
+% square-braces shows up in the TOC
+% curly-braces is the section title
+
+
 
 The model relies on a few concepts. These definitions are local to the numerical model and do not apply to the rest of the book:
 \begin{itemize}
@@ -216,7 +222,12 @@ A process is a sequence of tasks. For example, the list ``B2:10, A1:5, C3:7" des
     \item Task requiring specialization C and skill-level 3; duration of 7 minutes.    
 \end{enumerate}
 
-\section{Configurations of the Task Distribution Model}
+\section[Configurations of the Task Distribution Model]{Configurations of the Task Distribution Model\iftoggle{shortsectiontitle}{\sectionmark{Configurations of the Model}}{}}
+\iftoggle{shortsectiontitle}{\sectionmark{Configurations of the Model}}{}
+
+% square-braces shows up in the TOC
+% curly-braces is the section title
+
 
 Comparing different configurations of the model requires a metric. 
 Task throughput is a way to characterize the productivity of an organization. 
@@ -448,7 +459,12 @@ Static prioritization that is exclusive. Only work on one thing to the exclusion
 \end{itemize}
 
 \clearpage
-\section{Software Implementation of the Simulation Model}
+\section[Software Implementation of the Model]{Software Implementation of the Simulation Model\iftoggle{shortsectiontitle}{\sectionmark{Software Implementation}}{}}
+\iftoggle{shortsectiontitle}{\sectionmark{Software Implementation}}{}
+
+% square-braces shows up in the TOC
+% curly-braces is the section title
+
 
 The model referenced in this Appendix is implemented in \href{https://en.wikipedia.org/wiki/Python_(programming_language)}{Python 3}. The primary functions used to generate data used for figures in this appendix are below. The complete source code for this book is available at \href{https://github.com/processempathy/bureaucracy-guidebook}{https://github.com/processempathy/bureaucracy-guidebook}.
 
@@ -458,7 +474,10 @@ The entity in this
 \inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__create_person.py}
 
 The simulation depends on the following helper functions.
+\iftoggle{narrowpage}{\begin{landscape}}{}
 \inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
+\iftoggle{narrowpage}{\end{landscape}}{}
+
 
 \begin{landscape}
 The simulation loop.
