@@ -12,7 +12,7 @@
 Bureaucratic processes require working with other people. One source of friction is that participants may lack familiarity with the process. 
 
 This observation can be quantified with a small number of assumptions. The distribution of team membership tenure might fit a \href{https://en.wikipedia.org/wiki/Power_law}{power law distribution}
-\index{Wikipedia!\href{https://en.wikipedia.org/wiki/Power_law}{power law}}\footnote{See \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html}{numpy.random.power} documented on https://numpy.org/doc.}
+\index{Wikipedia!power law@\href{https://en.wikipedia.org/wiki/Power_law}{power law}}\footnote{See \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html}{numpy.random.power} documented on https://numpy.org/doc.}
 -- there are more inexperienced people than experienced people. What matters in this context is how long the team member has been in their role (rather than how long they've been a member of the organization). Let's assume a max tenure of ten years~\cite{2022_BLS_tenure}. If the process involves five people, the least experienced member will have a median of 100 calendar days of experience.
 
 % image float options:
@@ -21,7 +21,7 @@ This observation can be quantified with a small number of assumptions. The distr
     \centering
     \includegraphics[width=0.8\textwidth]{images/tenure_power_distribution_a5_with_max_tenure10_and_5_participants.pdf}
     \caption{The power law distribution of tenure using the \href{https://en.wikipedia.org/wiki/Probability_density_function}{probability density function}
-    \index{Wikipedia!\string\href{https://en.wikipedia.org/wiki/Probability_density_function}{probability density function}}
+    \index{Wikipedia!probability density function@\string\href{https://en.wikipedia.org/wiki/Probability_density_function}{probability density function}}
     described by $a\ x^{(a-1)}$ where $a=5$. The median tenure of the youngest participant  in a process with five people is 100 days. Population size has been normalized to 100 people.}
     \label{fig:tenure-powerlaw-5-participants-tenure10}
 \end{figure}
@@ -48,7 +48,7 @@ If that last parameter is varied, the estimate of three months as the median  is
     \includegraphics[width=0.8\textwidth]{images/tenure_power_distribution_a5_with_max_tenure10.pdf}
     \caption{Median tenure of the youngest participant (in calendar days) as a function of the number of process participants with tenure following a 
     \href{https://en.wikipedia.org/wiki/Probability_density_function}{probability density function},
-    \index{Wikipedia!\string\href{https://en.wikipedia.org/wiki/Probability_density_function}{probability density function}}
+    \index{Wikipedia!probability density function@\string\href{https://en.wikipedia.org/wiki/Probability_density_function}{probability density function}}
     $a=5$, and max tenure of ten years.}
     \label{fig:tenure-powerlaw-5-participants}
 \end{figure}

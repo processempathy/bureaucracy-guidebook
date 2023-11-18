@@ -43,6 +43,15 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+echo "find incorrect uses of naive; replace with na\\\"ive"
+grep -R -i -n --color='auto' naive latex/*.tex
+if [[ $? -eq 0 ]]; then
+    echo "THERE SHOULD BE ZERO INSTANCES!"
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
+
 echo "find incorrect use of href: every instance should have http"
 grep -R -i -n --color='auto' href latex/*.tex | grep -i -v http
 if [[ $? -eq 0 ]]; then
