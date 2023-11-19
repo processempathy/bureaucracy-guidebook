@@ -498,15 +498,15 @@ The Practical Guide for\\ Effective Bureaucrats}\\
 
 \input{summary_page}  \iftoggle{cpforsection}{\clearpage}{} % section*
 
-\input{models_of_bureaucracy} \iftoggle{cpforsection}{\clearpage}{} 
-\input{alternatives_to_bureacracy} \iftoggle{cpforsection}{\clearpage}{}
+\iftoggle{narrowpage}{}{\input{models_of_bureaucracy} } %\iftoggle{cpforsection}{\clearpage}{}
+\iftoggle{narrowpage}{}{\input{alternatives_to_bureacracy} } %\iftoggle{cpforsection}{\clearpage}{}
 
 % 2023-08-xx: BHP dropped the "online resources" since this isn't central to the book
 %\iftoggle{printedonpaper}{}{\chapter{Online Resources}}
 %\iftoggle{printedonpaper}{}{  \input{resources_for_writing}}
 %\iftoggle{printedonpaper}{}{  \input{resources_for_managers}}
 
-\input{career_interview_questions} % chapter
+\iftoggle{narrowpage}{}{\input{career_interview_questions}} % chapter
 
 \input{work_distribution_in_flat_organization} % chapter
 
