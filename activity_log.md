@@ -1,4 +1,8 @@
 
+## 2023-11-17
+
+Spent the week enacting "minor" tweaks. 
+
 ## 2023-09-12
 
 Met with (volunteer) editor and got feedback. Plan is to address issues and release a second draft to readers prior to publication.
