@@ -475,10 +475,13 @@ The entity in this
 \inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__create_person.py}
 
 The simulation depends on the following helper functions.
-\iftoggle{narrowpage}{\begin{landscape}}{}
+\iftoggle{narrowpage}{
+\begin{landscape}
 \inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
-\iftoggle{narrowpage}{\end{landscape}}{}
-
+\end{landscape}
+}{
+\inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
+}
 
 \begin{landscape}
 The simulation loop.
