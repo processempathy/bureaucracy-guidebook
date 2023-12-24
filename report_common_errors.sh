@@ -97,6 +97,13 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+echo "tension -> conflict of interest"
+grep -R -i -n --color='auto' " tension" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
 echo "Are marginpar consistent?"
 grep -R -i --color='auto' marginpar latex/*.tex | cut -d":" -f2- | sort | uniq -c | sort -n
 if [[ $? -eq 0 ]]; then

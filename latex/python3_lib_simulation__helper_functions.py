@@ -1,7 +1,5 @@
 def show_all_people(list_of_people: list):
-    """
-    assessment of whether `list_of_people` is correct
-    """
+    """assessment of whether `list_of_people` is correct"""
     for person in list_of_people:
         print('id=',person.unique_id,
               '; skill matrix=',person.skill_specialization_dict)
@@ -10,30 +8,24 @@ def show_all_people(list_of_people: list):
 def get_aggregate_person_dict(list_of_people:list,
                               skill_set_for_people:list,
                               max_skill_level_per_person: int):
-    """
-    create data structure for visualization of the population
-    """
+    """create data structure for visualization of the population"""
     # initialize data structure
     aggregate_person_dict = {}
     for specialization in skill_set_for_people:
         aggregate_person_dict[specialization] = [0 for _ in range(max_skill_level_per_person)]
-
     # populate the data structure
     for person_id, person in enumerate(list_of_people):
         for specialization, skilllevel in person.skill_specialization_dict.items():
             #print(person_id, specialization, skilllevel)
             if skilllevel>0:
                 aggregate_person_dict[specialization][skilllevel-1] += 1
-
     return aggregate_person_dict
 
 def check_population_for_capability(list_of_people: list,
                                     skill_set_for_people,
                                     max_skill_level_per_person):
-    """
-    Due to random initialization of skill-levels,
-    some populations may be incapable of certain tasks
-    """
+    """Due to random initialization of skill-levels,
+    some populations may be incapable of certain tasks"""
     max_skill_per_specialization = {}
 
     # initialize to -1
@@ -58,9 +50,7 @@ def new_task(task_id:int,
              max_skill_level_per_task: int,
              max_task_duration_in_ticks: int,
              tasks_dict: dict) -> dict:
-    """
-    create a task and modify the dict that tracks all tasks
-    """
+    """create a task and modify the dict that tracks all tasks"""
     duration = random.randint(1,max_task_duration_in_ticks)
     tasks_dict[task_id] = {'task ID': task_id,
                            'specialization': random.choice(skill_set_for_tasks),
@@ -70,9 +60,7 @@ def new_task(task_id:int,
     return tasks_dict
 
 def current_status_of_people(list_of_people: list):
-    """
-    what is each person doing?
-    """
+    """what is each person doing?"""
     for person in list_of_people:
         print('person id',person.unique_id,
                   'has status',person.status,
@@ -82,21 +70,16 @@ def current_status_of_people(list_of_people: list):
     return
 
 def cumulative_task_backlog_size(list_of_people):
-    """
-    value needed to create visualization of backlog versus time
-    """
+    """value needed to create visualization of backlog versus time"""
     backlog_count = 0
     for person in list_of_people:
         backlog_count += len(person.backlog_of_tasks)
     return backlog_count
 
-
 def pick_a_random_person(person_index: int,
                          contacts: list,
                          list_of_people: list):
-    """
-    find someone who is not myself and is not someone I already know
-    """
+    """find someone who is not myself and is not someone I already know"""
     try:
         len(contacts)
     except TypeError: # contacts is None

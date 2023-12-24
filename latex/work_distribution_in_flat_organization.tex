@@ -1,38 +1,38 @@
-\chapter{Task Distribution in a Flat Organization\label{sec:work-distribution}}
+%\chapter{Task Distribution in a Flat Organization\label{sec:work-distribution}}
+\chapter{Coordination of Tasks Causes Slowdown\label{sec:work-distribution}}
 \iftoggle{shortsectiontitle}{\chaptermark{Task Distribution}}{}
 
 \iftoggle{glossarysubstitutionworks}{\Gls{bureaucracy}}{Bureaucracy}  
-forms part of the explanation for patterns observed when people interact. Another explanatory aspect is how tasks get distributed among members of an organization. These two aspects of participating in an organization are often confounded. This chapter describes a model of processes and tasks that involve coordination. 
-The model is useful for distinguishing the effects of bureaucracy (distributed knowledge and distributed decision-making) from the distribution of tasks in an organization.
+is part of the explanation for patterns observed when people interact. A separate explanatory aspect is how tasks get distributed among members of an organization. These two aspects of participating in an organization are often confounded. This appendix describes a model of processes and tasks that involve coordination. The purpose of the model in this appendix is to distinguish aspects of an organization that are not attributable to bureaucracy. 
+%The model is useful for distinguishing the effects of bureaucracy (distributed knowledge and distributed decision-making) from the distribution of tasks in an organization.
 
 The model of task distribution in an organization is sufficiently detailed to illustrate commonly observed situations but is agnostic to the specific tasks or work roles. Improvements to the model intended to increase the realism could be made, but risk decreasing the clarity of the model.
 
 \section[Assumptions in the Model of Task Distribution]{Assumptions in the Model of Task Distribution\iftoggle{shortsectiontitle}{\sectionmark{Assumptions in the Model}}{}}
 \iftoggle{shortsectiontitle}{\sectionmark{Assumptions in the Model}}{}
-
 % square-braces shows up in the TOC
 % curly-braces is the section title
 
 
-
-The model relies on a few concepts. These definitions are local to the numerical model and do not apply to the rest of the book:
+The model relies on a few concepts. These definitions are local to the model and do not apply to the rest of the book:
 \begin{itemize}
-    \item \textbf{Specialization}: categories of ability. A person has a specialization. Completing a task is associated with a specialization.
-    \item \textbf{Skill-level}: a ranking of how quickly work can be done for a task. If a task requires a skill-level higher than a person has, then that person is unable to complete the task.
-    \item \textbf{Person}: is a member of the organization, has specializations, has a skill-level per specialization, can receive tasks, and can engage with other people in the organization. A person can complete one task at a time. A person can coordinate one task at a time. A person has the following attributes:
+    \item \textbf{Specialization} refers to categories of ability. A person has a specialization. Completing a task requires a specialization. Examples of specialization include lifting boxes from the ground onto a shelf, writing a report summarizing an experiment, providing customer support, creating a contract for a service. 
+    \item \textbf{Skill-level} is a ranking of proficiency for how work can be done for a task. If a task requires a skill-level higher than a person has, then that person is unable to complete the task. Examples of skill-levels include the ability to lift small boxes versus large boxes, a poorly written report versus a well-written report, mediocre customer support versus amazing customer support, and an acceptable contract versus a robust contract.
+    \item \textbf{Person}: a member of the organization, has specializations, has a skill-level per specialization, can receive tasks, and can engage with other people in the organization. In this model a person can complete one task at a time. A person can coordinate one task at a time. A person has the following attributes:
     \begin{itemize}
-        \item Person's contact list: A person has a list of people they've previously given tasks to. When figuring out who to give a task to, they can review the list of people they already know. 
-        \item Person's backlog: Each person maintains a queue of tasks to be done.
-        \item Person's status: A person is either idle (not assigned a task), working on a task, or coordinating with other people. 
+        \item Person's \textbf{contact list}: A person has a list of people they've previously given tasks to. When figuring out who to give a task to, they can review the list of people they already know. 
+        \item Person's \textbf{backlog}: Each person maintains a queue of tasks to be done.
+        \item Person's \textbf{status}: A person is either idle (not assigned a task), working on a task, or coordinating with other people. 
     \end{itemize}
     \item \textbf{Organization}: a set of people who can be assigned tasks to work on. 
-    \item Task: requires one specialization, has an associated minimum skill-level, and has an amount of time that the task takes. A task can only be worked on by one person at a time. 
+    \item \textbf{Task}: requires one specialization, has an associated minimum skill-level, and has an amount of time that the task takes. A task can only be worked on by one person at a time. 
     \item \textbf{Process}: comprised of one or more tasks.\footnote{See Wikipedia entry on 
     \index{Wikipedia!Queueing Theory@\string\href{https://en.wikipedia.org/wiki/Queueing_theory}{Queueing Theory}}
-    \href{https://en.wikipedia.org/wiki/Queueing_theory}{Queueing Theory}.} Tasks in a process are worked on sequentially by people. At any given time the process is owned by one person who is either coordinating or working on the task.  Processes are independent.
+    \href{https://en.wikipedia.org/wiki/Queueing_theory}{Queueing Theory}.} Tasks in a process are worked on sequentially by people. At any given time the process is owned by one person who is either coordinating or working on the task. Processes are independent from other processes.
+    \item \textbf{Coordination} is the effort to find a person with the relevant specialization and skill-level for a task. 
 \end{itemize}
 
-In the model I'm using the word task instead of work because work is a Physics concept that applies when there is a product that is tangible and countable. Making tacos takes work; approving requests is a distinct concept because there is nothing tangible. For knowledge workers, which most bureaucrats are, the unit of tasking is attention-time spent on an issue.
+In the model I'm using the word task instead of work. In Physics the concept of work applies when there is a product that is tangible and countable. Making tacos takes work; whereas approving requests is a distinct concept because there is nothing tangible. For knowledge workers, which most bureaucrats are, the unit of tasking is more applicable. Instead of tangible work, tasks are relevant when attention-time is spent on an issue.
 Each participant in the organization has the same amount of attention-time to spend, but different specializations and skill-levels per specialization.
 
 %The model is abstract so that is applicable to many contexts. 
@@ -40,7 +40,7 @@ Each participant in the organization has the same amount of attention-time to sp
 %A complex process is a sequence of many tasks, and each task requires specialized skills, and the number of distinct specializations is high.
 
 When a person is assigned a task they don't have the specialization for or lack sufficient skill-level in that specialization, then they have to find someone else in the organization who is capable of doing the task. 
-In the numerical model the random selection of someone else who has the necessary specialization and skill-level is insensitive to the size of their backlog. This reflects my experience in  large organizations where task backlogs are not visible. As a consequence, you merely add something to their backlog and hope they will get to it eventually.
+In the model of tasks the random selection of someone else who has the necessary specialization and skill-level is insensitive to the size of their backlog. This reflects my experience in organizations where task backlogs are not visible. As a consequence, you merely add something to their backlog and hope they will get to it eventually.
 
 
 
@@ -51,26 +51,29 @@ In either of those two senses of branching the processes can be treated as indep
 
 
 
-Simplifying assumptions about what isn't in the numerical model:
+The following lists simplifying assumptions -- what isn't in this numerical model of tasks:
 \begin{itemize}
     \item There is nothing in the model about policies, decision making~\cite{2009_Klimek}, shared resources, or subjects of bureaucracy. This model is included in a book about bureaucracy to show that not all patterns observed in an organization should be blamed on bureaucracy. 
     \item There's no hierarchy in the model. The model assumes people are cooperating in the organization. Unlike the rest of the book, this model does not use the distinction of organizations being comprised of teams.
     \item People in the model don't get to initiate tasks of their own volition. They work on tasks that are either from their personal backlog or from an infinite set of tasks.
     \item People in the model don't get to refuse any task that is assigned to them for which they have the specialization and relevant skill-level.
     \item No overtime. Every person gets the same amount of time to do work.
-    \item No support staff. All infrastructure for communication and tasks works without failure.
+    \item No support staff. No delegation. 
+    \item No prioritization of tasks in the backlog. Tasks in the backlog are completed in the order in which they were added. 
+    \item Infrastructure needed for communication works without failure. Infrastructure needed for completion of a task works without failure. 
     \item No dark patterns. Everyone does the task assigned promptly and correctly.
-    \item No turnover of staff during the simulation.
-    \item No improvement of skill-level per person, or added specialization.
+    \item No turnover of staff during the simulation. See page~\pageref{sec:new-person} for an accounting of new people in a process.
+    \item No improvement of skill-level per person and no expansion of specializations. No training or learning happens. (Learning takes time and has a near-term decrease in throughput but sometimes has long-term benefit to the organization.)
 \end{itemize}
 The complexities above are not included in the model because the point of the model is to show what arises from simple constraints. 
 
-Within the constraints, improvements could be made to the model.  %, but are not expected to alter the conclusions:
+Within the constraints, improvements could be made to the model. 
 However,  conclusions drawn from the model map to real-world organizations even without these features: 
 \begin{itemize}
-    \item Use realistic distributions (e.g., power law) instead of uniform distributions.
-    \item When a person is not qualified to do a task, instead of searching randomly, search second-order contacts.
+    \item Use realistic distributions (e.g., power law) instead of uniform distributions for parameters like skill-level, specialization, task duration.
+    \item When a person is not qualified to do a task, instead of searching randomly, search second-order contacts. The current (unrealistic) implementation is that a person sends their request for help to random members of the organization.
 \end{itemize}
+Adding nuance for realism would increase the complexity of the model but is not expected to alter the conclusions.
 
 \section{Examples of Tasks and People}
 
@@ -97,8 +100,7 @@ A person with skill-level 3 in specialization A and skill-level 1 in specializat
 
 Because this person has skill-level three in specialization A, that means they can also work on tasks that require skill-level two or skill-level one.
 
-People can be characterized by the depth and breadth of their skills. For example, a ``expert specialist'' (e.g.,~``B3") is good at one thing, while a ``general specialist" (e.g.,~``A1,B3,C1") has \href{https://en.wikipedia.org/wiki/T-shaped_skills}{T-shaped skills}:
-
+People can be characterized by the depth and breadth of their skills. For example, a ``expert specialist'' (e.g.,~``B3") is good at one thing, 
 \begin{center}
 Expert:
 $\left\{
@@ -115,7 +117,10 @@ $\left\{
 \cline{2-4}
 \end{tabular}
 \right.$
-\qquad
+%\qquad
+\end{center}
+while a ``general specialist" (e.g.,~``A1,B3,C1") has \href{https://en.wikipedia.org/wiki/T-shaped_skills}{T-shaped skills}:
+\begin{center}
 Generalist Expert:
 $\left\{
 \begin{tabular}{c|c|c|c|}
@@ -133,7 +138,7 @@ $\left\{
 \right.$
 \end{center}
 
-A generalist (here~``A1,B1,C1") is not an expert at anything but is capable in multiple specializations. A unicorn (here~``A3,B3,C3") can do everything well.
+A generalist (here~``A1,B1,C1") is not an expert at anything but is capable in multiple specializations. 
 \begin{center}
 Generalist:
 $\left\{
@@ -150,7 +155,11 @@ $\left\{
 \cline{2-4}
 \end{tabular}
 \right.$
-\qquad
+%\qquad
+\end{center}
+
+A unicorn (here~``A3,B3,C3") can do everything well.
+\begin{center}
 Unicorn:
 $\left\{
 \begin{tabular}{c|c|c|c|}
@@ -205,15 +214,7 @@ A task that requires skill-level 2 in specialization B is labeled ``B2.''
 %\hline
 %\end{tabular}
 %\end{center}
-The assumption that a task requires one specialization is based on the idea that a process can be broken into atomic units. 
-
-If a task requires skill-level 2 and takes 10 minutes, then
-\begin{itemize}
-    \item A person with skill-level 2 completes the task in 10 minutes.
-    \item A person with skill-level 3 completes the task in  7 minutes (=10/(3/2)).
-    \item A person with skill-level 1 is unable to complete the task.
-\end{itemize}
-
+The assumption that a task requires one specialization is based on the idea that a process can be broken into a sequence of atomic tasks, and that one person can do an atomic task. 
 
 A process is a sequence of tasks. For example, the list ``B2:10, A1:5, C3:7" describes three tasks: 
 \begin{enumerate}
@@ -221,6 +222,14 @@ A process is a sequence of tasks. For example, the list ``B2:10, A1:5, C3:7" des
     \item Task requiring specialization A and skill-level 1; duration of 5 minutes.
     \item Task requiring specialization C and skill-level 3; duration of 7 minutes.    
 \end{enumerate}
+
+In this model tasks can be done by more skilled people faster. If a task requires skill-level 2 and takes 10 minutes, then
+\begin{itemize}
+    \item A person with skill-level 2 completes the task in 10 minutes.
+    \item A person with skill-level 3 completes the task in  7 minutes (=10/(3/2)).
+    \item A person with skill-level 1 is unable to complete the task.
+\end{itemize}
+
 
 \section[Configurations of the Task Distribution Model]{Configurations of the Task Distribution Model\iftoggle{shortsectiontitle}{\sectionmark{Configurations of the Model}}{}}
 \iftoggle{shortsectiontitle}{\sectionmark{Configurations of the Model}}{}
@@ -230,7 +239,7 @@ A process is a sequence of tasks. For example, the list ``B2:10, A1:5, C3:7" des
 
 
 Comparing different configurations of the model requires a metric. 
-Task throughput is a way to characterize the productivity of an organization. 
+Task throughput (number of tasks completed per unit time) is a way to characterize the productivity of an organization. 
 
 
 \subsection*{Scenario: Everyone is an A1}
@@ -254,11 +263,11 @@ As a consequence of this configuration, no coordination is required because each
     \item Adding more people increases the throughput.
 \end{itemize}
 
-These same conclusions hold for any configuration of an organization comprised of unicorns. 
-The concept of every member being able to do any task is the model 
-\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}%
+These same conclusions hold for any configuration of an organization comprised exclusively of unicorns. 
+The concept of every member being able to do any task is the approach advocated by 
+\href{https://en.wikipedia.org/wiki/Adhocracy}{Adhocracy}.%
 \index{Wikipedia!adhocracy@\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}}
-advocates. The feasibility of gathering people with relevant talents becomes challenging as the task complexity increases or increased throughput is needed. That is why organizations hire people who are not unicorns. 
+The feasibility of gathering people with relevant talents becomes challenging as the task complexity increases or increased throughput is needed. That is why organizations hire people who are not unicorns. 
 
 
 
@@ -274,24 +283,24 @@ The simplest non-trivial scenario occurs when not every member of an organizatio
 \cline{2-3}
 1 & X &   \\
 \cline{2-3}
-\end{tabular}
-\quad and \quad
+\end{tabular} \quad
+%\quad and \quad
 \begin{tabular}{c|c|c|}
 %\cline{2-3}
   & A & B \\
 \cline{2-3}
 1 &   & X \\
 \cline{2-3}
-\end{tabular}
-\quad and \quad
+\end{tabular} \quad
+%\quad and \quad
 \begin{tabular}{c|c|c|}
 %\cline{2-3}
   & A & B \\
 \cline{2-3}
 1 & X & X \\
 \cline{2-3}
-\end{tabular}
-\quad and \quad
+\end{tabular} \quad
+%\quad and \quad
 \begin{tabular}{c|c|c|}
 %\cline{2-3}
   & A & B \\
@@ -302,7 +311,7 @@ The simplest non-trivial scenario occurs when not every member of an organizatio
 \end{center}
 In this configuration, the person qualified as A1,B1 is labeled a unicorn -- they can do any task. Whether you consider inclusion of A0,B0 (a person who does no work and can only coordinate) to be relevant depends on your personal experience. Most organizations label these members as ``managers.'' 
 
-When a person does not have all the specializations, then a task randomly assigned to one person may need to be given to someone else in the organization. For example, if I am an A1 and am given a B1 task, I need to find a coworker who is either qualified as B1 or A1,B1. Sharing tasks among members of the organization requires coordination.
+When a person does not have all the specializations, then a task randomly assigned to one person may need to be given to someone else in the organization. For example, a person qualified as A1 and given a B1 task, that person needs to find a coworker who is either qualified as B1 or A1,B1. Distributing tasks among members of the organization requires coordination.
 
 
 
@@ -310,7 +319,8 @@ When a person does not have all the specializations, then a task randomly assign
 \begin{figure}[H] % [!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
 \includegraphics[width=1\textwidth]{images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
-\caption{Tasks completed by each person in an organization with six people. Rather than count tasks per tick during steady-state, here we count the number of tasks completed in 100 ticks. Persons 3 and 5 both have the maximum throughput of tasks since they are unicorns. Person 0 has no throughput and only delegates tasks. Everyone is busy (no one is idle), but the level of productivity (tasks completed per time) varies.}
+\caption{Number of tasks completed by each person in an organization with six people over the course of 100 ticks. This diagram captures the distinction between being busy and being productive. Persons 3 and 5 both have the maximum throughput of tasks since they are unicorns. Person 0 has no throughput and only delegates tasks. Everyone is busy (no one is idle since coordination is an activity), but the level of productivity (tasks completed per time) varies.}
+%Rather than count tasks per tick during steady-state, here we count the number of tasks completed in 100 ticks. }
 \label{fig:task-distribution-tasks-per-person}
 \end{figure}
 
@@ -319,7 +329,7 @@ When a person does not have all the specializations, then a task randomly assign
 \begin{figure}[H] % [!htb]%  https://tex.stackexchange.com/a/32605/235813
 \centering
 \includegraphics[width=1\textwidth]{images/task_distribution_backlog_length_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png}
-\caption{The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure~\ref{fig:task-distribution-tasks-per-person}. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 has a longer backlog because they are capable of doing any task.}
+\caption{The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure~\ref{fig:task-distribution-tasks-per-person}. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 and person 5 have longer backlogs because they are capable of doing any task.}
 \label{fig:task-distribution-backlog-length}
 \end{figure}
 
@@ -330,7 +340,7 @@ When a person does not have all the specializations, then a task randomly assign
 \begin{figure}[H] % [!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
 \includegraphics[width=1\textwidth]{images/task_distribution_percent_of_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
-\caption{This is the same simulation as shown in Figures~\ref{fig:task-distribution-tasks-per-person} and~\ref{fig:task-distribution-backlog-length}. The steady-state distribution emerges around 50 ticks. Person 3 and person 5 are both unicorns and have similar task throughput. Person 3 does not appear in this figure because they completed no tasks.}
+\caption{This is the same simulation as shown in Figures~\ref{fig:task-distribution-tasks-per-person} and~\ref{fig:task-distribution-backlog-length}. The steady-state distribution emerges around 50 ticks. Person 3 and person 5 are both unicorns and have similar task throughput. Person 4 does not appear in this figure because they completed no tasks.}
 \label{fig:task-distribution-percent-of-tasks}
 \end{figure}
 
@@ -341,7 +351,7 @@ When a person does not have all the specializations, then a task randomly assign
 
 
 The need for coordination can be blamed on the random delegation of tasks not being aligned to the specializations and skill-levels of the workers. 
-The distribution of skills and specializations of people in an organization is set by the hiring process.
+The distribution of skills and specializations of people in an organization is set by the hiring process. Hiring less qualified people is easier than finding highly skills people. 
 %But that only applies if the tasks are atomic and independent.
 
 %If tasks are part of a process, and a person owns the process, and task in a process cannot be handled by one person, then coordination re-emerges as a requirement.
@@ -428,6 +438,11 @@ Because the specialization of skills is too diverse for any one person to master
 %Hierarchy is not included in this numerical model, but it is one way of addressing this? Of how to coordinate outside of your social circle.
 
 
+\section{Selection of Tasks is Complicated}
+
+An assumption in the model is that each person has a backlog of tasks they work on sequentially. If that assumption is violated and the person gets to choose their next task then negotiation and decision making are invoked. The outcome of a task may be unclear (great results, mediocre results, or a dead-end), and the benefits of completing a task may be informed by relationships with team members. A person in an organization is informally bartering for attention of other members they rely on. Prioritizing the backlog of tasks involves an implicit quid pro quo with other people. 
+
+Having a backlog of task and not being constrained to serial completion opens another question. Should you take a breadth-first approach (do a little exploration of each) or a depth-first approach (exhaust one option at time before moving on to another)? The answer depends on a few factors, like whether task switching is beneficial (e.g., break in the monotony, or waiting for something else) or detrimental (e.g, increased cognitive load, or decay of pershible result). 
 
 \section{What to Do about Too Many Tasks}
 
@@ -467,7 +482,7 @@ Static prioritization that is exclusive. Only work on one thing to the exclusion
 % curly-braces is the section title
 
 
-The model referenced in this Appendix is implemented in \href{https://en.wikipedia.org/wiki/Python_(programming_language)}{Python 3}. The primary functions used to generate data used for figures in this appendix are below. The complete source code for this book is available at \href{https://github.com/processempathy/bureaucracy-guidebook}{https://github.com/processempathy/bureaucracy-guidebook}.
+The model referenced in this Appendix is implemented in \href{https://en.wikipedia.org/wiki/Python_(programming_language)}{Python~3}. The primary functions used to generate data used for figures in this appendix are below. The complete source code for this book is available at \href{https://github.com/processempathy/bureaucracy-guidebook}{https://github.com/processempathy/bureaucracy-guidebook}.
 
 The entity in this
 \href{https://en.wikipedia.org/wiki/Agent-based_model}{agent-based model} is a person. For more description and context, see 

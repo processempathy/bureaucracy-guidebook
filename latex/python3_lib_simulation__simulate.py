@@ -6,10 +6,8 @@ def simulate(skill_set_for_tasks:list,
              list_of_people: list,
              show_narrative:bool,
              work_journal:bool):
-    """
-    primary function for time evolution of model
-    https://en.wikipedia.org/wiki/Agent-based_model
-    """
+    """primary function for time evolution of model
+    https://en.wikipedia.org/wiki/Agent-based_model"""
     tasks_dict = {}
     tick=-1
     while ((tick<max_ticks_to_simulate)):
@@ -126,7 +124,8 @@ def simulate(skill_set_for_tasks:list,
                         if (my_task['skill level'] <= contacts_skill_dict[my_task['specialization']]): # contact can do task
                             list_of_people[contact_id].backlog_of_tasks.append(list_of_people[person_index].assigned_task)
                             list_of_people[person_index].assigned_task = None
-                            list_of_people[person_index].status = "idle" # next tick will get new task from my own backlog or infinite backlog
+                            list_of_people[person_index].status = "idle" # next tick will get new task from
+                                                                         # my own backlog or infinite backlog
                             if show_narrative: print("   person",person_index,"gave task to person",
                                                      contact_id,"from contact list")
                             if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome'] = (
@@ -138,7 +137,8 @@ def simulate(skill_set_for_tasks:list,
                 if list_of_people[person_index].status=="coordinating":
                     another_person_id = pick_a_random_person(person_index, contacts, list_of_people)
                     another_person_skill_dict = list_of_people[another_person_id].skill_specialization_dict
-                    if (my_task['skill level'] <= another_person_skill_dict[my_task['specialization']]): # another_person can do task
+                    if (my_task['skill level'] <= 
+                        another_person_skill_dict[my_task['specialization']]): # another_person can do task
                         list_of_people[another_person_id].backlog_of_tasks.append(my_task)
                         list_of_people[person_index].assigned_task = None
                         list_of_people[person_index].status = "idle"
