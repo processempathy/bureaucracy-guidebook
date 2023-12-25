@@ -422,7 +422,8 @@ class="toc-section-number">8.2</span> Riding the Chaos<span
 id="sec:process-chaos" label="sec:process-chaos"></span></a></li>
 <li><a href="#processes-involve-a-person-new-to-the-process"><span
 class="toc-section-number">8.3</span> Processes Involve a Person New to
-the Process<span id="sec:LINKHERE" label="sec:LINKHERE"></span></a></li>
+the Process<span id="sec:new-person"
+label="sec:new-person"></span></a></li>
 <li><a href="#automating-processes"><span
 class="toc-section-number">8.4</span> Automating Processes<span
 id="sec:automating-processes"
@@ -472,9 +473,9 @@ Candidate</a></li>
 id="sec:moving-to-new-team"
 label="sec:moving-to-new-team"></span></a></li>
 </ul></li>
-<li><a href="#task-distribution-in-a-flat-organization"><span
-class="toc-section-number">12</span> Task Distribution in a Flat
-Organization<span id="sec:work-distribution"
+<li><a href="#coordination-of-tasks-causes-slowdown"><span
+class="toc-section-number">12</span> Coordination of Tasks Causes
+Slowdown<span id="sec:work-distribution"
 label="sec:work-distribution"></span></a>
 <ul>
 <li><a href="#assumptions-in-the-model-of-task-distribution"><span
@@ -486,11 +487,14 @@ People</a></li>
 <li><a href="#configurations-of-the-task-distribution-model"><span
 class="toc-section-number">12.3</span> Configurations of the Task
 Distribution Model</a></li>
+<li><a href="#selection-of-tasks-is-complicated"><span
+class="toc-section-number">12.4</span> Selection of Tasks is
+Complicated</a></li>
 <li><a href="#what-to-do-about-too-many-tasks"><span
-class="toc-section-number">12.4</span> What to Do about Too Many
+class="toc-section-number">12.5</span> What to Do about Too Many
 Tasks</a></li>
 <li><a href="#software-implementation-of-the-simulation-model"><span
-class="toc-section-number">12.5</span> Software Implementation of the
+class="toc-section-number">12.6</span> Software Implementation of the
 Simulation Model</a></li>
 </ul></li>
 </ul>
@@ -550,8 +554,8 @@ bureaucracy is vital to society.</p>
 discussion.</p>
 <blockquote>
 <p><strong>Definition</strong>: Bureaucracy is the process of enacting
-policies through subjective decisions made an individual participant
-overseeing a shared resource.</p>
+policies through subjective decisions made by an individual managing a
+shared resource.</p>
 </blockquote>
 <p>The concepts and techniques in this book are derived from this
 definition. For example, in an organization comprised of bureaucrats no
@@ -931,13 +935,14 @@ within that society. Resources managed by the organization are either
 tangible (e.g., water, air, land) or intangible (expertise, e.g., food
 inspection, teaching mathematics, painting cars; information, e.g.,
 census results).</p>
-<p>Bureaucracy relies on a combination of quid-pro-quo (carrot) and
-coercion of subjects (stick). The coercion can be a threat of physical
-violence or threat of sanction -- namely removal from the process. This
-interpretation applies even within bureaucratic organizations to the
-member bureaucrats, where threat of sanction can be formal (up to
-removal) or informal (outcast from the group of professional
-bureaucrats).</p>
+<p>Bureaucracy relies on a combination of <a
+href="https://en.wikipedia.org/wiki/Quid_pro_quo">quid pro quo</a>
+(carrot) and coercion of subjects (stick). The coercion can be a threat
+of physical violence or threat of sanction -- namely removal from the
+process. This interpretation applies even within bureaucratic
+organizations to the member bureaucrats, where threat of sanction can be
+formal (up to removal) or informal (outcast from the group of
+professional bureaucrats).</p>
 <p>Bureaucracy is not limited to government. Non-profit organizations,
 volunteer groups, commercial companies, and even small teams of people
 can invoke bureaucratic tendencies. The existence of bureaucracy is
@@ -971,13 +976,13 @@ enforce that policy. The shared resource being managed is the dessert.
 <p>Crucial to distinguishing bureaucracy from making decisions about
 shared resources is the separation of roles: policymaker, bureaucrat,
 and subject have to be separate people. This separation creates the
-tension that wouldn't otherwise occur. For example, suppose you need to
-design a security policy for a computer, and you want the policy
-reviewed. If those two roles are filled by the same person there's no
-tension to leverage. One person creating a policy and a different person
-enacting policy is necessary for bureaucracy to arise. Similarly, the
-person enacting policy must be separate from the person upon whom the
-policy is inflicted; otherwise who could complain?</p>
+conflicts of interest that wouldn't otherwise occur. For example,
+suppose you need to design a security policy for a computer, and you
+want the policy reviewed. If those two roles are filled by the same
+person there's no tension. One person creating a policy and a different
+person enacting policy is necessary for bureaucracy to arise. Similarly,
+the person enacting policy must be separate from the person upon whom
+the policy is inflicted; otherwise who could complain?</p>
 <p>While three people is minimum for bureaucracy, bureaucrats often
 congregate. An organization comprised of bureaucrats is called
 bureaucratic. The main character within a bureaucratic organization is
@@ -993,6 +998,17 @@ government official. Sometimes a bureaucrat's decisions are inflicted on
 other bureaucrats-as-subjects, such as when a Chief of Police creates
 guidelines for police in their district, or when a senior diplomat sets
 policies for embassy employees.</p>
+<p>While the roles of policy maker, bureaucrat, and subject are
+pervasive in a variety of contexts, bureaucrats usually avoid the using
+the pejorative label. Typically formal titles are used that are
+associated with a specialization. Titles are more than just a label;
+titles impersonalize interactions, displacing the need for interpersonal
+relationships. This impersonalization is what enables the value of
+bureaucracy, while also causing a negative perception. As a subject
+engaging with a bureaucratic organization your relationships are
+irrelevant -- you get access to the shared resource regardless. The rest
+of this book uses the label of bureaucrat in a neutral sense even though
+socially there is a negative connotation.</p>
 <p>A <span data-acronym-label="bureaucrat"
 data-acronym-form="singular+short">bureaucrat</span> subjectively
 interprets policies made by someone else and has discretionary
@@ -1127,6 +1143,25 @@ other than the CEO. Most of what is known within an organization is
 known by people other than the CEO. Linear storytelling with a small
 number of main characters does not map well to the complexities of
 bureaucracy.</p>
+<p>&nbsp;<br />
+If you think bureaucracy sucks and it should be removed or replaced,
+consider the parable of <a
+href="https://en.wikipedia.org/wiki/G._K._Chesterton%23Chesterton%27s_fence">Chesterton's
+fence</a>&nbsp;<span class="citation"
+data-cites="1929_Chesterton">(Chesterton 1929)</span>. <span
+id="concept:chestertons_fence"
+label="concept:chestertons_fence"></span></p>
+<blockquote>
+<p>"There exists ... a fence or gate erected across a road. The more
+modern type of reformer goes gaily up to it and says, 'I don't see the
+use of this; let us clear it away.' To which the more intelligent type
+of reformer will do well to answer: 'If you don't see the use of it, I
+certainly won't let you clear it away. Go away and think. Then, when you
+can come back and tell me that you do see the use of it, I may allow you
+to destroy it.'"</p>
+</blockquote>
+<p>You need to understand the historical evolution of each process that
+your organization relies on to understand why bureaucracy exists.</p>
 <h2 data-number="2.3" id="the-scope-of-bureaucracy"><span
 class="header-section-number">2.3</span> The Scope of Bureaucracy</h2>
 <p>Bureaucracy is widespread and is worth learning about so you can be
@@ -2247,26 +2282,29 @@ class="header-section-number">3.2</span> Each Phase of Life Involves
 Bureaucracy<span id="sec:phase-of-life"
 label="sec:phase-of-life"></span></h2>
 <p><em>Summary</em>: You have experience with bureaucracy, though you
-may not have framed the experiences as bureaucratic. Viewing
-relationships and roles through the lens of bureaucracy explains the
-limitations of your expectations.</p>
+may not have framed the experiences as bureaucratic. You might not have
+used the labels of policymaker, bureaucrat, or subject, but you likely
+have acted in all three roles. By appropriately labeling the situations
+you can leverage your experience in new contexts. If you recognize
+you've been acting as a bureaucrat you'll be able to apply relevant
+skills.</p>
 <p>&nbsp;<br />
 In each person's life there are standard milestones: birth, education,
 work, and death. Each of these milestones and phases involves
-bureaucracy. Each phase is a different experience of bureaucracy because
-the bureaucratic roles change.</p>
+bureaucracy. You are already experienced with each of the roles that
+constitute bureaucracy. Each phase in your life provides a different
+experience of bureaucracy because the circumstances change.</p>
 <p>Bureaucracy is composed of three roles: the policy creator, the
 policy enforcer, and the subject (upon whom the policy is inflicted).
-These roles can be confounded by oversubscribing the label "bureaucrat."
-Who is the bureaucrat and who is the subject depends on the relationship
-in a scenario.</p>
+These roles can be confounded by misusing the label "bureaucrat." Who is
+the bureaucrat and who is the subject depends on the relationship in a
+scenario.</p>
 <p>For example, a store manager creates a policy, a store clerk enforces
-the policy, and the policy is inflicted on the customer. Both the
-manager and the store clerk would be bureaucrats, while the customer is
-the subject. In a separate example, someone at corporate headquarters
-sets a policy, the store manager enforces it, and the policy is
-inflicted on the store clerk. Then the clerk was the subject of
-bureaucracy.</p>
+the policy, and the policy is inflicted on the customer. The customer is
+the subject of bureaucracy. In a separate example, someone at corporate
+headquarters sets a policy, the store manager enforces it, and the
+policy is inflicted on the store clerk. Then the clerk was the subject
+of bureaucracy.</p>
 <h3 class="unnumbered" id="bureaucracy-of-birth">Bureaucracy of
 Birth<span id="sec:bureacracy-of-birth"
 label="sec:bureacracy-of-birth"></span></h3>
@@ -2312,7 +2350,9 @@ reference book -- you can review lots of books and figure out which
 author style best fits you. You can also choose the level of difficulty
 -- basic and beginner level, or more advanced. You can choose what's best
 based on your understanding rather than defer to what a class in school
-is supposed to cover.</p>
+is supposed to cover. (This same paradigm applies later in life when you
+become a bureaucrat or policymaker -- you can be mediocre as a default,
+or you can make extra effort to be more effective.)</p>
 <p>As a subject of the education bureaucracy, you can discover how you
 learn best. This extra effort requires self-reflection: How do you
 learn? What works best? What didn't work, and why not? What did you
@@ -2327,10 +2367,12 @@ situation.</p>
 develop solutions. That problem-solution paradigm neglects the crucial
 steps of discovering the problem, isolating the challenge, identifying
 stakeholders, learning the history of the challenge, and negotiating
-with stakeholders before trying to address the challenge.</p>
+with stakeholders before trying to address the challenge. The skills
+relevant for being an effective bureaucrat.</p>
 <p>My schooling led me to emphasize academics over socializing. When I
 transitioned to professional work, I found social skills and political
-savvy useful when trying to change organizations and policies.</p>
+savvy relevant when trying to change organizations and policies. An
+effective bureaucrat is more than just book-smart.</p>
 <p>Academic problems are intended to be solvable and answers submitted
 get evaluated. In contrast, working in a bureaucratic organization the
 challenges are ill-defined, there's no known solution, and the topic is
@@ -2348,18 +2390,21 @@ military&nbsp;<span class="citation" data-cites="2020_demo_mil_CFR">(editors
 defined protocols are a distinct experience compared to school or work.
 Transitioning from military to civilian life can present a dissonance
 for service members used to the chain of command and clearly defined
-orders.</p>
-<p>While you are in the military the hierarchy and use of inefficient
-policies feel stifling. Once out of the military you may reflect fondly
-on the clarity of orders compared to the vagaries of social
-politics.</p>
+orders. In comparison, bureaucratic organizations with hierarchical
+structures are not as rigid as the military.</p>
+<p>While you are in the military the hierarchy and application of
+inefficient policies feels stifling. Once out of the military you may
+reflect fondly on the clarity of orders compared to the vagaries of
+social politics. Bureaucrats rely on both formal and informal channels
+for quid quo pro interactions and sanctions. There's less clarity
+compared to the military, but also more flexibility and autonomy.</p>
 <h3 class="unnumbered"
 id="working-in-a-bureaucratic-organization">Working in a Bureaucratic
 Organization<span id="sec:bureaucracy-of-work"
 label="sec:bureaucracy-of-work"></span></h3>
 <p>Organizations with communal workspaces have shared resources:
 bathrooms, conference rooms, storage areas, and kitchen areas with
-fridges and microwaves. Each of these incurs policies of use. Unlike
+fridges and microwaves. Each of these incur policies of use. Unlike
 being a student at school, you may find yourself responsible for
 developing and enforcing policy.</p>
 <p>As an example of workplace policies, consider the following
@@ -2378,13 +2423,15 @@ unhelpful (when policies are an overreaction).</p>
 <h3 class="unnumbered" id="healthcare-and-death">Healthcare and
 Death<span id="sec:bureaucracy-of-death"
 label="sec:bureaucracy-of-death"></span></h3>
-<p>Medical care alters our life, and a lot of money is spent on medical
-care: 25% of the federal budget in the United States&nbsp;<span
-class="citation" data-cites="2023_cbpp">(editors 2023)</span>.
-Understanding the bureaucracy of healthcare is outside the scope of this
-book, but your role in the bureaucracy is helpful to understand.</p>
-<p>Doctors, nurses, and other staff are bureaucrats; you are the
-subject; the hospital or clinic is the organization.</p>
+<p>Medical care alters our life, so understandably a lot of money is
+spent on medical care: 25% of the federal budget in the United
+States&nbsp;<span class="citation" data-cites="2023_cbpp">(editors
+2023)</span>. Understanding the bureaucracy of healthcare is outside the
+scope of this book, but your role in the bureaucracy is helpful to
+understand.</p>
+<p>Doctors, nurses, and other staff are bureaucrats; you as a patient
+are the subject; the hospital or clinic is the organization. The shared
+resource is expertise in providing healthcare.</p>
 <p>&nbsp;<br />
 To illustrate the bureaucracy of a large organization, consider the
 importance of toilet paper at a hospital.</p>
@@ -2511,6 +2558,13 @@ bureaucrat.</p>
 <h2 data-number="3.4" id="not-many-options-for-organizations"><span
 class="header-section-number">3.4</span> Not many Options for
 Organizations</h2>
+<p>The purpose of an organization (or, within an organization, a team)
+is to obfuscate the intrinsic bureaucracy of enacting policies for
+shared resources. The value of organizations and teams is that they are
+a simplifying assumption that depersonalize the function of inputs and
+outputs. Without organizations or teams you would be directly exposed to
+the complexity of knowing every person's title and responsibility.
+Organizations and teams are abstractions to hide the complexity.</p>
 <p>When complaining about the ineptitude of organizations (or more
 specifically, leaders, managers, subordinates, and coworkers), consider
 the variables available to be modified. As a thought exercise, what
@@ -2593,11 +2647,12 @@ direction provided or imprecise direction provided), provides actionable
 vision, or micromanagement. Finding the right balance and specificity
 requires insight into the communication needs on both sides of the
 relationship.</p>
-<p>For lateral interactions among team members, the tension between
-cooperation and competition manifests in struggles over money, staffing,
-products (output), and resources (inputs). Here "resources" refers to
-constraints like access to data, control of data, technology resources,
-hardware, floor space, and expertise.</p>
+<p>For interactions among team members at the same hierarchical level
+the conflict of interests between cooperation and competition manifests
+in struggles over money, staffing, products (output), and resources
+(inputs). Here "resources" refers to constraints like access to data,
+control of data, technology resources, hardware, floor space, and
+expertise.</p>
 <h3 class="unnumbered"
 id="teams-are-subdivisions-of-an-organization">Teams are Subdivisions of
 an Organization</h3>
@@ -3420,16 +3475,17 @@ not correlate to the number of decisions made, the tracking of
 information, or the precautions taken by the organization. All these
 aspects are invisible to the subject because they are internal to the
 organization.</p>
-<p>As an example, consider when you go to the doctor and they mend your
-broken arm with a cast. That seems straightforward because all you see
-is the doctor putting a cast on. You don't get insight into the
-decisions they had to make. Why did they need 20 years of focused
-schooling to carry out a procedure that took 15 minutes?</p>
+<p>As an example, consider when you go to the doctor and they put your
+broken arm in a cast. That seems straightforward because all you see is
+the doctor putting a cast on. You don't get insight into the decisions
+they had to make. Why did they need 20 years of focused schooling to
+carry out a procedure that took 15 minutes?</p>
 <p>Judging bureaucracy by the artifact visible to the individual subject
 undersells the complexity of the decision-making necessary to take
 action. The contingencies that you were not exposed to because
 everything went well make the amount of investment from the bureaucrat
-appear wasteful.</p>
+appear wasteful. Distinguishing essential bureaucracy from accidental or
+malicious bureaucracy is difficult.</p>
 <p>As the subject of bureaucracy, you also lack the ability to
 distinguish how much work is attributable to the bureaucrat generating
 justifications for their actions (colloquially, <a
@@ -3452,6 +3508,12 @@ of an organization's policies may not be felt by bureaucrats in that
 organization. Each bureaucrat may have a different opinion, resulting in
 a lack of consistent guidance. There may be legacy policies in
 effect.</p>
+<p>There is no transparency on either the input or output for subjects.
+For input, forms ask for what but do not provide the why. Similarly for
+output, decisions are made but without justification or reasoning
+provided. The subject has no input on who gets to make the decisions,
+nor does the subject feel the decision maker represents them, nor is
+there any obligation of competence in the decision making.</p>
 <p>Effective action by a bureaucratic organization is complicated by the
 need for relevant information. Gathering, analyzing, and sharing that
 information persistently requires bureaucratic processes. To further
@@ -10848,8 +10910,8 @@ design a process</p>
 through a process, the reasoning below explains why you are experiencing
 <span data-acronym-label="process friction"
 data-acronym-form="singular+short">process friction</span>.</p>
-<p>A set of processes is used by bureaucrats to leverage specialization,
-improve throughput, and enable consistent application of policies.</p>
+<p>Processes are used by bureaucrats to leverage specialization, improve
+throughput, and enable consistent application of policies.</p>
 <h3 class="unnumbered"
 id="processes-enable-consistent-application-of-policy">Processes Enable
 Consistent Application of Policy</h3>
@@ -10939,7 +11001,7 @@ easily increased.</p>
 id="processes-enable-less-reliance-on-social-relations">Processes Enable
 Less Reliance on Social Relations</h3>
 <p>Bureaucratic organizations comprised of humans feature informal
-relations among the bureaucrats. If there were no processes the policies
+relations among bureaucrats. If there were no processes the policies
 could still be inflicted through social influence. Processes used by
 bureaucrats formalize the way that policies get enacted.</p>
 <p>There is an interplay between personal relationships and bureaucratic
@@ -10948,19 +11010,28 @@ relation between bureaucratic processes and social bonds was noted by
 Selznick in his 1943 paper&nbsp;<span class="citation"
 data-cites="1943_Selznick">(Selznick 1943)</span>. Social influence is
 not antithetical to processes. There's always a mixture of the two.</p>
-<p>Attempting to generalize claims about social bonds in an organization
-is beyond the scope of this book. For a given complexity and given
-scale, there are people who are more social and less social and
-therefore desire more or less process. There are bureaucrats who want
-documented processes and are confused as to how things are operating
-when those aren't present.</p>
-<p>The invisibility of social relationships limits bureaucrats not
-attuned to the importance of these informal bonds. Social influence
-among bureaucrats lacks transparency. Social relationships can be hard
-to uncover and are not documented. In contrast, processes are easier to
-understand and track. The counter to social influence is the
+<p>Attempting to generalize claims about professional bonds in an
+organization is beyond the scope of this book. For a given complexity
+and given scale, there are people who are more sociable and less
+sociable and therefore desire more or less process. There are
+bureaucrats who want documented processes and are confused as to how
+things are operating when formal processes aren't present.</p>
+<p>The invisibility of informal professional relationships limits
+bureaucrats not attuned to the importance of these informal bonds.
+Informal professional influence among bureaucrats lacks transparency.
+Informal professional relationships can be hard to uncover and are not
+documented. Bureaucrats who do not take the initative to form and
+maintain professional relationships or social relationships want
+processes so that they can be told what to do. Processes are also a way
+to avoid an interpersonal (professional) conflict which most people fear
+and avoid. The ability to professionally disagree is a skill worth
+learning.</p>
+<p>In contrast to informal professional relationshiops, processes are
+easier to understand and track. The counter to informal influence is the
 hierarchical <span data-acronym-label="org chart"
-data-acronym-form="singular+short">org chart</span> .</p>
+data-acronym-form="singular+short">org chart</span> . Relying on
+top-down directives for formal processes enables bureaucrats to avoid
+responsibility.</p>
 <p>Not all members of an organization have social relationships to
 leverage. The next section describes the benefits of having a process
 for participants lacking relationships.</p>
@@ -11037,7 +11108,8 @@ you can facilitate the process of change.</p>
 <h2 data-number="8.3"
 id="processes-involve-a-person-new-to-the-process"><span
 class="header-section-number">8.3</span> Processes Involve a Person New
-to the Process<span id="sec:LINKHERE" label="sec:LINKHERE"></span></h2>
+to the Process<span id="sec:new-person"
+label="sec:new-person"></span></h2>
 <p>Bureaucratic processes require working with other people. One source
 of friction is that participants may lack familiarity with the
 process.</p>
@@ -11914,13 +11986,14 @@ distractions. Or you can be more effective in your job by understanding
 the role of engaging with other people -- peer bureaucrats, supervisors,
 and subjects of bureaucracy.</p>
 <p>Learning bureaucracy as a skill doesn't mean you can ignore the
-personalities of individuals. Bureaucracy-as-a-skill is separate from
-and in addition to being a good person, being an effective member of a
-team, being a good project manager, being a good product owner, skillful
-writing, excellent verbal communication skills, applying technical
-skills, etc. The distinction from those aspects is that as a bureaucrat
-you understand the complications and constraints of your environment and
-then can more effectively operate within those conditions.</p>
+personalities of individuals. The skill of navigating bureaucracy is
+separate from and in addition to being a good person, being an effective
+member of a team, being a good project manager, being a good product
+owner, skillful writing, excellent verbal communication skills, applying
+technical skills, etc. The distinction from those aspects is that as a
+bureaucrat you understand the complications and constraints of your
+environment and then can more effectively operate within those
+conditions.</p>
 <p>If you are new to being a <span data-acronym-label="bureaucrat"
 data-acronym-form="singular+short">bureaucrat</span>, then this book
 armed you with understanding your environment. On your first day of
@@ -11949,8 +12022,8 @@ progress, whereas a pessimist will be right (because the prediction is
 self-fulfilling) but not make progress.</p>
 <h2 class="unnumbered" id="author-biography">Author Biography</h2>
 <p>Ben Payne brings his decades of experience as a professional
-bureaucrat prior to writing "Process Empathy: How to be an Effective
-Bureaucrat."</p>
+bureaucrat in writing "Process Empathy: The Practical Guide for
+Effective Bureaucrats."</p>
 <p>As an undergraduate at the <a
 href="https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison">University
 of Wisconsin</a> studying Applied Math, Physics, and Engineering, Ben
@@ -11962,8 +12035,8 @@ href="https://en.wikipedia.org/wiki/Missouri_University_of_Science_and_Technolog
 University of Science and Technology</a>. Ben joined the <a
 href="https://en.wikipedia.org/wiki/United_States_Department_of_Defense">United
 States Department of Defense</a> as a federal government employee, where
-he has been for ten years. While working for the DoD, he taught a
-graduate-level course on data science for two years at the <a
+he has been for more than ten years. While working for the DoD, he
+taught a graduate-level course on data science for two years at the <a
 href="https://en.wikipedia.org/wiki/University_of_Maryland,_Baltimore_County">University
 of Maryland</a>. Ben enjoys cooking and traveling.</p>
 <h1 data-number="10" id="summaries-of-this-book"><span
@@ -12024,15 +12097,16 @@ the people administering the shared resources.</p>
 <p>The negative value of procedures is in exceptional contexts and
 contexts where relationships already exist. Then policies and procedures
 get in the way.</p>
-<p>Having both relationship-based and policy based paradigms and in
-effect at the same time is disruptive to each paradigm. This inability
-of the two approaches (systematic versus ad hoc) to coexist is why
+<p>Having both relationship-based and policy-based paradigms in effect
+at the same time is disruptive to each paradigm. This inability of the
+two approaches (ad hoc versus systematic) to coexist is one reason why
 bureaucracy is consistently in turmoil. Therefore an effective
-bureaucrat learns to take advantage of the dynamic change. A skilled
-bureaucrat: forms and maintains relationships with fellow bureaucrats
-and subjects, comprehends and leverages existing policies and
-procedures, and disrupts existing procedures with innovative policies.
-The wise bureaucrat knows when to employ which approach.</p>
+bureaucrat learns to take advantage of the dynamics. Being a skilled
+bureaucrat involves the following: forming and maintaining relationships
+with fellow bureaucrats and subjects, comprehending and leveraging
+existing policies and procedures, and disrupting existing procedures
+with innovative policies. The wise bureaucrat knows when to employ which
+approach.</p>
 <p>Process empathy is helpful in your role as a bureaucrat and when you
 are subject to bureaucracy. Process empathy is based on your
 understanding the <a href="#sec:dilemma-trilemma">dilemmas</a> and <a
@@ -12050,7 +12124,7 @@ contexts and discarding irrelevant policies. Use the <a
 href="#sec:extending-Heilmeier">extended Heilmeier questions</a> to
 interrogate the relevance of policies in a specific context.</p>
 <p>Not all challenges you encounter as a bureaucrat in an organization
-are attributable to bureaucracy. The distribution of work in an
+are attributable to bureaucracy. The distribution of tasks in an
 organization lacking hierarchy can induce latency when not everyone has
 all relevant skills for tasks. Specialization of skills can improve task
 throughput when processes are stable, but specialization can hinder task
@@ -12243,18 +12317,17 @@ if I were employed on this team in this organization?</p></li>
 questions specific to the role you're interviewing for or the
 organization you're interviewing. Bringing a printed-out list shows you
 thought ahead and prepared.</p>
-<h1 data-number="12" id="task-distribution-in-a-flat-organization"><span
-class="header-section-number">12</span> Task Distribution in a Flat
-Organization<span id="sec:work-distribution"
+<h1 data-number="12" id="coordination-of-tasks-causes-slowdown"><span
+class="header-section-number">12</span> Coordination of Tasks Causes
+Slowdown<span id="sec:work-distribution"
 label="sec:work-distribution"></span></h1>
-<p>Bureaucracy forms part of the explanation for patterns observed when
-people interact. Another explanatory aspect is how tasks get distributed
-among members of an organization. These two aspects of participating in
-an organization are often confounded. This chapter describes a model of
-processes and tasks that involve coordination. The model is useful for
-distinguishing the effects of bureaucracy (distributed knowledge and
-distributed decision-making) from the distribution of tasks in an
-organization.</p>
+<p>Bureaucracy is part of the explanation for patterns observed when
+people interact. A separate explanatory aspect is how tasks get
+distributed among members of an organization. These two aspects of
+participating in an organization are often confounded. This appendix
+describes a model of processes and tasks that involve coordination. The
+purpose of the model in this appendix is to distinguish aspects of an
+organization that are not attributable to bureaucracy.</p>
 <p>The model of task distribution in an organization is sufficiently
 detailed to illustrate commonly observed situations but is agnostic to
 the specific tasks or work roles. Improvements to the model intended to
@@ -12265,57 +12338,67 @@ id="assumptions-in-the-model-of-task-distribution"><span
 class="header-section-number">12.1</span> Assumptions in the Model of
 Task Distribution</h2>
 <p>The model relies on a few concepts. These definitions are local to
-the numerical model and do not apply to the rest of the book:</p>
+the model and do not apply to the rest of the book:</p>
 <ul>
-<li><p><strong>Specialization</strong>: categories of ability. A person
-has a specialization. Completing a task is associated with a
-specialization.</p></li>
-<li><p><strong>Skill-level</strong>: a ranking of how quickly work can
-be done for a task. If a task requires a skill-level higher than a
-person has, then that person is unable to complete the task.</p></li>
-<li><p><strong>Person</strong>: is a member of the organization, has
+<li><p><strong>Specialization</strong> refers to categories of ability.
+A person has a specialization. Completing a task requires a
+specialization. Examples of specialization include lifting boxes from
+the ground onto a shelf, writing a report summarizing an experiment,
+providing customer support, creating a contract for a service.</p></li>
+<li><p><strong>Skill-level</strong> is a ranking of proficiency for how
+work can be done for a task. If a task requires a skill-level higher
+than a person has, then that person is unable to complete the task.
+Examples of skill-levels include the ability to lift small boxes versus
+large boxes, a poorly written report versus a well-written report,
+mediocre customer support versus amazing customer support, and an
+acceptable contract versus a robust contract.</p></li>
+<li><p><strong>Person</strong>: a member of the organization, has
 specializations, has a skill-level per specialization, can receive
-tasks, and can engage with other people in the organization. A person
-can complete one task at a time. A person can coordinate one task at a
-time. A person has the following attributes:</p>
+tasks, and can engage with other people in the organization. In this
+model a person can complete one task at a time. A person can coordinate
+one task at a time. A person has the following attributes:</p>
 <ul>
-<li><p>Person's contact list: A person has a list of people they've
-previously given tasks to. When figuring out who to give a task to, they
-can review the list of people they already know.</p></li>
-<li><p>Person's backlog: Each person maintains a queue of tasks to be
-done.</p></li>
-<li><p>Person's status: A person is either idle (not assigned a task),
-working on a task, or coordinating with other people.</p></li>
+<li><p>Person's <strong>contact list</strong>: A person has a list of
+people they've previously given tasks to. When figuring out who to give
+a task to, they can review the list of people they already
+know.</p></li>
+<li><p>Person's <strong>backlog</strong>: Each person maintains a queue
+of tasks to be done.</p></li>
+<li><p>Person's <strong>status</strong>: A person is either idle (not
+assigned a task), working on a task, or coordinating with other
+people.</p></li>
 </ul></li>
 <li><p><strong>Organization</strong>: a set of people who can be
 assigned tasks to work on.</p></li>
-<li><p>Task: requires one specialization, has an associated minimum
-skill-level, and has an amount of time that the task takes. A task can
-only be worked on by one person at a time.</p></li>
+<li><p><strong>Task</strong>: requires one specialization, has an
+associated minimum skill-level, and has an amount of time that the task
+takes. A task can only be worked on by one person at a time.</p></li>
 <li><p><strong>Process</strong>: comprised of one or more tasks.<a
 href="#fn39" class="footnote-ref" id="fnref39"
 role="doc-noteref"><sup>39</sup></a> Tasks in a process are worked on
 sequentially by people. At any given time the process is owned by one
 person who is either coordinating or working on the task. Processes are
-independent.</p></li>
+independent from other processes.</p></li>
+<li><p><strong>Coordination</strong> is the effort to find a person with
+the relevant specialization and skill-level for a task.</p></li>
 </ul>
-<p>In the model I'm using the word task instead of work because work is
-a Physics concept that applies when there is a product that is tangible
-and countable. Making tacos takes work; approving requests is a distinct
-concept because there is nothing tangible. For knowledge workers, which
-most bureaucrats are, the unit of tasking is attention-time spent on an
-issue. Each participant in the organization has the same amount of
-attention-time to spend, but different specializations and skill-levels
-per specialization.</p>
+<p>In the model I'm using the word task instead of work. In Physics the
+concept of work applies when there is a product that is tangible and
+countable. Making tacos takes work; whereas approving requests is a
+distinct concept because there is nothing tangible. For knowledge
+workers, which most bureaucrats are, the unit of tasking is more
+applicable. Instead of tangible work, tasks are relevant when
+attention-time is spent on an issue. Each participant in the
+organization has the same amount of attention-time to spend, but
+different specializations and skill-levels per specialization.</p>
 <p>When a person is assigned a task they don't have the specialization
 for or lack sufficient skill-level in that specialization, then they
 have to find someone else in the organization who is capable of doing
-the task. In the numerical model the random selection of someone else
-who has the necessary specialization and skill-level is insensitive to
-the size of their backlog. This reflects my experience in large
-organizations where task backlogs are not visible. As a consequence, you
-merely add something to their backlog and hope they will get to it
-eventually.</p>
+the task. In the model of tasks the random selection of someone else who
+has the necessary specialization and skill-level is insensitive to the
+size of their backlog. This reflects my experience in organizations
+where task backlogs are not visible. As a consequence, you merely add
+something to their backlog and hope they will get to it eventually.</p>
 <p>The model relies on a process being a sequence of tasks. That might
 not be realistic when branching is part of a process (conditional
 branching or splitting). Real processes feature branching in two senses.
@@ -12323,7 +12406,8 @@ The first sense of branching is the conditional logic: "if this else
 that." The second sense of branching is that a task is the initiation
 point of another process. In either of those two senses of branching the
 processes can be treated as independent sequences of tasks.</p>
-<p>Simplifying assumptions about what isn't in the numerical model:</p>
+<p>The following lists simplifying assumptions -- what isn't in this
+numerical model of tasks:</p>
 <ul>
 <li><p>There is nothing in the model about policies, decision
 making&nbsp;<span class="citation" data-cites="2009_Klimek">(Klimek, Hanel,
@@ -12343,13 +12427,20 @@ to them for which they have the specialization and relevant
 skill-level.</p></li>
 <li><p>No overtime. Every person gets the same amount of time to do
 work.</p></li>
-<li><p>No support staff. All infrastructure for communication and tasks
-works without failure.</p></li>
+<li><p>No support staff. No delegation.</p></li>
+<li><p>No prioritization of tasks in the backlog. Tasks in the backlog
+are completed in the order in which they were added.</p></li>
+<li><p>Infrastructure needed for communication works without failure.
+Infrastructure needed for completion of a task works without
+failure.</p></li>
 <li><p>No dark patterns. Everyone does the task assigned promptly and
 correctly.</p></li>
-<li><p>No turnover of staff during the simulation.</p></li>
-<li><p>No improvement of skill-level per person, or added
-specialization.</p></li>
+<li><p>No turnover of staff during the simulation. See page&nbsp; for an
+accounting of new people in a process.</p></li>
+<li><p>No improvement of skill-level per person and no expansion of
+specializations. No training or learning happens. (Learning takes time
+and has a near-term decrease in throughput but sometimes has long-term
+benefit to the organization.)</p></li>
 </ul>
 <p>The complexities above are not included in the model because the
 point of the model is to show what arises from simple constraints.</p>
@@ -12358,10 +12449,15 @@ However, conclusions drawn from the model map to real-world
 organizations even without these features:</p>
 <ul>
 <li><p>Use realistic distributions (e.g., power law) instead of uniform
-distributions.</p></li>
+distributions for parameters like skill-level, specialization, task
+duration.</p></li>
 <li><p>When a person is not qualified to do a task, instead of searching
-randomly, search second-order contacts.</p></li>
+randomly, search second-order contacts. The current (unrealistic)
+implementation is that a person sends their request for help to random
+members of the organization.</p></li>
 </ul>
+<p>Adding nuance for realism would increase the complexity of the model
+but is not expected to alter the conclusions.</p>
 <h2 data-number="12.2" id="examples-of-tasks-and-people"><span
 class="header-section-number">12.2</span> Examples of Tasks and
 People</h2>
@@ -12412,10 +12508,8 @@ capabilities is the following table:</p>
 means they can also work on tasks that require skill-level two or
 skill-level one.</p>
 <p>People can be characterized by the depth and breadth of their skills.
-For example, a "expert specialist" (e.g.,&nbsp;"B3") is good at one thing,
-while a "general specialist" (e.g.,&nbsp;"A1,B3,C1") has <a
-href="https://en.wikipedia.org/wiki/T-shaped_skills">T-shaped
-skills</a>:</p>
+For example, a "expert specialist" (e.g.,&nbsp;"B3") is good at one
+thing,</p>
 <div class="center">
 <p>Expert: <span class="math inline">\(\left\{
 \begin{tabular}{c|c|c|c|}
@@ -12430,7 +12524,13 @@ skills</a>:</p>
 3 &amp; &amp; X &amp; \\
 \cline{2-4}
 \end{tabular}
-\right.\)</span> Generalist Expert: <span class="math inline">\(\left\{
+\right.\)</span></p>
+</div>
+<p>while a "general specialist" (e.g.,&nbsp;"A1,B3,C1") has <a
+href="https://en.wikipedia.org/wiki/T-shaped_skills">T-shaped
+skills</a>:</p>
+<div class="center">
+<p>Generalist Expert: <span class="math inline">\(\left\{
 \begin{tabular}{c|c|c|c|}
 &amp; \multicolumn{3}{c}{\footnotesize Specializations}\\
 %\hline
@@ -12446,8 +12546,7 @@ skills</a>:</p>
 \right.\)</span></p>
 </div>
 <p>A generalist (here&nbsp;"A1,B1,C1") is not an expert at anything but is
-capable in multiple specializations. A unicorn (here&nbsp;"A3,B3,C3") can do
-everything well.</p>
+capable in multiple specializations.</p>
 <div class="center">
 <p>Generalist: <span class="math inline">\(\left\{
 \begin{tabular}{c|c|c|c|}
@@ -12462,7 +12561,11 @@ everything well.</p>
 3 &amp;  &amp;  &amp; \\
 \cline{2-4}
 \end{tabular}
-\right.\)</span> Unicorn: <span class="math inline">\(\left\{
+\right.\)</span></p>
+</div>
+<p>A unicorn (here&nbsp;"A3,B3,C3") can do everything well.</p>
+<div class="center">
+<p>Unicorn: <span class="math inline">\(\left\{
 \begin{tabular}{c|c|c|c|}
 &amp; \multicolumn{3}{c}{\footnotesize Specializations}\\
 %\hline
@@ -12498,16 +12601,8 @@ unicorns.</p>
 <h3 class="unnumbered" id="tasks-and-processes">Tasks and Processes</h3>
 <p>A task that requires skill-level 2 in specialization B is labeled
 "B2." The assumption that a task requires one specialization is based on
-the idea that a process can be broken into atomic units.</p>
-<p>If a task requires skill-level 2 and takes 10 minutes, then</p>
-<ul>
-<li><p>A person with skill-level 2 completes the task in 10
-minutes.</p></li>
-<li><p>A person with skill-level 3 completes the task in 7 minutes
-(=10/(3/2)).</p></li>
-<li><p>A person with skill-level 1 is unable to complete the
-task.</p></li>
-</ul>
+the idea that a process can be broken into a sequence of atomic tasks,
+and that one person can do an atomic task.</p>
 <p>A process is a sequence of tasks. For example, the list "B2:10, A1:5,
 C3:7" describes three tasks:</p>
 <ol>
@@ -12518,13 +12613,23 @@ minutes.</p></li>
 <li><p>Task requiring specialization C and skill-level 3; duration of 7
 minutes.</p></li>
 </ol>
+<p>In this model tasks can be done by more skilled people faster. If a
+task requires skill-level 2 and takes 10 minutes, then</p>
+<ul>
+<li><p>A person with skill-level 2 completes the task in 10
+minutes.</p></li>
+<li><p>A person with skill-level 3 completes the task in 7 minutes
+(=10/(3/2)).</p></li>
+<li><p>A person with skill-level 1 is unable to complete the
+task.</p></li>
+</ul>
 <h2 data-number="12.3"
 id="configurations-of-the-task-distribution-model"><span
 class="header-section-number">12.3</span> Configurations of the Task
 Distribution Model</h2>
 <p>Comparing different configurations of the model requires a metric.
-Task throughput is a way to characterize the productivity of an
-organization.</p>
+Task throughput (number of tasks completed per unit time) is a way to
+characterize the productivity of an organization.</p>
 <h3 class="unnumbered" id="scenario-everyone-is-an-a1">Scenario:
 Everyone is an A1</h3>
 <p>Suppose every person in the organization is an A1 and every task is
@@ -12556,10 +12661,10 @@ organization.</p></li>
 <li><p>Adding more people increases the throughput.</p></li>
 </ul>
 <p>These same conclusions hold for any configuration of an organization
-comprised of unicorns. The concept of every member being able to do any
-task is the model <a
-href="https://en.wikipedia.org/wiki/Adhocracy">adhocracy</a> advocates.
-The feasibility of gathering people with relevant talents becomes
+comprised exclusively of unicorns. The concept of every member being
+able to do any task is the approach advocated by <a
+href="https://en.wikipedia.org/wiki/Adhocracy">Adhocracy</a>. The
+feasibility of gathering people with relevant talents becomes
 challenging as the task complexity increases or increased throughput is
 needed. That is why organizations hire people who are not unicorns.</p>
 <h3 class="unnumbered"
@@ -12585,7 +12690,6 @@ specializations (A, B) and one skill level:</p>
 </tr>
 </tbody>
 </table>
-<p>and</p>
 <table>
 <thead>
 <tr class="header">
@@ -12602,7 +12706,6 @@ specializations (A, B) and one skill level:</p>
 </tr>
 </tbody>
 </table>
-<p>and</p>
 <table>
 <thead>
 <tr class="header">
@@ -12619,7 +12722,6 @@ specializations (A, B) and one skill level:</p>
 </tr>
 </tbody>
 </table>
-<p>and</p>
 <table>
 <thead>
 <tr class="header">
@@ -12644,34 +12746,36 @@ depends on your personal experience. Most organizations label these
 members as "managers."</p>
 <p>When a person does not have all the specializations, then a task
 randomly assigned to one person may need to be given to someone else in
-the organization. For example, if I am an A1 and am given a B1 task, I
-need to find a coworker who is either qualified as B1 or A1,B1. Sharing
-tasks among members of the organization requires coordination.</p>
+the organization. For example, a person qualified as A1 and given a B1
+task, that person needs to find a coworker who is either qualified as B1
+or A1,B1. Distributing tasks among members of the organization requires
+coordination.</p>
 <figure>
 <img
 src="images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
 id="fig:task-distribution-tasks-per-person" style="width:100.0%" />
-<figcaption aria-hidden="true">Tasks completed by each person in an
-organization with six people. Rather than count tasks per tick during
-steady-state, here we count the number of tasks completed in 100 ticks.
-Persons 3 and 5 both have the maximum throughput of tasks since they are
-unicorns. Person 0 has no throughput and only delegates tasks. Everyone
-is busy (no one is idle), but the level of productivity (tasks completed
-per time) varies.</figcaption>
+<figcaption aria-hidden="true">Number of tasks completed by each person
+in an organization with six people over the course of 100 ticks. This
+diagram captures the distinction between being busy and being
+productive. Persons 3 and 5 both have the maximum throughput of tasks
+since they are unicorns. Person 0 has no throughput and only delegates
+tasks. Everyone is busy (no one is idle since coordination is an
+activity), but the level of productivity (tasks completed per time)
+varies.</figcaption>
 </figure>
 <figure>
 <img
 src="images/task_distribution_backlog_length_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
 id="fig:task-distribution-backlog-length" style="width:100.0%"
-alt="The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure&nbsp;12.1. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 has a longer backlog because they are capable of doing any task." />
+alt="The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure&nbsp;12.1. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 and person 5 have longer backlogs because they are capable of doing any task." />
 <figcaption aria-hidden="true">The length of each person's backlog (for
 the same six people) as a function of time. This is the same simulation
 as shown in Figure&nbsp;<a href="#fig:task-distribution-tasks-per-person"
 data-reference-type="ref"
 data-reference="fig:task-distribution-tasks-per-person">12.1</a>. The
 backlog of person 4 is empty because they are always delegating and no
-one assigns them tasks. Person 3 has a longer backlog because they are
-capable of doing any task.</figcaption>
+one assigns them tasks. Person 3 and person 5 have longer backlogs
+because they are capable of doing any task.</figcaption>
 </figure>
 <figure>
 <img
@@ -12684,13 +12788,14 @@ data-reference="fig:task-distribution-tasks-per-person">12.1</a> and&nbsp;<a
 href="#fig:task-distribution-backlog-length" data-reference-type="ref"
 data-reference="fig:task-distribution-backlog-length">12.2</a>. The
 steady-state distribution emerges around 50 ticks. Person 3 and person 5
-are both unicorns and have similar task throughput. Person 3 does not
+are both unicorns and have similar task throughput. Person 4 does not
 appear in this figure because they completed no tasks.</figcaption>
 </figure>
 <p>The need for coordination can be blamed on the random delegation of
 tasks not being aligned to the specializations and skill-levels of the
 workers. The distribution of skills and specializations of people in an
-organization is set by the hiring process.</p>
+organization is set by the hiring process. Hiring less qualified people
+is easier than finding highly skills people.</p>
 <div class="samepage">
 <p>Conclusions from this configuration of the model:</p>
 <ul>
@@ -12736,8 +12841,28 @@ airplane you fly. However, you don't have all those skills and you want
 the results quicker than you can complete the tasks yourself. Therefore,
 the tasks are distributed among an organization of people with different
 skills. The cost of coordination is that the throughput is lower.</p>
-<h2 data-number="12.4" id="what-to-do-about-too-many-tasks"><span
-class="header-section-number">12.4</span> What to Do about Too Many
+<h2 data-number="12.4" id="selection-of-tasks-is-complicated"><span
+class="header-section-number">12.4</span> Selection of Tasks is
+Complicated</h2>
+<p>An assumption in the model is that each person has a backlog of tasks
+they work on sequentially. If that assumption is violated and the person
+gets to choose their next task then negotiation and decision making are
+invoked. The outcome of a task may be unclear (great results, mediocre
+results, or a dead-end), and the benefits of completing a task may be
+informed by relationships with team members. A person in an organization
+is informally bartering for attention of other members they rely on.
+Prioritizing the backlog of tasks involves an implicit quid pro quo with
+other people.</p>
+<p>Having a backlog of task and not being constrained to serial
+completion opens another question. Should you take a breadth-first
+approach (do a little exploration of each) or a depth-first approach
+(exhaust one option at time before moving on to another)? The answer
+depends on a few factors, like whether task switching is beneficial
+(e.g., break in the monotony, or waiting for something else) or
+detrimental (e.g, increased cognitive load, or decay of pershible
+result).</p>
+<h2 data-number="12.5" id="what-to-do-about-too-many-tasks"><span
+class="header-section-number">12.5</span> What to Do about Too Many
 Tasks</h2>
 <p>Because unicorns can do any task, one way to improve throughput is to
 invest in training people. Training in the context of this model has the
@@ -12792,15 +12917,15 @@ For example, suppose you have three categories of tasks. You allocate
 10% of your time to the first category, 20% of your time to the second,
 and your remaining time to the third category.</p></li>
 </ul>
-<h2 data-number="12.5"
+<h2 data-number="12.6"
 id="software-implementation-of-the-simulation-model"><span
-class="header-section-number">12.5</span> Software Implementation of the
+class="header-section-number">12.6</span> Software Implementation of the
 Simulation Model</h2>
 <p>The model referenced in this Appendix is implemented in <a
-href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python
-3</a>. The primary functions used to generate data used for figures in
-this appendix are below. The complete source code for this book is
-available at <a
+href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python&nbsp;3</a>.
+The primary functions used to generate data used for figures in this
+appendix are below. The complete source code for this book is available
+at <a
 href="https://github.com/processempathy/bureaucracy-guidebook">https://github.com/processempathy/bureaucracy-guidebook</a>.</p>
 <p>The entity in this <a
 href="https://en.wikipedia.org/wiki/Agent-based_model">agent-based
@@ -12809,148 +12934,132 @@ href="#sec:example-people" data-reference-type="ref"
 data-reference="sec:example-people">[sec:example-people]</a>.</p>
 <div class="sourceCode" id="cb1" data-fontsize="\footnotesize"
 data-linenos=""><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CreatePerson():</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    a person is a member of an organization and has characteristics</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 unique_id:<span class="bu">int</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 skill_set_for_people:<span class="bu">list</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 max_skill_level_per_person:<span class="bu">int</span>):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.unique_id <span class="op">=</span> unique_id </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.backlog_of_tasks <span class="op">=</span> []</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.status <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assigned_task <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.contact_list <span class="op">=</span> []</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.skill_specialization_dict <span class="op">=</span> {}</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.work_journal_per_tick <span class="op">=</span> {}</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> skill <span class="kw">in</span> skill_set_for_people:</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.skill_specialization_dict[skill] <span class="op">=</span> random.randint(<span class="dv">0</span>,max_skill_level_per_person)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;a person is a member of an organization and has characteristics</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                 unique_id:<span class="bu">int</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 skill_set_for_people:<span class="bu">list</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 max_skill_level_per_person:<span class="bu">int</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.unique_id <span class="op">=</span> unique_id </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.backlog_of_tasks <span class="op">=</span> []</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.status <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assigned_task <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.contact_list <span class="op">=</span> []</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.skill_specialization_dict <span class="op">=</span> {}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.work_journal_per_tick <span class="op">=</span> {}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> skill <span class="kw">in</span> skill_set_for_people:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.skill_specialization_dict[skill] <span class="op">=</span> random.randint(<span class="dv">0</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                                           max_skill_level_per_person)</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_person_to_contact_list(<span class="va">self</span>, person_id: <span class="bu">int</span>, social_circle_size: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">        Intended to capture https://en.wikipedia.org/wiki/Dunbar%27s_number</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.contact_list.append(person_id)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.contact_list)<span class="op">&gt;</span>social_circle_size:</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.contact_list.pop(<span class="dv">0</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span></code></pre></div>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_person_to_contact_list(<span class="va">self</span>, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                                   person_id: <span class="bu">int</span>, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                                   social_circle_size: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Intended to capture </span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">           https://en.wikipedia.org/wiki/Dunbar%27s_number&quot;&quot;&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.contact_list.append(person_id)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.contact_list)<span class="op">&gt;</span>social_circle_size:</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.contact_list.pop(<span class="dv">0</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span></code></pre></div>
 <p>The simulation depends on the following helper functions.</p>
 <div class="landscape">
 <div class="sourceCode" id="cb2" data-fontsize="\footnotesize"
 data-linenos=""><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_all_people(list_of_people: <span class="bu">list</span>):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    assessment of whether `list_of_people` is correct</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;id=&#39;</span>,person.unique_id,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>              <span class="st">&#39;; skill matrix=&#39;</span>,person.skill_specialization_dict)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_aggregate_person_dict(list_of_people:<span class="bu">list</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                              skill_set_for_people:<span class="bu">list</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                              max_skill_level_per_person: <span class="bu">int</span>):</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    create data structure for visualization of the population</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize data structure</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    aggregate_person_dict <span class="op">=</span> {}</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> specialization <span class="kw">in</span> skill_set_for_people:</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        aggregate_person_dict[specialization] <span class="op">=</span> [<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(max_skill_level_per_person)]</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># populate the data structure</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person_id, person <span class="kw">in</span> <span class="bu">enumerate</span>(list_of_people):</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> specialization, skilllevel <span class="kw">in</span> person.skill_specialization_dict.items():</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print(person_id, specialization, skilllevel)</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> skilllevel<span class="op">&gt;</span><span class="dv">0</span>:</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                aggregate_person_dict[specialization][skilllevel<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> aggregate_person_dict</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_population_for_capability(list_of_people: <span class="bu">list</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>                                    skill_set_for_people,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                                    max_skill_level_per_person):</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">    Due to random initialization of skill-levels,</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">    some populations may be incapable of certain tasks</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    max_skill_per_specialization <span class="op">=</span> {}</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize to -1</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> specialization <span class="kw">in</span> skill_set_for_people:</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        max_skill_per_specialization[specialization] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(person.skill_specialization_dict)</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> persons_specialization, persons_skilllevel <span class="kw">in</span> person.skill_specialization_dict.items():</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> persons_skilllevel<span class="op">&gt;</span>max_skill_per_specialization[persons_specialization]:</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                max_skill_per_specialization[persons_specialization] <span class="op">=</span> persons_skilllevel</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> specialization, skilllevel <span class="kw">in</span> max_skill_per_specialization.items():</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> skilllevel<span class="op">&lt;</span>max_skill_level_per_person:</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;WARNING: population lacks max skill-level for&quot;</span>,specialization)</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;As a consquence, some tasks cannot be completed by this population&quot;</span>)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co"># use defaults to avoid having to specify variables each time</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> new_task(task_id:<span class="bu">int</span>,</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>             skill_set_for_tasks: <span class="bu">list</span>,</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>             max_skill_level_per_task: <span class="bu">int</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>             max_task_duration_in_ticks: <span class="bu">int</span>,</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>             tasks_dict: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co">    create a task and modify the dict that tracks all tasks</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    duration <span class="op">=</span> random.randint(<span class="dv">1</span>,max_task_duration_in_ticks)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    tasks_dict[task_id] <span class="op">=</span> {<span class="st">&#39;task ID&#39;</span>: task_id,</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;specialization&#39;</span>: random.choice(skill_set_for_tasks),</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;skill level&#39;</span>: random.randint(<span class="dv">1</span>,max_skill_level_per_task),</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;duration&#39;</span>: duration,</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;remaining&#39;</span>: duration}</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tasks_dict</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;assessment of whether `list_of_people` is correct&quot;&quot;&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;id=&#39;</span>,person.unique_id,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">&#39;; skill matrix=&#39;</span>,person.skill_specialization_dict)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_aggregate_person_dict(list_of_people:<span class="bu">list</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                              skill_set_for_people:<span class="bu">list</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                              max_skill_level_per_person: <span class="bu">int</span>):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;create data structure for visualization of the population&quot;&quot;&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize data structure</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    aggregate_person_dict <span class="op">=</span> {}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> specialization <span class="kw">in</span> skill_set_for_people:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        aggregate_person_dict[specialization] <span class="op">=</span> [<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(max_skill_level_per_person)]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># populate the data structure</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person_id, person <span class="kw">in</span> <span class="bu">enumerate</span>(list_of_people):</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> specialization, skilllevel <span class="kw">in</span> person.skill_specialization_dict.items():</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print(person_id, specialization, skilllevel)</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> skilllevel<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                aggregate_person_dict[specialization][skilllevel<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> aggregate_person_dict</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_population_for_capability(list_of_people: <span class="bu">list</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                                    skill_set_for_people,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                                    max_skill_level_per_person):</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Due to random initialization of skill-levels,</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">    some populations may be incapable of certain tasks&quot;&quot;&quot;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    max_skill_per_specialization <span class="op">=</span> {}</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize to -1</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> specialization <span class="kw">in</span> skill_set_for_people:</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        max_skill_per_specialization[specialization] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(person.skill_specialization_dict)</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> persons_specialization, persons_skilllevel <span class="kw">in</span> person.skill_specialization_dict.items():</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> persons_skilllevel<span class="op">&gt;</span>max_skill_per_specialization[persons_specialization]:</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>                max_skill_per_specialization[persons_specialization] <span class="op">=</span> persons_skilllevel</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> specialization, skilllevel <span class="kw">in</span> max_skill_per_specialization.items():</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> skilllevel<span class="op">&lt;</span>max_skill_level_per_person:</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;WARNING: population lacks max skill-level for&quot;</span>,specialization)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;As a consquence, some tasks cannot be completed by this population&quot;</span>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># use defaults to avoid having to specify variables each time</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> new_task(task_id:<span class="bu">int</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>             skill_set_for_tasks: <span class="bu">list</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>             max_skill_level_per_task: <span class="bu">int</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>             max_task_duration_in_ticks: <span class="bu">int</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>             tasks_dict: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;create a task and modify the dict that tracks all tasks&quot;&quot;&quot;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    duration <span class="op">=</span> random.randint(<span class="dv">1</span>,max_task_duration_in_ticks)</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    tasks_dict[task_id] <span class="op">=</span> {<span class="st">&#39;task ID&#39;</span>: task_id,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;specialization&#39;</span>: random.choice(skill_set_for_tasks),</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;skill level&#39;</span>: random.randint(<span class="dv">1</span>,max_skill_level_per_task),</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;duration&#39;</span>: duration,</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&#39;remaining&#39;</span>: duration}</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tasks_dict</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> current_status_of_people(list_of_people: <span class="bu">list</span>):</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;what is each person doing?&quot;&quot;&quot;</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;person id&#39;</span>,person.unique_id,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;has status&#39;</span>,person.status,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;with task=&#39;</span>,person.assigned_task,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;and has&#39;</span>,<span class="bu">len</span>(person.backlog_of_tasks),</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;tasks in backlog&#39;</span>)</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> current_status_of_people(list_of_people: <span class="bu">list</span>):</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co">    what is each person doing?</span></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;person id&#39;</span>,person.unique_id,</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;has status&#39;</span>,person.status,</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;with task=&#39;</span>,person.assigned_task,</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;and has&#39;</span>,<span class="bu">len</span>(person.backlog_of_tasks),</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;tasks in backlog&#39;</span>)</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cumulative_task_backlog_size(list_of_people):</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co">    value needed to create visualization of backlog versus time</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    backlog_count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>        backlog_count <span class="op">+=</span> <span class="bu">len</span>(person.backlog_of_tasks)</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> backlog_count</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_a_random_person(person_index: <span class="bu">int</span>,</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>                         contacts: <span class="bu">list</span>,</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>                         list_of_people: <span class="bu">list</span>):</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="co">    find someone who is not myself and is not someone I already know</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>        <span class="bu">len</span>(contacts)</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>: <span class="co"># contacts is None</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>        contacts<span class="op">=</span>[]</span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    attempts <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    list_of_person_IDs <span class="op">=</span> [person.unique_id <span class="cf">for</span> person <span class="kw">in</span> list_of_people]</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (attempts<span class="op">&lt;</span><span class="dv">100</span>):</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>        attempts<span class="op">+=</span><span class="dv">1</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>        another_person <span class="op">=</span> random.choice(list_of_person_IDs)</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ((another_person <span class="kw">not</span> <span class="kw">in</span> contacts) <span class="kw">and</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>            (another_person <span class="op">!=</span> person_index)):</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> another_person</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(&quot;failed to find another person who is not a contact&quot;)</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> person_index</span></code></pre></div>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cumulative_task_backlog_size(list_of_people):</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;value needed to create visualization of backlog versus time&quot;&quot;&quot;</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    backlog_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>        backlog_count <span class="op">+=</span> <span class="bu">len</span>(person.backlog_of_tasks)</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> backlog_count</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_a_random_person(person_index: <span class="bu">int</span>,</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>                         contacts: <span class="bu">list</span>,</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>                         list_of_people: <span class="bu">list</span>):</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;find someone who is not myself and is not someone I already know&quot;&quot;&quot;</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>        <span class="bu">len</span>(contacts)</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>: <span class="co"># contacts is None</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>        contacts<span class="op">=</span>[]</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    attempts <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    list_of_person_IDs <span class="op">=</span> [person.unique_id <span class="cf">for</span> person <span class="kw">in</span> list_of_people]</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (attempts<span class="op">&lt;</span><span class="dv">100</span>):</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>        attempts<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>        another_person <span class="op">=</span> random.choice(list_of_person_IDs)</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ((another_person <span class="kw">not</span> <span class="kw">in</span> contacts) <span class="kw">and</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>            (another_person <span class="op">!=</span> person_index)):</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> another_person</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(&quot;failed to find another person who is not a contact&quot;)</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> person_index</span></code></pre></div>
 </div>
 <div class="landscape">
 <p>The simulation loop.</p>
@@ -12963,139 +13072,139 @@ data-linenos=""><pre class="sourceCode python"><code class="sourceCode python"><
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>             list_of_people: <span class="bu">list</span>,</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             show_narrative:<span class="bu">bool</span>,</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>             work_journal:<span class="bu">bool</span>):</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    primary function for time evolution of model</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    https://en.wikipedia.org/wiki/Agent-based_model</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    tasks_dict <span class="op">=</span> {}</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    tick<span class="op">=-</span><span class="dv">1</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> ((tick<span class="op">&lt;</span>max_ticks_to_simulate)):</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        tick<span class="op">=</span>tick<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">===== tick&#39;</span>,tick,<span class="st">&#39;=====&#39;</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   ===== status at the leading edge of this tick: =====&quot;</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: current_status_of_people(list_of_people)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   ===== updates happening in this tick: =====&quot;</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># each person looks in their backlog for work</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> person_index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(list_of_people)):</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            skill_dict <span class="op">=</span> list_of_people[person_index].skill_specialization_dict</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;person&quot;</span>,person_index,<span class="st">&#39;has skills&#39;</span>,skill_dict)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># initialize the work journal</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> work_journal:</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].work_journal_per_tick[tick] <span class="op">=</span> {<span class="st">&#39;number of tasks in backlog&#39;</span>:</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                                                     <span class="bu">len</span>(list_of_people[person_index].backlog_of_tasks)}</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                                     person_index,<span class="st">&quot;has backlog length&quot;</span>,</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                                     <span class="bu">len</span>(list_of_people[person_index].backlog_of_tasks))</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="co"># make sure the idle people get assigned work</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;idle&quot;</span>:</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal:</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status was&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>                <span class="cf">assert</span>(list_of_people[person_index].assigned_task <span class="kw">is</span> <span class="va">None</span>)</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(list_of_people[person_index].backlog_of_tasks)<span class="op">&gt;</span><span class="dv">0</span>:</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># new tasks get appended, so the oldest task is at position 0</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].assigned_task <span class="op">=</span> list_of_people[person_index].backlog_of_tasks.pop(<span class="dv">0</span>)</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>                                             person_index,<span class="st">&quot;got task from their backlog&quot;</span>)</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;      task is&quot;</span>,</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>                                             list_of_people[person_index].assigned_task)</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal:</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>                        list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;task from&#39;</span>] <span class="op">=</span> <span class="st">&#39;my own backlog&#39;</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: <span class="co"># pop from empty list</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="bu">len</span>(tasks_dict)<span class="op">==</span><span class="dv">0</span>: </span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>                        task_id <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>                        task_id <span class="op">=</span> <span class="bu">max</span>(tasks_dict.keys())<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>                    tasks_dict <span class="op">=</span> new_task(task_id,</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                                          skill_set_for_tasks,</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>                                          max_skill_level_per_task,</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>                                          max_task_duration_in_ticks,</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>                                          tasks_dict)</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].assigned_task <span class="op">=</span> tasks_dict[task_id]</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>                                             person_index,<span class="st">&quot;had no tasks in backlog; got new task from infinite queue&quot;</span>)</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;      task consists of&quot;</span>,</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>                                             list_of_people[person_index].assigned_task)</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal:</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>                        list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;task from&#39;</span>] <span class="op">=</span> <span class="st">&#39;infinite backlog&#39;</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>            <span class="co"># at this point, regardless of status, the person has a task</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> list_of_people[person_index].assigned_task:</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;social_circle_size:&#39;</span>,social_circle_size)</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;max_task_duration_in_ticks:&#39;</span>,max_task_duration_in_ticks)</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;tick:&#39;</span>,tick)</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;tasks_dict:&#39;</span>,tasks_dict)</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;ID:&#39;</span>,person.unique_id)</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;backlog&#39;</span>,person.backlog_of_tasks)</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;task:&#39;</span>,person.assigned_task)</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;status:&#39;</span>,person.status)</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;skill_specialization_dict:&#39;</span>,person.skill_specialization_dict)</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&quot;person&quot;</span>,person_index,<span class="st">&quot;should have a task&quot;</span>)</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>            my_task <span class="op">=</span> list_of_people[person_index].assigned_task</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> show_narrative:</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;has an assigned task&quot;</span>,my_task)</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> work_journal:</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;task&#39;</span>] <span class="op">=</span> my_task</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>            <span class="co"># can the person do the task, or do they need to coordinate?</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (my_task[<span class="st">&#39;skill level&#39;</span>] <span class="op">&lt;=</span> skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]): <span class="co"># person can do task</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;can do the task!&quot;</span>)</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].status<span class="op">=</span><span class="st">&quot;working&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;primary function for time evolution of model</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    https://en.wikipedia.org/wiki/Agent-based_model&quot;&quot;&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    tasks_dict <span class="op">=</span> {}</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    tick<span class="op">=-</span><span class="dv">1</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> ((tick<span class="op">&lt;</span>max_ticks_to_simulate)):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        tick<span class="op">=</span>tick<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">===== tick&#39;</span>,tick,<span class="st">&#39;=====&#39;</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   ===== status at the leading edge of this tick: =====&quot;</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: current_status_of_people(list_of_people)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   ===== updates happening in this tick: =====&quot;</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># each person looks in their backlog for work</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> person_index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(list_of_people)):</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            skill_dict <span class="op">=</span> list_of_people[person_index].skill_specialization_dict</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;person&quot;</span>,person_index,<span class="st">&#39;has skills&#39;</span>,skill_dict)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># initialize the work journal</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> work_journal:</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].work_journal_per_tick[tick] <span class="op">=</span> {<span class="st">&#39;number of tasks in backlog&#39;</span>:</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                                                     <span class="bu">len</span>(list_of_people[person_index].backlog_of_tasks)}</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                                     person_index,<span class="st">&quot;has backlog length&quot;</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                                     <span class="bu">len</span>(list_of_people[person_index].backlog_of_tasks))</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            <span class="co"># make sure the idle people get assigned work</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;idle&quot;</span>:</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal:</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status was&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">assert</span>(list_of_people[person_index].assigned_task <span class="kw">is</span> <span class="va">None</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(list_of_people[person_index].backlog_of_tasks)<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># new tasks get appended, so the oldest task is at position 0</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].assigned_task <span class="op">=</span> list_of_people[person_index].backlog_of_tasks.pop(<span class="dv">0</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>                                             person_index,<span class="st">&quot;got task from their backlog&quot;</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;      task is&quot;</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>                                             list_of_people[person_index].assigned_task)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal:</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>                        list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;task from&#39;</span>] <span class="op">=</span> <span class="st">&#39;my own backlog&#39;</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: <span class="co"># pop from empty list</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="bu">len</span>(tasks_dict)<span class="op">==</span><span class="dv">0</span>: </span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>                        task_id <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>                        task_id <span class="op">=</span> <span class="bu">max</span>(tasks_dict.keys())<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>                    tasks_dict <span class="op">=</span> new_task(task_id,</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>                                          skill_set_for_tasks,</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>                                          max_skill_level_per_task,</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                                          max_task_duration_in_ticks,</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>                                          tasks_dict)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].assigned_task <span class="op">=</span> tasks_dict[task_id]</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>                                             person_index,<span class="st">&quot;had no tasks in backlog; got new task from infinite queue&quot;</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;      task consists of&quot;</span>,</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>                                             list_of_people[person_index].assigned_task)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal:</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>                        list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;task from&#39;</span>] <span class="op">=</span> <span class="st">&#39;infinite backlog&#39;</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>            <span class="co"># at this point, regardless of status, the person has a task</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> list_of_people[person_index].assigned_task:</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;social_circle_size:&#39;</span>,social_circle_size)</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;max_task_duration_in_ticks:&#39;</span>,max_task_duration_in_ticks)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;tick:&#39;</span>,tick)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&#39;tasks_dict:&#39;</span>,tasks_dict)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> person <span class="kw">in</span> list_of_people:</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;ID:&#39;</span>,person.unique_id)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;backlog&#39;</span>,person.backlog_of_tasks)</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;task:&#39;</span>,person.assigned_task)</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;status:&#39;</span>,person.status)</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&#39;skill_specialization_dict:&#39;</span>,person.skill_specialization_dict)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&quot;person&quot;</span>,person_index,<span class="st">&quot;should have a task&quot;</span>)</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>            my_task <span class="op">=</span> list_of_people[person_index].assigned_task</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> show_narrative:</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;has an assigned task&quot;</span>,my_task)</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> work_journal:</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;task&#39;</span>] <span class="op">=</span> my_task</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>            <span class="co"># can the person do the task, or do they need to coordinate?</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (my_task[<span class="st">&#39;skill level&#39;</span>] <span class="op">&lt;=</span> skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]): <span class="co"># person can do task</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;can do the task!&quot;</span>)</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].status<span class="op">=</span><span class="st">&quot;working&quot;</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal:</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status was&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
 <span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal:</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status was&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal:</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;working&quot;</span></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>: <span class="co"># person doesn&#39;t have sufficient skill for task; person needs to find someone else</span></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;does not have sufficient skill&quot;</span>)</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].status<span class="op">=</span><span class="st">&quot;coordinating&quot;</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status was&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;coordinating&quot;</span></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>            <span class="co"># no person is idle</span></span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>            <span class="cf">assert</span>((list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;working&quot;</span>) <span class="kw">or</span></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>                   (list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;coordinating&quot;</span>))</span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;working&quot;</span>:</span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>                speedup <span class="op">=</span> skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]<span class="op">/</span>my_task[<span class="st">&#39;skill level&#39;</span>]</span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   speedup for person&quot;</span>,person_index,<span class="st">&quot;is&quot;</span>, speedup)</span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].assigned_task[<span class="st">&#39;remaining&#39;</span>] <span class="op">=</span> my_task[<span class="st">&#39;remaining&#39;</span>] <span class="op">-</span> speedup <span class="co"># &quot;doing the work&quot;</span></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (list_of_people[person_index].assigned_task[<span class="st">&#39;remaining&#39;</span>]<span class="op">&lt;=</span><span class="dv">0</span>): <span class="co"># task was completed</span></span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   task completed!&quot;</span>)</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].assigned_task <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].status<span class="op">=</span><span class="st">&quot;idle&quot;</span></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;outcome&#39;</span>] <span class="op">=</span> <span class="st">&quot;task completed&quot;</span></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: <span class="co"># update the task to reflect there being less work remaining because the person did some work</span></span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;outcome&#39;</span>] <span class="op">=</span> <span class="st">&quot;worked but task remains&quot;</span></span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;working&quot;</span></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;coordinating&quot;</span>:</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>                contacts <span class="op">=</span> list_of_people[person_index].contact_list</span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;contacts=&quot;</span>,contacts)</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(contacts)<span class="op">&gt;</span><span class="dv">0</span>: <span class="co"># I know people!</span></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;looks in contact list&quot;</span>)</span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> contact_id <span class="kw">in</span> contacts: <span class="co"># do the people I know have the skills to do this task?</span></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>                        contacts_skill_dict <span class="op">=</span> list_of_people[contact_id].skill_specialization_dict</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> (my_task[<span class="st">&#39;skill level&#39;</span>] <span class="op">&lt;=</span> contacts_skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]): <span class="co"># contact can do task</span></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>                            list_of_people[contact_id].backlog_of_tasks.append(list_of_people[person_index].assigned_task)</span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>                            list_of_people[person_index].assigned_task <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>                            list_of_people[person_index].status <span class="op">=</span> <span class="st">&quot;idle&quot;</span> <span class="co"># next tick will get new task from my own backlog or infinite backlog</span></span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;gave task to person&quot;</span>,</span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>                                                     contact_id,<span class="st">&quot;from contact list&quot;</span>)</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;outcome&#39;</span>] <span class="op">=</span> (</span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;gave task to person &quot;</span><span class="op">+</span><span class="bu">str</span>(contact_id)<span class="op">+</span><span class="st">&quot; from contact list&quot;</span>)</span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">break</span></span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>                <span class="co"># after looking through contacts, if the status is still &quot;coordinating&quot;,</span></span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>                <span class="co"># then person didn&#39;t have a contact who could do the work</span></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;coordinating&quot;</span>:</span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>                    another_person_id <span class="op">=</span> pick_a_random_person(person_index, contacts, list_of_people)</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>                    another_person_skill_dict <span class="op">=</span> list_of_people[another_person_id].skill_specialization_dict</span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> (my_task[<span class="st">&#39;skill level&#39;</span>] <span class="op">&lt;=</span> another_person_skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]): <span class="co"># another_person can do task</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;working&quot;</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>: <span class="co"># person doesn&#39;t have sufficient skill for task; person needs to find someone else</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;does not have sufficient skill&quot;</span>)</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].status<span class="op">=</span><span class="st">&quot;coordinating&quot;</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status was&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;coordinating&quot;</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>            <span class="co"># no person is idle</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>            <span class="cf">assert</span>((list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;working&quot;</span>) <span class="kw">or</span></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>                   (list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;coordinating&quot;</span>))</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;working&quot;</span>:</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>                speedup <span class="op">=</span> skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]<span class="op">/</span>my_task[<span class="st">&#39;skill level&#39;</span>]</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   speedup for person&quot;</span>,person_index,<span class="st">&quot;is&quot;</span>, speedup)</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>                list_of_people[person_index].assigned_task[<span class="st">&#39;remaining&#39;</span>] <span class="op">=</span> my_task[<span class="st">&#39;remaining&#39;</span>] <span class="op">-</span> speedup <span class="co"># &quot;doing the work&quot;</span></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (list_of_people[person_index].assigned_task[<span class="st">&#39;remaining&#39;</span>]<span class="op">&lt;=</span><span class="dv">0</span>): <span class="co"># task was completed</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   task completed!&quot;</span>)</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].assigned_task <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>                    list_of_people[person_index].status<span class="op">=</span><span class="st">&quot;idle&quot;</span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;outcome&#39;</span>] <span class="op">=</span> <span class="st">&quot;task completed&quot;</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>: <span class="co"># update the task to reflect there being less work remaining because the person did some work</span></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;outcome&#39;</span>] <span class="op">=</span> <span class="st">&quot;worked but task remains&quot;</span></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;working&quot;</span></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;coordinating&quot;</span>:</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>                contacts <span class="op">=</span> list_of_people[person_index].contact_list</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;contacts=&quot;</span>,contacts)</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(contacts)<span class="op">&gt;</span><span class="dv">0</span>: <span class="co"># I know people!</span></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;looks in contact list&quot;</span>)</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> contact_id <span class="kw">in</span> contacts: <span class="co"># do the people I know have the skills to do this task?</span></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>                        contacts_skill_dict <span class="op">=</span> list_of_people[contact_id].skill_specialization_dict</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> (my_task[<span class="st">&#39;skill level&#39;</span>] <span class="op">&lt;=</span> contacts_skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]): <span class="co"># contact can do task</span></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>                            list_of_people[contact_id].backlog_of_tasks.append(list_of_people[person_index].assigned_task)</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>                            list_of_people[person_index].assigned_task <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>                            list_of_people[person_index].status <span class="op">=</span> <span class="st">&quot;idle&quot;</span> <span class="co"># next tick will get new task from</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>                                                                         <span class="co"># my own backlog or infinite backlog</span></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> show_narrative: <span class="bu">print</span>(<span class="st">&quot;   person&quot;</span>,person_index,<span class="st">&quot;gave task to person&quot;</span>,</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>                                                     contact_id,<span class="st">&quot;from contact list&quot;</span>)</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;outcome&#39;</span>] <span class="op">=</span> (</span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;gave task to person &quot;</span><span class="op">+</span><span class="bu">str</span>(contact_id)<span class="op">+</span><span class="st">&quot; from contact list&quot;</span>)</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> work_journal: list_of_people[person_index].work_journal_per_tick[tick][<span class="st">&#39;status is now&#39;</span>] <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">break</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>                <span class="co"># after looking through contacts, if the status is still &quot;coordinating&quot;,</span></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>                <span class="co"># then person didn&#39;t have a contact who could do the work</span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> list_of_people[person_index].status<span class="op">==</span><span class="st">&quot;coordinating&quot;</span>:</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>                    another_person_id <span class="op">=</span> pick_a_random_person(person_index, contacts, list_of_people)</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>                    another_person_skill_dict <span class="op">=</span> list_of_people[another_person_id].skill_specialization_dict</span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> (my_task[<span class="st">&#39;skill level&#39;</span>] <span class="op">&lt;=</span> </span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>                        another_person_skill_dict[my_task[<span class="st">&#39;specialization&#39;</span>]]): <span class="co"># another_person can do task</span></span>
 <span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>                        list_of_people[another_person_id].backlog_of_tasks.append(my_task)</span>
 <span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>                        list_of_people[person_index].assigned_task <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>                        list_of_people[person_index].status <span class="op">=</span> <span class="st">&quot;idle&quot;</span></span>
@@ -13148,6 +13257,11 @@ href="https://en.wikipedia.org/wiki/No_Silver_Bullet">https://en.wikipedia.org/w
 <div id="ref-2007_Burnham" class="csl-entry" role="doc-biblioentry">
 Burnham, T., and B. Hare. 2007. <span>"Engineering Human
 Cooperation."</span> <em>Human Nature</em> 18: 88--108.
+</div>
+<div id="ref-1929_Chesterton" class="csl-entry" role="doc-biblioentry">
+Chesterton. 1929. <span>"The Drift from Domesticity."</span> In <em>The
+Thing</em>. S&amp;W. <a
+href="https://www.chesterton.org/taking-a-fence-down/">https://www.chesterton.org/taking-a-fence-down/</a>.
 </div>
 <div id="ref-1982_Cohen" class="csl-entry" role="doc-biblioentry">
 Cohen, H. 1982. <em>You Can Negotiate Anything</em>. Bantam. <a
