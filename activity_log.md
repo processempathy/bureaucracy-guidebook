@@ -1,4 +1,8 @@
 
+## 2023-12-30
+
+Used grammarly.com to check chapter 4 to 4.2
+
 ## 2023-11-17
 
 Spent the week enacting "minor" tweaks. 

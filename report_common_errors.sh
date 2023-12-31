@@ -90,6 +90,7 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+# remove extra word "own"
 echo "your own -> your"
 grep -R -i -n --color='auto' "your own" latex/*.tex
 if [[ $? -eq 0 ]]; then
@@ -97,6 +98,15 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+# simpler word (fewer syllables)
+echo "understandable -> sensible"
+grep -R -i -n --color='auto' "understandable" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
+# "tension" is imprecise
 echo "tension -> conflict of interest"
 grep -R -i -n --color='auto' " tension" latex/*.tex
 if [[ $? -eq 0 ]]; then
