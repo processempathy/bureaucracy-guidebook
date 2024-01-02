@@ -1,7 +1,22 @@
 
-## 2023-12-30
 
-Used grammarly.com to check chapter 4 to 4.2
+
+## 2023-12-31
+
+
+Used grammarly.com to check chapters
+* 4 to 4.2
+* 4.3 to end of 4
+* 5
+* 6
+* 7
+* 8
+* 9
+* 10-end
+* glossary from PDF
+* 1
+* 2
+* 3
 
 ## 2023-11-17
 
