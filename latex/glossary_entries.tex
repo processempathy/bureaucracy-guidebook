@@ -55,8 +55,8 @@ description={A person who is expected to take action or make contribution}
 name={essential bureaucracy},
 text={Essential bureaucracy},
 description={The minimum 
-\iftoggle{glossarysubstitutionworks}{\glspl{process}}{processes}
-and staffing and skills necessary to address the complexity of the problem space}
+\iftoggle{glossarysubstitutionworks}{\glspl{process}}{processes}, 
+staffing, and skills necessary to address the complexity and scale of the challenge}
 }
 
 \newglossaryentry{org chart}{
@@ -72,13 +72,13 @@ name={bureaucratic debt},
 plural={bureaucratic debts},
 text={Bureaucratic debt},
 % https://graphthinking.blogspot.com/2017/02/schedules-slip.html
-description={The cost of work needed to change a \gls{process} caused by choosing an easy solution now instead of using a better approach that would take longer. Bureaucratic debt is a trade-off, conscious or unconscious, of what work to do and risks to take. More effort (work, time) could be spent building a better product, but subjects want solutions for access to the shared resource now}
+description={The cost of work needed to change a \gls{process} caused by choosing an easy solution now instead of using a better approach that would take longer or cost more money. Bureaucratic debt is a trade-off, conscious or unconscious, of what work to do and risks to take. More effort (work, time) could be spent building a better product, but subjects want solutions for access to the shared resource now}
 }
 
 \newglossaryentry{policymaker}{
    name={policymaker},
    plural={policymakers},
-   description={Determines access to a shared resource}
+   description={Determines access to a shared resource by setting a \gls{policy}}
 }
 
 \newglossaryentry{subject}{
@@ -245,24 +245,37 @@ The process of enacting policies through subjective decisions made by individual
 The resource can be either tangible or in the form of expertise or information. 
 \index{Wikipedia!wicked problem@\string\href{https://en.wikipedia.org/wiki/Wicked_problem}{wicked problem}}
     Bureaucracy is a \href{https://en.wikipedia.org/wiki/Wicked_problem}{wicked problem}~\cite{1973_Rittel}. \\
-    \textit{There is a separate sense that is commonly used so I include it here.} An \gls{organization} of 
-\iftoggle{glossarysubstitutionworks}{\glspl{bureaucrat}}{bureaucrats}
-comprises a bureaucracy. A bureaucratic organization relies on distributed knowledge and distributed decision-making.
+    \textit{There is a separate sense that is commonly used so I include it here.} 
 A bureaucracy facilitates coordination of 
 \iftoggle{glossarysubstitutionworks}{\glspl{stakeholder}}{stakeholders} enacting policies.
     The process of bureaucracy is how a group of individuals make distributed decisions using distributed knowledge.}
 }
 
+\newglossaryentry{distributed bureaucracy}{
+    name={distributed bureaucracy},
+    description={Within an \gls{organization} comprised of multiple 
+    \iftoggle{glossarysubstitutionworks}{\glspl{bureaucrats}}{bureaucrats} 
+    the concept of \gls{core bureaucracy} applies. A bureaucrat may set policy for other bureaucrats, and that policy is inflicted on other bureaucrats. \\
+    No one bureaucrat can carryout the policy (due to complexity or scale), so  distributed knowledge and distributed decision-making are essential.}
+}
+
+\newglossaryentry{core bureaucracy}{
+    name={core bureaucracy},
+    description={The separate roles of \gls{policymaker}, \gls{bureaucrat}, and \gls{subject}. A minimum of three separate people occupy the three roles}
+}
+
 \newglossaryentry{feedback loop}{
 name={feedback loop},
 plural={feedback loops},
-description={Consequences for the decision-maker. Also known as ``skin in the game"}
+description={Consequences for the decision-maker. 
+\index{Wikipedia!skin in the game@\string\href{https://en.wikipedia.org/wiki/Skin_in_the_game_(phrase)}{skin in the game}}
+Also known as ``\href{https://en.wikipedia.org/wiki/Skin_in_the_game_(phrase)}{skin in the game}"}
 }
 
 \newglossaryentry{ripple}{
 name={ripple},
 plural={ripples},
-description={A decision-maker selects an option and that propagates to schedule, what is possible, and dependent tasks}
+description={A decision-maker selects an option and that propagates to schedule, what is possible, and dependent tasks. There is no or very little consequence felt by the decision-maker}
 }
 
 \newglossaryentry{visible bureaucracy}{
