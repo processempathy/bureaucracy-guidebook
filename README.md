@@ -1,3 +1,9 @@
+# Draft Author Bio for Amazon profile
+
+Ben Payne has worked in the federal government for the past decade after graduating with a PhD in computational physics. 
+Ben grew up in the Midwest and now lives on the east coast of the United States. Ben enjoys cooking and walking in nature.
+
+
 # bureaucracy-guidebook
 The guidebook for Bureaucracy: <https://processempathy.github.io/>
 
