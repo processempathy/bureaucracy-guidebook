@@ -329,6 +329,29 @@ function html_pandoc {
   postprocess_html
 }
 
+function html_latexml {
+  # https://www.peterkrautzberger.org/0136/
+  # https://news.ycombinator.com/item?id=39137755
+
+  rm -rf TEMPORARY_html_latexml_source_latex
+  mkdir TEMPORARY_html_latexml_source_latex
+  cp -r latex/* TEMPORARY_html_latexml_source_latex/
+  rm -rf TEMPORARY_html_latexml_source_latex/main_*
+  mv TEMPORARY_html_latexml_source_latex/main.tex TEMPORARY_html_latexml_source_latex/main_html_latexml.tex
+
+  # the result of running
+  # latexml --dest=mydoc.xml main.tex
+  # is 
+  # "2 warnings; 101 errors; 1 fatal error; 2 missing files[mdframed.sty, tcolorbox.sty]."
+  # and no output file is created.
+  # as of 2024-01-26 I don't see a way to address the errors latexml is encountering.
+
+  # the follow-on command needed to produce HTML is 
+  #   latexmlpost --dest=mydoc.html --format=html5 mydoc.xml
+  # but there's not XML file to process due to the fatal errors in step 1.
+
+}
+
 function html_latex2html {
 
   rm -rf TEMPORARY_html_latex2html_source_latex
@@ -522,6 +545,10 @@ function all {
   epub_pandoc
 }
 
+function shell {
+  docker run -it --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian /bin/bash
+}
+
 # from https://www.baeldung.com/linux/run-function-in-script
 # dollarsign variables in bash: https://stackoverflow.com/a/5163260/1164295
 case "$1" in
@@ -535,5 +562,8 @@ case "$1" in
     docx_pandoc) "$@"; exit;;
     html_pandoc) "$@"; exit;;
     html_latex2html) "$@"; exit;;
+    shell) "$@"; exit;;
     *) echo "Unkown function: $1()"; exit 2;;
 esac
+
+# EOF
