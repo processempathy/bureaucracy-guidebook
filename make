@@ -52,6 +52,8 @@ fi
 
 
 function pdf_85x11_electronic_single_sided {
+  echo "inside pdf_85x11_electronic_single_sided; start function"
+  
   pwd
   filename="main_pdf_85x11_electronic_single_sided"
   tex_file="latex/"${filename}".tex"
@@ -83,9 +85,14 @@ function pdf_85x11_electronic_single_sided {
   mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
+
+  echo "inside pdf_85x11_electronic_single_sided; end function"
+
 }
 
 function pdf_85x11_print_single_sided {
+  echo "inside pdf_85x11_print_single_sided; start function"
+
   pwd
   filename="main_pdf_85x11_print_single_sided"
   tex_file="latex/"${filename}".tex"
@@ -119,10 +126,15 @@ function pdf_85x11_print_single_sided {
   mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
+
+  echo "inside pdf_85x11_print_single_sided; end function"
+
 }
 
 
 function pdf_for_printing_and_binding {
+  echo "inside pdf_for_printing_and_binding; start function"
+
   pwd
   filename="main_pdf_for_printing_and_binding"
   tex_file="latex/"${filename}".tex"
@@ -173,9 +185,13 @@ function pdf_for_printing_and_binding {
   cd ..
   pwd
 
+  echo "inside pdf_for_printing_and_binding; end function"
+
 }
 
 function pandoc_preprocess {
+
+  echo "inside pandoc_preprocess; start function"
 
   # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
 
@@ -259,9 +275,13 @@ function pandoc_preprocess {
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${TEX_FILE_PATH}
   sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${TEX_FILE_PATH}
 
+  echo "inside pandoc_preprocess; end function"
+
 }
 
 function docx_pandoc {
+  echo "inside docx_pandoc; start function"
+
   pwd
 
   pandoc_preprocess TEMPORARY_docx main_docx_pandoc.tex
@@ -278,10 +298,13 @@ function docx_pandoc {
     pwd
     cd ..
   pwd
+  echo "inside docx_pandoc; end function"
 
 }
 
 function epub_pandoc {
+  echo "inside epub_pandoc; start function"
+
   pwd
 
   pandoc_preprocess TEMPORARY_epub_source_html_source_latex main_epub_pandoc.tex
@@ -303,10 +326,15 @@ function epub_pandoc {
   mkdir -p bin/
   mv -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
+
+  echo "inside epub_pandoc; end function"
+
 }
 
 # --ascii = 	Use only ASCII characters in output.
 function html_pandoc {
+  echo "inside html_pandoc; start function"
+
   pwd
 
   pandoc_preprocess TEMPORARY_html_pandoc_source_latex main_html_pandoc.tex
@@ -327,6 +355,9 @@ function html_pandoc {
     cd ..
   pwd
   postprocess_html
+
+  echo "inside html_pandoc; end function"
+
 }
 
 function html_latexml {
@@ -397,6 +428,8 @@ function html_latex2html {
 }
 
 function postprocess_epub {
+  echo "inside postprocess_epub; start function"
+
   pwd
   rm -rf TEMPORARY_epub_source_html
   mkdir TEMPORARY_epub_source_html
@@ -469,6 +502,8 @@ EOF
 }
 
 function postprocess_html {
+  echo "inside postprocess_html; start function"
+
   pwd
   # replace PDF with PNG for images
   sed -i '' 's/\("images\/.*\)pdf"/\1png"/' TEMPORARY_html_pandoc_source_latex/main.html
@@ -514,6 +549,8 @@ function postprocess_html {
 }
 
 function bookcover {
+  echo "inside bookcover; start function"
+
   pwd
   cd bookcover
     time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape main > log1_pdflatex.log;
@@ -528,21 +565,30 @@ function bookcover {
   time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_main_pdf_for_printing_and_binding.pdf cat output bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 
   pwd
+  echo "inside bookcover; end function"
 }
 
 function all {
+  echo "inside all; start function"
+  echo "removing temporary directories"
   rm -rf TEMPORARY_*
   # The following could be launched using independent subshells
   #   since they are each independent
   # I don't have the CPUs or memory to support that
+  echo "finished temporary directory removal; calling pdf_85x11_electronic_single_sided"
   pdf_85x11_electronic_single_sided
+  echo "finished pdf_85x11_electronic_single_sided; calling pdf_85x11_print_single_sided"
   pdf_85x11_print_single_sided
+  echo "finished pdf_85x11_print_single_sided; calling pdf_for_printing_and_binding"
   pdf_for_printing_and_binding
+  echo "finished pdf_for_printing_and_binding; calling bookcover"
   bookcover
+  echo "finished bookcover; calling html_pandoc"
   html_pandoc
   html_latex2html
   docx_pandoc
   epub_pandoc
+  echo "inside all; end function"
 }
 
 function shell {
@@ -565,5 +611,10 @@ case "$1" in
     shell) "$@"; exit;;
     *) echo "Unkown function: $1()"; exit 2;;
 esac
+
+# bureaucracy_main_pdf_85x11_electronic_single_sided.pdf
+# bureaucracy_main_pdf_85x11_print_single_sided.pdf
+# bureaucracy_main_pdf_for_printing_and_binding.pdf
+# bureaucracy_main_pdf_for_printing_and_binding_grayscale.pdf
 
 # EOF
