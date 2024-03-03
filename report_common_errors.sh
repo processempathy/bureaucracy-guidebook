@@ -60,6 +60,14 @@ if [[ $? -eq 0 ]]; then
 fi
 clear
 
+echo "find period followed by lower-case letter"
+grep -R -n --color "\. [a-z]" latex/*.tex
+if [[ $? -eq 0 ]]; then
+    echo "THERE are a few legit INSTANCES!"
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
 echo "find incorrect use of hyperref: no instance should have http"
 grep -R -i -n --color='auto' hyperref latex/*.tex | grep -i http
 if [[ $? -eq 0 ]]; then
