@@ -41,6 +41,7 @@ RUN apt-get install -f -y --no-install-recommends \
           latexml \
           pdftk-java \
           pdf2svg \
+          pdfgrep \
           poppler-utils \
           psutils \
           python3-pip \
