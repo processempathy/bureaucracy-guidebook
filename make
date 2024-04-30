@@ -52,7 +52,7 @@ fi
 
 
 function pdf_85x11_electronic_single_sided {
-  echo "inside pdf_85x11_electronic_single_sided; start function"
+  echo "[trace] inside pdf_85x11_electronic_single_sided; start function"
   
   pwd
   filename="main_pdf_85x11_electronic_single_sided"
@@ -86,12 +86,12 @@ function pdf_85x11_electronic_single_sided {
 
   mv ${tex_file} ${tex_file}.log
 
-  echo "inside pdf_85x11_electronic_single_sided; end function"
+  echo "[trace] inside pdf_85x11_electronic_single_sided; end function"
 
 }
 
 function pdf_85x11_print_single_sided {
-  echo "inside pdf_85x11_print_single_sided; start function"
+  echo "[trace] inside pdf_85x11_print_single_sided; start function"
 
   pwd
   filename="main_pdf_85x11_print_single_sided"
@@ -127,13 +127,13 @@ function pdf_85x11_print_single_sided {
 
   mv ${tex_file} ${tex_file}.log
 
-  echo "inside pdf_85x11_print_single_sided; end function"
+  echo "[trace] inside pdf_85x11_print_single_sided; end function"
 
 }
 
 
 function pdf_for_printing_and_binding {
-  echo "inside pdf_for_printing_and_binding; start function"
+  echo "[trace] inside pdf_for_printing_and_binding; start function"
 
   pwd
   filename="main_pdf_for_printing_and_binding"
@@ -185,13 +185,13 @@ function pdf_for_printing_and_binding {
   cd ..
   pwd
 
-  echo "inside pdf_for_printing_and_binding; end function"
+  echo "[trace] inside pdf_for_printing_and_binding; end function"
 
 }
 
 function pandoc_preprocess {
 
-  echo "inside pandoc_preprocess; start function"
+  echo "[trace] inside pandoc_preprocess; start function"
 
   # Pandoc can't handle "toggle" being used in files other than the file where the toggle was defined,
 
@@ -275,12 +275,12 @@ function pandoc_preprocess {
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${TEX_FILE_PATH}
   sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${TEX_FILE_PATH}
 
-  echo "inside pandoc_preprocess; end function"
+  echo "[trace] inside pandoc_preprocess; end function"
 
 }
 
 function docx_pandoc {
-  echo "inside docx_pandoc; start function"
+  echo "[trace] inside docx_pandoc; start function"
 
   pwd
 
@@ -298,12 +298,12 @@ function docx_pandoc {
     pwd
     cd ..
   pwd
-  echo "inside docx_pandoc; end function"
+  echo "[trace] inside docx_pandoc; end function"
 
 }
 
 function epub_pandoc {
-  echo "inside epub_pandoc; start function"
+  echo "[trace] inside epub_pandoc; start function"
 
   pwd
 
@@ -327,13 +327,13 @@ function epub_pandoc {
   mv -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 
-  echo "inside epub_pandoc; end function"
+  echo "[trace] inside epub_pandoc; end function"
 
 }
 
 # --ascii = 	Use only ASCII characters in output.
 function html_pandoc {
-  echo "inside html_pandoc; start function"
+  echo "[trace] inside html_pandoc; start function"
 
   pwd
 
@@ -356,7 +356,7 @@ function html_pandoc {
   pwd
   postprocess_html
 
-  echo "inside html_pandoc; end function"
+  echo "[trace] inside html_pandoc; end function"
 
 }
 
@@ -428,7 +428,7 @@ function html_latex2html {
 }
 
 function postprocess_epub {
-  echo "inside postprocess_epub; start function"
+  echo "[trace] inside postprocess_epub; start function"
 
   pwd
   rm -rf TEMPORARY_epub_source_html
@@ -502,7 +502,7 @@ EOF
 }
 
 function postprocess_html {
-  echo "inside postprocess_html; start function"
+  echo "[trace] inside postprocess_html; start function"
 
   pwd
   # replace PDF with PNG for images
@@ -549,7 +549,7 @@ function postprocess_html {
 }
 
 function bookcover {
-  echo "inside bookcover; start function"
+  echo "[trace] inside bookcover; start function"
 
   pwd
   cd bookcover
@@ -565,30 +565,32 @@ function bookcover {
   time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_main_pdf_for_printing_and_binding.pdf cat output bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 
   pwd
-  echo "inside bookcover; end function"
+  echo "[trace] inside bookcover; end function"
 }
 
 function all {
-  echo "inside all; start function"
-  echo "removing temporary directories"
+  echo "[trace] inside all; start function"
+  echo "[trace] removing temporary directories"
   rm -rf TEMPORARY_*
   # The following could be launched using independent subshells
   #   since they are each independent
   # I don't have the CPUs or memory to support that
-  echo "finished temporary directory removal; calling pdf_85x11_electronic_single_sided"
+  echo "[trace] finished temporary directory removal; calling pdf_85x11_electronic_single_sided"
   pdf_85x11_electronic_single_sided
-  echo "finished pdf_85x11_electronic_single_sided; calling pdf_85x11_print_single_sided"
+  echo "[trace] finished pdf_85x11_electronic_single_sided; calling pdf_85x11_print_single_sided"
   pdf_85x11_print_single_sided
-  echo "finished pdf_85x11_print_single_sided; calling pdf_for_printing_and_binding"
+  echo "[trace] finished pdf_85x11_print_single_sided; calling pdf_for_printing_and_binding"
   pdf_for_printing_and_binding
-  echo "finished pdf_for_printing_and_binding; calling bookcover"
+  echo "[trace] finished pdf_for_printing_and_binding; calling bookcover"
   bookcover
-  echo "finished bookcover; calling html_pandoc"
+  echo "[trace] finished bookcover; calling html_pandoc"
   html_pandoc
   html_latex2html
   docx_pandoc
   epub_pandoc
-  echo "inside all; end function"
+  echo "to review the generated PDF, use"
+  echo "open bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf"
+  echo "[trace] inside all; end function"
 }
 
 function shell {
