@@ -527,7 +527,7 @@ The reason to cover both roles is to help people in each position build empathy 
 \input{author_biography} % section*
 
 \cleardoublepage % forces disclaimer to be on right page
-\input{written_by_a_human}
+\iftoggle{haspagenumbers}{\input{written_by_a_human}}{} % the "written by a human" references a bunch of page numbers that only make sense in the PDF
 
 \chapter{Summaries of This Book}
 \input{summary_paragraph}\clearpage% section*
