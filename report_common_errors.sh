@@ -35,8 +35,19 @@ clear
 # -n              = show line number
 # --color='auto'  = hightlight the match
 
-echo "find non-ASCII characters"
+
+# as per <https://stackoverflow.com/a/3208902/1164295>
+# since I'm using a Mac
+echo "find non-ASCII characters in Latex files"
 LC_ALL=C grep --color='auto' '[^ -~]' latex/*.tex
+if [[ $? -eq 0 ]]; then
+    echo "THERE SHOULD BE ZERO INSTANCES!"
+    read -p "Press ENTER key to resume ..."
+fi
+clear
+
+echo "find non-ASCII characters in html"
+LC_ALL=C grep --color='auto' '[^ -~]' latex/*.html
 if [[ $? -eq 0 ]]; then
     echo "THERE SHOULD BE ZERO INSTANCES!"
     read -p "Press ENTER key to resume ..."
