@@ -160,7 +160,7 @@ For example, fear, social recognition, predictability}
 
 \newglossaryentry{incentive}{
 name={incentive},
-plural={incentives}
+plural={incentives},
 description={What other people can offer you to change your behavior.
 For example pay, promotion, titles, stability, and awards}
 }
@@ -169,7 +169,10 @@ For example pay, promotion, titles, stability, and awards}
 name={process empathy},
 description={Cultivating process empathy requires considering
 \begin{itemize}
-\item Internal \gls{motives} and external \gls{incentives} that each person in each role has.
+\item Internal 
+\iftoggle{glossarysubstitutionworks}{\glspl{motive}}{motives} and external 
+\iftoggle{glossarysubstitutionworks}{\glspl{incentive}}{incentives}
+that each person in each role has.
 \item What information each person has.
 \item The dilemmas that each person faces.
 \item The interplay of motives, incentives, and information manifests as actions by the team or organization.
