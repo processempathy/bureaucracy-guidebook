@@ -246,6 +246,10 @@ function pandoc_preprocess {
       # show glossary in margin == false
       sed -i '' -E 's/\\iftoggle{glossaryinmargin}{\\marginpar{\[Glossary\]}}{}//g' $f
 
+      # the "work_distribution_in_flat_organization" contains tables in math environment that can't be converted by pandoc
+      sed -i '' -E 's/\$\\left\\{//g' $f
+      sed -i '' -E 's/\\right\.\$//g' $f
+
       # pandoc doesn't like textsuperscript; see
       # https://pandoc.org/MANUAL.html#superscripts-and-subscripts and
       # https://github.com/jgm/pandoc-citeproc/issues/128
