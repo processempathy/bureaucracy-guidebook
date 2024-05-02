@@ -540,6 +540,8 @@ function postprocess_html {
   # footnote return indicator
   sed -i '' 's/&#x21A9;&#xFE0E;/\&nbsp;Return to text/g' TEMPORARY_html_pandoc_source_latex/main.html
 
+  sed -i '' 's/ \. /\. /g' TEMPORARY_html_pandoc_source_latex/main.html
+
   # fix hyperlinked chapter numbers
   # CAVEAT: this is a fragile fix since the chapter numbers are hard-coded.
   sed -i '' 's/>\[sec:introduction\]</>1</' TEMPORARY_html_pandoc_source_latex/main.html
