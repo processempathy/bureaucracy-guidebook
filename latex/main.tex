@@ -49,6 +49,20 @@
 % * HTML and epub.                Supports hyperlinks.  No page numbers.  No margin comments.
 
 
+% how to hyphenate words
+% The declaration \usepackage[english]{babel} loads hyphenation patterns for American English. 
+\usepackage[USenglish]{babel}
+
+% http://www.ctex.org/documents/packages/special/hyphenat.pdf
+% https://cs.brown.edu/about/system/managed/latex/doc/hyphenat.pdf
+\usepackage{hyphenat} 
+
+
+
+
+% https://tug.org/TUGboat/tb39-1/tb121wermuth-adem.pdf
+% the higher this value the less desirable it is for TEX to use this set of line breaks to typeset the paragraph.
+% \finalhyphendemerits is used in the last line if the penultimate line of the paragraph ends in a hyphen
 \finalhyphendemerits=100000000
 
 % smaller font for marginpar 
@@ -164,8 +178,6 @@
 \newtcolorbox{quizbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
 %\newtcolorbox{storytime}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
 
-% how to hyphenate words
-\usepackage[USenglish]{babel}
 
 % strikethrough text
 % https://tex.stackexchange.com/a/23712/235813
@@ -204,7 +216,6 @@
 % to set font, use
 %\usepackage{ebgaramond}
 
-\usepackage{hyphenat} % http://www.ctex.org/documents/packages/special/hyphenat.pdf
 
 \usepackage{setspace}\onehalfspacing\frenchspacing\flushbottom\sloppy
 
@@ -302,6 +313,12 @@ The Practical Guide for\\ Effective Bureaucrats}\\
 
 % https://texblog.org/2012/02/08/adding-line-numbers-to-documents/
 %\linenumbers
+
+% https://tex.stackexchange.com/a/335088/235813
+\righthyphenmin=4
+\lefthyphenmin=4  % there are at least 4 characters before the hyphen
+% Their default values in many document classes are 2 and 3, respectively; put differently, the left-hand and right-hand fragments must contain at least 2 and 3 letters.
+% Only words containing at least 8 characters will now be hyphenated.
 
 
 %\setcounter{secnumdepth}{1}
