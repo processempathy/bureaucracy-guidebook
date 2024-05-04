@@ -9,8 +9,14 @@
 \documentclass[marklength=0mm,
     coverwidth=127mm,
     coverheight=203mm,
-    bleedwidth=0mm,
-    spinewidth=10mm]{bookcover}
+    bleedwidth=3.2mm, % required by Amazon KDP; see https://kdp.amazon.com/en_US/help/topic/G201953020
+    spinewidth=22.594mm]{bookcover}
+
+
+% spine width calculation for Amazon KDP:
+% White paper: page count x 0.002252" (0.0572 mm)
+% source: https://kdp.amazon.com/en_US/help/topic/G201953020
+% 395*0.0572 = 22.594
 
 % https://tex.stackexchange.com/a/31309/235813
 \hyphenpenalty=10000
@@ -105,10 +111,11 @@ color=yellow!50,
 \centering
 \rotatebox[origin=c]{-90}{
 \begin{tabular}{c}
-{\Large Process Empathy: The Practical Guide for Effective Bureaucrats}
+{\Huge Process Empathy}%: The Practical Guide for Effective Bureaucrats}
+%{\fontsize{100}{60}\selectfont Process Empathy}
 \end{tabular}
-\hspace{2cm}
-{\Large Ben Payne}
+\hspace{7cm}
+{\Huge Ben Payne}
 }
 \vfill}
 

@@ -1,11 +1,14 @@
 \newif\ifboundbook
 \boundbookfalse
 \ifboundbook
+\documentclass[openright]{book} % for printing and binding
+
 % for tips on geometry arguments, see
 % https://texdoc.org/serve/geometry.pdf/0
-\documentclass[openright]{book} % for printing and binding
 % 5.5" wide book has .6" separation between binding and text -- that's "left" or "inner"
 \usepackage[top=.7in,bottom=.5in,marginparwidth=.6in,textwidth=4in,paperwidth=5.5in,paperheight=8.5in,inner=.65in]{geometry}
+% Amazon KDP requires "inner" to be greater than or equal to 0.625in
+
 % 379 pages; "bottom=.4in" is too small for chapter pages -- page number is nearly cut off. 
 % 385 pages; "bottom=.5in" is just barely acceptable for the page number of the chapter page. 
 % as of 17:24 2023-11-19, the measurements were
@@ -14,7 +17,9 @@
 % as of 16:58 2023-11-19, the measurements were
 %         [top=.75in,bottom=.75in,marginparwidth=.8in,textwidth=3.75in,paperwidth=5.5in,paperheight=8.5in,inner=.7in]
 % 414 pages. Margins too big
+
 \else
+
 \documentclass[oneside]{book} % "the default page size for all standard document classes is US letter" - https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_size
 % https://tex.stackexchange.com/a/137024/235813
 \usepackage[top=.8in,bottom=.7in,marginparwidth=1in,textwidth=6.5in,left=0.7in,marginparsep=0.15in]{geometry}
