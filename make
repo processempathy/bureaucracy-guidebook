@@ -265,11 +265,12 @@ function pandoc_preprocess {
   sed -i '' "/documentclass\[oneside\]{book}/d" ${TEX_FILE_PATH}
   sed -i '' "/\\usepackage.*{geometry}/d" ${TEX_FILE_PATH}
 
+  # pandoc can't process these conditionals, so remove them
   sed -i '' "/\\newif/d" ${TEX_FILE_PATH}
   sed -i '' "/\\else/d" ${TEX_FILE_PATH}
   sed -i '' "/\\fi/d" ${TEX_FILE_PATH}
   sed -i '' "/\\boundbook/d" ${TEX_FILE_PATH}
-  sed -i '' "/\\ifboundbook/d" ${TEX_FILE_PATH}
+  sed -i '' -E "s/\\ifboundbook.*/%removed_ifboundbook/" ${TEX_FILE_PATH}
 
   # DEPRECATED since I'm using toggles
   #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" ${tex_file}
