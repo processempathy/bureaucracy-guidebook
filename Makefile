@@ -148,7 +148,10 @@ uz:
 	git status
 
 clean:
-	rm -rf TEMPORARY_*; cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;
+	rm -rf TEMPORARY_*
+	rm -rf bin/*.pdf
+	rm -rf bin/*.epub
+	rm  cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;
 
 # the following commands are for use outside the Docker image
 
