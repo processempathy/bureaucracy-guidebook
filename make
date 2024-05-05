@@ -595,7 +595,7 @@ function all {
   docx_pandoc
   epub_pandoc
   echo "to review the generated PDF, use"
-  echo "open bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf"
+  open bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
   echo "[trace] inside all; end function"
 }
 
