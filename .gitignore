@@ -1,6 +1,8 @@
 .DS_Store
 bin/
 *_DOES_NOT_WORK
+*.dot
+*.png
 
 latex/main_*.tex
 

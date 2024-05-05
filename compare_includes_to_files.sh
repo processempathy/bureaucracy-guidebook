@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script looks for files that are in the `latex` directory but
+# are not included in the generated PDF. 
+# If I wrote the .tex file, the default is that the file should be in the PDF. 
 
 # strict error handling
 set -o pipefail  # trace ERR through pipes
