@@ -545,11 +545,11 @@ The reason to cover both roles is to help people in each position build empathy 
 
 
 % https://en.wikipedia.org/wiki/Complexity_theory_and_organizations
-\backmatter
 \appendix
 \phantomsection % https://tex.stackexchange.com/a/74440/235813 but didn't seem to make a difference
 %\addcontentsline{toc}{chapter}{Appendices} % https://tex.stackexchange.com/a/3197/235813
-\addtocontents{toc}{\protect\contentsline{chapter}{\protect\numberline{}\hspace{-1.6em}Appendices}{}{}} 
+% -1.4 is too far left
+\addtocontents{toc}{\protect\contentsline{chapter}{\protect\numberline{}\hspace{-1.3em}Appendices}{}{}} 
 % https://tex.stackexchange.com/a/66433/235813
 %\cftaddtitleline{toc}{chapter}{Appendices}{} % https://tex.stackexchange.com/a/50040/235813
 \cleardoublepage % forces biography to be on right page
@@ -599,7 +599,7 @@ The reason to cover both roles is to help people in each position build empathy 
 %\fi
 
 \clearpage
-
+\backmatter % sections after "backmatter" do not get numbered
 
 \printglossaries
 
