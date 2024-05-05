@@ -82,7 +82,7 @@ function pdf_85x11_electronic_single_sided {
     cd ..
   pwd
   mkdir -p bin/
-  mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
+  cp -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
 
@@ -123,7 +123,7 @@ function pdf_85x11_print_single_sided {
     cd ..
   pwd
   mkdir -p bin/
-  mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
+  cp -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
 
@@ -174,7 +174,7 @@ function pdf_for_printing_and_binding {
     cd ..
   pwd
   mkdir -p bin/
-  mv -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
+  cp -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
 
   mv ${tex_file} ${tex_file}.log
 
@@ -270,7 +270,7 @@ function pandoc_preprocess {
   sed -i '' "/\\else/d" ${TEX_FILE_PATH}
   sed -i '' "/\\fi/d" ${TEX_FILE_PATH}
   sed -i '' "/\\boundbook/d" ${TEX_FILE_PATH}
-  sed -i '' -E "s/\\ifboundbook.*/%removed_ifboundbook/" ${TEX_FILE_PATH}
+  sed -i '' -E "s/\\ifboundbook{(.*)}{(.*)}/%removed_ifboundbook/" ${TEX_FILE_PATH}
 
   # DEPRECATED since I'm using toggles
   #sed -i '' "s/haspagenumberstrue/haspagenumbersfalse/" ${tex_file}
@@ -329,7 +329,7 @@ function epub_pandoc {
     cd ..
   pwd
   mkdir -p bin/
-  mv -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
+  cp -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 
   echo "[trace] inside epub_pandoc; end function"
@@ -501,7 +501,7 @@ EOF
   zip bureaucracy.epub -r *
   pwd
   mkdir -p ../bin/
-  mv -f bureaucracy.epub ../bin/bureaucracy_improved.epub
+  cp bureaucracy.epub ../bin/bureaucracy_improved.epub
   cd ..
   pwd
 }
