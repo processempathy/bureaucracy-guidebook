@@ -151,7 +151,11 @@ clean:
 	rm -rf TEMPORARY_*
 	rm -rf bin/*.pdf
 	rm -rf bin/*.epub
-	rm  cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv; rm -rf main-epub; rm -rf main/;
+	rm -rf bookcover/*.log
+	rm -rf bookcover/*.aux
+	rm -rf bookcover/main.pdf
+	rm -rf latex/main_*
+	cd latex; rm -f *.aux *.bbl *.blg *.glg *.glo *.gls *.ist *.log *.out *.toc *.html *.pdf *.epub *.xref *.tmp *.mt* *.ma* *.lg *.i* *.dvi *.css *.4* *.svg *.csv
 
 # the following commands are for use outside the Docker image
 
