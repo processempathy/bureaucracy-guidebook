@@ -102,7 +102,7 @@ function pdf_85x11_print_single_sided {
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
   sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
   sed -i '' "s/toggletrue{showbacktotoc}/togglefalse{showbacktotoc}/" ${tex_file}
-  sed -i '' "s/togglefalse{glossaryinmargin}/toggletrue{glossaryinmargin}/" ${tex_file}
+  sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
   sed -i '' "s/togglefalse{printedonpaper}/toggletrue{printedonpaper}/" ${tex_file}
   sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
   sed -i '' "s/toggletrue{WPinmargin}/togglefalse{WPinmargin}/" ${tex_file}
@@ -128,6 +128,48 @@ function pdf_85x11_print_single_sided {
   mv ${tex_file} ${tex_file}.log
 
   echo "[trace] inside pdf_85x11_print_single_sided; end function"
+
+}
+
+function pdf_85x11_print_double_sided {
+  echo "[trace] inside pdf_85x11_print_double_sided; start function"
+
+  pwd
+  filename="main_pdf_85x11_print_double_sided"
+  tex_file="latex/"${filename}".tex"
+  cp latex/main.tex ${tex_file}
+  sed -i '' "s/boundbooktrue/boundbookfalse/" ${tex_file}
+  sed -i '' "s/documentclass\[oneside\]{book}/documentclass[openright]{book}/" ${tex_file}
+  sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${tex_file}
+  sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${tex_file}
+  sed -i '' "s/togglefalse{glossarysubstitutionworks}/toggletrue{glossarysubstitutionworks}/" ${tex_file}
+  sed -i '' "s/toggletrue{showbacktotoc}/togglefalse{showbacktotoc}/" ${tex_file}
+  sed -i '' "s/toggletrue{glossaryinmargin}/togglefalse{glossaryinmargin}/" ${tex_file}
+  sed -i '' "s/togglefalse{printedonpaper}/toggletrue{printedonpaper}/" ${tex_file}
+  sed -i '' "s/toggletrue{showminitoc}/togglefalse{showminitoc}/" ${tex_file}
+  sed -i '' "s/toggletrue{WPinmargin}/togglefalse{WPinmargin}/" ${tex_file}
+  sed -i '' "s/toggletrue{cpforsection}/togglefalse{cpforsection}/" ${tex_file}
+  sed -i '' "s/colorlinks=false/colorlinks=true/" ${tex_file}  # remove the boxes around hyperlinks
+  sed -i '' "s/linkcolor=blue/linkcolor=black/" ${tex_file}
+  sed -i '' "s/citecolor=green/citecolor=black/" ${tex_file}
+  sed -i '' "s/filecolor=magenta/filecolor=black/" ${tex_file}
+  sed -i '' "s/urlcolor=cyan/urlcolor=black/" ${tex_file}
+  cd latex
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log1_${filename}.log
+    #sed -i -E 's/href +/href/' ${filename}.idx # for https://github.com/processempathy/bureaucracy-guidebook/issues/16
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian makeglossaries ${filename} | tee log2_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian bibtex ${filename} | tee log3_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log4_${filename}.log
+    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdflatex -shell-escape ${filename} | tee log5_${filename}.log
+    pwd
+    cd ..
+  pwd
+  mkdir -p bin/
+  cp -f latex/${filename}.pdf bin/bureaucracy_${filename}.pdf
+
+  mv ${tex_file} ${tex_file}.log
+
+  echo "[trace] inside pdf_85x11_print_double_sided; end function"
 
 }
 
@@ -586,7 +628,9 @@ function all {
   pdf_85x11_electronic_single_sided
   echo "[trace] finished pdf_85x11_electronic_single_sided; calling pdf_85x11_print_single_sided"
   pdf_85x11_print_single_sided
-  echo "[trace] finished pdf_85x11_print_single_sided; calling pdf_for_printing_and_binding"
+  echo "[trace] finished pdf_85x11_print_single_sided; calling pdf_85x11_print_double_sided"
+  pdf_85x11_print_double_sided
+  echo "[trace] finished pdf_85x11_print_double_sided; calling pdf_for_printing_and_binding"
   pdf_for_printing_and_binding
   echo "[trace] finished pdf_for_printing_and_binding; calling bookcover"
   bookcover
@@ -611,6 +655,7 @@ case "$1" in
     all) "$@"; exit;;
     pdf_85x11_electronic_single_sided) "$@"; exit;;
     pdf_85x11_print_single_sided) "$@"; exit;;
+    pdf_85x11_print_double_sided) "$@"; exit;;
     pdf_for_printing_and_binding) "$@"; exit;;
     bookcover) "$@"; exit;;
     epub_pandoc) "$@"; exit;;
