@@ -246,7 +246,7 @@ Comparing different configurations of the model requires a metric.
 Task throughput (number of tasks completed per unit time) is a way to characterize the productivity of an organization. 
 
 
-\subsection*{Scenario: Everyone is an A1}
+\subsubsection*{Scenario: Everyone is an A1}
 
 Suppose every person in the organization is an A1 and every task is an A1.
 
@@ -278,7 +278,7 @@ The distribution of skills and specializations of people in an organization is s
 
 
 %\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration = coordination duration)\\with no social circle}
-\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0}
+\subsubsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0}
 
 The simplest non-trivial scenario occurs when not every member of an organization can do every task. For example, suppose  there are two specializations (A, B) and one skill level: 
 
@@ -324,7 +324,8 @@ When a person does not have all the specializations, then a task randomly assign
 
 \begin{figure}[H] % [!htb] %  https://tex.stackexchange.com/a/32605/235813
 \centering
-\includegraphics[width=1\textwidth]{images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.pdf}
+%\includegraphics[width=1\textwidth]{images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100_annotated.pdf}
+\includegraphics[width=1\textwidth]{images/z_flattened_annotation.pdf}
 \caption{Number of tasks completed by each person in an organization with six people over the course of 100 ticks, and each task duration is 1 tick. This diagram captures the distinction between being busy and being productive. Persons 3 and 5 both have the maximum throughput of tasks since they are unicorns. Person 4 has no throughput and only delegates tasks. Everyone is busy (no one is idle since coordination is an activity), but the level of productivity (tasks completed per time) varies.}
 %Rather than count tasks per tick during steady-state, here we count the number of tasks completed in 100 ticks. }
 \label{fig:task-distribution-tasks-per-person}
@@ -393,6 +394,23 @@ When people in an organization are not unicorns (there are some tasks a person i
 Because the specialization of skills is too diverse for any one person to master everything. This is easy to understand when the organization is society. It would be faster for you to 
  inspect the meat you eat for food safety, monitor the emissions of the coal-fired power plant that powers your house, build the semiconductor chips you use, and manufacture the airplane you fly. However, you don't have all those skills and you want the results quicker than you can complete the tasks yourself. Therefore, the tasks are distributed among an organization of people with different skills. The cost of coordination is that the throughput is lower.
 
+\ \\
+
+When the number of people is held constant (e.g., 10), there is only 1 skill-level, the task duration is 1 tick, and the number of relevant speciaizations is increased, then the task throughput is unchanged. That may be surprising, but the cause is that the probability of a person having a specific skill or not is 50\%. As a consequence, the need for coordinating a task insensitive to the number of specializations.
+
+
+
+\begin{figure}[!htb] %  https://tex.stackexchange.com/a/32605/235813
+\centering
+\includegraphics[width=1\textwidth]{images/task_distribution_completed_versus_size_simCount50_skills2_levels1to12_taskduration1_people10_social0_ticks100.pdf}
+\caption{Task completion after 100 ticks versus number number of skill levels. Dividing the values on the y-axis by 100 yields throughput. 50 simulations were run for each skill-level, with number of people held constant at 10, task duration 1 tick, and number of specializations of 2. 
+As the number of skill-levels is increased the task throughput decreases due to more time spent finding a person with the necessary skills. 
+}
+\label{fig:task-distribution-completed-vs-size}
+\end{figure}
+
+In Figure~\ref{fig:task-distribution-completed-vs-size} the primary observation is that increasing the number of specialization levels decreases task throughput. 
+A separate trend is visible that starts when there are a small number (2 or 3) skill levels for the 2 specializations. When none of the 10 people have one of the highest skill-levels (in this configuration, A3 or B3) then a task requiring the highest skill-level results in the person can being able to find someone else to give the task to. When no person has the highest skill level task completion is low because eventually everyone ends up with a task they can't hand off to someone else. As the number of skill-levels is increased, reaching the situation where no member can hand off a task takes longer. 
 
 
 %\subsection*{Scenario: A1,B1 or A1,B0 or A0,B1 or A0,B0\\with (task duration = coordination duration)\\with social circle}
@@ -412,7 +430,6 @@ Because the specialization of skills is too diverse for any one person to master
 
 
 
-
 % TODO: https://en.wikipedia.org/wiki/Little%27s_law
 
 
@@ -427,15 +444,6 @@ Because the specialization of skills is too diverse for any one person to master
 
 %A person who is an A3 B3 c3 will have no contact list because there is no handoff needed. A person who is a0 b0 c0 will have a randomly populated contact list. A person who is A3B0C0 will have a contact list populated with people who have non-zero skills in B and C
 
-%\section{to investigate}
-
-%The minimum throughput is no unicorns. What is the spread?
-
-%Does the system reach steady state? 
-%Or do task backlogs grow unbounded?
-
-%What is the relevance of unicorns who can do every task well for throughput or minimum task completion time?
-%(Characterization) What is the density of unicorns?
 
 
 

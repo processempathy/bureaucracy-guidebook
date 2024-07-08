@@ -481,20 +481,13 @@ label="sec:work-distribution"></span></a>
 <li><a href="#assumptions-in-the-model-of-task-distribution"><span
 class="toc-section-number">11.1</span> Assumptions in the Model of Task
 Distribution</a></li>
-<li><a href="#examples-of-tasks-and-people"><span
-class="toc-section-number">11.2</span> Examples of Tasks and
-People</a></li>
-<li><a href="#configurations-of-the-task-distribution-model"><span
-class="toc-section-number">11.3</span> Configurations of the Task
-Distribution Model</a></li>
-<li><a href="#selection-of-tasks-is-complicated"><span
-class="toc-section-number">11.4</span> Selection of Tasks is
-Complicated</a></li>
-<li><a href="#what-to-do-about-too-many-tasks"><span
-class="toc-section-number">11.5</span> What to Do about Too Many
+<li><a href="#complexities-beyond-the-model"><span
+class="toc-section-number">11.2</span> Complexities Beyond the
+Model</a></li>
+<li><a href="#what-to-do-about-too-many-tasks">What to Do about Too Many
 Tasks</a></li>
 <li><a href="#software-implementation-of-the-simulation-model"><span
-class="toc-section-number">11.6</span> Software Implementation of the
+class="toc-section-number">11.3</span> Software Implementation of the
 Simulation Model</a></li>
 </ul></li>
 </ul>
@@ -7251,17 +7244,17 @@ id="fig:growth_of_bureaucracy" style="width:100.0%" />
 and workload increase. a: three technical workers (green dots); b:
 administrative functions are delegated to an administrative assistant or
 manager (blue square); c: as complexity and scale grow a new technical
-team (orange dots) is brought in which has their manager; d:
-administrative work is delegated to a dedicated team of non-technical
-staff (purple diamonds).</figcaption>
+team (orange dots) is brought in with their manager; d: administrative
+work is delegated to a dedicated team of non-technical staff (purple
+diamonds). </figcaption>
 </figure>
 <figure>
 <img src="images/growth-of-bureaucracy-plot.png"
 id="fig:growth_of_bureaucracy-plot" style="width:80.0%" />
 <figcaption aria-hidden="true">As the depth of a hierarchical
 organization increases, the ratio of workers to managers approaches an
-asymptotic value that depends on the number of workers per manager.
-</figcaption>
+asymptotic value that depends on the number of workers per manager. The
+"branching" parameter is number of workers per manager.</figcaption>
 </figure>
 <p>&nbsp;<br />
 <em>Hazard</em>: <strong>Each person in a bureaucracy has multiple
@@ -10976,7 +10969,7 @@ levels.</p></li>
 <li><p>Images should use both color contrast and distinct symbols; this
 is called redundant coding.</p></li>
 <li><p>Pick colors that are accessible for colorblind audiences. For
-example green and magenta is better than green and red.</p></li>
+example green and magenta are better than green and red.</p></li>
 <li><p>Making slides appear "professional" means adding
 non-informational content. This added content should be consistent, not
 distracting.</p></li>
@@ -12514,13 +12507,18 @@ thought ahead and prepared.</p>
 class="header-section-number">11</span> Coordination of Tasks Causes
 Slowdown<span id="sec:work-distribution"
 label="sec:work-distribution"></span></h1>
-<p>Bureaucracy is part of the explanation for patterns observed when
-people interact. A separate explanatory aspect is how tasks get
-distributed among members of an organization. These two aspects of
-participating in an organization are often confounded. This appendix
-describes a model of processes and tasks that involve coordination. The
-purpose of the model in this appendix is to distinguish aspects of an
-organization that are not attributable to bureaucracy.</p>
+<p>Distributed bureaucracy is part of the explanation for patterns
+observed when people coordinate. A separate explanatory factor is how
+tasks get distributed among members of an organization. These two
+aspects of participating in an organization are often confounded. This
+appendix describes a model of processes and tasks that involve only
+coordination. The purpose of the model in this appendix is to
+distinguish aspects of an organization that are not attributable to
+bureaucracy.</p>
+<p>This model shows that task coordination can cause the difference
+between being busy and being productive when coordination is activity.
+Another conclusion from the model is that the reward for being a capable
+contributor is more tasks.</p>
 <p>The model of task distribution in an organization is sufficiently
 detailed to illustrate commonly observed situations but is agnostic to
 the specific tasks or work roles. Improvements to the model intended to
@@ -12535,17 +12533,20 @@ the model and do not apply to the rest of the book:</p>
 <ul>
 <li><p><strong>Specialization</strong> refers to categories of ability.
 A person has a specialization. Completing a task requires a
-specialization. Examples of specialization include lifting boxes from
-the ground onto a shelf, writing a report summarizing an experiment,
-providing customer support, or creating a contract for a
-service.</p></li>
+specialization. Practical examples of specialization include lifting
+boxes from the ground onto a shelf, writing a report summarizing an
+experiment, providing customer support, or creating a contract for a
+service. In the model specializations are abstracted to distinct
+categories.</p></li>
 <li><p><strong>Skill-level</strong> is a ranking of proficiency for how
 work can be done for a task. If a task requires a skill-level higher
 than a person has, then that person is unable to complete the task.
-Examples of skill-levels include the ability to lift small boxes versus
-large boxes, a poorly written report versus a well-written report,
-mediocre customer support versus amazing customer support, and an
-acceptable contract versus a robust contract.</p></li>
+Practical examples of skill-levels include the ability to lift small
+boxes versus large boxes, a poorly written report versus a well-written
+report, mediocre customer support versus amazing customer support, and
+an acceptable contract versus a robust contract. As with specialization,
+in the model skill-levels are abstracted as discrete
+categories.</p></li>
 <li><p><strong>Person</strong>: a member of the organization, has
 specializations, has a skill-level per specialization, can receive
 tasks, and can engage with other people in the organization. In this
@@ -12576,7 +12577,7 @@ independent from other processes.</p></li>
 <li><p><strong>Coordination</strong> is the effort to find a person with
 the relevant specialization and skill-level for a task.</p></li>
 </ul>
-<p>In the model I'm using the word task instead of work. In Physics the
+<p>In the model the label task is used instead of work. In Physics the
 concept of work applies when there is a product that is tangible and
 countable. Making tacos takes work; whereas approving requests is a
 distinct concept because there is nothing tangible. For knowledge
@@ -12590,20 +12591,21 @@ per specialization.</p>
 <p>When a person is assigned a task they don't have the specialization
 for or lack enough skill-level in that specialization, then they have to
 find someone else in the organization who is capable of doing the task.
-In the model of tasks the random selection of someone else who has the
-necessary specialization and skill-level is insensitive to the size of
-their backlog. This reflects my experience in organizations where task
-backlogs are not visible. As a consequence, you merely add something to
-their backlog and hope they will get to it eventually.</p>
+The task is given to the first available randomly selected sufficiently
+qualified person, regardless of the size of their backlog. This is
+consistent with organizations for which each person's task backlog is
+not visible to coworkers. As a consequence, tasks are added to their
+backlog and they will get to the task eventually.</p>
 <p>The model relies on a process being a sequence of tasks. That might
-not be realistic when branching is part of a process (conditional
-branching or splitting). Real processes feature branching in two senses.
-The first sense of branching is the conditional logic: "if this else
-that." The second sense of branching is that a task is the initiation
-point of another process. In either of those two senses of branching the
-processes can be treated as independent sequences of tasks.</p>
-<p>The following lists simplifying assumptions -- what isn't in this
-numerical model of tasks:</p>
+not be realistic when branching is part of a process. Real processes
+feature type kinds of branching. The first kind of branching is
+conditional logic: "if this then something else that." The second kind
+of branching is when a task is the initiation point of multiple other
+processes. Regardless of which kind of branching is applicable in a
+situation, from the perspective of individual people involved a process
+can be treated as an independent sequence of tasks.</p>
+<p>The following simplifying assumptions are used in the model. The list
+of what isn't in the numerical model of tasks includes:</p>
 <ul>
 <li><p>There is nothing in the model about policies,
 decision-making&nbsp;<span class="citation" data-cites="2009_Klimek">(Klimek,
@@ -12636,9 +12638,7 @@ href="#sec:new-person" data-reference-type="ref"
 data-reference="sec:new-person">[sec:new-person]</a> for an accounting
 of new people in a process.</p></li>
 <li><p>No improvement of skill-level per person and no expansion of
-specializations. No training or learning happens. (Learning takes time
-and has a near-term decrease in throughput but sometimes has long-term
-benefit to the organization.)</p></li>
+specializations. No training or learning happens.</p></li>
 </ul>
 <p>The complexities above are not included in the model because the
 point of the model is to show what arises from simple constraints.</p>
@@ -12656,11 +12656,11 @@ members of the organization.</p></li>
 </ul>
 <p>Adding nuance for realism would increase the complexity of the model
 but is not expected to alter the conclusions.</p>
-<h2 data-number="11.2" id="examples-of-tasks-and-people"><span
-class="header-section-number">11.2</span> Examples of Tasks and
-People</h2>
+<h3 class="unnumbered" id="examples-of-tasks-and-people">Examples of
+Tasks and People</h3>
 <p>Suppose the model is configured to simulate three specializations (A,
-B, C) and three skill-levels (1, 2, 3).</p>
+B, C) and three skill-levels (1, 2, 3). A higher number for a
+skill-level indicates more skill.</p>
 <h3 class="unnumbered" id="example-people">Example People<span
 id="sec:example-people" label="sec:example-people"></span></h3>
 <p>A person with skill-level 3 in specialization A and skill-level 1 in
@@ -12916,15 +12916,16 @@ minutes.</p></li>
 <li><p>A person with skill-level 1 is unable to complete the
 task.</p></li>
 </ul>
-<h2 data-number="11.3"
-id="configurations-of-the-task-distribution-model"><span
-class="header-section-number">11.3</span> Configurations of the Task
-Distribution Model</h2>
+<p>In the rest of the discussion the time unit is referred to as a
+"tick" since the time scale for tasks is arbitrary.</p>
+<h3 class="unnumbered"
+id="configurations-of-the-task-distribution-model">Configurations of the
+Task Distribution Model</h3>
 <p>Comparing different configurations of the model requires a metric.
 Task throughput (number of tasks completed per unit time) is a way to
 characterize the productivity of an organization.</p>
-<h3 class="unnumbered" id="scenario-everyone-is-an-a1">Scenario:
-Everyone is an A1</h3>
+<h4 class="unnumbered" id="scenario-everyone-is-an-a1">Scenario:
+Everyone is an A1</h4>
 <p>Suppose every person in the organization is an A1 and every task is
 an A1.</p>
 <div class="center">
@@ -12955,14 +12956,21 @@ organization.</p></li>
 </ul>
 <p>These same conclusions hold for any configuration of an organization
 comprised exclusively of unicorns. The concept of every member being
-able to do any task is the approach advocated by <a
+able to do any task is the concept of <a
 href="https://en.wikipedia.org/wiki/Adhocracy">Adhocracy</a>. The
 feasibility of gathering people with relevant talents becomes
 challenging as the task complexity increases or increased throughput is
-needed. That is why organizations hire people who are not unicorns.</p>
-<h3 class="unnumbered"
+needed. That is part of why organizations hire people who are not
+unicorns.</p>
+<p>The distribution of skills and specializations of people in an
+organization is set by the hiring process. Hiring less qualified people
+is easier than finding highly skills people. Other motives for hiring
+non-unicorns include being able to pay non-unicorns less money,
+non-unicorns are easier to find, and the possibility of on-the-job
+training.</p>
+<h4 class="unnumbered"
 id="scenario-a1b1-or-a1b0-or-a0b1-or-a0b0">Scenario: A1,B1 or A1,B0 or
-A0,B1 or A0,B0</h3>
+A0,B1 or A0,B0</h4>
 <p>The simplest non-trivial scenario occurs when not every member of an
 organization can do every task. For example, suppose there are two
 specializations (A, B) and one skill level:</p>
@@ -13036,25 +13044,24 @@ specializations (A, B) and one skill level:</p>
 unicorn -- they can do any task. Whether you consider inclusion of A0,B0
 (a person who does no work and can only coordinate) to be relevant
 depends on your personal experience. Most organizations label these
-members as "managers."</p>
+members as "managers" because they are focused on task coordination.</p>
 <p>When a person does not have all the specializations, then a task
 randomly assigned to one person may need to be given to someone else in
-the organization. For example, a person qualified as A1 and given a B1
-task, that person needs to find a coworker who is either qualified as B1
-or A1,B1. Distributing tasks among members of the organization requires
-coordination.</p>
+the organization. For example, when a person qualified as A1 is given a
+B1 task, that person needs to find a coworker who is either qualified as
+B1 or A1,B1. Distributing tasks among members of the organization
+requires coordination.</p>
 <figure>
-<img
-src="images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
+<img src="images/z_flattened_annotation.png"
 id="fig:task-distribution-tasks-per-person" style="width:100.0%" />
 <figcaption aria-hidden="true">Number of tasks completed by each person
-in an organization with six people over the course of 100 ticks. This
-diagram captures the distinction between being busy and being
-productive. Persons 3 and 5 both have the maximum throughput of tasks
-since they are unicorns. Person 0 has no throughput and only delegates
-tasks. Everyone is busy (no one is idle since coordination is an
-activity), but the level of productivity (tasks completed per time)
-varies.</figcaption>
+in an organization with six people over the course of 100 ticks, and
+each task duration is 1 tick. This diagram captures the distinction
+between being busy and being productive. Persons 3 and 5 both have the
+maximum throughput of tasks since they are unicorns. Person 4 has no
+throughput and only delegates tasks. Everyone is busy (no one is idle
+since coordination is an activity), but the level of productivity (tasks
+completed per time) varies.</figcaption>
 </figure>
 <figure>
 <img
@@ -13084,11 +13091,11 @@ steady-state distribution emerges around 50 ticks. Person 3 and person 5
 are both unicorns and have similar task throughput. Person 4 does not
 appear in this figure because they completed no tasks.</figcaption>
 </figure>
-<p>The need for coordination can be blamed on the random delegation of
+<p>The need for coordination is due to the random initial delegation of
 tasks not being aligned to the specializations and skill-levels of the
-workers. The distribution of skills and specializations of people in an
-organization is set by the hiring process. Hiring less qualified people
-is easier than finding highly skills people.</p>
+workers. Alignment of tasks with the skills people have could be made
+systematic by introducing a person who's sole focus is assignment of
+tasks. That person would be the manager.</p>
 <div class="samepage">
 <p>Conclusions from this configuration of the model:</p>
 <ul>
@@ -13113,14 +13120,18 @@ data-cites="1975_brooks">(Brooks 1975)</span>.</p>
 <img
 src="images/task_distribution_completed_versus_size_simCount25_skills2_levels1_taskduration1_people2_social0_ticks100.png"
 id="fig:task-distribution-completed-vs-size" style="width:100.0%" />
-<figcaption aria-hidden="true">Task throughput after 100 ticks versus
-number of people in the organization. 25 simulations were run for each
-organization size. Adding people does increase throughput, but the
-variance of throughput increases due to dependence on the distribution
-of specializations and skill-levels of the participants. The instances
-where task completion is near zero occur when no members of the
-organization have enough skills to address tasks. That condition is less
-likely as the number of people increases. </figcaption>
+<figcaption aria-hidden="true">Task completion after 100 ticks versus
+number of people in the organization. Dividing the values on the y-axis
+by 100 yields throughput. 25 simulations were run for each organization
+size. Adding people does increase throughput, but the variance of
+throughput increases due to dependence on the distribution of
+specializations and skill-levels of the participants. With 10 people the
+average task throughput is between 5 and 6 tasks per tick even though
+each task takes one tick. The suboptimal throughput is due to time spent
+coordinating tasks. The instances where task completion is near zero
+occur when no members of the organization have enough skills to address
+tasks. That condition is less likely as the number of people increases.
+</figcaption>
 </figure>
 <p>When people in an organization are not unicorns (there are some tasks
 a person is unable to do), then the task throughput is lower. If an
@@ -13135,9 +13146,44 @@ airplane you fly. However, you don't have all those skills and you want
 the results quicker than you can complete the tasks yourself. Therefore,
 the tasks are distributed among an organization of people with different
 skills. The cost of coordination is that the throughput is lower.</p>
-<h2 data-number="11.4" id="selection-of-tasks-is-complicated"><span
-class="header-section-number">11.4</span> Selection of Tasks is
-Complicated</h2>
+<p>&nbsp;<br />
+When the number of people is held constant (e.g., 10), there is only 1
+skill-level, the task duration is 1 tick, and the number of relevant
+speciaizations is increased, then the task throughput is unchanged. That
+may be surprising, but the cause is that the probability of a person
+having a specific skill or not is 50%. As a consequence, the need for
+coordinating a task insensitive to the number of specializations.</p>
+<figure>
+<img
+src="images/task_distribution_completed_versus_size_simCount50_skills2_levels1to12_taskduration1_people10_social0_ticks100.png"
+id="fig:task-distribution-completed-vs-size" style="width:100.0%" />
+<figcaption aria-hidden="true">Task completion after 100 ticks versus
+number number of skill levels. Dividing the values on the y-axis by 100
+yields throughput. 50 simulations were run for each skill-level, with
+number of people held constant at 10, task duration 1 tick, and number
+of specializations of 2. As the number of skill-levels is increased the
+task throughput decreases due to more time spent finding a person with
+the necessary skills. </figcaption>
+</figure>
+<p>In Figure&nbsp;<a href="#fig:task-distribution-completed-vs-size"
+data-reference-type="ref"
+data-reference="fig:task-distribution-completed-vs-size">11.5</a> the
+primary observation is that increasing the number of specialization
+levels decreases task throughput. A separate trend is visible that
+starts when there are a small number (2 or 3) skill levels for the 2
+specializations. When none of the 10 people have one of the highest
+skill-levels (in this configuration, A3 or B3) then a task requiring the
+highest skill-level results in the person can being able to find someone
+else to give the task to. When no person has the highest skill level
+task completion is low because eventually everyone ends up with a task
+they can't hand off to someone else. As the number of skill-levels is
+increased, reaching the situation where no member can hand off a task
+takes longer.</p>
+<h2 data-number="11.2" id="complexities-beyond-the-model"><span
+class="header-section-number">11.2</span> Complexities Beyond the
+Model</h2>
+<h3 class="unnumbered" id="selection-of-tasks-is-complicated">Selection
+of Tasks is Complicated</h3>
 <p>An assumption in the model is that each person has a backlog of tasks
 they work on sequentially. If that assumption is violated and the person
 gets to choose their next task then negotiation and <a
@@ -13156,9 +13202,8 @@ depends on a few factors, like whether task switching is beneficial
 (e.g., break in the monotony, or waiting for something else) or
 detrimental (e.g., increased cognitive load, or decay of pershible
 result).</p>
-<h2 data-number="11.5" id="what-to-do-about-too-many-tasks"><span
-class="header-section-number">11.5</span> What to Do about Too Many
-Tasks</h2>
+<h2 class="unnumbered" id="what-to-do-about-too-many-tasks">What to Do
+about Too Many Tasks</h2>
 <p>Because unicorns can do any task, one way to improve throughput is to
 invest in training people. Training in the context of this model has the
 purpose of increased breadth (added specializations) or increased depth
@@ -13212,9 +13257,9 @@ For example, suppose you have three categories of tasks. You allocate
 10% of your time to the first category, 20% of your time to the second,
 and your remaining time to the third category.</p></li>
 </ul>
-<h2 data-number="11.6"
+<h2 data-number="11.3"
 id="software-implementation-of-the-simulation-model"><span
-class="header-section-number">11.6</span> Software Implementation of the
+class="header-section-number">11.3</span> Software Implementation of the
 Simulation Model</h2>
 <p>The model referenced in this Appendix is implemented in <a
 href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python&nbsp;3</a>.
