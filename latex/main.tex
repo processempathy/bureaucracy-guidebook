@@ -363,9 +363,10 @@ The Practical Guide for\\ Effective Bureaucrats}\\
 \tableofcontents\label{sec:toc}
 
 % 2022-07-11: Brian
-%\chapter*{Preface}% * excludes from TOC, but then also "Contents" appears at top of page in preface
+\chapter*{Preface}% * excludes from TOC, but then also "Contents" appears at top of page in preface
 %\chapter{Preface} % top of page has "PREFACE" and TOC has preface
-\section*{Preface}
+%\section*{Preface} % Top of page has "CONTENT" but no preface in TOC
+\markboth{Preface}{Preface} % as per https://tex.stackexchange.com/a/643931/235813
 \input{preface}%\clearpage
 %\thispagestyle{empty}
 
@@ -443,8 +444,8 @@ The Practical Guide for\\ Effective Bureaucrats}\\
     This chapter starts with the hiring and onboarding process, then focuses on your emotional state as a bureaucrat, and ends with how you can be effective. 
     % https://graphthinking.blogspot.com/2019/06/standard-issues-that-organization-must.html
     %Voluntary membership in a long-lasting organization implies a turnover rate. 
-    Even though you may join an organization once, due to both growth and turnover the organization has to consistently be adding new members. %just to maintain a constant level of membership.
-    Even with this constant ingest of new people an organization is distinct from the rest of society due to the differences in norms and goals. If an organization does not invest in onboarding new members, the norms of broader society will prevail. Littering, crime, pollution, scams, and fraud are usually aspects organizations try to constrain.
+    Even though you may join an organization once, organizations that are not shrinking have to add new members due to turnover and sometimes growing size.
+    Even with this ingest of new people an organization is distinct from the rest of society due to the differences in norms and goals. If an organization does not invest in onboarding new members, the norms of broader society will prevail. Littering, crime, pollution, scams, and fraud are usually aspects organizations try to constrain.
 
     %In section~\ref{sec:hiring} 
 The next section on \hyperref[sec:hiring]{hiring} %\iftoggle{haspagenumbers}{ (see page~\pageref{sec:hiring})}{}
