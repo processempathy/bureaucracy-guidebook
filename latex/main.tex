@@ -3,6 +3,11 @@
 \ifboundbook
 \documentclass[openright]{book} % for printing and binding
 
+% LaTeX uses \flushbottom for two-sided documents (book by default)
+% Odd pages and even pages are forced to be aligned.
+% source: https://tex.stackexchange.com/a/10747/235813
+
+
 % for tips on geometry arguments, see
 % https://texdoc.org/serve/geometry.pdf/0
 % 5.5" wide book has .6" separation between binding and text -- that's "left" or "inner"
@@ -63,13 +68,17 @@
 \usepackage{hyphenat} 
 
 
-\usepackage[font=small]{caption} % https://texdoc.org/serve/caption/0
-
+% \hyphenpenalty is the penalty for having hyphens appear in a line. This is set to 50 by default. As a consequence, TeX is going to try really hard to keep you down to no more than 4 hyphens per paragraph.
+% source: https://tex.stackexchange.com/a/603634/235813
 
 % https://tug.org/TUGboat/tb39-1/tb121wermuth-adem.pdf
 % the higher this value the less desirable it is for TEX to use this set of line breaks to typeset the paragraph.
 % \finalhyphendemerits is used in the last line if the penultimate line of the paragraph ends in a hyphen
 \finalhyphendemerits=100000000
+
+
+\usepackage[font=small]{caption} % https://texdoc.org/serve/caption/0
+
 
 % smaller font for marginpar 
 % to distinguish it from primary text content
