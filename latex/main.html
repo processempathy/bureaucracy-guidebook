@@ -486,10 +486,11 @@ Distribution</a></li>
 <li><a href="#complexities-beyond-the-model"><span
 class="toc-section-number">11.2</span> Complexities Beyond the
 Model</a></li>
-<li><a href="#what-to-do-about-too-many-tasks">What to Do about Too Many
+<li><a href="#what-to-do-about-too-many-tasks"><span
+class="toc-section-number">11.3</span> What to Do about Too Many
 Tasks</a></li>
 <li><a href="#software-implementation-of-the-simulation-model"><span
-class="toc-section-number">11.3</span> Software Implementation of the
+class="toc-section-number">11.4</span> Software Implementation of the
 Simulation Model</a></li>
 </ul></li>
 </ul>
@@ -10152,7 +10153,7 @@ meetings, so with 2 hours of meeting and 2 hours of email that's 25% of
 the organization's personnel budget on coordination.</p>
 <figure>
 <img src="images/email_costs_5minutes_4people.png"
-id="fig:email_pie_chart" style="width:110.0%" />
+id="fig:email_pie_chart" style="width:70.0%" />
 <figcaption aria-hidden="true">Breakdown of costs for one email when the
 writing took 5 minutes and there were 4 readers. This example assumes an
 hourly rate of $50 per person and a reading time of 2 minutes per
@@ -11643,7 +11644,7 @@ days of experience.</p>
 <figure>
 <img
 src="images/tenure_power_distribution_a5_with_max_tenure10_and_5_participants.png"
-id="fig:tenure-powerlaw-5-participants-tenure10" style="width:100.0%" />
+id="fig:tenure-powerlaw-5-participants-tenure10" style="width:70.0%" />
 <figcaption aria-hidden="true">For a population of 100 peole, the power
 law distribution of tenure using the <a
 href="https://en.wikipedia.org/wiki/Probability_density_function">probability
@@ -11676,7 +11677,7 @@ participant is 51 calendar days (37 business days).</p>
 median is reasonable for processes with five or more participants.</p>
 <figure>
 <img src="images/tenure_power_distribution_a5_with_max_tenure10.png"
-id="fig:tenure-powerlaw-5-participants" style="width:100.0%" />
+id="fig:tenure-powerlaw-5-participants" style="width:70.0%" />
 <figcaption aria-hidden="true">Median tenure of the youngest participant
 (in calendar days) as a function of the number of process participants
 with tenure following a <a
@@ -11696,7 +11697,7 @@ months.</p>
 <figure>
 <img
 src="images/tenure_uniform_distribution_with_max_tenure10_and_5_participants_median472.png"
-id="fig:tenure-uniform-5-participants" style="width:100.0%" />
+id="fig:tenure-uniform-5-participants" style="width:70.0%" />
 <figcaption aria-hidden="true">The median tenure of the youngest
 participant in a process with five people is 472 days when the
 distribution of tenure is uniform. The population size has been
@@ -12569,6 +12570,8 @@ data-acronym-label="bureaucrat"
 data-acronym-form="singular+short">bureaucrat</span> by applying <span
 data-acronym-label="process empathy"
 data-acronym-form="singular+short">process empathy</span>.</p>
+<p>&nbsp;<br />
+</p>
 <h2 class="unnumbered"
 id="two-paragraph-summary-of-this-book">Two-Paragraph Summary of This
 Book</h2>
@@ -12938,6 +12941,13 @@ Hanel, and Thurner 2009)</span>, shared resources, or subjects of
 bureaucracy. This model is included in a book about bureaucracy to show
 that not all patterns observed in an organization should be blamed on
 bureaucracy.</p></li>
+<li><p>Specializations are discrete. The justification is that there are
+tasks that one person see as infeasible and someone else sees as
+straightforward.</p></li>
+<li><p>Skill-levels are discrete. The justification is that there are
+tasks that are inaccessible to some skill-levels. For example, 10 high
+school students are unlikely to be able to complete a task that one PhD
+physicists can do.</p></li>
 <li><p>There's no hierarchy in the model. The model assumes people are
 cooperating in the organization. Unlike the rest of the book, this model
 does not use the distinction of organizations being comprised of
@@ -13243,9 +13253,8 @@ task.</p></li>
 </ul>
 <p>In the rest of the discussion the time unit is referred to as a
 "tick" since the time scale for tasks is arbitrary.</p>
-<h3 class="unnumbered"
-id="configurations-of-the-task-distribution-model">Configurations of the
-Task Distribution Model</h3>
+<h3 class="unnumbered" id="configurations-of-the-model">Configurations
+of the Model</h3>
 <p>Comparing different configurations of the model requires a metric.
 Task throughput (number of tasks completed per unit time) is a way to
 characterize the productivity of an organization.</p>
@@ -13377,8 +13386,9 @@ B1 task, that person needs to find a coworker who is either qualified as
 B1 or A1,B1. Distributing tasks among members of the organization
 requires coordination.</p>
 <figure>
-<img src="images/z_flattened_annotation.png"
-id="fig:task-distribution-tasks-per-person" style="width:100.0%" />
+<img
+src="images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100_annotated_flattened.png"
+id="fig:task-distribution-tasks-per-person" style="width:70.0%" />
 <figcaption aria-hidden="true">Number of tasks completed by each person
 in an organization with six people over the course of 100 ticks, and
 each task duration is 1 tick. This diagram captures the distinction
@@ -13391,7 +13401,7 @@ completed per time) varies.</figcaption>
 <figure>
 <img
 src="images/task_distribution_backlog_length_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
-id="fig:task-distribution-backlog-length" style="width:100.0%"
+id="fig:task-distribution-backlog-length" style="width:70.0%"
 alt="The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure&nbsp;11.1. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 and person 5 have longer backlogs because they are capable of doing any task." />
 <figcaption aria-hidden="true">The length of each person's backlog (for
 the same six people) as a function of time. This is the same simulation
@@ -13405,7 +13415,7 @@ because they are capable of doing any task.</figcaption>
 <figure>
 <img
 src="images/task_distribution_percent_of_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
-id="fig:task-distribution-percent-of-tasks" style="width:100.0%" />
+id="fig:task-distribution-percent-of-tasks" style="width:70.0%" />
 <figcaption aria-hidden="true">This is the same simulation as shown in
 Figures&nbsp;<a href="#fig:task-distribution-tasks-per-person"
 data-reference-type="ref"
@@ -13444,7 +13454,7 @@ data-cites="1975_brooks">(Brooks 1975)</span>.</p>
 <figure>
 <img
 src="images/task_distribution_completed_versus_size_simCount25_skills2_levels1_taskduration1_people2_social0_ticks100.png"
-id="fig:task-distribution-completed-vs-size" style="width:100.0%" />
+id="fig:task-distribution-completed-vs-size" style="width:70.0%" />
 <figcaption aria-hidden="true">Task completion after 100 ticks versus
 number of people in the organization. Dividing the values on the y-axis
 by 100 yields throughput. 25 simulations were run for each organization
@@ -13481,7 +13491,7 @@ coordinating a task insensitive to the number of specializations.</p>
 <figure>
 <img
 src="images/task_distribution_completed_versus_size_simCount50_skills2_levels1to12_taskduration1_people10_social0_ticks100.png"
-id="fig:task-distribution-completed-vs-size" style="width:100.0%" />
+id="fig:task-distribution-completed-vs-size" style="width:70.0%" />
 <figcaption aria-hidden="true">Task completion after 100 ticks versus
 number number of skill levels. Dividing the values on the y-axis by 100
 yields throughput. 50 simulations were run for each skill-level, with
@@ -13527,8 +13537,9 @@ depends on a few factors, like whether task switching is beneficial
 (e.g., break in the monotony, or waiting for something else) or
 detrimental (e.g., increased cognitive load, or decay of pershible
 result).</p>
-<h2 class="unnumbered" id="what-to-do-about-too-many-tasks">What to Do
-about Too Many Tasks</h2>
+<h2 data-number="11.3" id="what-to-do-about-too-many-tasks"><span
+class="header-section-number">11.3</span> What to Do about Too Many
+Tasks</h2>
 <p>Because unicorns can do any task, one way to improve throughput is to
 invest in training people. Training in the context of this model has the
 purpose of increased breadth (added specializations) or increased depth
@@ -13582,9 +13593,9 @@ For example, suppose you have three categories of tasks. You allocate
 10% of your time to the first category, 20% of your time to the second,
 and your remaining time to the third category.</p></li>
 </ul>
-<h2 data-number="11.3"
+<h2 data-number="11.4"
 id="software-implementation-of-the-simulation-model"><span
-class="header-section-number">11.3</span> Software Implementation of the
+class="header-section-number">11.4</span> Software Implementation of the
 Simulation Model</h2>
 <p>The model referenced in this Appendix is implemented in <a
 href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python&nbsp;3</a>.
