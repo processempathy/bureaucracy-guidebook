@@ -23,7 +23,7 @@ Blog posts:
 
 ```bash
 make docker_build
-./make.sh all
+now=`date`; ./make all; echo $now; date
 ```
 The .tex files are stored on Overleaf. 
 ```bash
