@@ -5,13 +5,12 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Ben Payne" />
+  <meta name="dcterms.date" content="2024-08-11" />
   <meta name="description" content="How to be an Effective Bureaucrat" />
   <title>Process Empathy: The Practical Guide for Effective Bureaucrats </title>
   <style>
     html {
-      line-height: 1.5;
       font-family: DejaVu Sans;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -30,10 +29,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -57,6 +62,10 @@
       color: #1a1a1a;
     }
     img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -83,9 +92,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -136,17 +146,32 @@
     #TOC li {
       list-style: none;
     }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
     #TOC a:not(:hover) {
       text-decoration: none;
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -183,7 +208,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -196,7 +221,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -208,11 +233,13 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
-    .hanging div.csl-entry {
+    .hanging-indent div.csl-entry {
       margin-left:2em;
       text-indent:-2em;
     }
@@ -226,14 +253,11 @@
     }
     div.csl-indent {
       margin-left: 2em;
-    }
-  </style>
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
@@ -241,255 +265,312 @@
 The Practical Guide for<br />
 Effective Bureaucrats</span><br /></h1>
 <p class="author">Ben Payne</p>
+<p class="date">2024-08-11</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#preface">Preface</a>
+<li><a href="#preface" id="toc-preface">Preface</a>
 <ul>
-<li><a href="#defining-bureaucracy">Defining Bureaucracy</a></li>
+<li><a href="#defining-bureaucracy"
+id="toc-defining-bureaucracy">Defining Bureaucracy</a></li>
 </ul></li>
-<li><a href="#introduction"><span class="toc-section-number">1</span>
-Introduction<span id="sec:introduction"
-label="sec:introduction"></span></a>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction<span
+id="sec:introduction" label="sec:introduction"></span></a>
 <ul>
-<li><a href="#process-empathy"><span
+<li><a href="#process-empathy" id="toc-process-empathy"><span
 class="toc-section-number">1.1</span> Process Empathy<span
 id="sec:process-empathy" label="sec:process-empathy"></span></a></li>
-<li><a href="#what-is-bureaucracy"><span
+<li><a href="#what-is-bureaucracy" id="toc-what-is-bureaucracy"><span
 class="toc-section-number">1.2</span> What is Bureaucracy?<span
 id="sec:define-bureaucracy"
 label="sec:define-bureaucracy"></span></a></li>
-<li><a href="#the-scope-of-bureaucracy"><span
+<li><a href="#the-scope-of-bureaucracy"
+id="toc-the-scope-of-bureaucracy"><span
 class="toc-section-number">1.3</span> The Scope of Bureaucracy</a></li>
-<li><a href="#fundamentals-of-bureaucracy"><span
+<li><a href="#fundamentals-of-bureaucracy"
+id="toc-fundamentals-of-bureaucracy"><span
 class="toc-section-number">1.4</span> Fundamentals of Bureaucracy<span
 id="sec:fundamentals-of-b"
 label="sec:fundamentals-of-b"></span></a></li>
-<li><a href="#history-of-bureaucracy"><span
+<li><a href="#history-of-bureaucracy"
+id="toc-history-of-bureaucracy"><span
 class="toc-section-number">1.5</span> History of Bureaucracy<span
 id="sec:history" label="sec:history"></span></a></li>
 </ul></li>
-<li><a href="#bureaucracy-in-general"><span
+<li><a href="#bureaucracy-in-general"
+id="toc-bureaucracy-in-general"><span
 class="toc-section-number">2</span> Bureaucracy in General<span
 id="sec:bureaucracy-in-general"
 label="sec:bureaucracy-in-general"></span></a>
 <ul>
-<li><a href="#avoiding-bureaucracy-is-nearly-impossible"><span
+<li><a href="#avoiding-bureaucracy-is-nearly-impossible"
+id="toc-avoiding-bureaucracy-is-nearly-impossible"><span
 class="toc-section-number">2.1</span> Avoiding Bureaucracy is Nearly
 Impossible</a></li>
-<li><a href="#each-phase-of-life-involves-bureaucracy"><span
+<li><a href="#each-phase-of-life-involves-bureaucracy"
+id="toc-each-phase-of-life-involves-bureaucracy"><span
 class="toc-section-number">2.2</span> Each Phase of Life Involves
 Bureaucracy<span id="sec:phase-of-life"
 label="sec:phase-of-life"></span></a></li>
-<li><a href="#bureaucrats-view-of-their-organization"><span
+<li><a href="#bureaucrats-view-of-their-organization"
+id="toc-bureaucrats-view-of-their-organization"><span
 class="toc-section-number">2.3</span> Bureaucrat's View of Their
 Organization<span id="sec:alternative-views-from-within"
 label="sec:alternative-views-from-within"></span></a></li>
-<li><a href="#not-many-options-for-organizations"><span
+<li><a href="#not-many-options-for-organizations"
+id="toc-not-many-options-for-organizations"><span
 class="toc-section-number">2.4</span> Not Many Options for
 Organizations</a></li>
-<li><a href="#bureaucracy-as-accidental-legacy-or-essential"><span
+<li><a href="#bureaucracy-as-accidental-legacy-or-essential"
+id="toc-bureaucracy-as-accidental-legacy-or-essential"><span
 class="toc-section-number">2.5</span> Bureaucracy as Accidental, Legacy,
 or Essential<span id="sec:accidental"
 label="sec:accidental"></span></a></li>
-<li><a href="#bureaucratic-fallacies"><span
+<li><a href="#bureaucratic-fallacies"
+id="toc-bureaucratic-fallacies"><span
 class="toc-section-number">2.6</span> Bureaucratic Fallacies<span
 id="sec:fallacies" label="sec:fallacies"></span></a></li>
-<li><a href="#how-to-reduce-administrative-overhead"><span
+<li><a href="#how-to-reduce-administrative-overhead"
+id="toc-how-to-reduce-administrative-overhead"><span
 class="toc-section-number">2.7</span> How to Reduce Administrative
 Overhead<span id="sec:reducing-overhead"
 label="sec:reducing-overhead"></span></a></li>
-<li><a href="#an-effective-bureaucrat"><span
+<li><a href="#an-effective-bureaucrat"
+id="toc-an-effective-bureaucrat"><span
 class="toc-section-number">2.8</span> An Effective Bureaucrat<span
 id="sec:effective-bureaucrat"
 label="sec:effective-bureaucrat"></span></a></li>
 </ul></li>
-<li><a href="#why-bureaucracy-is-hard"><span
+<li><a href="#why-bureaucracy-is-hard"
+id="toc-why-bureaucracy-is-hard"><span
 class="toc-section-number">3</span> Why Bureaucracy is Hard<span
 id="sec:why-bur-hard" label="sec:why-bur-hard"></span></a>
 <ul>
-<li><a href="#subjects-view-of-bureaucracy"><span
+<li><a href="#subjects-view-of-bureaucracy"
+id="toc-subjects-view-of-bureaucracy"><span
 class="toc-section-number">3.1</span> Subject's View of Bureaucracy<span
 id="sec:subjects-view" label="sec:subjects-view"></span></a></li>
-<li><a href="#identifying-opportunities-to-decide"><span
+<li><a href="#identifying-opportunities-to-decide"
+id="toc-identifying-opportunities-to-decide"><span
 class="toc-section-number">3.2</span> Identifying Opportunities to
 Decide<span id="sec:dilemma-trilemma"
 label="sec:dilemma-trilemma"></span></a></li>
-<li><a href="#unavoidable-hazards-of-bureaucracy"><span
+<li><a href="#unavoidable-hazards-of-bureaucracy"
+id="toc-unavoidable-hazards-of-bureaucracy"><span
 class="toc-section-number">3.3</span> Unavoidable Hazards of
 Bureaucracy<span id="sec:unavoidable-hazards"
 label="sec:unavoidable-hazards"></span></a></li>
 </ul></li>
-<li><a href="#you-are-an-individual-in-an-organization"><span
+<li><a href="#you-are-an-individual-in-an-organization"
+id="toc-you-are-an-individual-in-an-organization"><span
 class="toc-section-number">4</span> You are an Individual in an
 Organization<span id="sec:individual-in-org"
 label="sec:individual-in-org"></span></a>
 <ul>
-<li><a href="#hiring-into-a-bureaucracy"><span
+<li><a href="#hiring-into-a-bureaucracy"
+id="toc-hiring-into-a-bureaucracy"><span
 class="toc-section-number">4.1</span> Hiring into a Bureaucracy<span
 id="sec:hiring" label="sec:hiring"></span></a></li>
-<li><a href="#tips-for-getting-started"><span
+<li><a href="#tips-for-getting-started"
+id="toc-tips-for-getting-started"><span
 class="toc-section-number">4.2</span> Tips for Getting Started</a></li>
-<li><a href="#setting-your-emotional-state"><span
+<li><a href="#setting-your-emotional-state"
+id="toc-setting-your-emotional-state"><span
 class="toc-section-number">4.3</span> Setting Your Emotional
 State</a></li>
-<li><a href="#learning-from-failure"><span
+<li><a href="#learning-from-failure"
+id="toc-learning-from-failure"><span
 class="toc-section-number">4.4</span> Learning from Failure<span
 id="sec:learn-from-failure"
 label="sec:learn-from-failure"></span></a></li>
-<li><a href="#success-and-failure-in-your-organization"><span
+<li><a href="#success-and-failure-in-your-organization"
+id="toc-success-and-failure-in-your-organization"><span
 class="toc-section-number">4.5</span> Success (and Failure) in Your
 Organization<span id="sec:org-failure-and-success"
 label="sec:org-failure-and-success"></span></a></li>
-<li><a href="#promotion"><span class="toc-section-number">4.6</span>
-Promotion<span id="sec:promotion" label="sec:promotion"></span></a></li>
-<li><a href="#ideas-for-innovation-within-a-bureaucracy"><span
+<li><a href="#promotion" id="toc-promotion"><span
+class="toc-section-number">4.6</span> Promotion<span id="sec:promotion"
+label="sec:promotion"></span></a></li>
+<li><a href="#ideas-for-innovation-within-a-bureaucracy"
+id="toc-ideas-for-innovation-within-a-bureaucracy"><span
 class="toc-section-number">4.7</span> Ideas for Innovation within a
 Bureaucracy<span id="sec:innovation"
 label="sec:innovation"></span></a></li>
-<li><a href="#measuring-bureaucratic-maturity"><span
+<li><a href="#measuring-bureaucratic-maturity"
+id="toc-measuring-bureaucratic-maturity"><span
 class="toc-section-number">4.8</span> Measuring Bureaucratic
 Maturity</a></li>
 </ul></li>
-<li><a href="#working-with-other-bureaucrats"><span
+<li><a href="#working-with-other-bureaucrats"
+id="toc-working-with-other-bureaucrats"><span
 class="toc-section-number">5</span> Working with other Bureaucrats<span
 id="sec:working-with-other-bureaucrats"
 label="sec:working-with-other-bureaucrats"></span></a>
 <ul>
-<li><a href="#motives-of-bureaucrats"><span
+<li><a href="#motives-of-bureaucrats"
+id="toc-motives-of-bureaucrats"><span
 class="toc-section-number">5.1</span> Motives of Bureaucrats<span
 id="sec:motivations" label="sec:motivations"></span></a></li>
-<li><a href="#bureaucratic-tropes"><span
+<li><a href="#bureaucratic-tropes" id="toc-bureaucratic-tropes"><span
 class="toc-section-number">5.2</span> Bureaucratic Tropes<span
 id="sec:tropes" label="sec:tropes"></span></a></li>
-<li><a href="#not-my-job-task-scope"><span
+<li><a href="#not-my-job-task-scope"
+id="toc-not-my-job-task-scope"><span
 class="toc-section-number">5.3</span> Not My Job: Task Scope</a></li>
-<li><a href="#building-managing-and-spending-reputation"><span
+<li><a href="#building-managing-and-spending-reputation"
+id="toc-building-managing-and-spending-reputation"><span
 class="toc-section-number">5.4</span> Building, Managing, and Spending
 Reputation<span id="sec:reputation"
 label="sec:reputation"></span></a></li>
-<li><a href="#intellectual-empathy"><span
+<li><a href="#intellectual-empathy" id="toc-intellectual-empathy"><span
 class="toc-section-number">5.5</span> Intellectual Empathy<span
 id="sec:intellectual-empathy"
 label="sec:intellectual-empathy"></span></a></li>
-<li><a href="#leveraging-expertise"><span
+<li><a href="#leveraging-expertise" id="toc-leveraging-expertise"><span
 class="toc-section-number">5.6</span> Leveraging Expertise<span
 id="sec:expertise" label="sec:expertise"></span></a></li>
-<li><a href="#does-anyone-want-to-volunteer"><span
+<li><a href="#does-anyone-want-to-volunteer"
+id="toc-does-anyone-want-to-volunteer"><span
 class="toc-section-number">5.7</span> Does Anyone Want to
 Volunteer?</a></li>
 </ul></li>
-<li><a href="#communication-within-a-bureaucracy"><span
+<li><a href="#communication-within-a-bureaucracy"
+id="toc-communication-within-a-bureaucracy"><span
 class="toc-section-number">6</span> Communication within a
 Bureaucracy<span id="sec:communication-within-bureaucracy"
 label="sec:communication-within-bureaucracy"></span></a>
 <ul>
-<li><a href="#communication-is-critical-for-bureaucracy"><span
+<li><a href="#communication-is-critical-for-bureaucracy"
+id="toc-communication-is-critical-for-bureaucracy"><span
 class="toc-section-number">6.1</span> Communication is Critical for
 Bureaucracy<span id="sec:critical-communication"
 label="sec:critical-communication"></span></a></li>
-<li><a href="#communication-reflects-and-shapes-your-thinking"><span
+<li><a href="#communication-reflects-and-shapes-your-thinking"
+id="toc-communication-reflects-and-shapes-your-thinking"><span
 class="toc-section-number">6.2</span> Communication Reflects and Shapes
 Your Thinking</a></li>
-<li><a href="#failure-to-communicate"><span
+<li><a href="#failure-to-communicate"
+id="toc-failure-to-communicate"><span
 class="toc-section-number">6.3</span> Failure to Communicate<span
 id="sec:failure-to-comm" label="sec:failure-to-comm"></span></a></li>
-<li><a href="#communication-preferences"><span
+<li><a href="#communication-preferences"
+id="toc-communication-preferences"><span
 class="toc-section-number">6.4</span> Communication Preferences<span
 id="sec:communication-preferences"
 label="sec:communication-preferences"></span></a></li>
-<li><a href="#communicating-a-professional-sense-of-vulnerability"><span
+<li><a href="#communicating-a-professional-sense-of-vulnerability"
+id="toc-communicating-a-professional-sense-of-vulnerability"><span
 class="toc-section-number">6.5</span> Communicating a Professional Sense
 of Vulnerability<span id="sec:professional-vulnerability"
 label="sec:professional-vulnerability"></span></a></li>
-<li><a href="#communication-tips"><span
+<li><a href="#communication-tips" id="toc-communication-tips"><span
 class="toc-section-number">6.6</span> Communication Tips</a></li>
-<li><a href="#effective-emails-and-reports"><span
+<li><a href="#effective-emails-and-reports"
+id="toc-effective-emails-and-reports"><span
 class="toc-section-number">6.7</span> Effective Emails and
 Reports</a></li>
-<li><a href="#meetings-are-bureaucratic"><span
+<li><a href="#meetings-are-bureaucratic"
+id="toc-meetings-are-bureaucratic"><span
 class="toc-section-number">6.8</span> Meetings are Bureaucratic<span
 id="sec:meetings" label="sec:meetings"></span></a></li>
 </ul></li>
-<li><a href="#bureaucratic-processes"><span
+<li><a href="#bureaucratic-processes"
+id="toc-bureaucratic-processes"><span
 class="toc-section-number">7</span> Bureaucratic Processes<span
 id="sec:process" label="sec:process"></span></a>
 <ul>
-<li><a href="#why-do-processes-exist"><span
+<li><a href="#why-do-processes-exist"
+id="toc-why-do-processes-exist"><span
 class="toc-section-number">7.1</span> Why do Processes Exist?<span
 id="sec:why-processes-exist"
 label="sec:why-processes-exist"></span></a></li>
-<li><a href="#riding-the-chaos"><span
+<li><a href="#riding-the-chaos" id="toc-riding-the-chaos"><span
 class="toc-section-number">7.2</span> Riding the Chaos<span
 id="sec:process-chaos" label="sec:process-chaos"></span></a></li>
-<li><a href="#processes-involve-a-person-new-to-the-process"><span
+<li><a href="#processes-involve-a-person-new-to-the-process"
+id="toc-processes-involve-a-person-new-to-the-process"><span
 class="toc-section-number">7.3</span> Processes Involve a Person New to
 the Process<span id="sec:new-person"
 label="sec:new-person"></span></a></li>
-<li><a href="#automating-processes"><span
+<li><a href="#automating-processes" id="toc-automating-processes"><span
 class="toc-section-number">7.4</span> Automating Processes<span
 id="sec:automating-processes"
 label="sec:automating-processes"></span></a></li>
-<li><a href="#exceptions-to-a-process"><span
+<li><a href="#exceptions-to-a-process"
+id="toc-exceptions-to-a-process"><span
 class="toc-section-number">7.5</span> Exceptions to a Process<span
 id="sec:exceptions-to-process"
 label="sec:exceptions-to-process"></span></a></li>
-<li><a href="#processes-involving-two-organizations"><span
+<li><a href="#processes-involving-two-organizations"
+id="toc-processes-involving-two-organizations"><span
 class="toc-section-number">7.6</span> Processes Involving Two
 Organizations<span id="sec:processes-two-organizations"
 label="sec:processes-two-organizations"></span></a></li>
-<li><a href="#process-mistakes"><span
+<li><a href="#process-mistakes" id="toc-process-mistakes"><span
 class="toc-section-number">7.7</span> Process Mistakes<span
 id="sec:process-mistakes" label="sec:process-mistakes"></span></a></li>
-<li><a href="#design-of-processes"><span
+<li><a href="#design-of-processes" id="toc-design-of-processes"><span
 class="toc-section-number">7.8</span> Design of Processes<span
 id="sec:design-of-processes"
 label="sec:design-of-processes"></span></a></li>
-<li><a href="#change-existing-processes"><span
+<li><a href="#change-existing-processes"
+id="toc-change-existing-processes"><span
 class="toc-section-number">7.9</span> Change Existing Processes<span
 id="sec:change-a-process" label="sec:change-a-process"></span></a></li>
 </ul></li>
-<li><a href="#attitude-of-an-effective-bureaucrat"><span
+<li><a href="#attitude-of-an-effective-bureaucrat"
+id="toc-attitude-of-an-effective-bureaucrat"><span
 class="toc-section-number">8</span> Attitude of an Effective
 Bureaucrat<span id="sec:last-chapter"
 label="sec:last-chapter"></span></a>
 <ul>
-<li><a href="#author-biography">Author Biography</a></li>
+<li><a href="#author-biography" id="toc-author-biography">Author
+Biography</a></li>
 </ul></li>
-<li><a href="#summaries-of-this-book"><span
+<li><a href="#summaries-of-this-book"
+id="toc-summaries-of-this-book"><span
 class="toc-section-number">9</span> Summaries of This Book</a>
 <ul>
-<li><a href="#one-sentence-summary-of-this-book">One Sentence Summary of
+<li><a href="#one-sentence-summary-of-this-book"
+id="toc-one-sentence-summary-of-this-book">One Sentence Summary of This
+Book</a></li>
+<li><a href="#two-paragraph-summary-of-this-book"
+id="toc-two-paragraph-summary-of-this-book">Two-Paragraph Summary of
 This Book</a></li>
-<li><a href="#two-paragraph-summary-of-this-book">Two-Paragraph Summary
-of This Book</a></li>
-<li><a href="#one-page-summary-of-this-book">One Page Summary of This
+<li><a href="#one-page-summary-of-this-book"
+id="toc-one-page-summary-of-this-book">One Page Summary of This
 Book</a></li>
 </ul></li>
-<li><a href="#interview-questions"><span
+<li><a href="#interview-questions" id="toc-interview-questions"><span
 class="toc-section-number">10</span> Interview Questions</a>
 <ul>
-<li><a href="#interviewing-a-candidate">Interviewing a
-Candidate</a></li>
-<li><a href="#moving-to-a-new-team">Moving to a New Team<span
-id="sec:moving-to-new-team"
+<li><a href="#interviewing-a-candidate"
+id="toc-interviewing-a-candidate">Interviewing a Candidate</a></li>
+<li><a href="#moving-to-a-new-team" id="toc-moving-to-a-new-team">Moving
+to a New Team<span id="sec:moving-to-new-team"
 label="sec:moving-to-new-team"></span></a></li>
 </ul></li>
-<li><a href="#coordination-of-tasks-causes-slowdown"><span
+<li><a href="#coordination-of-tasks-causes-slowdown"
+id="toc-coordination-of-tasks-causes-slowdown"><span
 class="toc-section-number">11</span> Coordination of Tasks Causes
 Slowdown<span id="sec:work-distribution"
 label="sec:work-distribution"></span></a>
 <ul>
-<li><a href="#assumptions-in-the-model-of-task-distribution"><span
+<li><a href="#assumptions-in-the-model-of-task-distribution"
+id="toc-assumptions-in-the-model-of-task-distribution"><span
 class="toc-section-number">11.1</span> Assumptions in the Model of Task
 Distribution</a></li>
-<li><a href="#complexities-beyond-the-model"><span
+<li><a href="#complexities-beyond-the-model"
+id="toc-complexities-beyond-the-model"><span
 class="toc-section-number">11.2</span> Complexities Beyond the
 Model</a></li>
-<li><a href="#what-to-do-about-too-many-tasks"><span
+<li><a href="#what-to-do-about-too-many-tasks"
+id="toc-what-to-do-about-too-many-tasks"><span
 class="toc-section-number">11.3</span> What to Do about Too Many
 Tasks</a></li>
-<li><a href="#software-implementation-of-the-simulation-model"><span
+<li><a href="#software-implementation-of-the-simulation-model"
+id="toc-software-implementation-of-the-simulation-model"><span
 class="toc-section-number">11.4</span> Software Implementation of the
 Simulation Model</a></li>
 </ul></li>
@@ -521,10 +602,10 @@ label="sec:toc"></span></p>
 <p>Bureaucracy is a consistent and pervasive challenge in our modern
 society. Even if you don't consider yourself a bureaucrat, you likely
 have direct experience with bureaucracy and are familiar with complaints
-about bureaucracy. Why does bureaucracy persist if the concept commonly
-understood to be negative?</p>
+about bureaucracy. Why does bureaucracy persist if the concept is
+commonly understood to be negative?</p>
 <p>Reasoning about bureaucracy is an accessible topic because you have
-personal experiences. A commonly held view is that the bureaucracies are
+personal experiences. A commonly held view is that bureaucracies are
 broken: participants are harmed and there is inequality. A
 counterargument is that the bureaucratic behavior observed is how the
 system was designed to work. There is a third argument: bureaucratic
@@ -570,21 +651,20 @@ policies through subjective decisions, typically in the context of
 managing access to a shared resource. Three roles are required: policy
 maker, bureaucrat, and subject.</p>
 </blockquote>
-<p>As an example of how the above definition is distinct from
-conventional definitions, <a href="#fn1" class="footnote-ref"
-id="fnref1" role="doc-noteref"><sup>1</sup></a> I view government as an
-instance of where bureaucracy occurs -- rather than equating government
-to bureaucracy. By the definition in this book, bureaucracy is not
-limited to governments. I use "organization" to encompass governments,
-corporations, non-profits, or any collection of people working together.
-As a consequence, many people are bureaucrats.</p>
 <p>The concepts and techniques in this book are derived from this
 definition. For example, in an organization comprised of bureaucrats
 typically no person knows everything and no person decides everything,
 so bureaucracy relies on distributed knowledge and distributed
-decision-making amongst people with distinct roles. For more exploration
-of this definition, see the section "<a
-href="#sec:define-bureaucracy">What is Bureaucracy?</a>"</p>
+decision-making amongst people with distinct roles.</p>
+<p>Conventional definitions <a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a> equate government to
+bureaucracy, but by the definition in this book bureaucracy is not
+limited to governments. Instead, government as an instance of where
+bureaucracy occurs. Therefore this book uses the word "organization" to
+encompass governments, corporations, non-profits, or any collection of
+people managing access to shared resources. As a consequence, many
+people are bureaucrats. For more exploration of this definition, see the
+section "<a href="#sec:define-bureaucracy">What is Bureaucracy?</a>"</p>
 <p>The framing of how you think about bureaucracy shapes what action you
 feel is relevant for changing your environment. Suppose your assumptions
 are wrong about how the system of bureaucracy works. Then you will be
@@ -639,7 +719,7 @@ potential improvements. Being an effective bureaucrat is important
 because bureaucracy can be a <a
 href="https://en.wikipedia.org/wiki/Force_multiplication">force
 multiplier</a> beyond what one person could achieve on their own.</p>
-<p>There are many bureaucrats because there are few alternatives to
+<p>Bureaucracy is pervasive because there are few alternatives to
 bureaucracy for a society constrained by finite resources. Gaining
 skills in navigating bureaucracy is helpful both for your happiness and
 the improved functioning of society. That may seem abstract and lofty,
@@ -720,9 +800,8 @@ bureaucracy.</p>
 honest and that other people are honest. I assume bureaucrats strive for
 fairness, though the definition of fairness may vary from bureaucrat to
 bureaucrat. The complexities of bureaucracy arise even with these
-simplifying assumptions. Guidance in this book on how to be an effective
-bureaucrat applies to bureaucracy that was intended to be helpful rather
-than malicious.</p>
+simplifying assumptions and setting aside the topics listed in the
+previous section.</p>
 <p>The approach in this book is to view bureaucracy from a few
 perspectives. The first is a conceptual view focused on the <a
 href="#sec:define-bureaucracy">definition of bureaucracy</a> in terms of
@@ -750,11 +829,10 @@ data-reference="sec:process">8</a>) independently.</p>
 <p>Reading this book front-to-back is the default option, but not
 required. The sequential presentation of topics hides the relations of
 topics in the book.</p>
-<figure>
-<img src="images/core_concepts_map.png" id="fig:core-concepts"
-style="width:100.0%" />
-<figcaption aria-hidden="true">Relation of the concepts related to
-bureaucracy discussed in this book.</figcaption>
+<figure id="fig:core-concepts">
+<img src="images/core_concepts_map.png" style="width:100.0%" />
+<figcaption>Relation of the concepts discussed in this
+book.</figcaption>
 </figure>
 <p>The freely available electronic versions of this book (including <a
 href="https://en.wikipedia.org/wiki/PDF">PDF</a>, <a
@@ -781,7 +859,7 @@ surprise when you encounter what would have been novel situations.</p>
 </p>
 <div class="flushright">
 <p>Ben Payne<br />
-<br />
+2024-08-11<br />
 United States of America<br />
 Earth</p>
 </div>
@@ -975,15 +1053,14 @@ government, the policy creator can be either a politician or a
 bureaucrat. In the context of a family, the primary caretaker usually
 sets policies. The assignment of roles to individual people is not fixed
 -- the assignment depends on the scenario.</p>
-<figure>
-<img src="images/family-father-mother-daughter-28725_1280_pixabay.png"
-id="fig:family-of-bureaucrats"
-alt="This family consists of a policymaker, a bureaucrat who enforces policies, and the subject of bureaucracy. Which person has which title depends on the situation. For example, if Mom says no dessert until after the daughter eats her peas, then Dad helps enforce that policy. The shared resource being managed is the dessert. " />
-<figcaption aria-hidden="true">This family consists of a policymaker, a
-bureaucrat who enforces policies, and the subject of bureaucracy. Which
-person has which title depends on the situation. For example, if Mom
-says no dessert until after the daughter eats her peas, then Dad helps
-enforce that policy. The shared resource being managed is the dessert.
+<figure id="fig:family-of-bureaucrats">
+<img
+src="images/family-father-mother-daughter-28725_1280_pixabay.png" />
+<figcaption>This family consists of a policymaker, a bureaucrat who
+enforces policies, and the subject of bureaucracy. Which person has
+which title depends on the situation. For example, if Mom says no
+dessert until after the daughter eats her peas, then Dad helps enforce
+that policy. The shared resource being managed is the dessert.
 </figcaption>
 </figure>
 <p>A crucial aspect of bureaucracy is the separation of roles:
@@ -1037,9 +1114,10 @@ impersonalize interactions, displacing the need for interpersonal
 relationships. This impersonalization is what enables the value of
 bureaucracy, while also causing a negative perception. As a subject
 engaging with a bureaucratic organization your relationships are
-supposed to be irrelevant -- you get access to the shared resource
-regardless. The rest of this book uses the label of bureaucrat in a
-neutral sense even though socially there is a negative connotation.</p>
+supposed to be irrelevant -- you get access (or don't) to the shared
+resource regardless. The rest of this book uses the label of bureaucrat
+in a neutral sense even though socially there is a negative
+connotation.</p>
 <p>A <span data-acronym-label="bureaucrat"
 data-acronym-form="singular+short">bureaucrat</span> subjectively
 interprets policies made by someone else and has discretionary
@@ -1091,19 +1169,19 @@ allocation of those resources.</p>
 <p>Bureaucracy is about delegation of control, communication,
 decision-making, coordination, and processes. A vital aspect of
 bureaucracy is that decisions are made humans.</p>
-<figure>
+<figure id="fig:am-I-a-bureaucrat">
 <img src="images/relation_between_shared_resource_and_bureaucarcy.png"
-id="fig:am-I-a-bureaucrat" style="width:105.0%" />
-<figcaption aria-hidden="true">This book focuses on bureaucracy but
-there are ways to manage access to shared resources that are not
-bureaucratic. This decision tree shows ways that are and are not
-bureaucratic. Start from the top, then evaluate the sequence of
-questions to determine which label applies to your situation. One
-endpoint on the left bottom is the <a
+style="width:105.0%" />
+<figcaption>This book focuses on bureaucracy but there are ways to
+manage access to shared resources that are not bureaucratic. This
+decision tree shows ways that are and are not bureaucratic. Start from
+the top, then evaluate the sequence of questions to determine which
+label applies to your situation. One endpoint on the bottom left
+(unregulated pollution) is an instance of the <a
 href="https://en.wikipedia.org/wiki/Tragedy_of_the_commons">tragedy of
 the commons</a> -- the case of a shared resource with no constraints on
-use. Then someone will try to get away with behavior that is harmful to
-the community of users. </figcaption>
+use. In that stuation someone will try to get away with behavior that is
+harmful to the community of users.</figcaption>
 </figure>
 <p>The consequence of subjectivity is that policies are negotiable.
 Bureaucrats rely on negotiation to adjust to nuanced circumstances not
@@ -1150,23 +1228,6 @@ power plant, monitors the flow of clean water, or treats sewage. A
 breakdown of those services is a <a
 href="https://en.wikipedia.org/wiki/Leaky_abstraction">leaky
 abstraction</a>: what was hidden becomes visible.</p>
-<p>&nbsp;<br />
-Bureaucracy arises when management of a shared resource is necessary.
-That resource can be external to the organization or internal to the
-organization. Examples of external shared resources include mail
-delivery for the <a
-href="https://en.wikipedia.org/wiki/United_States_Postal_Service">United
-States Postal Service</a>, public safety for the <a
-href="https://en.wikipedia.org/wiki/Federal_Bureau_of_Investigation">Federal
-Bureau of Investigation</a>, and the environment for the <a
-href="https://en.wikipedia.org/wiki/United_States_Environmental_Protection_Agency">Environmental
-Protection Agency</a>. The focus of this book is on resources internal
-to an organization. Intangible resources internal to a bureaucratic
-organization include attention, skill, and expertise. Those shared
-internal resources get quantified as time, money, and staffing. While
-talking about time and money and staffing are easy to make trade-offs
-with, keep in mind they are proxy measures for the central intangible
-resources like attention and expertise.</p>
 <h3 class="unnumbered"
 id="decentralized-bureaucracy-is-complicated">Decentralized Bureaucracy
 is Complicated</h3>
@@ -1181,9 +1242,9 @@ stories about the <a
 href="https://en.wikipedia.org/wiki/Chief_executive_officer">CEO</a> of
 a company are easier than capturing the thousands of interactions
 conducted by the many employees of that company. The vast majority of
-the work an organization does is coordinated and carried out by people
-other than the CEO. Most of what is known within an organization is
-known by people other than the CEO. Linear storytelling with a small
+the work done in an organization is coordinated and carried out by
+people other than the CEO. Most of what is known within an organization
+is known by people other than the CEO. Linear storytelling with a small
 number of main characters does not map well to the complexities of
 bureaucracy.</p>
 <p>&nbsp;<br />
@@ -1215,36 +1276,48 @@ recognize the systemic incentives driving a person's behavior, you are
 less likely to see the person as malicious or incompetent. You are also
 more likely to be able to negotiate with them and enact the changes that
 you seek.</p>
-<p>&nbsp;<br />
-The definition of bureaucracy in this book (managing access to shared
+<p>The definition of bureaucracy in this book (managing access to shared
 resources) is consistent with conventional perceptions of bureaucratic
-organizations. Examples of organizations considered bureaucratic
+organizations. That resource can be external to the organization or
+internal to the organization. Examples of external shared resources
 include:</p>
 <ul>
-<li><p>The <a href="https://www.epa.gov/">Environmental Protection
-Agency</a> manages access to bureaucrats who have expertise with
-environmental regulations governing water, air, workplace safety,
-etc.</p></li>
+<li><p>The <a
+href="https://en.wikipedia.org/wiki/United_States_Environmental_Protection_Agency">Environmental
+Protection Agency</a> (EPA) manages access to bureaucrats who have
+expertise with environmental regulations governing water, air, workplace
+safety, etc.</p></li>
+<li><p>Mail delivery by the <a
+href="https://en.wikipedia.org/wiki/United_States_Postal_Service">United
+States Postal Service</a>.</p></li>
+<li><p>Public safety for the <a
+href="https://en.wikipedia.org/wiki/Federal_Bureau_of_Investigation">Federal
+Bureau of Investigation</a> (FBI).</p></li>
 <li><p>The <a href="https://www.intelligence.gov/">United States
 Intelligence Community</a> manages access to bureaucrats who have
-expertise in collecting information from foreign adversaries.</p></li>
+expertise in collecting foreign intelligence.</p></li>
+<li><p>Bureaucrats in the <a href="https://www.fda.gov/">Food and Drug
+Administration</a> (FDA) use their expertise to regulate food safety to
+serve their community.</p></li>
+<li><p>Bureaucrats of the <a href="https://www.faa.gov/">Federal
+Aviation Administration</a> (FAA) have expertise on flight safety to
+protect their community.</p></li>
 <li><p>The information technology department in a large organization
 manages staff with expertise in repairing computers.</p></li>
-<li><p>Bureaucrats in the <a href="https://www.fda.gov/">Food and Drug
-Administration</a> use their expertise to regulate food safety to serve
-their community.</p></li>
-<li><p>Bureaucrats of the <a href="https://www.faa.gov/">Federal
-Aviation Administration</a> have expertise on flight safety to protect
-their community.</p></li>
 <li><p>The military manages the shared resource of bureaucrats with
 expertise in war-making.</p></li>
 </ul>
-<p>The bureaucracy of managing access to shared resources is reasonable
-but doesn't provide actionable insight to you, whether you are a
-practicing bureaucrat or subject. Bureaucracy is not a distant, faceless
-concept. Bureaucracy permeates your environment and is the basis for
-many interactions you have with other people. Actionable concepts are
-highlighted throughout this book in the margins.</p>
+<p>There are also resources internal to an organization like attention,
+skill, and expertise. Those shared internal resources get quantified as
+time, money, and staffing. While talking about trade-offs of time,
+money, and staffing are easy, keep in mind they are proxy measures for
+the central intangible resources like attention and expertise. The
+bureaucracy of managing access to shared resources is conceptually
+consistent but doesn't provide actionable insight to you, whether you
+are a practicing bureaucrat or subject. Bureaucracy is not a distant,
+faceless concept. Bureaucracy permeates your environment and is the
+basis for many interactions you have with other people. Actionable
+concepts are highlighted throughout this book in the margins.</p>
 <h3 class="unnumbered" id="who-is-a-bureaucrat">Who is a
 Bureaucrat?</h3>
 <p><em>A variety of roles and interactions provide conditions for
@@ -1280,7 +1353,7 @@ line and factory being the shared resource. Enforcement of quality
 standards is a subjective policy. The pacing of work is a negotiation
 with management that directly influences productivity and profits. The
 feedback loop for factory workers from profit generated by the product
-is weak and diffuse.</p>
+is typically weak and diffuse.</p>
 <p>Structured environments like sports featuring well-defined rules do
 not eliminate bureaucracy. Teammates use subjective policies on who to
 work with, how to best leverage their strengths, and when to exploit the
@@ -1311,8 +1384,7 @@ label="box:self-administered-exam"></span></p>
 </div>
 <p>See Figure&nbsp;<a href="#fig:am-I-a-bureaucrat" data-reference-type="ref"
 data-reference="fig:am-I-a-bureaucrat">1.2</a> for a more detailed
-evaluation.</p>
-<p>&nbsp;<br />
+evaluation. &nbsp;<br />
 Identifying yourself as a bureaucrat matters because the label informs
 the responsibilities of your role. The risk of not self-identifying as a
 bureaucrat is that you won't grasp how much control you have in enacting
@@ -1362,7 +1434,7 @@ happen.</p>
 Influencing Bureaucracy</h3>
 <p><em>The size of an organization and the complexity of managing access
 to shared resources drive the challenges of bureaucracy.</em></p>
-<p>Although bureaucracy can be present for a few as three people, and
+<p>Although bureaucracy can be present for as few as three people, and
 bureaucracy is often apparent in teams (e.g., 3 to 20 people), this book
 focuses on the situation of multiple teams comprising an organization.
 The size of an organization might be a few hundred people (above <a
@@ -1432,11 +1504,11 @@ label="sec:fundamentals-of-b"></span></h2>
 <p>There are four essential elements of bureaucracy: a shared resource
 and three roles (policymaker, bureaucrat, subject) inhabited by
 different people. These elements give rise to observable features that
-are commonly cited as being bureaucratic. I refer to these features as
-Fundamentals of Bureaucracy. This section outlines the critical roles of
-decision-making, hierarchy, communication in bureaucracy, and feedback
-loops. The list presented here is smaller than <a
-href="https://en.wikipedia.org/wiki/Bureaucracy%23Max_Weber">Max
+are commonly cited as being bureaucratic, but these aspects are referred
+to here as Fundamentals of Bureaucracy. This section outlines the
+critical roles of decision-making, hierarchy, communication in
+bureaucracy, and feedback loops. The list presented here is smaller than
+<a href="https://en.wikipedia.org/wiki/Bureaucracy%23Max_Weber">Max
 Weber</a>'s&nbsp;<span class="citation" data-cites="2015_Weber">(Weber
 2015)</span>.</p>
 <p><a href="#sec:decision-making">Decision-making</a> is central to
@@ -1445,9 +1517,9 @@ decision-making. The decision-making in bureaucracy is for the
 management of access to shared resources. In the definition of
 bureaucracy used in this book, "shared resources" refers to information,
 expertise, and tangible goods.</p>
-<p>When there are multiple people present coordination of
-decision-making is crucial to the management of shared resources. Who
-gets to make which decision is managed using a <a
+<p>Coordination of decision-making is crucial to the management of
+shared resources when there are multiple people participating. Who gets
+to make which decision is managed using a <a
 href="#sec:hierarchy-of-roles">hierarchy</a> of roles. While
 coordination can occur without hierarchy when there are a small number
 of people, typically an organization of people leads to both formal and
@@ -1473,16 +1545,15 @@ bureaucrat create ripples that other people feel. This is described in
 more detail in the section on <a
 href="#sec:feedback-loop-and-ripples">feedback loops and
 ripples</a>.</p>
-<p>&nbsp;<br />
-If you're not an academic researcher of bureaucracy, you might not want
-to think about hierarchy, collaboration, or coordination. Meetings and
-email are not your goal; you just want to do the tasks you are trained
-for. This attitude is consistent with your experience in school where
-you progressed by being graded as an individual student. Now that you
-are employed your job has pay, promotion, hiring/firing, and a title.
-School, and now employment, may seem focused on your abilities (instead
-of on the class you're in or the team you're a member of). While this
-attitude is common, it is not effective.</p>
+<p>If you're not an academic researcher of bureaucracy, you might not
+want to think about hierarchy, collaboration, or coordination. Meetings
+and email are not your goal; you just want to do the tasks you are
+trained for. This attitude is consistent with your experience in school
+where you progressed by being graded as an individual student. Now that
+you are employed your job has pay, promotion, hiring/firing, and a
+title. School, and now employment, may seem focused on your abilities
+(instead of on the class you're in or the team you're a member of).
+While this attitude is common, it is not effective.</p>
 <p>The following sections explain why the individualist mentality is
 ineffective when you are part of a system of distributed knowledge and
 distributed decision-making.</p>
@@ -1538,14 +1609,13 @@ efficiency and cost. See Figure&nbsp;<a href="#fig:pareto_frontier_cars"
 data-reference-type="ref"
 data-reference="fig:pareto_frontier_cars">1.3</a> for an example of the
 Pareto frontier.</p>
-<figure>
+<figure id="fig:pareto_frontier_cars">
 <img src="images/pareto_frontier_car_options.png"
-id="fig:pareto_frontier_cars" style="width:100.0%" />
-<figcaption aria-hidden="true">Four cars: L, M, N, and P. The buyer's
-goal is to spend less money (lower on the vertical axis) and get better
-fuel efficiency (right on the horizontal axis). Choices not on the
-frontier should be avoided, but that doesn't yield a single
-result.</figcaption>
+style="width:100.0%" />
+<figcaption>Four cars: L, M, N, and P. The buyer's goal is to spend less
+money (lower on the vertical axis) and get better fuel efficiency (right
+on the horizontal axis). Choices not on the frontier should be avoided,
+but that doesn't yield a single result.</figcaption>
 </figure>
 <p>Visualizing a Pareto frontier for two quantitative variables is easy,
 but typically decisions involve more factors. For example, evaluating
@@ -1612,8 +1682,8 @@ label is relevant, look for measurements and pre-registered actions.</p>
 outcome, there are many ways to gather evidence -- informal conversations
 with stakeholders, formal surveys, measuring aspects of the problem. The
 choice of information gathering is constrained by cost and time,
-producing incomplete picture of the options. Poor data collection with
-biased sampling produces biased results.</p>
+producing an incomplete picture of the options. Poor data collection
+with biased sampling produces biased results.</p>
 <p>Even with valid and representative data measurement, decision-makers
 can be led astray by poor modeling. A model may use inapplicable
 techniques or may have implementation bugs.</p>
@@ -1650,11 +1720,10 @@ made?" improves your emotional resilience when you encounter instances
 in your life. Building your Process Empathy involves thinking about how
 someone else might accomplish an activity. Consider what are all the
 possible ways, rather than merely identifying what is the best way.</p>
-<figure>
-<img src="images/magic8ball.png" id="fig:magic8ball"
-style="width:40.0%" />
-<figcaption aria-hidden="true">Magic 8 ball for decision-making. The
-least effective method of selecting an option.</figcaption>
+<figure id="fig:magic8ball">
+<img src="images/magic8ball.png" style="width:40.0%" />
+<figcaption>Magic 8 ball for decision-making. The least effective method
+of selecting an option.</figcaption>
 </figure>
 <h4 class="unnumbered"
 id="why-cost-benefit-analysis-models-are-not-used">Why cost-benefit
@@ -1662,9 +1731,9 @@ analysis models are not used</h4>
 <p>Applying quantitative models to decision-making may seem to be a
 valuable path to optimal outcomes. Improved decision-making that helps
 stakeholders seems attractive, but there are various reasons this
-approach is not taken. I outline the reasoning here not out of cynicism,
-but so that you can appropriately respond when confronted with arguments
-against <a
+approach is not taken. The reasoning is outlined here not out of
+cynicism, but so that you can appropriately respond when confronted with
+arguments against <a
 href="https://en.wikipedia.org/wiki/Cost%E2%80%93benefit_analysis">modeling
 costs and benefits</a>. Decreasing your surprise through the inoculation
 of exposure enables you to develop counterarguments.</p>
@@ -1674,10 +1743,10 @@ href="https://en.wikipedia.org/wiki/Opportunity_cost">opportunity
 cost</a> -- you have less time available to do "real work." Modeling
 every decision in detail is unrealistic, so triage is needed -- which
 decisions warrant what degree of investment in analysis. Practice
-designing models is expensive. A person inexperienced in modeling
-decisions will take longer and is more likely to create a bad model.
-Identifying relevant parameters for inclusion in a model is a learnable
-skill.</p>
+designing models and getting feedback on them is expensive. A person
+inexperienced in modeling decisions will take longer and is more likely
+to create a bad model. Identifying relevant parameters for inclusion in
+a model is a learnable skill.</p>
 <p>If a person has a bad experience with cost-benefit modeling, they may
 be less likely to try again with other decisions. Bad experiences can
 come from using incorrect data, missing a critical variable, picking the
@@ -1704,9 +1773,10 @@ law</a>.</p>
 <h4 class="unnumbered" id="decision-making-delay">Decision-Making
 Delay<span id="sec:decision-delay"
 label="sec:decision-delay"></span></h4>
-<p>From an outsider's view, what appears as "organizational inertia" is
-the delay of internal decision-making and the delay of dissemination.
-Delay comes from:</p>
+<p>Decisions are critical to bureaucracy, but that does not mean
+decisions are made quickly. From an outsider's view, what appears as
+"organizational inertia" is the delay of internal decision-making and
+the delay of dissemination. Delay comes from:</p>
 <ul>
 <li><p>Time used by each decision-maker to gather information, arrive at
 a decision, change processes, share their choice, and justify their
@@ -1719,16 +1789,12 @@ href="https://en.wikipedia.org/wiki/Analysis_paralysis">Analysis
 paralysis</a> due to insufficient information or too much information.
 Another source of paralysis is a lack of clarity about which framing is
 applicable.</p></li>
-<li><p>When other people who are needed to carry out the action push
-back, either in disagreement or seeking clarification. If the impact on
-profit doesn't exist or is indirect, then justification for action isn't
-quantitatively obvious. Therefore there's a higher burden for
-communication.</p></li>
+<li><p>When stakeholders push back, either in disagreement or seeking
+clarification.</p></li>
 </ul>
 <p>Regardless of the source, delays for decisions are frustrating for
-stakeholders -- both the decision-makers and the subjects. Your Process
-Empathy is built on understanding the reason for why delays are
-expected.</p>
+both decision-makers and subjects. Your Process Empathy is built on
+understanding the reasons for delays.</p>
 <h4 class="unnumbered"
 id="a-bureaucratic-decision-involves-many-decisions">A Bureaucratic
 Decision involves many Decisions</h4>
@@ -1764,11 +1830,11 @@ data-reference="table:dilemma-personal-gather-data-lots-vs-little">3.18</a>.</p>
 <p>If a bureaucrat relies on consulting an <a
 href="#sec:expertise">expert</a>, the decision-maker needs to be
 confident the expert is not straying outside their area of expertise.
-For example, I don't rely on a botanist to tell me how to change the oil
-in my car. Besides knowing their limitations, the expert should be clear
-about whether their input is a factual summary, a predictive assessment,
-or a value judgment. This complicates what you as a bureaucrat are
-interested in when deciding what's the best choice.</p>
+For example, don't rely on a botanist to explain how to change the oil
+in your car. Besides knowing their limitations, the expert should be
+clear about whether their input is a factual summary, a predictive
+assessment, or a value judgment. This complicates what you as a
+bureaucrat are interested in when deciding what's the best choice.</p>
 <h4 class="unnumbered" id="transparency-of-decision-making">Transparency
 of Decision-Making<span id="sec:transparency-of-decisions"
 label="sec:transparency-of-decisions"></span></h4>
@@ -1984,13 +2050,13 @@ in Amy, regardless of how Sue behaves. (See Figure&nbsp;<a
 href="#fig:subordinate_and_supervisor" data-reference-type="ref"
 data-reference="fig:subordinate_and_supervisor">1.5</a>.) Having
 responsibility for decisions also induces anxiety.</p>
-<figure>
+<figure id="fig:subordinate_and_supervisor">
 <img
 src="images/female_supervisor_standing_while_talking_to_seated_female_employee_typing_on_keyboard.png"
-id="fig:subordinate_and_supervisor" style="width:60.0%" />
-<figcaption aria-hidden="true">Sue and Amy discuss a work-related topic.
-The person with less perceived power can feel fear associated with loss
-of control.</figcaption>
+style="width:60.0%" />
+<figcaption>Sue and Amy discuss a work-related topic. The person with
+less perceived power can feel fear associated with loss of
+control.</figcaption>
 </figure>
 <p>If Sue is aware of the potential for this emotional experience, Sue
 can compensate for Amy's fear by being friendly and receptive towards
@@ -2058,14 +2124,14 @@ we are now to that end goal. Coordinate as necessary.<br />
 intermediary steps? Milestones? Is it better to have no plans and just
 put out fires as a reaction, or to have a plan with contingencies that
 are subject to change?</p>
-<figure>
+<figure id="fig:meeting-to-discuss-coordination">
 <img
 src="images/confrontational_meeting_of_two_people_in_a_conference_room_both_are_seated.png"
-id="fig:meeting-to-discuss-coordination" style="width:60.0%" />
-<figcaption aria-hidden="true">Meeting to discuss the value of
-coordination. Face-to-face in-person meetings enable participants to
-convey non-verbal information like respect or curiosity through their
-posture, attentiveness, and level of distractedness.</figcaption>
+style="width:60.0%" />
+<figcaption>Meeting to discuss the value of coordination. Face-to-face
+in-person meetings enable participants to convey non-verbal information
+like respect or curiosity through their posture, attentiveness, and
+level of distractedness.</figcaption>
 </figure>
 <p>&nbsp;<br />
 <em>Anti-meeting view</em>: What is a plan anyways?<br />
@@ -2336,13 +2402,13 @@ number</a> -- the number of human relationships you can maintain (about
 bureaucratic. Driving this increase is the support for more complex
 products and processes.</p>
 <div class="center">
-<figure>
+<figure id="fig:complexity_and_staff_growth">
 <img src="images/feedback_loop_complexity_and_staffing.png"
-id="fig:complexity_and_staff_growth" style="width:80.0%" />
-<figcaption aria-hidden="true">Increased complexity requires more
-staffing to enable specialization. More staff means more skills are
-available; under-utilized staff skills make room for more scope; more
-scope adds to complexity.</figcaption>
+style="width:80.0%" />
+<figcaption>Increased complexity requires more staffing to enable
+specialization. More staff means more skills are available;
+under-utilized staff skills make room for more scope; more scope adds to
+complexity.</figcaption>
 </figure>
 </div>
 <p>Extrapolation of trends is easy: the more interconnected the society
@@ -2512,11 +2578,11 @@ organization. An effective bureaucrat is more than just book-smart.</p>
 Service Bureaucracy<span id="bureaucracy-of-military"
 label="bureaucracy-of-military"></span></h3>
 <p>Somewhere between 13 percent&nbsp;<span class="citation"
-data-cites="2023_cbpp">(editors 2023)</span> and 20 percent&nbsp;<span
+data-cites="2023_cbpp">(Editor 2023)</span> and 20 percent&nbsp;<span
 class="citation" data-cites="2019_Koshgarian">(Koshgarian and Siddique
 2019)</span> of the United States federal budget is spent on military,
 and less than 0.5% of the United States population serves in the
-military&nbsp;<span class="citation" data-cites="2020_demo_mil_CFR">(editors
+military&nbsp;<span class="citation" data-cites="2020_demo_mil_CFR">(unknown
 2020)</span>. For those who serve, the military's rigid hierarchy and
 defined protocols are a distinct experience compared to school or work.
 Transitioning from military to civilian life can present a dissonance
@@ -2557,7 +2623,7 @@ Death<span id="sec:bureaucracy-of-death"
 label="sec:bureaucracy-of-death"></span></h3>
 <p>Medical care alters our life, so understandably a lot of money is
 spent on medical care: 25% of the federal budget in the United
-States&nbsp;<span class="citation" data-cites="2023_cbpp">(editors
+States&nbsp;<span class="citation" data-cites="2023_cbpp">(Editor
 2023)</span>. Understanding the bureaucracy of healthcare is outside the
 scope of this book, but your role in the bureaucracy is helpful to
 understand.</p>
@@ -4864,11 +4930,11 @@ decisions based on oversimplified assessment.</td>
 </table>
 </div>
 </div>
-<figure>
+<figure id="fig:data_collection_cost_uncertainty">
 <img src="images/cost_and_uncertainty_for_data_collection.png"
-id="fig:data_collection_cost_uncertainty" style="width:80.0%" />
-<figcaption aria-hidden="true">Collecting more data costs money and time
-and decreases uncertainty. See the Dilemma of Data Quantity&nbsp;(<a
+style="width:80.0%" />
+<figcaption>Collecting more data costs money and time and decreases
+uncertainty. See the Dilemma of Data Quantity&nbsp;(<a
 href="#table:dilemma-personal-gather-data-lots-vs-little"
 data-reference-type="ref"
 data-reference="table:dilemma-personal-gather-data-lots-vs-little">3.18</a>).
@@ -4955,10 +5021,10 @@ demoralizing, as can seeing your plans become moot.</p>
 both gathering data and planning. More time gathering data is less time
 planning. Similarly, the number of people available for data gathering
 and planning is bounded, and tasking people is a zero sum choice.</p>
-<figure>
+<figure id="fig:pareto_frontier">
 <img src="images/planning_and_data_gathering.png"
-id="fig:pareto_frontier" style="width:80.0%" />
-<figcaption aria-hidden="true">The trade-off of Planning (Dilemma&nbsp;<a
+style="width:80.0%" />
+<figcaption>The trade-off of Planning (Dilemma&nbsp;<a
 href="#table:dilemma-personal-planning-vs-iterate"
 data-reference-type="ref"
 data-reference="table:dilemma-personal-planning-vs-iterate">3.19</a>)
@@ -6500,10 +6566,10 @@ Inconsistent strategies and policies.</td>
 </table>
 </div>
 </div>
-<figure>
+<figure id="fig:central-vs-distributed">
 <img src="images/dilemma_centralization-vs-distributed.png"
-id="fig:central-vs-distributed" style="width:80.0%" />
-<figcaption aria-hidden="true">Dipole oscillation. See Dilemma&nbsp;<a
+style="width:80.0%" />
+<figcaption>Dipole oscillation. See Dilemma&nbsp;<a
 href="#table:dilemma-org-central-vs-distributed"
 data-reference-type="ref"
 data-reference="table:dilemma-org-central-vs-distributed">3.57</a>.
@@ -6574,14 +6640,13 @@ all customers.</td>
 </table>
 </div>
 </div>
-<figure>
+<figure id="fig:market-vs-monopoly">
 <img src="images/dilemma_market_vs_monopoly.png"
-id="fig:market-vs-monopoly" style="width:80.0%" />
-<figcaption aria-hidden="true">Dipole oscillation: solution A exists but
-doesn't meet my needs. Rather than tweak A, re-invent solution B. B
-mostly overlaps with A but has independent development and support. See
-also Dilemma&nbsp;<a href="#table:dilemma-org-market-vs-monopoly"
-data-reference-type="ref"
+style="width:80.0%" />
+<figcaption>Dipole oscillation: solution A exists but doesn't meet my
+needs. Rather than tweak A, re-invent solution B. B mostly overlaps with
+A but has independent development and support. See also Dilemma&nbsp;<a
+href="#table:dilemma-org-market-vs-monopoly" data-reference-type="ref"
 data-reference="table:dilemma-org-market-vs-monopoly">3.58</a>.</figcaption>
 </figure>
 <p>The <a href="#table:dilemma-org-market-vs-monopoly">Dilemma of
@@ -7073,12 +7138,11 @@ maintain.</p>
 building manager, an electrical substation operator, and an electrical
 grid operator.</p>
 <div class="center">
-<figure>
+<figure id="fig:toaster_oven">
 <img src="images/toaster_oven_in_office_kitchen.png"
-id="fig:toaster_oven" style="width:70.0%" />
-<figcaption aria-hidden="true">Toaster oven in the office kitchen. Each
-participant in the accounting process adds overhead to the
-baseline.</figcaption>
+style="width:70.0%" />
+<figcaption>Toaster oven in the office kitchen. Each participant in the
+accounting process adds overhead to the baseline.</figcaption>
 </figure>
 </div>
 <div class="mdframed">
@@ -7304,13 +7368,12 @@ data-acronym-form="singular+short">process empathy</span> means having a
 more detailed model that accounts for the cost of coordination and
 accounts for there being less time available than the na&#xEF;ve
 expectation.</p>
-<figure>
+<figure id="fig:hours_per_year">
 <img src="images/hours_per_activity_per_employed_year.png"
-id="fig:hours_per_year" style="width:90.0%"
-alt="Hours of "work" per year when accounting for the rest of life. Assumes five weeks of vacation, two days of sick leave, and eleven holidays." />
-<figcaption aria-hidden="true">Hours of "work" per year when accounting
-for the rest of life. Assumes five weeks of vacation, two days of sick
-leave, and eleven holidays.</figcaption>
+style="width:90.0%" />
+<figcaption>Hours of "work" per year when accounting for the rest of
+life. Assumes five weeks of vacation, two days of sick leave, and eleven
+holidays.</figcaption>
 </figure>
 <p>&nbsp;<br />
 </p>
@@ -7353,24 +7416,23 @@ hiring, facilities), the ratio is 6:13=0.46.</p>
 <p>Adding more people to a hierarchical organization results in
 diminishing returns for time spent on the central work since bureaucrats
 invest time maintaining the hierarchy and administrative processes.</p>
-<figure>
-<img src="images/growth-of-bureaucracy.png"
-id="fig:growth_of_bureaucracy" style="width:100.0%" />
-<figcaption aria-hidden="true">Growth of an organization as complexity
-and workload increase. a: three technical workers (green dots); b:
-administrative functions are delegated to an administrative assistant or
-manager (blue square); c: as complexity and scale grow a new technical
-team (orange dots) is brought in with their manager; d: administrative
-work is delegated to a dedicated team of non-technical staff (purple
-diamonds). </figcaption>
+<figure id="fig:growth_of_bureaucracy">
+<img src="images/growth-of-bureaucracy.png" style="width:100.0%" />
+<figcaption>Growth of an organization as complexity and workload
+increase. a: three technical workers (green dots); b: administrative
+functions are delegated to an administrative assistant or manager (blue
+square); c: as complexity and scale grow a new technical team (orange
+dots) is brought in with their manager; d: administrative work is
+delegated to a dedicated team of non-technical staff (purple diamonds).
+</figcaption>
 </figure>
-<figure>
+<figure id="fig:growth_of_bureaucracy-plot">
 <img src="images/growth-of-bureaucracy-plot.png"
-id="fig:growth_of_bureaucracy-plot" style="width:80.0%" />
-<figcaption aria-hidden="true">As the depth of a hierarchical
-organization increases, the ratio of workers to managers approaches an
-asymptotic value that depends on the number of workers per manager. The
-"branching" parameter is number of workers per manager.</figcaption>
+style="width:80.0%" />
+<figcaption>As the depth of a hierarchical organization increases, the
+ratio of workers to managers approaches an asymptotic value that depends
+on the number of workers per manager. The "branching" parameter is
+number of workers per manager.</figcaption>
 </figure>
 <p>&nbsp;<br />
 <em>Hazard</em>: <strong>Each person in a bureaucracy has multiple
@@ -7734,52 +7796,51 @@ data-reference-type="ref"
 data-reference="fig:org_chart_orientation_ceo-follows">4.4</a>), or the
 CEO at the center.<a href="#fn26" class="footnote-ref" id="fnref26"
 role="doc-noteref"><sup>26</sup></a></p>
+<figure id="fig:org_chart_orientation_ceo-at-top">
 <div class="center">
-<figure>
 <img src="images/org-chart-orientation-ceo-at-top.png"
-id="fig:org_chart_orientation_ceo-at-top" style="width:100.0%" />
-<figcaption aria-hidden="true">Standard orientation. The role with the
-most oversight and authority is at the top. Left-to-right ordering is
-usually intended to be irrelevant in this view, though reading
-left-to-right order can implicitly emphasize relative
-importance.</figcaption>
-</figure>
+style="width:100.0%" />
 </div>
+<figcaption>Standard orientation. The role with the most oversight and
+authority is at the top. Left-to-right ordering is usually intended to
+be irrelevant in this view, though reading left-to-right order can
+implicitly emphasize relative importance.</figcaption>
+</figure>
+<figure id="fig:org_chart_orientation_ceo-at-bottom">
 <div class="center">
-<figure>
 <img src="images/org-chart-orientation-ceo-at-bottom.png"
-id="fig:org_chart_orientation_ceo-at-bottom" style="width:100.0%" />
-<figcaption aria-hidden="true">Flipping the orientation of Figure&nbsp;<a
+style="width:100.0%" />
+</div>
+<figcaption>Flipping the orientation of Figure&nbsp;<a
 href="#fig:org_chart_orientation_ceo-at-top" data-reference-type="ref"
 data-reference="fig:org_chart_orientation_ceo-at-top">4.1</a> presents a
 more realistic view of the CEO's responsibility. The crushing burden of
 servant leadership is clear. Left-to-right ordering is intended to be
 irrelevant in this view.</figcaption>
 </figure>
-</div>
+<figure id="fig:org_chart_orientation_ceo-leads">
 <div class="center">
-<figure>
 <img src="images/org-chart-orientation-ceo-leads.png"
-id="fig:org_chart_orientation_ceo-leads" style="width:70.0%" />
-<figcaption aria-hidden="true">Conventionally time flows from left (old)
-to right (new), so in this graph the CEO leads the charge into the
-unknown. Is the CEO dragging workers forward, or are the workers pushing
-the CEO? The top-to-bottom order may be implicitly read as importance
-even if that wasn't the intent. </figcaption>
-</figure>
+style="width:70.0%" />
 </div>
+<figcaption>Conventionally time flows from left (old) to right (new), so
+in this graph the CEO leads the charge into the unknown. Is the CEO
+dragging workers forward, or are the workers pushing the CEO? The
+top-to-bottom order may be implicitly read as importance even if that
+wasn't the intent. </figcaption>
+</figure>
+<figure id="fig:org_chart_orientation_ceo-follows">
 <div class="center">
-<figure>
 <img src="images/org-chart-orientation-workers-lead.png"
-id="fig:org_chart_orientation_ceo-follows" style="width:70.0%" />
-<figcaption aria-hidden="true">The "chariot view" with the CEO in the
-chariot and the workers out front. Workers are in the future; the CEO is
-in the past operating on old information. As with Figure&nbsp;<a
+style="width:70.0%" />
+</div>
+<figcaption>The "chariot view" with the CEO in the chariot and the
+workers out front. Workers are in the future; the CEO is in the past
+operating on old information. As with Figure&nbsp;<a
 href="#fig:org_chart_orientation_ceo-leads" data-reference-type="ref"
 data-reference="fig:org_chart_orientation_ceo-leads">4.3</a>,
 top-to-bottom ordering can be read as importance. </figcaption>
 </figure>
-</div>
 <p>In implicit conclusion from Figures&nbsp;<a
 href="#fig:org_chart_orientation_ceo-at-top" data-reference-type="ref"
 data-reference="fig:org_chart_orientation_ceo-at-top">4.1</a>, <a
@@ -7798,20 +7859,20 @@ data-reference="fig:org_chart_wedding_cake_manufacturing">4.5</a>
 provides yet another perspective informed by which team provides
 services to other teams. Which teams are the customers informs the
 relationship dynamics.</p>
+<figure id="fig:org_chart_wedding_cake_manufacturing">
 <div class="center">
-<figure>
 <img
 src="images/org_chart_wedding_cake_dependencies_-_manufacturing.png"
-id="fig:org_chart_wedding_cake_manufacturing" style="width:80.0%" />
-<figcaption aria-hidden="true">An internal-customer-oriented view rather
-than a reporting-oriented view. The center of the bullseye is the team
-that generates the value that is the focus of the business or the
+style="width:80.0%" />
+</div>
+<figcaption>An internal-customer-oriented view rather than a
+reporting-oriented view. The center of the bullseye is the team that
+generates the value that is the focus of the business or the
 organization, in this case a manufacturing company. Teams in the outer
 rings support teams in the inner rings. The diagram is specific to an
 organization's domain. This visualization identifies which teams are the
 customers of which other teams in an organization. </figcaption>
 </figure>
-</div>
 <h2 data-number="4.4" id="learning-from-failure"><span
 class="header-section-number">4.4</span> Learning from Failure<span
 id="sec:learn-from-failure" label="sec:learn-from-failure"></span></h2>
@@ -10132,11 +10193,12 @@ class="math display">\[\begin{gathered}
 of readers})+\\
 \frac{\text{annual salary of maintainer}}{\text{number of emails per
 year}} + \frac{\text{email server cost}}{\text{number of emails per
-year}}\end{gathered}\]</span> Plugging in some numbers, suppose an
-author charging $50 per hour spends 5 minutes writing an email to 4
-people. Each of those four people also charges $50 per hour and spends 2
-minutes on reading. <span class="math display">\[50*(5/60) + 50*(2/60)*4
-+ \frac{100000}{1000000} + \frac{10000}{1000000} = \$10.84
+year}}
+\end{gathered}\]</span> Plugging in some numbers, suppose an author
+charging $50 per hour spends 5 minutes writing an email to 4 people.
+Each of those four people also charges $50 per hour and spends 2 minutes
+on reading. <span class="math display">\[50*(5/60) + 50*(2/60)*4 +
+\frac{100000}{1000000} + \frac{10000}{1000000} = \$10.84
 \label{eq:four_readers}\]</span> The cost to the organization is more
 than $10 for one email! The breakdown of the three variables is shown in
 Figure&nbsp;<a href="#fig:email_pie_chart" data-reference-type="ref"
@@ -10150,14 +10212,14 @@ staffing is 50% of the organization's budget, then 12.5% of the
 organization's budget is spent on email. The same math for applies to
 meetings, so with 2 hours of meeting and 2 hours of email that's 25% of
 the organization's personnel budget on coordination.</p>
-<figure>
+<figure id="fig:email_pie_chart">
 <img src="images/email_costs_5minutes_4people.png"
-id="fig:email_pie_chart" style="width:70.0%" />
-<figcaption aria-hidden="true">Breakdown of costs for one email when the
-writing took 5 minutes and there were 4 readers. This example assumes an
-hourly rate of $50 per person and a reading time of 2 minutes per
-reader. There are three costs, but infrastructure is too small to see at
-0.1% of the costs.</figcaption>
+style="width:70.0%" />
+<figcaption>Breakdown of costs for one email when the writing took 5
+minutes and there were 4 readers. This example assumes an hourly rate of
+$50 per person and a reading time of 2 minutes per reader. There are
+three costs, but infrastructure is too small to see at 0.1% of the
+costs.</figcaption>
 </figure>
 <h3 class="unnumbered" id="logistics-of-sending-an-email">Logistics of
 Sending an Email<span id="sec:sending_email"
@@ -10334,13 +10396,11 @@ you're in if your team spans timezones, how long to wait for a response
 before asking again, which communication channel you prefer, etc. See
 Figure&nbsp;<a href="#fig:email_template" data-reference-type="ref"
 data-reference="fig:email_template">6.2</a>.</p>
-<figure>
-<img src="images/email_template.png" id="fig:email_template"
-style="width:100.0%" />
-<figcaption aria-hidden="true">Template for new email messages. The
-greeting has a space after the comma -- that is where the recipient's
-name will go. Signature block uses a smaller font size after the
-name.</figcaption>
+<figure id="fig:email_template">
+<img src="images/email_template.png" style="width:100.0%" />
+<figcaption>Template for new email messages. The greeting has a space
+after the comma -- that is where the recipient's name will go. Signature
+block uses a smaller font size after the name.</figcaption>
 </figure>
 <p>&nbsp;<br />
 </p>
@@ -10394,12 +10454,11 @@ how many of each type. Then, in the body of the message, number them.
 See Figure&nbsp;<a href="#fig:email_meeting_notes" data-reference-type="ref"
 data-reference="fig:email_meeting_notes">6.4</a>.</p>
 </div>
-<figure>
-<img src="images/email_two_questions.png" id="fig:email_two_questions"
-style="width:100.0%" />
-<figcaption aria-hidden="true">Distinct items the recipient should
-address in a reply. A good subject for this email would indicate there
-are two questions you are seeking answers for.</figcaption>
+<figure id="fig:email_two_questions">
+<img src="images/email_two_questions.png" style="width:100.0%" />
+<figcaption>Distinct items the recipient should address in a reply. A
+good subject for this email would indicate there are two questions you
+are seeking answers for.</figcaption>
 </figure>
 <p>&nbsp;<br />
 </p>
@@ -10408,14 +10467,12 @@ are two questions you are seeking answers for.</figcaption>
 action, separately highlight the action and indicate who is supposed to
 take the action and what the deadline for response is.</p>
 </div>
-<figure>
-<img src="images/email_meeting_notes.png" id="fig:email_meeting_notes"
-style="width:100.0%" />
-<figcaption aria-hidden="true">Who has what action due when? The meeting
-notes are for a particular instance of a recurring event, so YYYY-MM-DD
-is included in the subject. Process Empathy involves thinking ahead
-about how future readers will differentiate this message from
-others.</figcaption>
+<figure id="fig:email_meeting_notes">
+<img src="images/email_meeting_notes.png" style="width:100.0%" />
+<figcaption>Who has what action due when? The meeting notes are for a
+particular instance of a recurring event, so YYYY-MM-DD is included in
+the subject. Process Empathy involves thinking ahead about how future
+readers will differentiate this message from others.</figcaption>
 </figure>
 <p>&nbsp;<br />
 </p>
@@ -10426,13 +10483,12 @@ the narrative. See Figure&nbsp;<a href="#fig:email_computer_font"
 data-reference-type="ref"
 data-reference="fig:email_computer_font">6.5</a>.</p>
 </div>
-<figure>
-<img src="images/email_computer_font.png" id="fig:email_computer_font"
-style="width:100.0%" />
-<figcaption aria-hidden="true">The computer commands use fixed-width
-font. Input is distinguished from output using of bold and non-bold
-respectively. The error message is highlighted using red. Inline text
-like "cat" in the last line is also fixed width.</figcaption>
+<figure id="fig:email_computer_font">
+<img src="images/email_computer_font.png" style="width:100.0%" />
+<figcaption>The computer commands use fixed-width font. Input is
+distinguished from output using of bold and non-bold respectively. The
+error message is highlighted using red. Inline text like "cat" in the
+last line is also fixed width.</figcaption>
 </figure>
 <p>&nbsp;<br />
 </p>
@@ -10498,11 +10554,10 @@ be at the top of the thread. If replying to multiple points in the
 previous email, embed replies inline, mark the distinction, and
 highlight the authorship.</p>
 </div>
-<figure>
-<img src="images/email_reply.png" id="fig:email_reply"
-style="width:100.0%" />
-<figcaption aria-hidden="true">Bob's reply to Sue's questions. The third
-question is not shown in this illustration.</figcaption>
+<figure id="fig:email_reply">
+<img src="images/email_reply.png" style="width:100.0%" />
+<figcaption>Bob's reply to Sue's questions. The third question is not
+shown in this illustration.</figcaption>
 </figure>
 <p>&nbsp;<br />
 </p>
@@ -11480,16 +11535,16 @@ workforce. See Figure&nbsp;<a href="#fig:complexity-and-size"
 data-reference-type="ref"
 data-reference="fig:complexity-and-size">7.1</a> &nbsp; for a visualization
 of the trade-off.</p>
-<figure>
+<figure id="fig:complexity-and-size">
 <img src="images/people-per-task-for-skill-level.png"
-id="fig:complexity-and-size" style="width:90.0%" />
-<figcaption aria-hidden="true">A task that one smart person can do might
-take two people that are not as smart. This concept applies to any task
-size and any population of workers. In this diagram three levels of task
-complexity are shown. As task complexity increases, the size of the team
-needs to grow with intelligence held constant. The growth may be less if
-the team members are brilliant. Those brilliant people cost more and
-there are fewer of them available.</figcaption>
+style="width:90.0%" />
+<figcaption>A task that one smart person can do might take two people
+that are not as smart. This concept applies to any task size and any
+population of workers. In this diagram three levels of task complexity
+are shown. As task complexity increases, the size of the team needs to
+grow with intelligence held constant. The growth may be less if the team
+members are brilliant. Those brilliant people cost more and there are
+fewer of them available.</figcaption>
 </figure>
 <p>Applying a process allows dumb individuals to accomplish complicated
 things. The collective talent exceeds that of any individual. As a
@@ -11640,12 +11695,12 @@ class="citation" data-cites="2022_BLS_tenure">(Labor Statistics
 2022)</span>. With these conditions, if the process involves five people
 then the least experienced member will have a median of 100 calendar
 days of experience.</p>
-<figure>
+<figure id="fig:tenure-powerlaw-5-participants-tenure10">
 <img
 src="images/tenure_power_distribution_a5_with_max_tenure10_and_5_participants.png"
-id="fig:tenure-powerlaw-5-participants-tenure10" style="width:70.0%" />
-<figcaption aria-hidden="true">For a population of 100 peole, the power
-law distribution of tenure using the <a
+style="width:70.0%" />
+<figcaption>For a population of 100 peole, the power law distribution of
+tenure using the <a
 href="https://en.wikipedia.org/wiki/Probability_density_function">probability
 density function</a> described by <span class="math inline">\(a\
 x^{(a-1)}\)</span> where the free parameter <span
@@ -11674,12 +11729,12 @@ participant is 51 calendar days (37 business days).</p>
 </div>
 <p>If that last parameter is varied, the estimate of three months as the
 median is reasonable for processes with five or more participants.</p>
-<figure>
+<figure id="fig:tenure-powerlaw-5-participants">
 <img src="images/tenure_power_distribution_a5_with_max_tenure10.png"
-id="fig:tenure-powerlaw-5-participants" style="width:70.0%" />
-<figcaption aria-hidden="true">Median tenure of the youngest participant
-(in calendar days) as a function of the number of process participants
-with tenure following a <a
+style="width:70.0%" />
+<figcaption>Median tenure of the youngest participant (in calendar days)
+as a function of the number of process participants with tenure
+following a <a
 href="https://en.wikipedia.org/wiki/Probability_density_function">probability
 density function</a>, <span class="math inline">\(a=5\)</span>, and max
 tenure of ten years.</figcaption>
@@ -11693,14 +11748,13 @@ href="#fig:tenure-uniform-5-participants" data-reference-type="ref"
 data-reference="fig:tenure-uniform-5-participants">7.4</a>. The median
 tenure of the youngest member of a process with five participants is 15
 months.</p>
-<figure>
+<figure id="fig:tenure-uniform-5-participants">
 <img
 src="images/tenure_uniform_distribution_with_max_tenure10_and_5_participants_median472.png"
-id="fig:tenure-uniform-5-participants" style="width:70.0%" />
-<figcaption aria-hidden="true">The median tenure of the youngest
-participant in a process with five people is 472 days when the
-distribution of tenure is uniform. The population size has been
-normalized to 100 people.</figcaption>
+style="width:70.0%" />
+<figcaption>The median tenure of the youngest participant in a process
+with five people is 472 days when the distribution of tenure is uniform.
+The population size has been normalized to 100 people.</figcaption>
 </figure>
 <h2 data-number="7.4" id="automating-processes"><span
 class="header-section-number">7.4</span> Automating Processes<span
@@ -13005,7 +13059,7 @@ capabilities is the following table:</p>
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
-<th style="text-align: center;" colspan="3">Specializations</th>
+<th colspan="3" style="text-align: center;">Specializations</th>
 </tr>
 </thead>
 <tbody>
@@ -13048,7 +13102,7 @@ thing,</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td style="text-align: center;" colspan="3">Specializations</td>
+<td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
@@ -13057,21 +13111,27 @@ thing,</p>
 <td style="text-align: center;">C</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-4</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 </tbody>
@@ -13086,7 +13146,7 @@ skills</a>:</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td style="text-align: center;" colspan="3">Specializations</td>
+<td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
@@ -13095,21 +13155,27 @@ skills</a>:</p>
 <td style="text-align: center;">C</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-4</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 </tbody>
@@ -13123,7 +13189,7 @@ capable in multiple specializations.</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td style="text-align: center;" colspan="3">Specializations</td>
+<td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
@@ -13132,19 +13198,25 @@ capable in multiple specializations.</p>
 <td style="text-align: center;">C</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span>2-4</span> 3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13159,7 +13231,7 @@ capable in multiple specializations.</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td style="text-align: center;" colspan="3">Specializations</td>
+<td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
@@ -13168,22 +13240,28 @@ capable in multiple specializations.</p>
 <td style="text-align: center;">C</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-4</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
@@ -13196,7 +13274,7 @@ unicorns.</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td style="text-align: center;" colspan="3">Specializations</td>
+<td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
@@ -13205,19 +13283,25 @@ unicorns.</p>
 <td style="text-align: center;">C</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span>2-4</span> 3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13271,8 +13355,12 @@ an A1.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-2</span> 1</td>
 <td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-2</span></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
@@ -13318,8 +13406,13 @@ specializations (A, B) and one skill level:</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-3</span> 1</td>
 <td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-3</span></td>
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 </tbody>
@@ -13334,25 +13427,14 @@ specializations (A, B) and one skill level:</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-3</span> 1</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 </tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">A</th>
-<th style="text-align: center;">B</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
+<tr class="even">
+<td style="text-align: center;"><span>2-3</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
@@ -13366,7 +13448,33 @@ specializations (A, B) and one skill level:</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span>2-3</span> 1</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-3</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span>2-3</span> 1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span>2-3</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -13384,40 +13492,38 @@ the organization. For example, when a person qualified as A1 is given a
 B1 task, that person needs to find a coworker who is either qualified as
 B1 or A1,B1. Distributing tasks among members of the organization
 requires coordination.</p>
-<figure>
+<figure id="fig:task-distribution-tasks-per-person">
 <img
 src="images/task_distribution_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100_annotated_flattened.png"
-id="fig:task-distribution-tasks-per-person" style="width:70.0%" />
-<figcaption aria-hidden="true">Number of tasks completed by each person
-in an organization with six people over the course of 100 ticks, and
-each task duration is 1 tick. This diagram captures the distinction
-between being busy and being productive. Persons 3 and 5 both have the
-maximum throughput of tasks since they are unicorns. Person 4 has no
-throughput and only delegates tasks. Everyone is busy (no one is idle
-since coordination is an activity), but the level of productivity (tasks
-completed per time) varies.</figcaption>
+style="width:70.0%" />
+<figcaption>Number of tasks completed by each person in an organization
+with six people over the course of 100 ticks, and each task duration is
+1 tick. This diagram captures the distinction between being busy and
+being productive. Persons 3 and 5 both have the maximum throughput of
+tasks since they are unicorns. Person 4 has no throughput and only
+delegates tasks. Everyone is busy (no one is idle since coordination is
+an activity), but the level of productivity (tasks completed per time)
+varies.</figcaption>
 </figure>
-<figure>
+<figure id="fig:task-distribution-backlog-length">
 <img
 src="images/task_distribution_backlog_length_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
-id="fig:task-distribution-backlog-length" style="width:70.0%"
-alt="The length of each person's backlog (for the same six people) as a function of time. This is the same simulation as shown in Figure&nbsp;11.1. The backlog of person 4 is empty because they are always delegating and no one assigns them tasks. Person 3 and person 5 have longer backlogs because they are capable of doing any task." />
-<figcaption aria-hidden="true">The length of each person's backlog (for
-the same six people) as a function of time. This is the same simulation
-as shown in Figure&nbsp;<a href="#fig:task-distribution-tasks-per-person"
+style="width:70.0%" />
+<figcaption>The length of each person's backlog (for the same six
+people) as a function of time. This is the same simulation as shown in
+Figure&nbsp;<a href="#fig:task-distribution-tasks-per-person"
 data-reference-type="ref"
 data-reference="fig:task-distribution-tasks-per-person">11.1</a>. The
 backlog of person 4 is empty because they are always delegating and no
 one assigns them tasks. Person 3 and person 5 have longer backlogs
 because they are capable of doing any task.</figcaption>
 </figure>
-<figure>
+<figure id="fig:task-distribution-percent-of-tasks">
 <img
 src="images/task_distribution_percent_of_tasks_per_person_simCount1_skills2_levels1_taskduration1_people6_social0_ticks100.png"
-id="fig:task-distribution-percent-of-tasks" style="width:70.0%" />
-<figcaption aria-hidden="true">This is the same simulation as shown in
-Figures&nbsp;<a href="#fig:task-distribution-tasks-per-person"
-data-reference-type="ref"
+style="width:70.0%" />
+<figcaption>This is the same simulation as shown in Figures&nbsp;<a
+href="#fig:task-distribution-tasks-per-person" data-reference-type="ref"
 data-reference="fig:task-distribution-tasks-per-person">11.1</a> and&nbsp;<a
 href="#fig:task-distribution-backlog-length" data-reference-type="ref"
 data-reference="fig:task-distribution-backlog-length">11.2</a>. The
@@ -13450,21 +13556,21 @@ href="https://en.wikipedia.org/wiki/Fred_Brooks">Brooks</a> in his book
 href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month"><em>Mythical
 Man Month</em></a>&nbsp;<span class="citation"
 data-cites="1975_brooks">(Brooks 1975)</span>.</p>
-<figure>
+<figure id="fig:task-distribution-completed-vs-size">
 <img
 src="images/task_distribution_completed_versus_size_simCount25_skills2_levels1_taskduration1_people2_social0_ticks100.png"
-id="fig:task-distribution-completed-vs-size" style="width:70.0%" />
-<figcaption aria-hidden="true">Task completion after 100 ticks versus
-number of people in the organization. Dividing the values on the y-axis
-by 100 yields throughput. 25 simulations were run for each organization
-size. Adding people does increase throughput, but the variance of
-throughput increases due to dependence on the distribution of
-specializations and skill-levels of the participants. With 10 people the
-average task throughput is between 5 and 6 tasks per tick even though
-each task takes one tick. The suboptimal throughput is due to time spent
-coordinating tasks. The instances where task completion is near zero
-occur when no members of the organization have enough skills to address
-tasks. That condition is less likely as the number of people increases.
+style="width:70.0%" />
+<figcaption>Task completion after 100 ticks versus number of people in
+the organization. Dividing the values on the y-axis by 100 yields
+throughput. 25 simulations were run for each organization size. Adding
+people does increase throughput, but the variance of throughput
+increases due to dependence on the distribution of specializations and
+skill-levels of the participants. With 10 people the average task
+throughput is between 5 and 6 tasks per tick even though each task takes
+one tick. The suboptimal throughput is due to time spent coordinating
+tasks. The instances where task completion is near zero occur when no
+members of the organization have enough skills to address tasks. That
+condition is less likely as the number of people increases.
 </figcaption>
 </figure>
 <p>When people in an organization are not unicorns (there are some tasks
@@ -13487,15 +13593,15 @@ speciaizations is increased, then the task throughput is unchanged. That
 may be surprising, but the cause is that the probability of a person
 having a specific skill or not is 50%. As a consequence, the need for
 coordinating a task insensitive to the number of specializations.</p>
-<figure>
+<figure id="fig:task-distribution-completed-vs-size">
 <img
 src="images/task_distribution_completed_versus_size_simCount50_skills2_levels1to12_taskduration1_people10_social0_ticks100.png"
-id="fig:task-distribution-completed-vs-size" style="width:70.0%" />
-<figcaption aria-hidden="true">Task completion after 100 ticks versus
-number number of skill levels. Dividing the values on the y-axis by 100
-yields throughput. 50 simulations were run for each skill-level, with
-number of people held constant at 10, task duration 1 tick, and number
-of specializations of 2. As the number of skill-levels is increased the
+style="width:70.0%" />
+<figcaption>Task completion after 100 ticks versus number number of
+skill levels. Dividing the values on the y-axis by 100 yields
+throughput. 50 simulations were run for each skill-level, with number of
+people held constant at 10, task duration 1 tick, and number of
+specializations of 2. As the number of skill-levels is increased the
 task throughput decreases due to more time spent finding a person with
 the necessary skills. </figcaption>
 </figure>
@@ -13903,462 +14009,446 @@ data-linenos=""><pre class="sourceCode python"><code class="sourceCode python"><
 <span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> list_of_people, tasks_dict</span></code></pre></div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent"
-role="doc-bibliography">
-<div id="ref-1997_Adams" class="csl-entry" role="doc-biblioentry">
+data-entry-spacing="0" role="list">
+<div id="ref-1997_Adams" class="csl-entry" role="listitem">
 Adams, S. 1997. <em>The <span>Dilbert</span> Principle: A Cubicle's-Eye
 View of Bosses, Meetings, Management Fads and Other Workplace
 Afflictions</em>. Business. <a
 href="https://en.wikipedia.org/wiki/Dilbert_principle">https://en.wikipedia.org/wiki/Dilbert_principle</a>.
 </div>
-<div id="ref-2021_Ang" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2021_Ang" class="csl-entry" role="listitem">
 Ang, Y. Y. 2021. <em>China's Gilded Age</em>. Cambridge University
 Press.
 </div>
-<div id="ref-2012_Beresford" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2012_Beresford" class="csl-entry" role="listitem">
 Beresford, L. 2012. <span>"Ask-Tell-Ask: Simple Technique Can Help
 Hospitalists Communicate Difficult Messages."</span> <em>The
 Hospitalist</em>. <a
 href="https://www.the-hospitalist.org/hospitalist/article/125126/qi-initiatives/ask-tell-ask-simple-technique-can-help-hospitalists">https://www.the-hospitalist.org/hospitalist/article/125126/qi-initiatives/ask-tell-ask-simple-technique-can-help-hospitalists</a>.
 </div>
-<div id="ref-1975_brooks" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1975_brooks" class="csl-entry" role="listitem">
 Brooks, F. 1975. <em>The&nbsp;Mythical&nbsp;Man-Month</em>. Addison-Wesley. <a
 href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month">https://en.wikipedia.org/wiki/The_Mythical_Man-Month</a>.
 </div>
-<div id="ref-1986_brooks" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1986_brooks" class="csl-entry" role="listitem">
 &#x2014;&#x2014;&#x2014;. 1986. <span>"No Silver Bullet&#x2014;Essence and Accident in Software
 Engineering."</span> <em>IEEE Computer</em> 20 (4): 10--19. <a
 href="https://en.wikipedia.org/wiki/No_Silver_Bullet">https://en.wikipedia.org/wiki/No_Silver_Bullet</a>.
 </div>
-<div id="ref-2007_Burnham" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2007_Burnham" class="csl-entry" role="listitem">
 Burnham, T., and B. Hare. 2007. <span>"Engineering Human
 Cooperation."</span> <em>Human Nature</em> 18: 88--108.
 </div>
-<div id="ref-1929_Chesterton" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1929_Chesterton" class="csl-entry" role="listitem">
 Chesterton. 1929. <span>"The Drift from Domesticity."</span> In <em>The
 Thing</em>. S&amp;W. <a
 href="https://www.chesterton.org/taking-a-fence-down/">https://www.chesterton.org/taking-a-fence-down/</a>.
 </div>
-<div id="ref-1982_Cohen" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1982_Cohen" class="csl-entry" role="listitem">
 Cohen, H. 1982. <em>You Can Negotiate Anything</em>. Bantam. <a
 href="https://en.wikipedia.org/wiki/You_Can_Negotiate_Anything">https://en.wikipedia.org/wiki/You_Can_Negotiate_Anything</a>.
 </div>
-<div id="ref-1987_Daniels" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1987_Daniels" class="csl-entry" role="listitem">
 Daniels, A. K. 1987. <span>"Invisible Work."</span> <em>Social
 Problems</em> 34: 403--15. <a
 href="https://doi.org/10.2307/800538">https://doi.org/10.2307/800538</a>.
 </div>
-<div id="ref-1987_DeMarco" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1987_DeMarco" class="csl-entry" role="listitem">
 DeMarco, T., and T. Lister. 1987. <em>Peopleware</em>. Dorset House.
 </div>
-<div id="ref-2017_Duffy" class="csl-entry" role="doc-biblioentry">
-Duffy, J. 2017. personal communication.
+<div id="ref-2017_Duffy" class="csl-entry" role="listitem">
+Duffy, J. 2017. Personal communication.
 </div>
-<div id="ref-2020_demo_mil_CFR" class="csl-entry"
-role="doc-biblioentry">
-editors. 2020. <span>"Demographics of the <span>U.S.</span>
-<span>Military</span>."</span> Council on Foriegn Relations. <a
-href="https://www.cfr.org/backgrounder/demographics-us-military">https://www.cfr.org/backgrounder/demographics-us-military</a>.
-</div>
-<div id="ref-2023_cbpp" class="csl-entry" role="doc-biblioentry">
-&#x2014;&#x2014;&#x2014;. 2023. <span>"Policy Basics: Where Do Our Federal Tax Dollars
+<div id="ref-2023_cbpp" class="csl-entry" role="listitem">
+Editor. 2023. <span>"Policy Basics: Where Do Our Federal Tax Dollars
 Go?"</span> Center on Budget; Policy Priorities. <a
 href="https://www.cbpp.org/research/policy-basics-where-do-our-federal-tax-dollars-go">https://www.cbpp.org/research/policy-basics-where-do-our-federal-tax-dollars-go</a>.
 </div>
-<div id="ref-2014_ask_tell_ask" class="csl-entry"
-role="doc-biblioentry">
+<div id="ref-2014_ask_tell_ask" class="csl-entry" role="listitem">
 Excellence in Primary Care, UCSF Center for. 2014. <span>"The 10
 Building Blocks of Primary Care: <span>'<span>Ask</span>
 <span>Tell</span> <span>Ask</span>'</span> Sample Curriculum."</span>
 The Regents of the University of California. <a
 href="https://cepc.ucsf.edu/sites/cepc.ucsf.edu/files/Curriculum_sample_14-0602.pdf">https://cepc.ucsf.edu/sites/cepc.ucsf.edu/files/Curriculum_sample_14-0602.pdf</a>.
 </div>
-<div id="ref-1972_Joreen" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1972_Joreen" class="csl-entry" role="listitem">
 Freeman, J. 1972. <span>"Tyranny of Structurelessness."</span> none. <a
 href="https://www.jofreeman.com/joreen/tyranny.htm">https://www.jofreeman.com/joreen/tyranny.htm</a>.
 </div>
-<div id="ref-2002_Gall" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2002_Gall" class="csl-entry" role="listitem">
 Gall, J. 2002. <em>The Systems Bible</em>. General Systemantics Press.
 </div>
-<div id="ref-2015_Graeber_regulation" class="csl-entry"
-role="doc-biblioentry">
+<div id="ref-2015_Graeber_regulation" class="csl-entry" role="listitem">
 Graeber, D. 2015. <span>"In Regulation Nation."</span> <em>Harpers
 Magazine</em>. <a
 href="https://harpers.org/archive/2015/03/in-regulation-nation/">https://harpers.org/archive/2015/03/in-regulation-nation/</a>.
 </div>
-<div id="ref-1995_Grove" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1995_Grove" class="csl-entry" role="listitem">
 Grove, A. 1995. <em>High Output Management</em>. Vintage. <a
 href="https://www.goodreads.com/en/book/show/324750">https://www.goodreads.com/en/book/show/324750</a>.
 </div>
-<div id="ref-2005_Haley" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2005_Haley" class="csl-entry" role="listitem">
 Haley, K. J., and D. Fessler. 2005. <span>"Nobody's Watching?
 <span>S</span>ubtle Cues Affect Generosity in an Anonymous Dictator
 Game."</span> <em>Evolution and Human Behavior</em> 26: 245--256.
 </div>
-<div id="ref-1987_Herbert" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1987_Herbert" class="csl-entry" role="listitem">
 Herbert, F. 1987. <em>Heretics of Dune</em>. Penguin.
 </div>
-<div id="ref-2017_Hyrum" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2017_Hyrum" class="csl-entry" role="listitem">
 Hyrum. n.d. <span>"Hyrum's Law."</span> <a
 href="https://www.hyrumslaw.com/">https://www.hyrumslaw.com/</a>.
 </div>
-<div id="ref-2009_Jackall" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2009_Jackall" class="csl-entry" role="listitem">
 Jackall, R. 2009. <em>Moral Mazes: The World of Corporate Managers</em>.
 Oxford University Press. <a
 href="https://en.wikipedia.org/wiki/Moral_Mazes">https://en.wikipedia.org/wiki/Moral_Mazes</a>.
 </div>
-<div id="ref-2014_Jorgensen" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2014_Jorgensen" class="csl-entry" role="listitem">
 Jorgensen, H., O. Bruehl, and N. Franke. 2014. <span>"Making Change
 Work...while the Work Keeps Changing; How Change Architects Lead and
 Manage Organizational Change."</span> IBM. <a
 href="https://www.ibm.com/downloads/cas/WA3NR3NM">https://www.ibm.com/downloads/cas/WA3NR3NM</a>.
 </div>
-<div id="ref-2022_LifeKit" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2022_LifeKit" class="csl-entry" role="listitem">
 Kit, Life. 2022. <span>"How to Talk to Customer Service -- and Actually
 Get What You Want."</span> National Public Radio. <a
 href="https://www.npr.org/2022/03/16/1086915600/get-what-you-want-customer-service">https://www.npr.org/2022/03/16/1086915600/get-what-you-want-customer-service</a>.
 </div>
-<div id="ref-2009_Klimek" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2009_Klimek" class="csl-entry" role="listitem">
 Klimek, P., R. Hanel, and S. Thurner. 2009. <span>"To How Many
 Politicians Should Government Be Left?"</span> <em>Physica A:
 Statistical Mechanics and Its Applications</em> 388 (18): 3939--47. <a
 href="https://doi.org/10.1016/j.physa.2009.06.012">https://doi.org/10.1016/j.physa.2009.06.012</a>.
 </div>
-<div id="ref-1921_Kollontai" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1921_Kollontai" class="csl-entry" role="listitem">
 Kollontai, A. 1921. <span>"The Workers' Opposition."</span>
 <em>Pravda</em> 7.
 </div>
-<div id="ref-2019_Koshgarian" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2019_Koshgarian" class="csl-entry" role="listitem">
 Koshgarian, L., and A. Siddique. 2019. <span>"Where Your Tax Dollar Was
 Spent in 2018."</span> National Priorities Project at the Institute for
 Policy Studies. <a
 href="https://www.nationalpriorities.org/analysis/2019/tax-day-2019/where-your-tax-dollar-was-spent-2018/">https://www.nationalpriorities.org/analysis/2019/tax-day-2019/where-your-tax-dollar-was-spent-2018/</a>.
 </div>
-<div id="ref-2022_BLS_tenure" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2022_BLS_tenure" class="csl-entry" role="listitem">
 Labor Statistics, Bureau of. 2022. <span>"Employee Tenure in
 2022."</span> <span>U.S.</span> Department of Labor. <a
 href="https://www.bls.gov/news.release/pdf/tenure.pdf">https://www.bls.gov/news.release/pdf/tenure.pdf</a>.
 </div>
-<div id="ref-1959_Lindblom" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1959_Lindblom" class="csl-entry" role="listitem">
 Lindblom, C. 1959. <span>"The Science of Muddling Through."</span>
 <em>Public Administration Review</em> 19: 79--88.
 </div>
-<div id="ref-1983_Lipsky" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1983_Lipsky" class="csl-entry" role="listitem">
 Lipsky, M. 1983. <em>Street-Level Bureaucracy: The Dilemmas of the
 Individual in Public Service</em>. Russell Sage Foundation. <a
 href="https://www.goodreads.com/book/show/963761.Street_Level_Bureaucracy">https://www.goodreads.com/book/show/963761.Street_Level_Bureaucracy</a>.
 </div>
-<div id="ref-2013_Marquet" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2013_Marquet" class="csl-entry" role="listitem">
 Marquet, L. D. 2013. <em>Turn the Ship Around</em>. Portfolio.
 </div>
-<div id="ref-1979_McCarthy" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1979_McCarthy" class="csl-entry" role="listitem">
 McCarthy, E. 1979. <span>"People."</span> In <em>Time</em>, 67. Time. <a
 href="https://time.com/vault/issue/1979-02-12/page/83/">https://time.com/vault/issue/1979-02-12/page/83/</a>.
 </div>
-<div id="ref-2012_McGoey" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2012_McGoey" class="csl-entry" role="listitem">
 McGoey, L. 2012. <span>"The Logic of Strategic Ignorance."</span>
 <em>British Journal of Sociology</em> 63: 533--76. <a
 href="https://doi.org/10.1111/j.1468-4446.2012.01424.x">https://doi.org/10.1111/j.1468-4446.2012.01424.x</a>.
 </div>
-<div id="ref-2019_McGoey" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2019_McGoey" class="csl-entry" role="listitem">
 &#x2014;&#x2014;&#x2014;. 2019. <em>The Unknowers: How Strategic Ignorance Rules the
 World</em>. Zed Books.
 </div>
-<div id="ref-1966_Morison" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1966_Morison" class="csl-entry" role="listitem">
 Morison, E. E. 1966. <em>Men, Machines, and Modern Times</em>.
 Massachusetts Institute of Technology.
 </div>
-<div id="ref-1985_NASA" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1985_NASA" class="csl-entry" role="listitem">
 Mulligan, R. G. 1985. <span>"The Evolution of the NASA
 Organization."</span> National Aeronautics; Space Administration. <a
 href="https://history.nasa.gov/orgcharts/evol_org.pdf">https://history.nasa.gov/orgcharts/evol_org.pdf</a>.
 </div>
-<div id="ref-2009_Perr" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2009_Perr" class="csl-entry" role="listitem">
 Perr, J. 2009. <span>""<span>Unless</span> Otherwise Directed" in
 <span>Iraq</span>."</span> <em>Daily Kos</em>. <a
 href="https://www.dailykos.com/stories/2009/2/11/696188/-">https://www.dailykos.com/stories/2009/2/11/696188/-</a>.
 </div>
-<div id="ref-1970_Peter" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1970_Peter" class="csl-entry" role="listitem">
 Peter, L. J. 1970. <em>Peter Principle</em>. William Morrow; Company. <a
 href="https://en.wikipedia.org/wiki/Peter_principle">https://en.wikipedia.org/wiki/Peter_principle</a>.
 </div>
-<div id="ref-2009_Rao" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2009_Rao" class="csl-entry" role="listitem">
 Rao, V. 2009. <span>"The <span>Gervais</span> Principle, or the Office
 According to <span>The</span> <span>Office</span>."</span> <a
 href="https://www.ribbonfarm.com/2009/10/07/the-gervais-principle-or-the-office-according-to-the-office/">https://www.ribbonfarm.com/2009/10/07/the-gervais-principle-or-the-office-according-to-the-office/</a>.
 </div>
-<div id="ref-1943_Selznick" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1943_Selznick" class="csl-entry" role="listitem">
 Selznick, P. 1943. <span>"An Approach to a Theory of
 Bureaucracy."</span> <em>American Sociological Review</em> 8: 47--54. <a
 href="https://doi.org/10.2307/2085448">https://doi.org/10.2307/2085448</a>.
 </div>
-<div id="ref-2000_Sterman" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2000_Sterman" class="csl-entry" role="listitem">
 Sterman, J. 2000. <em>Business Dynamics: Systems Thinking and Modeling
 for a Complex World</em>. McGraw-Hill Education. <a
 href="https://web.mit.edu/jsterman/www/BusDyn2.html">https://web.mit.edu/jsterman/www/BusDyn2.html</a>.
 </div>
-<div id="ref-2016_Suchak" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2016_Suchak" class="csl-entry" role="listitem">
 Suchak, M., T. M. Eppley, M. W. Campbell, R. A. Feldman, L. F. Quarles,
 and F. B. M. de Waal. 2016. <span>"How Chimpanzees Cooperate in a
 Competitive World."</span> <em>Proceedings of the National Academy of
 Sciences</em> 113 (36): 10215--20. <a
 href="https://doi.org/10.1073/pnas.1611826113">https://doi.org/10.1073/pnas.1611826113</a>.
 </div>
-<div id="ref-1944_War_Dept" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1944_War_Dept" class="csl-entry" role="listitem">
 Unit, Strategic Services. 1944. <em>Simple Sabotage Field Manual</em>.
 United States War Department. <a
 href="https://en.wikisource.org/wiki/Simple_Sabotage_Field_Manual">https://en.wikisource.org/wiki/Simple_Sabotage_Field_Manual</a>.
 </div>
-<div id="ref-1996_unknown" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1996_unknown" class="csl-entry" role="listitem">
 unknown. 1996. <span>"The <span>BS</span> Attitudes: How Things Work in
 Bureaucracies."</span> 4. Vol. 15. Department of Defense. <a
 href="https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/cryptologic-quarterly/bs_attitudes.pdf">https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/cryptologic-quarterly/bs_attitudes.pdf</a>.
 </div>
-<div id="ref-2012_Valve" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2012_Valve" class="csl-entry" role="listitem">
 &#x2014;&#x2014;&#x2014;. 2012. <span>"Valve Handbook."</span> Valve; Valve Press. <a
 href="https://cdn.akamai.steamstatic.com/apps/valve/Valve_NewEmployeeHandbook.pdf">https://cdn.akamai.steamstatic.com/apps/valve/Valve_NewEmployeeHandbook.pdf</a>.
 </div>
-<div id="ref-2018_order_priority" class="csl-entry"
-role="doc-biblioentry">
+<div id="ref-2018_order_priority" class="csl-entry" role="listitem">
 &#x2014;&#x2014;&#x2014;. 2018. <span>"Physician Orders Priority."</span> <a
 href="http://docport.columbia-stmarys.org/EHR/PhysicianOrdersPriorityandDeptServiceHours.aspx">http://docport.columbia-stmarys.org/EHR/PhysicianOrdersPriorityandDeptServiceHours.aspx</a>.
 </div>
+<div id="ref-2020_demo_mil_CFR" class="csl-entry" role="listitem">
+&#x2014;&#x2014;&#x2014;. 2020. <span>"Demographics of the <span>U.S.</span>
+<span>Military</span>."</span> Council on Foriegn Relations. <a
+href="https://www.cfr.org/backgrounder/demographics-us-military">https://www.cfr.org/backgrounder/demographics-us-military</a>.
+</div>
 <div id="ref-2022_priority_definitions" class="csl-entry"
-role="doc-biblioentry">
+role="listitem">
 &#x2014;&#x2014;&#x2014;. 2022. <span>"Priority Definitions."</span> <a
 href="https://www.unitypoint.org/peoria/services-priority-definitions-and-critical-values.aspx">https://www.unitypoint.org/peoria/services-priority-definitions-and-critical-values.aspx</a>.
 </div>
-<div id="ref-2022_unknown" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2022_unknown" class="csl-entry" role="listitem">
 &#x2014;&#x2014;&#x2014;. n.d. <span>"Teaching Is a Slow Process of Becoming Everything You
 Hate."</span> <a
 href="https://dynomight.net/teaching/">https://dynomight.net/teaching/</a>.
 </div>
-<div id="ref-2015_Weber" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2015_Weber" class="csl-entry" role="listitem">
 Weber, M. 2015. <span>"Rationalism and Modern Society: New Translations
 on Politics, Bureaucracy, and Social Stratification."</span> In,
 translated by T. Waters and D. Waters, 73--128. Palgrave MacMillan. <a
 href="https://www.academia.edu/31803869/_Bureaucracy_by_Max_Weber_Translated_and_Edited_by_Tony_Waters_and_Dagmar_Waters">https://www.academia.edu/31803869/_Bureaucracy_by_Max_Weber_Translated_and_Edited_by_Tony_Waters_and_Dagmar_Waters</a>.
 </div>
-<div id="ref-1991_Wilson" class="csl-entry" role="doc-biblioentry">
+<div id="ref-1991_Wilson" class="csl-entry" role="listitem">
 Wilson, J. Q. 1991. <em>Bureaucracy: What Government Agencies Do and Why
 They Do It</em>. Basic Books. <a
 href="https://www.goodreads.com/book/show/62553.Bureaucracy">https://www.goodreads.com/book/show/62553.Bureaucracy</a>.
 </div>
-<div id="ref-2011_Yegge" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2011_Yegge" class="csl-entry" role="listitem">
 Yegge, S. 2011. <span>"Google Platforms Rant."</span> <a
 href="https://gist.github.com/bhpayne/49c8379a3ea880b7cc079fc8d32c87a7">https://gist.github.com/bhpayne/49c8379a3ea880b7cc079fc8d32c87a7</a>.
 </div>
-<div id="ref-2017_Zacka" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2017_Zacka" class="csl-entry" role="listitem">
 Zacka, B. 2017. <em>When the State Meets the Street: Public Service and
 Moral Agency</em>. Belknap Press.
 </div>
-<div id="ref-2019_Zhuo" class="csl-entry" role="doc-biblioentry">
+<div id="ref-2019_Zhuo" class="csl-entry" role="listitem">
 Zhuo, J. 2019. <em>Making of a Manager: What to Do When Everyone Looks
 to You</em>. Portfolio.
 </div>
 </div>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p><a
+<li id="fn1"><p><a
 href="https://www.merriam-webster.com/dictionary/bureaucracy">Merriam-Webster's
 definition</a> focuses on government; the <a
 href="https://en.wikipedia.org/wiki/Bureaucracy">Wikipedia entry</a>
 acknowledges non-governmental bureaucracy.<a href="#fnref1"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn2" role="doc-endnote"><p>"The only thing that saves us from
-the bureaucracy is inefficiency. An efficient bureaucracy is the
-greatest threat to liberty." (Eugene McCarthy, 1979&nbsp;<span
-class="citation" data-cites="1979_McCarthy">(McCarthy 1979)</span>)<a
-href="#fnref2" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn3" role="doc-endnote"><p>See the Wikipedia entry for <a
+<li id="fn2"><p>"The only thing that saves us from the bureaucracy is
+inefficiency. An efficient bureaucracy is the greatest threat to
+liberty." (Eugene McCarthy, 1979&nbsp;<span class="citation"
+data-cites="1979_McCarthy">(McCarthy 1979)</span>)<a href="#fnref2"
+class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn3"><p>See the Wikipedia entry for <a
 href="https://en.wikipedia.org/wiki/I_know_it_when_I_see_it">"I know it
 when I see it."</a><a href="#fnref3" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn4" role="doc-endnote"><p>"[Bureaucracy] is designed to take in
-and digest different pieces of information in far greater quantity than
-the human head alone can hold and produce from this mass of
-differentiated data, a useful synthesis."&nbsp;<span class="citation"
+<li id="fn4"><p>"[Bureaucracy] is designed to take in and digest
+different pieces of information in far greater quantity than the human
+head alone can hold and produce from this mass of differentiated data, a
+useful synthesis."&nbsp;<span class="citation"
 data-cites="1966_Morison">(Morison 1966)</span><a href="#fnref4"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn5" role="doc-endnote"><p>See Wikipedia's <a
+<li id="fn5"><p>See Wikipedia's <a
 href="https://en.wikipedia.org/wiki/List_of_largest_employers">list of
 largest employers</a>.<a href="#fnref5" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn6" role="doc-endnote"><p>The distinction of accidental and
-essential complexity is from Brook's "<a
+<li id="fn6"><p>The distinction of accidental and essential complexity
+is from Brook's "<a
 href="https://en.wikipedia.org/wiki/No_Silver_Bullet%23Summary"><em>No
 Silver Bullet</em></a>"&nbsp;<span class="citation"
 data-cites="1986_brooks">(Brooks 1986)</span>.<a href="#fnref6"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn7" role="doc-endnote"><p>The organization chart hasn't always
-existed. The <a
+<li id="fn7"><p>The organization chart hasn't always existed. The <a
 href="https://en.wikipedia.org/wiki/George_Holt_Henshaw%23First_organization_chart">first
 known org chart</a> was created in the 1850s.<a href="#fnref7"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn8" role="doc-endnote"><p>In Street-Level Bureaucracy&nbsp;<span
-class="citation" data-cites="1983_Lipsky">(Lipsky 1983)</span> Lipsky
-discusses feedback loops in chapter&nbsp;4 on page&nbsp;40.<a href="#fnref8"
-class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn9" role="doc-endnote"><p>See Wikipedia entry on <a
+<li id="fn8"><p>In Street-Level Bureaucracy&nbsp;<span class="citation"
+data-cites="1983_Lipsky">(Lipsky 1983)</span> Lipsky discusses feedback
+loops in chapter&nbsp;4 on page&nbsp;40.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn9"><p>See Wikipedia entry on <a
 href="https://en.wikipedia.org/wiki/Social_trap">social traps</a><a
 href="#fnref9" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn10" role="doc-endnote"><p>Government Revenue from the <a
+<li id="fn10"><p>Government Revenue from the <a
 href="https://datalab.usaspending.gov/americas-finance-guide/revenue/">U.S.
 Treasury Data Lab</a>, 2023.<a href="#fnref10" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn11" role="doc-endnote"><p>See the Wikipedia entry on <a
+<li id="fn11"><p>See the Wikipedia entry on <a
 href="https://en.wikipedia.org/wiki/Executive_Schedule">Executive
 Schedule</a>.<a href="#fnref11" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn12" role="doc-endnote"><p>See the Wikipedia entry on the <a
+<li id="fn12"><p>See the Wikipedia entry on the <a
 href="https://en.wikipedia.org/wiki/Bureaucracy%23History">history of
 bureaucracy</a>.<a href="#fnref12" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn13" role="doc-endnote"><p>See the YouTube video on the <a
+<li id="fn13"><p>See the YouTube video on the <a
 href="https://www.youtube.com/watch?v=B_nsZlcC12g">History of
 bureaucracy</a>.<a href="#fnref13" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn14" role="doc-endnote"><p>See the Wikipedia entry for the <a
+<li id="fn14"><p>See the Wikipedia entry for the <a
 href="https://en.wikipedia.org/wiki/Common_law_of_business_balance">Common
 law of business balance</a><a href="#fnref14" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn15" role="doc-endnote"><p>See Wikipedia entry on <a
+<li id="fn15"><p>See Wikipedia entry on <a
 href="https://en.wikipedia.org/wiki/Participative_decision-making_in_organizations">Participative
 decision-making in organizations</a>.<a href="#fnref15"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn16" role="doc-endnote"><p>See Wikipedia entry on <a
+<li id="fn16"><p>See Wikipedia entry on <a
 href="https://en.wikipedia.org/wiki/Deindividuation">Deindividuation</a>
 -- the loss of self-awareness in groups.<a href="#fnref16"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn17" role="doc-endnote"><p>For advice on navigating
-bureaucracy, listen to National Public Radio's <a
+<li id="fn17"><p>For advice on navigating bureaucracy, listen to
+National Public Radio's <a
 href="https://www.npr.org/2022/03/16/1086915600/get-what-you-want-customer-service">"How
 to Talk with Customer Service"</a>&nbsp;<span class="citation"
 data-cites="2022_LifeKit">(Kit 2022)</span>.<a href="#fnref17"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn18" role="doc-endnote"><p>The other category of error is error
-by commission -- you recognized the need to select among options but made
-the wrong decision.<a href="#fnref18" class="footnote-back"
+<li id="fn18"><p>The other category of error is error by commission --
+you recognized the need to select among options but made the wrong
+decision.<a href="#fnref18" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn19" role="doc-endnote"><p>For a rebuttal see Chapter 5 of <a
+<li id="fn19"><p>For a rebuttal see Chapter 5 of <a
 href="https://en.wikipedia.org/wiki/Peopleware:_Productive_Projects_and_Teams">Peopleware</a>
 by Demarco and Lister&nbsp;<span class="citation"
 data-cites="1987_DeMarco">(DeMarco and Lister 1987)</span>.<a
-href="#fnref19" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn20" role="doc-endnote"><p><a
+href="#fnref19" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn20"><p><a
 href="https://xkcd.com/1445/">https://xkcd.com/1445/</a> -- strategy A
 versus strategy B versus time spent analyzing which is more efficient.<a
-href="#fnref20" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn21" role="doc-endnote"><p>In Sterman's book <em>Business
-Dynamics</em>&nbsp;<span class="citation" data-cites="2000_Sterman">(Sterman
-2000)</span>, oscillations are attributed to negative feedback loops
-that feature delay (page 114). I agree with delay being a causal factor,
-but the human motives contribute to the explanation.<a href="#fnref21"
+href="#fnref20" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn21"><p>In Sterman's book <em>Business Dynamics</em>&nbsp;<span
+class="citation" data-cites="2000_Sterman">(Sterman 2000)</span>,
+oscillations are attributed to negative feedback loops that feature
+delay (page 114). I agree with delay being a causal factor, but the
+human motives contribute to the explanation.<a href="#fnref21"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn22" role="doc-endnote"><p>This is called "The Getaway Ploy"
-(page 145) in <em>Peopleware</em>&nbsp;<span class="citation"
+<li id="fn22"><p>This is called "The Getaway Ploy" (page 145) in
+<em>Peopleware</em>&nbsp;<span class="citation"
 data-cites="1987_DeMarco">(DeMarco and Lister 1987)</span>.<a
-href="#fnref22" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn23" role="doc-endnote"><p>See Wikipedia entry <a
+href="#fnref22" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn23"><p>See Wikipedia entry <a
 href="https://en.wikipedia.org/wiki/Everything_which_is_not_forbidden_is_allowed">Everything
 which is not forbidden is allowed</a>.<a href="#fnref23"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn24" role="doc-endnote"><p>FoIA 2022-000758 submitted to the <a
+<li id="fn24"><p>FoIA 2022-000758 submitted to the <a
 href="https://www.fcc.gov/">Federal Communications Commission</a> sought
 the first 100 documents received by the FCC from consumers with any of
 the words "thank," "thanks," "appreciate," or "appreciated" between
 January 1, 2020 to December 31, 2020. I reviewed the 100 documents and
 found no letter of gratitude; just complaints.<a href="#fnref24"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn25" role="doc-endnote"><p>"The preferred options are to make
-sure somebody else does the failing, or to elegantly explain why it
-looks like a failure, sounds like a failure, but is actually a brilliant
-advance in an unexpected direction."&nbsp;<span class="citation"
+<li id="fn25"><p>"The preferred options are to make sure somebody else
+does the failing, or to elegantly explain why it looks like a failure,
+sounds like a failure, but is actually a brilliant advance in an
+unexpected direction."&nbsp;<span class="citation"
 data-cites="1996_unknown">(unknown 1996)</span><a href="#fnref25"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn26" role="doc-endnote"><p>For example, the diagram on
-Wikipedia page for the 1930 <a
+<li id="fn26"><p>For example, the diagram on Wikipedia page for the 1930
+<a
 href="https://en.wikipedia.org/wiki/File:League_of_Nations_Organization.png">League
 of Nations</a>.<a href="#fnref26" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn27" role="doc-endnote"><p>See the Wikipedia entry for <a
+<li id="fn27"><p>See the Wikipedia entry for <a
 href="https://en.wikipedia.org/wiki/George_H._Heilmeier%23Heilmeier&#39;s_Catechism">Heilmeier's
 Catechism</a>. Also see the <a
 href="#sec:effective-presentations">description of effective
 presentations</a> .<a href="#fnref27" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn28" role="doc-endnote"><p>Cleaning your living space, raising
-children, caring for pets; see&nbsp;<span class="citation"
-data-cites="1987_Daniels">(Daniels 1987)</span>.<a href="#fnref28"
-class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn29" role="doc-endnote"><p>Consistent need to delegate, being
-curious without reciprocation.<a href="#fnref29" class="footnote-back"
+<li id="fn28"><p>Cleaning your living space, raising children, caring
+for pets; see&nbsp;<span class="citation" data-cites="1987_Daniels">(Daniels
+1987)</span>.<a href="#fnref28" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn30" role="doc-endnote"><p>See Wikipedia entry on the <a
+<li id="fn29"><p>Consistent need to delegate, being curious without
+reciprocation.<a href="#fnref29" class="footnote-back"
+role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn30"><p>See Wikipedia entry on the <a
 href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">Dunning-Kruger
 effect</a>.<a href="#fnref30" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn31" role="doc-endnote"><p>See also Zhuo's Chapter 6 in
-<em>Making of a Manager</em>&nbsp;<span class="citation"
-data-cites="2019_Zhuo">(Zhuo 2019)</span><a href="#fnref31"
-class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn32" role="doc-endnote"><p>I have not used Robert's Rules of
-Order for a meeting internal to a bureaucracy. Robert's Rules of Order
-does not appear to be commonly used inside bureaucracies. Some
-public-facing meetings may be, but not internal to the organization.<a
-href="#fnref32" class="footnote-back"
+<li id="fn31"><p>See also Zhuo's Chapter 6 in <em>Making of a
+Manager</em>&nbsp;<span class="citation" data-cites="2019_Zhuo">(Zhuo
+2019)</span><a href="#fnref31" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn33" role="doc-endnote"><p><a
+<li id="fn32"><p>I have not used Robert's Rules of Order for a meeting
+internal to a bureaucracy. Robert's Rules of Order does not appear to be
+commonly used inside bureaucracies. Some public-facing meetings may be,
+but not internal to the organization.<a href="#fnref32"
+class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn33"><p><a
 href="https://www.battlefields.org/learn/articles/winter-valley-forge">https://www.battlefields.org/learn/articles/winter-valley-forge</a>:
 "Like Steuben, Lafayette engaged directly with his soldiers and became
 well known for enduring the same hardships as his men."<a
-href="#fnref33" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn34" role="doc-endnote"><p>Not sure what to discuss? An
-extensive list of questions on topics like career development,
-conversation starters, and job satisfaction are available on <a
+href="#fnref33" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn34"><p>Not sure what to discuss? An extensive list of
+questions on topics like career development, conversation starters, and
+job satisfaction are available on <a
 href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.<a
-href="#fnref34" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn35" role="doc-endnote"><p>See the Wikipedia entry describing
-<a
+href="#fnref34" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn35"><p>See the Wikipedia entry describing <a
 href="https://en.wikipedia.org/wiki/Assembly_line%2320th_century">Ford's
 assembly line</a>.<a href="#fnref35" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn36" role="doc-endnote"><p>Chaotic in the <a
+<li id="fn36"><p>Chaotic in the <a
 href="https://en.wikipedia.org/wiki/Chaos_theory">mathematical sense</a>
 of non-linear dependence on initial conditions, not just the colloquial
 sense of disorder.<a href="#fnref36" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn37" role="doc-endnote"><p><a
+<li id="fn37"><p><a
 href="https://xkcd.com/1205/">https://xkcd.com/1205/</a> -- the trade-off
 of task frequency versus temporal savings per task instance.<a
-href="#fnref37" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn38" role="doc-endnote"><p>To read about how this worked out at
-Amazon, see <a
+href="#fnref37" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn38"><p>To read about how this worked out at Amazon, see <a
 href="https://gist.github.com/bhpayne/49c8379a3ea880b7cc079fc8d32c87a7">Yegge's
 2011 description</a>&nbsp;<span class="citation"
 data-cites="2011_Yegge">(Yegge 2011)</span>.<a href="#fnref38"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn39" role="doc-endnote"><p>See the Wikipedia entry for <a
+<li id="fn39"><p>See the Wikipedia entry for <a
 href="https://en.wikipedia.org/wiki/Murphy%27s_law">Murphy's law</a>.<a
-href="#fnref39" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn40" role="doc-endnote"><p>Similar to the concept of <a
+href="#fnref39" class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn40"><p>Similar to the concept of <a
 href="https://en.wikipedia.org/wiki/Technical_debt">technical debt</a>
 in the creation and maintenance of software.<a href="#fnref40"
 class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn41" role="doc-endnote"><p>"Blessed are those who optimize
-locally, for there is no glory in making the whole system work
-better."&nbsp;<span class="citation" data-cites="1996_unknown">(unknown
-1996)</span><a href="#fnref41" class="footnote-back"
-role="doc-backlink">&nbsp;Return to text</a></p></li>
-<li id="fn42" role="doc-endnote"><p>See Wikipedia entry on <a
+<li id="fn41"><p>"Blessed are those who optimize locally, for there is
+no glory in making the whole system work better."&nbsp;<span class="citation"
+data-cites="1996_unknown">(unknown 1996)</span><a href="#fnref41"
+class="footnote-back" role="doc-backlink">&nbsp;Return to text</a></p></li>
+<li id="fn42"><p>See Wikipedia entry on <a
 href="https://en.wikipedia.org/wiki/Queueing_theory">Queueing
 Theory</a>.<a href="#fnref42" class="footnote-back"
 role="doc-backlink">&nbsp;Return to text</a></p></li>
