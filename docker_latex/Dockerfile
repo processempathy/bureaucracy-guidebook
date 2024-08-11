@@ -12,6 +12,12 @@ FROM debian:${DEBIAN_VERSION}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# https://docs.docker.com/reference/dockerfile/
+ARG TARGETPLATFORM
+RUN echo "I'm building for $TARGETPLATFORM"
+ARG TARGETARCH
+RUN echo "using $TARGETARCH"
+
 RUN echo "Initial update." &&\
     apt-get update &&\
 # prevent doc and man pages from being installed
@@ -112,8 +118,8 @@ RUN pip3 install setuptools
 
 # as per https://askubuntu.com/a/687676
 # https://github.com/jgm/pandoc/releases/
-ARG PANDOC_VER=2.17.0.1
-RUN wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VER}/pandoc-${PANDOC_VER}-1-amd64.deb
-RUN dpkg -i pandoc-${PANDOC_VER}-1-amd64.deb
+ARG PANDOC_VER=3.3
+RUN wget https://github.com/jgm/pandoc/releases/download/${PANDOC_VER}/pandoc-${PANDOC_VER}-1-$TARGETARCH.deb
+RUN dpkg -i pandoc-${PANDOC_VER}-1-$TARGETARCH.deb
 
 WORKDIR /scratch/

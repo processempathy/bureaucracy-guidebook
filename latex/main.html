@@ -182,7 +182,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -254,7 +254,6 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
@@ -1289,7 +1288,7 @@ expertise with environmental regulations governing water, air, workplace
 safety, etc.</p></li>
 <li><p>Mail delivery by the <a
 href="https://en.wikipedia.org/wiki/United_States_Postal_Service">United
-States Postal Service</a>.</p></li>
+States Postal Service</a> (USPS).</p></li>
 <li><p>Public safety for the <a
 href="https://en.wikipedia.org/wiki/Federal_Bureau_of_Investigation">Federal
 Bureau of Investigation</a> (FBI).</p></li>
@@ -1437,14 +1436,13 @@ to shared resources drive the challenges of bureaucracy.</em></p>
 <p>Although bureaucracy can be present for as few as three people, and
 bureaucracy is often apparent in teams (e.g., 3 to 20 people), this book
 focuses on the situation of multiple teams comprising an organization.
-The size of an organization might be a few hundred people (above <a
-href="https://en.wikipedia.org/wiki/Dunbar%27s_number">Dunbar's
-number</a>) up to millions of people. Examples of companies that employ
-more than a million people<a href="#fn5" class="footnote-ref"
-id="fnref5" role="doc-noteref"><sup>5</sup></a> include Walmart, Amazon,
-and McDonald's. Size isn't a requirement for bureaucracy. Small
-companies with a few people incur bureaucracy because of the need to
-coordinate subjective policies governing access to shared resources.</p>
+The size of an organization ranges from tens of people up to millions of
+people. Examples of companies that employ more than a million people<a
+href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a> include Walmart, Amazon, and
+McDonald's. Size isn't a requirement for bureaucracy. Small companies
+with a few people incur bureaucracy because of the need to coordinate
+subjective policies governing access to shared resources.</p>
 <p>There are three distinct sizes of bureaucracy.</p>
 <ul>
 <li><p>The smallest instance of bureaucracy is when the minimum of the
@@ -2342,7 +2340,7 @@ equal length. Because the TSA officer isn't exposed to the consequence
 of her approach, she didn't get feedback on whether her decisions are
 suboptimal or not.</p>
 </div>
-<p>Lesson: if the people making decisions do not experience the
+<p><em>Lesson</em>: if the people making decisions do not experience the
 consequences of those decisions, then they have no incentive to improve
 decision-making.</p>
 <p>The person in the longer line feels frustrated. The negative feeling
@@ -4021,7 +4019,7 @@ be narrow or broad. Rather than limit your investigations to one or the
 other, flipping between the two repeatedly (but not too often) can help.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Focus on the immediate
 problem.</strong></th>
 <th style="text-align: left;"><strong>Ponder the systemic issues and
@@ -4029,14 +4027,14 @@ adjacent contexts.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Focus on isolated
 problematic aspects and don't worry about the interdependencies,
 feedback loops, and stakeholder incentives.</td>
 <td style="text-align: left;"><em>Description</em>: Philosophical
 musings with a holistic view.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Misses systemic issues,
 causes that exist outside the immediate scope, or issues that occur due
 to interacting processes.</td>
@@ -4085,7 +4083,7 @@ replaced." How you raise the issue, with whom, and in what context all
 matter to either correcting the situation or getting better educated.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Speak out and speak up if
 something is wrong or <a
 href="https://en.wikipedia.org/wiki/Moral_injury">offends
@@ -4095,7 +4093,7 @@ to minimize disruptions.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: You could be missing
 context; you might look stupid.</td>
 <td style="text-align: left;"><em>Cons</em>: You miss an opportunity to
@@ -4139,7 +4137,7 @@ href="#table:dilemma-personal-manager-micromanaging"
 data-reference-type="ref"
 data-reference="table:dilemma-personal-manager-micromanaging">3.4</a>.</caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Intervene before the deployment of
 a policy, process, or product.</strong></th>
 <th style="text-align: left;"><strong>Wait on providing feedback until
@@ -4147,13 +4145,13 @@ after deployment.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: You may know
 something the team does not.</td>
 <td style="text-align: left;"><em>Description</em>: Allow the team to
 learn. Allow the team to complete their vision.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: You may lack relevant
 context. Engaging prematurely betrays your awareness; future
 explorations by that team are made less visible.</td>
@@ -4191,7 +4189,7 @@ expression of concern and control by the micromanager. The Micromanager
 wants the right outcome and may merely have the intent to provide
 guidance and feedback. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Review the status of progress for
 other people early and often. Many milestones, check-ins, and
 updates.</strong></th>
@@ -4200,18 +4198,18 @@ infrequently; just let people you manage do the work.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: <a
 href="https://en.wikipedia.org/wiki/Micromanagement">Micromanagement</a>.</td>
 <td style="text-align: left;"><em>Description</em>: Hands-off management
 style.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Early intervention when
 things are not going well.</td>
 <td style="text-align: left;"><em>Pros</em>: Enables independence.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Takes up your time and the
 time of people you're reviewing. Conveys low level of trust.</td>
 <td style="text-align: left;"><em>Cons</em>: Team members are unsure how
@@ -4252,7 +4250,7 @@ Nominally the manager helps identify the goals and provides context and
 the subordinate figures out how to accomplish the goal, but who handles
 what is negotiable in each relationship. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Bureaucrat expects management to
 provide solutions -- just tell members what to do.</strong></th>
 <th style="text-align: left;"><strong>Bureaucrat dislikes managers
@@ -4260,7 +4258,7 @@ micromanaging by telling people what to do.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Your manager may not have
 insight into what needs to be done. Or they may guide you in a less
 effective direction.</td>
@@ -4295,7 +4293,7 @@ this trade-off, like intentionally misquoting another person to bias the
 documentation in your favor, or only writing down the aspects of
 conversation that favor the outcome you are interested in. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Write everything down to <a
 href="https://en.wikipedia.org/wiki/Cover_your_ass">cover your
 ass</a>.</strong></th>
@@ -4304,13 +4302,13 @@ conversations that could be used against you or others.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Notes can be used for
 accountability and justification.</td>
 <td style="text-align: left;"><em>Pros</em>: Less time on notes is more
 time for doing work.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Takes a lot of time and
 effort to capture intent accurately. Recording can be done poorly or be
 misconstrued.</td>
@@ -4352,7 +4350,7 @@ action, but when? Both of these options succumb to <a
 href="https://en.wikipedia.org/wiki/Analysis_paralysis">analysis
 paralysis</a>. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Ponder what should or could be
 done.</strong></th>
 <th style="text-align: left;"><strong>Figure out how to carry out the
@@ -4360,13 +4358,13 @@ goal.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Which of these
 should I select?</td>
 <td style="text-align: left;"><em>Description</em>: How should I do the
 thing I selected?</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less time for action.</td>
 <td style="text-align: left;"><em>Cons</em>: Prematurely select an
 action that is suboptimal.</td>
@@ -4407,7 +4405,7 @@ amount of coordination depends on how many stakeholders there are, how
 familiar the stakeholders are with the challenge, and whether the action
 is reversible when found to be incorrect. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Allocate time for meetings to
 facilitate coordination.</strong></th>
 <th style="text-align: left;"><strong>Allocate time for
@@ -4415,13 +4413,13 @@ action.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Create awareness, build
 consensus, get approval.</td>
 <td style="text-align: left;"><em>Pros</em>: Create results to iterate
 from.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less time for participants
 to enact ideas.</td>
 <td style="text-align: left;"><em>Cons</em>: Results in uncoordinated
@@ -4461,7 +4459,7 @@ less risky than investing time in creating a prototype.</p>
 grade (provide the organization extra labor and you get reduced pay) or
 at your pay grade (expected labor and pay)? </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Operate at the level you are being
 paid for.</strong></th>
 <th style="text-align: left;"><strong>Operate above the level that you
@@ -4469,13 +4467,13 @@ are being paid to be promoted.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Meet job
 requirements but nothing extra.</td>
 <td style="text-align: left;"><em>Description</em>: Exceed job
 requirements.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Risk not being
 promoted.</td>
 <td style="text-align: left;"><em>Cons</em>: Experience wage loss since
@@ -4520,7 +4518,7 @@ href="https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster">Challenge
 disaster</a> in 1986. Transparency and professional vulnerability are
 desirable but have costs.</caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Send bad news up the chain of
 command.</strong></th>
 <th style="text-align: left;"><strong>Minimize bad news up the chain of
@@ -4528,13 +4526,13 @@ command.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: You are a reliable source
 of information.</td>
 <td style="text-align: left;"><em>Pros</em>: You minimize the burden of
 managers.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: You are viewed as a source
 of problems.</td>
 <td style="text-align: left;"><em>Cons</em>: Harmful events eventually
@@ -4570,7 +4568,7 @@ dangerous when there is less risk.</p>
 invest in contingency planning and preparedness. In practice, you will
 do both.</caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Prepare for disasters and
 emergencies; invest in mitigation.</strong></th>
 <th style="text-align: left;"><strong>Wait for the specific problem to
@@ -4578,7 +4576,7 @@ arise before responding.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Lessen the effect when bad
 things happen; decrease the number of problems occurring in the first
 place.</td>
@@ -4586,7 +4584,7 @@ place.</td>
 the scenario at that time and thus be better informed. Look like a hero
 for handling the emergency.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Fewer events evolve into
 emergencies because you're prepared, or the effect of disasters is
 lessened. Both make you look overly paranoid and wasteful. Less
@@ -4619,7 +4617,7 @@ available.</p>
 <caption> <em>Dilemma of Idea Filtering.</em> How much vetting should
 novel ideas get before being enacted? </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Only let good ideas through as
 determined by a detailed review process of a clearly specified
 plan.</strong></th>
@@ -4628,13 +4626,13 @@ under-specified ideas.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Less waste of resources and
 time. Everyone has confidence in the investment.</td>
 <td style="text-align: left;"><em>Pros</em>: High-risk and high-reward
 ideas that are disruptive can be enacted.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Burdensome review
 process.</td>
 <td style="text-align: left;"><em>Cons</em>: Some ideas will fail.</td>
@@ -4667,18 +4665,18 @@ bureaucrat.</p>
 of attention in either maintenance of the status quo or making progress.
 Both require work, but rewards are biased toward innovation. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Focus on fixing
 flaws.</strong></th>
 <th style="text-align: left;"><strong>Focus on innovation.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Resolve bugs.</td>
 <td style="text-align: left;"><em>Description</em>: Add features.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Addresses known problems.
 Helps people already in the system.</td>
 <td style="text-align: left;"><em>Pros</em>: More externally visible and
@@ -4708,7 +4706,7 @@ though it's not rewarded.</p>
 <caption><em>Dilemma of Innovation.</em> Incremental change may not
 suffice. Disruption can be costly. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Work on disruptive
 innovation.</strong></th>
 <th style="text-align: left;"><strong>Work on iterative (evolutionary)
@@ -4716,17 +4714,17 @@ innovation.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Start from scratch,
 aim for revolution, replace the legacy.</td>
 <td style="text-align: left;"><em>Description</em>: Start by changing
 the existing solution. Adjust the legacy path.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: High reward.</td>
 <td style="text-align: left;"><em>Pros</em>: Low risk, low cost.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: High risk, high cost.</td>
 <td style="text-align: left;"><em>Cons</em>: Low reward.</td>
 </tr>
@@ -4761,7 +4759,7 @@ a sign your idea is popular and na&#xEF;ve.</p>
 spatially) innovation takes place matters because the environment sets
 context for assumptions. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Innovate in a novel-to-your-team
 environment.</strong></th>
 <th style="text-align: left;"><strong>Innovate in your team's standard
@@ -4769,12 +4767,12 @@ environment.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: More likely to allow people
 to suspend their expectations.</td>
 <td style="text-align: left;"><em>Pros</em>: Easy to operate in.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Loses access to connections
 vital for creating success. Uses extra space; induces the logistics of
 moving twice.</td>
@@ -4806,7 +4804,7 @@ the cost of bringing the innovation back to the routine scenario.</p>
 <caption> <em>Dilemma of Obfuscated Innovation.</em> How is innovation
 carried out within the organization? </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Work on innovation in the
 open.</strong></th>
 <th style="text-align: left;"><strong>Work on innovation in
@@ -4814,13 +4812,13 @@ hiding.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: More likely to be
 criticized. Criticism can be positive (as in an incubator setting).</td>
 <td style="text-align: left;"><em>Pros</em>: Less drama -- the incumbent
 won't attack the innovation since they don't know about it.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Negative criticism intended
 to harm -- an incumbent has reason to be defensive. The incumbent attacks
 the innovation before it is sufficiently developed or has time to build
@@ -4856,18 +4854,18 @@ relationship.</p>
 <caption> <em>Dilemma of Recognition.</em> This dilemma is magnified
 when the task you work on is high-risk or resource-intensive. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Seek recognition for your
 work.</strong></th>
 <th style="text-align: left;"><strong>Work in obscurity.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Helps with promotion.</td>
 <td style="text-align: left;"><em>Pros</em>: Less distraction.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Devalues the contributions
 of other people.</td>
 <td style="text-align: left;"><em>Cons</em>: No one knows the value of
@@ -4905,20 +4903,20 @@ Changing a process may require collecting more information to inform
 decisions. Information that was collected may no longer be relevant.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Gather lots of data.</strong></th>
 <th style="text-align: left;"><strong>Gather minimal data.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Gather lots of data
 for a well-informed decision.</td>
 <td style="text-align: left;"><em>Description</em>: Minimal information
 because the decision-maker knows what to do or the outcome is
 irrelevant.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: High cost of gathering data
 (time, resources). <a
 href="https://en.wikipedia.org/wiki/Opportunity_cost">Opportunity
@@ -4977,7 +4975,7 @@ planning.</p>
 <caption> <em>Dilemma of Planning.</em> How much time to invest in
 different types of planning. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Extensive planning upfront
 (proactive).</strong></th>
 <th style="text-align: left;"><strong>Iterative improvement of plans
@@ -4985,14 +4983,14 @@ different types of planning. </caption>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Lots of time spent
 brainstorming potential scenarios and contingency options before taking
 action.</td>
 <td style="text-align: left;"><em>Description</em>: Start taking action
 and use feedback to shape next actions.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: "No plan survives contact
 with the enemy." <span>-<a
 href="https://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder">von
@@ -5052,7 +5050,7 @@ data-reference="table:dilemma-personal-scope-broad-vs-narrow">3.22</a>).</p>
 href="https://en.wikipedia.org/wiki/Risk_assessment">Risk
 tolerance</a>.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Take on big risks and big
 rewards.</strong></th>
 <th style="text-align: left;"><strong>Take on small risks and small
@@ -5060,19 +5058,19 @@ rewards.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: High risk
 tolerance.</td>
 <td style="text-align: left;"><em>Description</em>: Low risk
 tolerance.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Potential for failure and
 harm is significant.</td>
 <td style="text-align: left;"><em>Pros</em>: If any one investment
 fails, you can continue other efforts.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Costly investment, longer
 feedback cycle.</td>
 <td style="text-align: left;"><em>Cons</em>: Incremental can be
@@ -5104,7 +5102,7 @@ is difficult in bureaucratic organizations.</p>
 <caption><em>Dilemma of Disagreement.</em> Engagement with opposition to
 process or change. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Involve people who
 disagree.</strong></th>
 <th style="text-align: left;"><strong>Ignore people who
@@ -5112,13 +5110,13 @@ disagree.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Get constructive feedback;
 account for factors you didn't consider; build a robust solution.</td>
 <td style="text-align: left;"><em>Pros</em>: Save time by not
 interacting.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Results in a compromise or
 partial solution that minimizes aggregate unhappiness.</td>
 <td style="text-align: left;"><em>Cons</em>: Miss a vital aspect you
@@ -5150,7 +5148,7 @@ don't share what you're working on.</p>
 <caption> <em>Dilemma of Scope of Effect.</em> Scope of the effect of
 your work. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Broad scope of
 effect.</strong></th>
 <th style="text-align: left;"><strong>Narrow scope of
@@ -5158,18 +5156,18 @@ effect.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: The consequence of
 the work has many stakeholders.</td>
 <td style="text-align: left;"><em>Description</em>: Small number of
 stakeholders.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Help more people.</td>
 <td style="text-align: left;"><em>Pros</em>: Niche effect means fewer
 dependencies on other people.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Harder to get everyone in
 agreement.</td>
 <td style="text-align: left;"><em>Cons</em>: Less visibility to the rest
@@ -5220,7 +5218,7 @@ available). See the description of <a
 href="#sec:static-dynamic-processes">static versus dynamic
 processes</a>. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Guidance updated often;
 incremental change.</strong></th>
 <th style="text-align: left;"><strong>Consistent application of policy
@@ -5228,13 +5226,13 @@ over time. Rules persist; then sudden drastic change.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Adapt policy to new
 information and changing conditions.</td>
 <td style="text-align: left;"><em>Pros</em>: Stability is easier to
 predict between regime changes.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: More work needed for
 revisions. Accused of lacking stability.</td>
 <td style="text-align: left;"><em>Cons</em>: Doesn't adapt as conditions
@@ -5271,7 +5269,7 @@ adapting to current local circumstances.</p>
 <table>
 <caption> <em>Dilemma of Disseminating information.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Tell people
 one-by-one.</strong></th>
 <th style="text-align: left;"><strong>Tell everyone at
@@ -5279,13 +5277,13 @@ once.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: One-on-one allows a freer
 response from the audience.</td>
 <td style="text-align: left;"><em>Pros</em>: Saves time for the
 speaker.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Order matters for
 relationships.</td>
 <td style="text-align: left;"><em>Cons</em>: Overwhelming feedback all
@@ -5328,7 +5326,7 @@ depends on how much time to allocate to sharing the information.</p>
 <table>
 <caption> <em>Dilemma of Strictness of rules.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Enforce rules
 strictly.</strong></th>
 <th style="text-align: left;"><strong>Lax rule
@@ -5336,12 +5334,12 @@ enforcement.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Predictable.</td>
 <td style="text-align: left;"><em>Pros</em>: Bureaucrats feel empowered.
 Tolerance for changing conditions or exceptional cases.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Insensitive to nuance.</td>
 <td style="text-align: left;"><em>Cons</em>: Enforcement is subjective
 and unpredictable.</td>
@@ -5380,20 +5378,20 @@ relationships do not appear fair to outsiders.</p>
 <table>
 <caption> <em>Dilemma of Number of rules.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Control via rules.</strong></th>
 <th style="text-align: left;"><strong>Freedom, autonomy,
 agility.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: High number of rules
 to cover various situations.</td>
 <td style="text-align: left;"><em>Description</em>: Low number of rules
 to enable flexibility.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: The more rules that exist,
 the more likely it is that someone will find a way to exploit them to
 their advantage.</td>
@@ -5424,7 +5422,7 @@ bound by mandates and legality, but the way you interpret that is
 subjective. Constraining activities to explicitly specified rules can be
 used as an excuse for laziness. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>If it's not against the rules, it
 must be okay.</strong></th>
 <th style="text-align: left;"><strong>I can only do what is allowed by
@@ -5432,18 +5430,18 @@ the rules and nothing more.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: I can do anything
 that's not illegal.</td>
 <td style="text-align: left;"><em>Description</em>: Do only what is
 mandated by the organization.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Autonomy, flexibility.</td>
 <td style="text-align: left;"><em>Pros</em>: Less risk of getting in
 trouble.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: What one person deems
 reasonable, another may not.</td>
 <td style="text-align: left;"><em>Cons</em>: Constrains creative
@@ -5479,7 +5477,7 @@ validation of the selection? The process is sensitive to this single bit
 of data. This applies to written forms and verbal conversations.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>A decision in a process is
 informed by a single bit of information.</strong></th>
 <th style="text-align: left;"><strong>Fault-tolerant decision-making
@@ -5487,17 +5485,17 @@ through redundancy.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: A form featuring a
 checkbox option.</td>
 <td style="text-align: left;"><em>Description</em>: Multiple independent
 confirmations that the data collected is correct.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Less overhead.</td>
 <td style="text-align: left;"><em>Pros</em>: Decrease mistakes.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Single point of failure.
 Might be accidentally wrong.</td>
 <td style="text-align: left;"><em>Cons</em>: More time needed. Extra
@@ -5537,7 +5535,7 @@ bureaucrat make a decision is quicker than checking that bureaucrat.
 Validating the decision slows down the process and requires more
 bureaucrats. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>A single bureaucrat reviews
 information and makes a decision.</strong></th>
 <th style="text-align: left;"><strong>Catch mistakes in decision-making
@@ -5545,17 +5543,17 @@ by using multiple reviewers.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: A decision process
 relies on a single bureaucrat.</td>
 <td style="text-align: left;"><em>Description</em>: Multiple independent
 confirmations of a decision.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Less overhead.</td>
 <td style="text-align: left;"><em>Pros</em>: Decrease mistakes.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Single point of failure.
 Might get policy interpretation wrong.</td>
 <td style="text-align: left;"><em>Cons</em>: More time and staffing
@@ -5595,7 +5593,7 @@ bureaucrat suffice.</p>
 <caption> <em>Dilemma of Speed and Accuracy.</em> Speed versus accuracy
 of task completion. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Quickly complete tasks or deploy
 new policies or create new products.</strong></th>
 <th style="text-align: left;"><strong>Methodically complete tasks (or
@@ -5603,19 +5601,19 @@ well-founded policies, quality products).</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Enact a solution
 quickly to address urgent needs.</td>
 <td style="text-align: left;"><em>Description</em>: Methodical
 well-planned design and execution yield robust
 solutions/products/policies.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Rapid solution.</td>
 <td style="text-align: left;"><em>Pros</em>: More like to get the
 solution right.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Risk of a quick task is
 that the result is ineffective, inefficient, or wrong.</td>
 <td style="text-align: left;"><em>Cons</em>: <a
@@ -5650,7 +5648,7 @@ risky.</p>
 <table>
 <caption> <em>Dilemma of Urgency.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Push people to work
 hard.</strong></th>
 <th style="text-align: left;"><strong>Create a comfortable work
@@ -5658,7 +5656,7 @@ environment.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Burn out and leave.</td>
 <td style="text-align: left;"><em>Cons</em>: Lower instantaneous
 productivity.</td>
@@ -5690,7 +5688,7 @@ Emergency Management Agency</a>.</p>
 <caption> <em>Dilemma of Talking.</em> In conversations or meetings
 there is a (subjective) balance for participants. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Talk more to convey more
 information.</strong></th>
 <th style="text-align: left;"><strong>Listen more to learn more
@@ -5698,7 +5696,7 @@ information.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less time available for
 listening.</td>
 <td style="text-align: left;"><em>Cons</em>: Less time to convey what
@@ -5724,7 +5722,7 @@ is to not communicate.</p>
 <caption> <em>Dilemma of Experienced Collaborators.</em> People with
 experience are useful but less accessible. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Seek out experienced
 collaborators.</strong></th>
 <th style="text-align: left;"><strong>Work with less experienced
@@ -5732,13 +5730,13 @@ people.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Quicker to get something
 done.</td>
 <td style="text-align: left;"><em>Pros</em>: Less set in their ways and
 open to more novelty.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Experienced people who are
 good are probably busy.</td>
 <td style="text-align: left;"><em>Cons</em>: Slower progress; more
@@ -5768,7 +5766,7 @@ more work can be explicit or implicit. Bureaucrats respond to this
 challenge by sending mixed signals: expressing interest but not
 following up with action. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Say yes to new
 opportunities.</strong></th>
 <th style="text-align: left;"><strong>Say no to new
@@ -5776,13 +5774,13 @@ opportunities.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Positive attitude,
 collaborative.</td>
 <td style="text-align: left;"><em>Pros</em>: Able to prioritize and
 focus.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Fail to complete
 tasks.</td>
 <td style="text-align: left;"><em>Cons</em>: Not a team player.</td>
@@ -5807,19 +5805,19 @@ potential solution is to make data discoverable. Advertise the
 availability of data without providing data. Then negotiation is
 feasible for people interested in the data. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Share less data.</strong></th>
 <th style="text-align: left;"><strong>Share more data.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Restricting data access
 saves money and time for the data owner.</td>
 <td style="text-align: left;"><em>Pros</em>: Sharing data improves
 transparency and accountability.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: People other than the data
 owner are unable to extract value from data.</td>
 <td style="text-align: left;"><em>Cons</em>: Sharing data uses resources
@@ -5849,7 +5847,7 @@ organization as well as subjects of the bureaucracy.</p>
 <caption> <em>Dilemma of Cooperate or Compete.</em> Applies to teams and
 to individuals. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Compete for
 resources.</strong></th>
 <th style="text-align: left;"><strong>Cooperate for
@@ -5857,14 +5855,14 @@ productivity.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: individuals compete
 for attention and promotion; teams compete for money and staffing
 resources.</td>
 <td style="text-align: left;"><em>Description</em>: cooperation improves
 productivity.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Fail to synergize skills
 resources.</td>
 <td style="text-align: left;"><em>Cons</em>: Not clear who to assign
@@ -5896,7 +5894,7 @@ interactions with your peers.</p>
 <caption> <em>Dilemma of Consistent Policies.</em> Case consistency
 versus adaptability. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Consistent application of policy
 across cases.</strong></th>
 <th style="text-align: left;"><strong>Adapt policy to specific
@@ -5904,13 +5902,13 @@ cases.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Maximize broad
 applicability; minimize exceptions.</td>
 <td style="text-align: left;"><em>Description</em>: Demonstrate
 flexibility for unique scenarios.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less sensitive to the
 nuances of a specific situation.</td>
 <td style="text-align: left;"><em>Cons</em>: Takes more work. More
@@ -5930,7 +5928,7 @@ href="#table:dilemma-how-to-change">Dilemma of Coalitions</a>.</p>
 can be negotiated with coworkers and is not intrinsic to the structure
 of an organization. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>One person or team owns an area of
 responsibility.</strong></th>
 <th style="text-align: left;"><strong>Anyone take on any
@@ -5938,7 +5936,7 @@ task.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Staffing capacity may not
 be as flexible as varying workload.</td>
 <td style="text-align: left;"><em>Cons</em>: Not everyone is skilled at
@@ -5964,7 +5962,7 @@ and ignoring scope can decrease an organization's productivity. What
 happens when a person deviates from their role? How are people who do
 not conform identified? Are they confronted? </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Adhere strictly to the scope of
 your role.</strong></th>
 <th style="text-align: left;"><strong>Stray outside (or outright ignore)
@@ -5972,13 +5970,13 @@ the scope of your role.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Inflexible to
 novelty. Specialization of tasking.</td>
 <td style="text-align: left;"><em>Description</em>: Lack of structure.
 Generalization.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Efficiencies of cooperation
 and specialization would not occur. Does scale well when flexibility is
 needed.</td>
@@ -6007,7 +6005,7 @@ problem may not.</p>
 you're talking about, should you speculate or keep your mouth shut?
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Speak outside the scope of your
 expertise.</strong></th>
 <th style="text-align: left;"><strong>Have representative experts
@@ -6015,12 +6013,12 @@ participate in discussions.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Make progress quickly.</td>
 <td style="text-align: left;"><em>Pros</em>: Ensure correct information
 is shared among stakeholders.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Likely to make mistakes
 that aren't detected until being enacted.</td>
 <td style="text-align: left;"><em>Cons</em>: Getting a diverse group of
@@ -6040,7 +6038,7 @@ vital.</p>
 href="https://en.wikipedia.org/wiki/Goldilocks_principle">Goldilocks
 principle</a>. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Have more people participate in a
 discussion.</strong></th>
 <th style="text-align: left;"><strong>Have fewer people participate in a
@@ -6048,14 +6046,14 @@ discussion.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Diverse viewpoints and
 backgrounds contribute to a more robust result. People feel valued if
 they contribute.</td>
 <td style="text-align: left;"><em>Pros</em>: Can make decisions
 quickly.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Synthesizing disparate
 information takes time.</td>
 <td style="text-align: left;"><em>Cons</em>: People feel excluded.</td>
@@ -6071,7 +6069,7 @@ information takes time.</td>
 productivity and build relationships but also incurs risks to reputation
 and success. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Delegate; share work with other
 people.</strong></th>
 <th style="text-align: left;"><strong>Work alone; don't rely on other
@@ -6079,7 +6077,7 @@ people.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Your success is dependent
 on other people.</td>
 <td style="text-align: left;"><em>Cons</em>: Can't do as much on your
@@ -6096,7 +6094,7 @@ own.</td>
 results that motivated the existence of an organization often requires
 spending the organization's health. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Health of the
 organization.</strong></th>
 <th style="text-align: left;"><strong>Results of the
@@ -6104,13 +6102,13 @@ organization.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Maintain processes
 and train staff. Considered "overhead."</td>
 <td style="text-align: left;"><em>Description</em>: Do the work that
 motivates the existence of the organization.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Unproductive for
 subjects.</td>
 <td style="text-align: left;"><em>Cons</em>: Unsustainable for
@@ -6128,7 +6126,7 @@ choice of task size and number of tasks. If you have autonomy, what do
 you prefer? Do your coworkers and managers know your preference?
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Many small tasks or
 goals.</strong></th>
 <th style="text-align: left;"><strong>Fewer big tasks or
@@ -6136,13 +6134,13 @@ goals.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Your day is occupied
 with various short-duration tasks.</td>
 <td style="text-align: left;"><em>Description</em>: You work on only a
 few efforts during a typical day.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Enables a fail-fast
 approach from quick feedback.</td>
 <td style="text-align: left;"><em>Cons</em>: Less overhead of task
@@ -6162,7 +6160,7 @@ href="#table:dilemma-personal-delegate-or-not" data-reference-type="ref"
 data-reference="table:dilemma-personal-delegate-or-not">3.42</a>.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Task with many external
 dependencies.</strong></th>
 <th style="text-align: left;"><strong>Task with few external
@@ -6170,7 +6168,7 @@ dependencies.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Risk of failing because of
 a failed dependency.</td>
 <td style="text-align: left;"><em>Cons</em>: Have to develop everything
@@ -6186,13 +6184,13 @@ yourself; waste of resources due to redundancy.</td>
 <caption> <em>Dilemma of Roles.</em> The right number of roles for a
 bureaucrat depends on personality and tasking. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Focused on one role.</strong></th>
 <th style="text-align: left;"><strong>Have multiple roles.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: If a role does not consume
 40 hours per week, you'll be idle.</td>
 <td style="text-align: left;"><em>Cons</em>: Context switches between
@@ -6208,7 +6206,7 @@ roles and delayed responses.</td>
 <caption> <em>Dilemma of Dissent.</em> Dissent is caused by
 dissatisfaction with people or processes. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Dissent is welcome and discussed
 freely.</strong></th>
 <th style="text-align: left;"><strong>Dissent is
@@ -6216,7 +6214,7 @@ suppressed.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Can be disruptive to normal
 operations. Distracts from the task.</td>
 <td style="text-align: left;"><em>Cons</em>: Limits novel ideas from
@@ -6233,7 +6231,7 @@ spreading. Harms morale.</td>
 may seem reasonable unless you want to maintain a pristine reputation.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Do share lessons
 learned.</strong></th>
 <th style="text-align: left;"><strong>Don't share lessons
@@ -6241,13 +6239,13 @@ learned.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Honesty, accountability,
 self-awareness, and self-reflection.</td>
 <td style="text-align: left;"><em>Pros</em>: Look competent, even when
 making mistakes.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Looks weak and
 unprofessional.</td>
 <td style="text-align: left;"><em>Cons</em>: Limit the growth of
@@ -6266,7 +6264,7 @@ data-reference-type="ref"
 data-reference="table:dilemma-sharing-lessons-learned">3.48</a>), the
 lessons do not have to be about you. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Share lessons learned about
 yourself.</strong></th>
 <th style="text-align: left;"><strong>Share lessons learned from
@@ -6274,7 +6272,7 @@ observing others.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Potentially look
 stupid.</td>
 <td style="text-align: left;"><em>Cons</em>: Potentially hurts their
@@ -6290,7 +6288,7 @@ reputation.</td>
 <caption> <em>Dilemma of Learning.</em> How much formal training to
 invest in before learning by doing? </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Learn lessons from your
 mistakes.</strong></th>
 <th style="text-align: left;"><strong>Learn lessons from others (formal
@@ -6298,7 +6296,7 @@ training).</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Potentially look stupid;
 waste resources discovering what others already know.</td>
 <td style="text-align: left;"><em>Cons</em>: Formal training may
@@ -6314,7 +6312,7 @@ overemphasize irrelevant or impractical concepts.</td>
 <caption> <em>Dilemma of Coalitions.</em> A coalition can provide morale
 support but takes time to build. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Build a small coalition of
 interested parties.</strong></th>
 <th style="text-align: left;"><strong>Build a large base of support and
@@ -6322,7 +6320,7 @@ get everyone on board.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: May not be representative
 of all stakeholders.</td>
 <td style="text-align: left;"><em>Cons</em>: Takes time away from the
@@ -6338,7 +6336,7 @@ work. Many people may disagree or be disinterested.</td>
 <caption> <em>Dilemma of Batching.</em> For repeated actions, who is the
 process optimized for -- the subject or the bureaucrat? </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Process requests as they
 arrive.</strong></th>
 <th style="text-align: left;"><strong>Process requests in
@@ -6346,11 +6344,11 @@ batches.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Responsive.</td>
 <td style="text-align: left;"><em>Pros</em>: Improves efficiency.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Decreased efficiency.</td>
 <td style="text-align: left;"><em>Cons</em>: Induces a delay in
 processing.</td>
@@ -6377,7 +6375,7 @@ experience of bureaucrats in an organization.</p>
 <caption> <em>Dilemma of Shape of Hierarchical Organization.</em>
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Flatter hierarchical
 organization.</strong></th>
 <th style="text-align: left;"><strong>More layers of
@@ -6385,13 +6383,13 @@ hierarchy.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: More people managed
 per manager.</td>
 <td style="text-align: left;"><em>Description</em>: Fewer people managed
 per manager.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less feedback and attention
 per employee.</td>
 <td style="text-align: left;"><em>Cons</em>: Fewer people doing
@@ -6408,7 +6406,7 @@ work.</td>
 bureaucrats is not uniform. Some bureaucrats in an organization are more
 effective than others. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Concentrate the smartest people
 together.</strong></th>
 <th style="text-align: left;"><strong>Disperse the smartest people
@@ -6416,19 +6414,19 @@ across the organization.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Bring effective
 people in the organization together on a team.</td>
 <td style="text-align: left;"><em>Description</em>: Provide local help
 where it is needed.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Synergy produces unexpected
 results.</td>
 <td style="text-align: left;"><em>Pros</em>: Less disruptive since each
 person is fighting local challenges.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less feedback/attention per
 employee.</td>
 <td style="text-align: left;"><em>Cons</em>: Fewer people doing
@@ -6451,7 +6449,7 @@ abandoned teams.</p>
 <table>
 <caption> <em>Dilemma of Size of team or organization.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Staffing: good
 coverage.</strong></th>
 <th style="text-align: left;"><strong>Staffing: minimal
@@ -6459,17 +6457,17 @@ coverage.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Enough staff.</td>
 <td style="text-align: left;"><em>Description</em>: As small of staff as
 possible.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Cover all edge cases;
 resilient to changing demands.</td>
 <td style="text-align: left;"><em>Pros</em>: Less expensive.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Slack resources; sometimes
 inefficient. Increased communication needed.</td>
 <td style="text-align: left;"><em>Cons</em>: Fragile when requirements
@@ -6486,7 +6484,7 @@ redundancy, capacity and capability are harmed.</td>
 <caption> <em>Dilemma of Services.</em> Services that are necessary but
 not central. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>In-house services for non-central
 activities.</strong></th>
 <th style="text-align: left;"><strong>External dependencies for
@@ -6494,11 +6492,11 @@ non-central activities.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: More control.</td>
 <td style="text-align: left;"><em>Pros</em>: Easier to replace.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Expands scope of
 responsibilities.</td>
 <td style="text-align: left;"><em>Cons</em>: Less understanding of the
@@ -6536,7 +6534,7 @@ data-reference-type="ref"
 data-reference="fig:central-vs-distributed">3.3</a>) indicates neither
 solution is optimal. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Centralized
 services.</strong></th>
 <th style="text-align: left;"><strong>Locally distributed
@@ -6544,19 +6542,19 @@ services.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: A single provider of
 services for the organization, typically due to top-down mandate.</td>
 <td style="text-align: left;"><em>Description</em>: Each team has a
 local service provider; typically a bottom-up organic result.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Cheaper. Enables
 coordination.</td>
 <td style="text-align: left;"><em>Pros</em>: Quicker response. Enables
 innovation. Accounts for local deviations from the norm.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Less sensitive to local
 issues. Less responsive. Longer delays. Single point of failure.</td>
 <td style="text-align: left;"><em>Cons</em>: Uneven quality of service.
@@ -6612,7 +6610,7 @@ See also Figure&nbsp;<a href="#fig:market-vs-monopoly"
 data-reference-type="ref"
 data-reference="fig:market-vs-monopoly">3.4</a>. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Redundant services in a
 market.</strong></th>
 <th style="text-align: left;"><strong>Monopoly service
@@ -6620,18 +6618,18 @@ provider.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Using a market model
 within the organization.</td>
 <td style="text-align: left;"><em>Description</em>:</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Enable customers to choose
 the best service.</td>
 <td style="text-align: left;"><em>Pros</em>: Efficiency of a single
 service.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Redundancy.</td>
 <td style="text-align: left;"><em>Cons</em>: Might not meet the needs of
 all customers.</td>
@@ -6674,7 +6672,7 @@ solutions relevant to their needs.</p>
 <caption> <em>Dilemma of Decision Height.</em> Where decisions get made
 in a hierarchical organization. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Decision-making lower in a
 hierarchy.</strong></th>
 <th style="text-align: left;"><strong>Decision-making higher in a
@@ -6682,17 +6680,17 @@ hierarchy.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Push decisions down
 to empower employees.</td>
 <td style="text-align: left;"><em>Description</em>: Escalate every
 decision to management.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><em>Pros</em>: Better information.</td>
 <td style="text-align: left;"><em>Pros</em>: Better scope.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: More inconsistency.</td>
 <td style="text-align: left;"><em>Cons</em>: Decision-maker has less
 skin in the game and may be less well-informed. Employees are
@@ -6786,7 +6784,7 @@ subjects encounters conflicting statements.</p>
 cheaters cheat. The cost of protecting scarce resources is felt by
 everyone. </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Subject asks, "Why do I have to
 fill out this form?"</strong></th>
 <th style="text-align: left;"><strong>Subject asks, "Why aren't you
@@ -6794,7 +6792,7 @@ catching more cheaters and fraudsters?"</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Cons</em>: Filling out forms is
 burdensome for the subject and the bureaucrat.</td>
 <td style="text-align: left;"><em>Cons</em>: To detect problems and
@@ -6822,7 +6820,7 @@ have efficient bureaucracy.</p>
 fairness, when in fact consistency can ignore critical differences.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Subjects desire consistency across
 situations.</strong></th>
 <th style="text-align: left;"><strong>Subjects seek exceptions for their
@@ -6830,7 +6828,7 @@ specific situation.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Predictability
 allows for planning.</td>
 <td style="text-align: left;"><em>Description</em>: I am unique.</td>
@@ -6859,7 +6857,7 @@ bureaucracy you are part of.</p>
 <table>
 <caption><em>Dilemma of Flexible Rules.</em> </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Subjects seek clearly defined
 rules.</strong></th>
 <th style="text-align: left;"><strong>Subjects seek flexibility in
@@ -6867,7 +6865,7 @@ application of rules.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Rules are seen as
 enabling fairness, when in fact rules can perpetuate inequality. Rules
 (assuming uniform enforcement) are also seen as enabling
@@ -6900,7 +6898,7 @@ the organization.</p>
 <caption><em>Dilemma of Transparency.</em> Transparency has a cost.
 </caption>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;"><strong>Subject wants
 transparency.</strong></th>
 <th style="text-align: left;"><strong>Subject wants low cost
@@ -6908,7 +6906,7 @@ transparency.</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><em>Description</em>: Transparency
 requires collection and reporting of data.</td>
 <td style="text-align: left;"><em>Description</em>: Access to shared
@@ -7386,19 +7384,18 @@ data-reference="sec:innovation">[sec:innovation]</a>.</p>
 </div>
 <p>&nbsp;<br />
 <em>Hazard</em>: <strong>Bureaucracy grows.</strong><br />
-The causes of growth include scope creep, an increased number of people
+Increasing the size of a bureaucracy is easier than cutting it down. The
+causes of growth include scope creep, an increased number of people
 participating in the process, an increased workload, or a decrease of
 the ratio of workers to managers.</p>
-<p>Bureaucracy grows because some people lie -- there are defectors. The
-progress is called "improved accountability" because we aren't sure who
+<p>Bureaucracy grows because some people lie -- there are defectors.
+Progress is called "improved accountability" because we aren't sure who
 the next liar is going to be. More work is created for everyone because
-we don't want to confront liars and cheaters.</p>
+confronting liars and cheaters is uncomfortable and takes work.</p>
 <p>You can measure the growth of bureaucracy using metrics like the
 latency in addressing a request and the number of people involved in
 addressing a request.</p>
-<p><strong>Increasing the size of a bureaucracy is easier than cutting
-it down.</strong><br />
-&nbsp;<br />
+<p>&nbsp;<br />
 <em>Hazard</em>: <strong>The ratio of workers to managers gets worse as
 the size of the hierarchy grows</strong>.<br />
 As complexity and workload increase, the number of staff needed
@@ -7562,7 +7559,8 @@ Contents</a></span></p>
 <p>This chapter focuses on the perspective of an individual bureaucrat
 operating within an organization. What actions can you take? This
 chapter is foundational to the next chapter which describes <a
-href="#sec:working-with-other-bureaucrats">working with others</a>.</p>
+href="#sec:working-with-other-bureaucrats">collaborating with
+others</a>.</p>
 <p>As a bureaucrat, understanding your options for action matters.
 You're less effective if you don't know what your options are. If you
 are okay with being ineffective or are not feeling the harm of your
@@ -7582,11 +7580,12 @@ members, the norms of broader society will prevail. Littering, crime,
 pollution, scams, and fraud are usually aspects organizations try to
 constrain.</p>
 <p>The next section on <a href="#sec:hiring">hiring</a> is discussed
-from the perspectives of the person hiring and the person being hired.
-Incentives for <a href="#sec:promotion">promotion</a> are described from
-the view of the person promoting a bureaucrat and the person seeking
-promotion. The reason to cover both roles is to help people in each
-position build empathy with the other person's experience.</p>
+from both the perspective of the person hiring and the person being
+hired. Likewise, incentives for <a href="#sec:promotion">promotion</a>
+are described from the view of the person promoting a bureaucrat and the
+person seeking promotion. The reason to cover both roles is to help
+people in each position build empathy with the other person's
+experience.</p>
 <h2 data-number="4.1" id="hiring-into-a-bureaucracy"><span
 class="header-section-number">4.1</span> Hiring into a Bureaucracy<span
 id="sec:hiring" label="sec:hiring"></span></h2>
@@ -7598,27 +7597,27 @@ the organization to recruit and filter applicants, as well as the
 emotional investment of candidates. As a candidate, recognize the risk
 the organization is taking. As a reviewer of candidates, hiring is an
 investment in the future of the organization.</p>
-<p>Organizations are not reflective of the society they operate within.
+<p>Organizations are not identical to the society they operate within.
 As a candidate you should expect a different set of norms. As a
 bureaucrat reviewing applicants you will see behaviors not consistent
-with the norms of your organization. Reasons for the dissonance of norms
-in society versus the norms of the organization include incentives and
+with the norms of your organization. Reasons for the difference in norms
+of society versus the norms of the organization include incentives and
 constraints specific to the organization. There is also a <a
 href="https://en.wikipedia.org/wiki/Selection_bias">selection bias</a>
 in the people who join a bureaucratic organization, and there is a
 selection bias to who stays in a bureaucratic environment. The people in
-a bureaucratic organization are not representative of the society that
-the organization serves. Tactics that work inside a bureaucratic
-organization may not apply in society, and tactics that are useful
-outside an organization may not work on bureaucrats.</p>
+a bureaucratic organization are unlikely to be perfectly representative
+of the society that the organization serves. Tactics that work inside a
+bureaucratic organization may not apply in society, and tactics that are
+useful outside an organization may not work on bureaucrats.</p>
 <p>There are specific attributes that make a candidate more likely to be
 successful in a bureaucracy, regardless of the role they are being hired
 into. In addition to role-specific skills, hire candidates with the
 ability to reflect on thinking (<a
 href="https://en.wikipedia.org/wiki/Metacognition">metacognition</a>),
 navigating complex social scenarios with competing interests, and
-intrinsic motivation are useful. Before becoming a candidate bureaucrat
-you can develop these traits.</p>
+intrinsic motivation are useful. If you're a candidate bureaucrat you
+can develop these traits.</p>
 <h2 data-number="4.2" id="tips-for-getting-started"><span
 class="header-section-number">4.2</span> Tips for Getting Started</h2>
 <p>You may have graduated from school with a degree in a specific
@@ -7905,7 +7904,7 @@ that context policy interpretation can be bent or exceptions can be
 made. Guesses can be stated as, "Given multiple options, X seems most
 likely." If someone else is making a guess, you can express curiosity
 about the basis for their reasoning. Lastly, experience can be
-extrapolated: "Last time X happened, so next time ..." In this situation
+extrapolated: "Last time X happened, so next time..." In this situation
 it can be worth asking others if they have similar or different
 experiences.</p>
 <p>Failure with respect to expectations implies thinking about the
@@ -8085,11 +8084,11 @@ This section focuses on the last option.</p>
 <p>Sometimes the issue and the fix seem straightforward. If the
 situation has persisted for a long time, consider why the conditions
 have remained as-is. Instead of framing your idea with, "Isn't it
-obvious that things would be better if ...", learn why what seems
-obvious doesn't happen. Learn the history. Talk to participants. If
-there is agreement that the situation is harmful, why has no one else
-tackled it? If previous attempts to innovate were tried and failed, why
-did they fail? What is novel about your innovation compared to those?<a
+obvious that things would be better if...", learn why what seems obvious
+doesn't happen. Learn the history. Talk to participants. If there is
+agreement that the situation is harmful, why has no one else tackled it?
+If previous attempts to innovate were tried and failed, why did they
+fail? What is novel about your innovation compared to those?<a
 href="#fn27" class="footnote-ref" id="fnref27"
 role="doc-noteref"><sup>27</sup></a></p>
 <p>If you understand the conditions creating a challenge, the history of
@@ -8918,8 +8917,8 @@ spending or building your reputation within the team. Whenever you are
 engaging with people from outside your team, you are either actively
 spending or building your team's reputation. Spending reputation means
 taking risks that involve other people.</p>
-<p>Whether for your own reputation or that of your team or organization,
-be careful to get a return on the investment. Examples of spending
+<p>Whether for your reputation or that of your team or organization, be
+careful to get a return on the investment. Examples of spending
 reputation and not adding value:</p>
 <ul>
 <li><p>Ask for a favor and provide no value.</p></li>
@@ -8980,14 +8979,13 @@ person can check in with the listener to confirm. "What did you get from
 what I just talked about?" is a better confirmation than "You understood
 what I meant, right?" The person with less knowledge can proactively
 check their knowledge by providing a read-back: "Here's what I
-understood you to mean:&nbsp;..." These check-ins, regardless of who
+understood you to mean:..." These check-ins, regardless of who
 initiates, should be relatively frequent when exploring complex
 topics.</p>
 <p>Admitting ignorance can be intimidating and may feel like you risk
 losing the other person's respect. A gentler way of saying "I'm lost" is
-"I was following up until the point where you described&nbsp;..."
-Intellectual empathy is the responsibility of both parties in a
-conversation.</p>
+"I was following up until the point where you described..." Intellectual
+empathy is the responsibility of both parties in a conversation.</p>
 <h2 data-number="5.6" id="leveraging-expertise"><span
 class="header-section-number">5.6</span> Leveraging Expertise<span
 id="sec:expertise" label="sec:expertise"></span></h2>
@@ -12894,7 +12892,7 @@ tasks get distributed among members of an organization. These two
 aspects of participating in an organization are often confounded. This
 appendix describes a model of processes and tasks that involve only
 coordination. The purpose of the model in this appendix is to
-distinguish aspects of an organization that are not attributable to
+distinguish aspects of an organization that are not due to
 bureaucracy.</p>
 <p>This model shows that task coordination can cause the difference
 between being busy and being productive when coordination is activity.
@@ -13057,31 +13055,31 @@ capabilities is the following table:</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th colspan="3" style="text-align: center;">Specializations</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">A</td>
 <td style="text-align: center;">B</td>
 <td style="text-align: center;">C</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">3</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
@@ -13100,35 +13098,35 @@ thing,</p>
 <p>Expert:</p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">A</td>
 <td style="text-align: center;">B</td>
 <td style="text-align: center;">C</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13144,35 +13142,35 @@ skills</a>:</p>
 <p>Generalist Expert:</p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">A</td>
 <td style="text-align: center;">B</td>
 <td style="text-align: center;">C</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13187,35 +13185,35 @@ capable in multiple specializations.</p>
 <p>Generalist:</p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">A</td>
 <td style="text-align: center;">B</td>
 <td style="text-align: center;">C</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13229,35 +13227,35 @@ capable in multiple specializations.</p>
 <p>Unicorn:</p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">A</td>
 <td style="text-align: center;">B</td>
 <td style="text-align: center;">C</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13272,35 +13270,35 @@ unicorns.</p>
 <p>Unskilled Specialist:</p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td colspan="3" style="text-align: center;">Specializations</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">A</td>
 <td style="text-align: center;">B</td>
 <td style="text-align: center;">C</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 2</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-4</span> 3</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-4</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13348,17 +13346,17 @@ an A1.</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;">A</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-2</span> 1</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-2</span></td>
 <td style="text-align: center;"></td>
 </tr>
@@ -13398,19 +13396,19 @@ specializations (A, B) and one skill level:</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;">A</th>
 <th style="text-align: center;">B</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-3</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-3</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13419,19 +13417,19 @@ specializations (A, B) and one skill level:</p>
 </table>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;">A</th>
 <th style="text-align: center;">B</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-3</span> 1</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-3</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13440,19 +13438,19 @@ specializations (A, B) and one skill level:</p>
 </table>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;">A</th>
 <th style="text-align: center;">B</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-3</span> 1</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-3</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13461,19 +13459,19 @@ specializations (A, B) and one skill level:</p>
 </table>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;">A</th>
 <th style="text-align: center;">B</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"><span>2-3</span> 1</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span>2-3</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -13597,13 +13595,13 @@ coordinating a task insensitive to the number of specializations.</p>
 <img
 src="images/task_distribution_completed_versus_size_simCount50_skills2_levels1to12_taskduration1_people10_social0_ticks100.png"
 style="width:70.0%" />
-<figcaption>Task completion after 100 ticks versus number number of
-skill levels. Dividing the values on the y-axis by 100 yields
-throughput. 50 simulations were run for each skill-level, with number of
-people held constant at 10, task duration 1 tick, and number of
-specializations of 2. As the number of skill-levels is increased the
-task throughput decreases due to more time spent finding a person with
-the necessary skills. </figcaption>
+<figcaption>Task completion after 100 ticks versus number of skill
+levels. Dividing the values on the y-axis by 100 yields throughput. 50
+simulations were run for each skill-level, with number of people held
+constant at 10, task duration 1 tick, and number of specializations of
+2. As the number of skill-levels is increased the task throughput
+decreases due to more time spent finding a person with the necessary
+skills. </figcaption>
 </figure>
 <p>In Figure&nbsp;<a href="#fig:task-distribution-completed-vs-size"
 data-reference-type="ref"

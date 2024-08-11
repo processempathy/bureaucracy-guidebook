@@ -38,13 +38,13 @@ clear
 
 echo "there should be no ' .' in the PDF"
 read -p "Press ENTER key to resume ..."
-docker run -it --rm -v `pwd`:/scratch -w /scratch/ latex_debian pdfgrep " \." /scratch/bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
+docker run -it --rm -v `pwd`:/scratch -w /scratch/ latex_debian pdfgrep --page-number " \." /scratch/bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 read -p "Press ENTER key to resume ..."
 clear
 
 echo "there should be no ' ,' in the PDF"
 read -p "Press ENTER key to resume ..."
-docker run -it --rm -v `pwd`:/scratch -w /scratch/ latex_debian pdfgrep " ," /scratch/bin/                                  bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
+docker run -it --rm -v `pwd`:/scratch -w /scratch/ latex_debian pdfgrep --page-number " ," /scratch/bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 read -p "Press ENTER key to resume ..."
 clear
 
