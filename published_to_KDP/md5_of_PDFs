@@ -1,0 +1,7 @@
+docker run --rm -v /Users/ben/version_controlled/processempathy/bureaucracy-guidebook/published_to_KDP:/scratch -w /scratch/ latex_debian md5sum bureaucracy_main_pdf_for_printing_and_binding.pdf
+8bc01036d46a21feff3111e6fb7fce88  bureaucracy_main_pdf_for_printing_and_binding.pdf
+
+docker run --rm -v /Users/ben/version_controlled/processempathy/bureaucracy-guidebook/published_to_KDP:/scratch -w /scratch/ latex_debian md5sum bookcover.pdf
+02f59b03c0f7c0ccb11d782f17adb278  bookcover.pdf
+
+

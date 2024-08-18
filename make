@@ -656,7 +656,8 @@ function all {
   echo "[trace] finished pdf_for_printing_and_binding; calling bookcover"
   bookcover
   echo "to review the generated PDF, use"
-  open bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
+  open bin/bureaucracy_main_pdf_for_printing_and_binding.pdf
+  #open bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
   echo "[trace] finished bookcover; calling html_pandoc"
   html_pandoc
   html_latex2html
