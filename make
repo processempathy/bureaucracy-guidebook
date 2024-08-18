@@ -223,12 +223,15 @@ function pdf_for_printing_and_binding {
 
   mv ${tex_file} ${tex_file}.log
 
-  pwd
-  cd bin/
+  # Following was commented out on 2024-08-17 by BHP
+  # because 1) KDP converts to grayscale automatically and
+  # 2) the conversion using `gs` doesn't respect the rotated PDF pages
+#  pwd
+#  cd bin/
     # https://stackoverflow.com/a/22796608/1164295
-    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian gs   -sDEVICE=pdfwrite   -dProcessColorModel=/DeviceGray   -dColorConversionStrategy=/Gray   -dPDFUseOldCMS=false   -dNOPAUSE -dBATCH -q   -o bureaucracy_${filename}_grayscale.pdf -f bureaucracy_${filename}.pdf
-  cd ..
-  pwd
+#    time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian gs   -sDEVICE=pdfwrite   -dProcessColorModel=/DeviceGray   -dColorConversionStrategy=/Gray   -dPDFUseOldCMS=false   -dNOPAUSE -dBATCH -q   -o bureaucracy_${filename}_grayscale.pdf -f bureaucracy_${filename}.pdf
+#  cd ..
+#  pwd
 
   echo "FINISHED"
   echo "[trace] inside pdf_for_printing_and_binding; end function"
@@ -627,8 +630,8 @@ function bookcover {
   # using GhostScript to combine PDFs works but the resulting PDFs lose hyperlinks
   # gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=merged_file.pdf -dBATCH bookcover/main.pdf bin/bureaucracy_for_binding.pdf
 
-  # TODO: add to all PDFs?
-  time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_main_pdf_for_printing_and_binding.pdf cat output bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
+  # 2024-08-14: removed because not relevant to KDP
+  #time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_main_pdf_for_printing_and_binding.pdf cat output bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 
   pwd
   echo "FINISHED"
