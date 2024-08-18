@@ -86,6 +86,7 @@ function pdf_85x11_electronic_single_sided {
 
   mv ${tex_file} ${tex_file}.log
 
+  echo "FINISHED"
   echo "[trace] inside pdf_85x11_electronic_single_sided; end function"
 
 }
@@ -127,6 +128,7 @@ function pdf_85x11_print_single_sided {
 
   mv ${tex_file} ${tex_file}.log
 
+  echo "FINISHED"
   echo "[trace] inside pdf_85x11_print_single_sided; end function"
 
 }
@@ -169,6 +171,7 @@ function pdf_85x11_print_double_sided {
 
   mv ${tex_file} ${tex_file}.log
 
+  echo "FINISHED"
   echo "[trace] inside pdf_85x11_print_double_sided; end function"
 
 }
@@ -227,6 +230,7 @@ function pdf_for_printing_and_binding {
   cd ..
   pwd
 
+  echo "FINISHED"
   echo "[trace] inside pdf_for_printing_and_binding; end function"
 
 }
@@ -322,6 +326,7 @@ function pandoc_preprocess {
   sed -i '' "s/togglefalse{haspagenumbers}/toggletrue{haspagenumbers}/" ${TEX_FILE_PATH}
   sed -i '' "s/toggletrue{narrowpage}/togglefalse{narrowpage}/" ${TEX_FILE_PATH}
 
+  echo "FINISHED"
   echo "[trace] inside pandoc_preprocess; end function"
 
 }
@@ -345,6 +350,8 @@ function docx_pandoc {
     pwd
     cd ..
   pwd
+
+  echo "FINISHED"
   echo "[trace] inside docx_pandoc; end function"
 
 }
@@ -374,6 +381,7 @@ function epub_pandoc {
   cp -f TEMPORARY_epub_source_html_source_latex/main_epub_pandoc.epub bin/bureaucracy.epub
   postprocess_epub
 
+  echo "FINISHED"
   echo "[trace] inside epub_pandoc; end function"
 
 }
@@ -403,6 +411,7 @@ function html_pandoc {
   pwd
   postprocess_html
 
+  echo "FINISHED"
   echo "[trace] inside html_pandoc; end function"
 
 }
@@ -427,6 +436,8 @@ function html_latexml {
   # the follow-on command needed to produce HTML is 
   #   latexmlpost --dest=mydoc.html --format=html5 mydoc.xml
   # but there's not XML file to process due to the fatal errors in step 1.
+
+  echo "FINISHED"
 
 }
 
@@ -472,6 +483,8 @@ function html_latex2html {
 		-html_version "5.0"
   cd ..
   pwd
+
+  echo "FINISHED"
 }
 
 function postprocess_epub {
@@ -546,6 +559,8 @@ EOF
   cp bureaucracy.epub ../bin/bureaucracy_improved.epub
   cd ..
   pwd
+
+  echo "FINISHED"
 }
 
 function postprocess_html {
@@ -595,6 +610,8 @@ function postprocess_html {
 
   cp TEMPORARY_html_pandoc_source_latex/main.html latex/main.html
   pwd
+
+  echo "FINISHED"
 }
 
 function bookcover {
@@ -614,6 +631,7 @@ function bookcover {
   time docker run --rm -v `pwd`:/scratch -w /scratch/ --user `id -u`:`id -g` latex_debian pdftk bookcover/main.pdf bin/bureaucracy_main_pdf_for_printing_and_binding.pdf cat output bin/bureaucracy_main_pdf_for_printing_and_binding_with_cover.pdf
 
   pwd
+  echo "FINISHED"
   echo "[trace] inside bookcover; end function"
 }
 
@@ -641,6 +659,8 @@ function all {
   html_latex2html
   docx_pandoc
   epub_pandoc
+
+  echo "FINISHED"
   echo "[trace] inside all; end function"
 }
 
@@ -670,5 +690,7 @@ esac
 # bureaucracy_main_pdf_85x11_print_single_sided.pdf
 # bureaucracy_main_pdf_for_printing_and_binding.pdf
 # bureaucracy_main_pdf_for_printing_and_binding_grayscale.pdf
+
+echo "FINISHED"
 
 # EOF
