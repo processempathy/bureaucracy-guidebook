@@ -1,11 +1,7 @@
-def simulate(skill_set_for_tasks:list,
-             max_skill_level_per_task: int,
-             max_ticks_to_simulate: int,
-             max_task_duration_in_ticks:int,
-             social_circle_size: int,
-             list_of_people: list,
-             show_narrative:bool,
-             work_journal:bool):
+def simulate(skill_set_for_tasks:list,  max_skill_level_per_task: int,
+             max_ticks_to_simulate: int, max_task_duration_in_ticks:int,
+             social_circle_size: int, list_of_people: list,
+             show_narrative:bool, work_journal:bool):
     """primary function for time evolution of model
     https://en.wikipedia.org/wiki/Agent-based_model"""
     tasks_dict = {}
@@ -110,7 +106,7 @@ def simulate(skill_set_for_tasks:list,
                     if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome'] = "task completed"
                     if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status is now'] = "idle"
                 else: # update the task to reflect there being less work remaining because the person did some work
-                    if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome'] = "worked but task remains"
+                    if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome']="worked but task remains"
                     if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status is now'] = "working"
                     pass
 
@@ -130,7 +126,7 @@ def simulate(skill_set_for_tasks:list,
                                                      contact_id,"from contact list")
                             if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['outcome'] = (
                                     "gave task to person "+str(contact_id)+" from contact list")
-                            if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status is now'] = "idle"
+                            if work_journal: list_of_people[person_index].work_journal_per_tick[tick]['status is now']="idle"
                             break
                 # after looking through contacts, if the status is still "coordinating",
                 # then person didn't have a contact who could do the work
