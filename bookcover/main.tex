@@ -6,17 +6,23 @@
 
 % 127 mm = 5 inches
 % 203 mm = 8 inches
-\documentclass[marklength=0mm,
-    coverwidth=127mm,
-    coverheight=203mm,
-    bleedwidth=3.2mm, % required by Amazon KDP; see https://kdp.amazon.com/en_US/help/topic/G201953020
-    spinewidth=22.594mm]{bookcover}
 
+% 139.7 mm = 5.5 inches
+% 215.9 mm = 8.5 inches
+
+% 152.4 = 6 inches
+% 228.6 = 9 inches
+
+\documentclass[marklength=0mm,
+    coverwidth=139.7mm,
+    coverheight=215.9mm,
+    bleedwidth=3.2mm, % required by Amazon KDP; see https://kdp.amazon.com/en_US/help/topic/G201953020
+    spinewidth=22.8228mm]{bookcover}
 
 % spine width calculation for Amazon KDP:
 % White paper: page count x 0.002252" (0.0572 mm)
 % source: https://kdp.amazon.com/en_US/help/topic/G201953020
-% 395*0.0572 = 22.594
+% 399*0.0572 = 22.8228
 
 % https://tex.stackexchange.com/a/31309/235813
 \hyphenpenalty=10000
@@ -58,9 +64,12 @@ Whether you're in a growing startup company, looking for a stable job in a large
 
 % https://www.creativindiecovers.com/free-online-isbn-barcode-generator/
 \parbox{12cm}{\begin{flushright}
-    \includegraphics{isbn_10usd.pdf}
+% solid white background is required; see https://kdp.amazon.com/en_US/help/topic/G5HDYGP4BXLX4RUW#formatting
+    \colorbox{white}{\includegraphics{isbn_10usd.pdf}}
 \end{flushright}}
 
+\vspace*{0.7cm} % Amazon KDP: Positioned at least .25” (6.3 mm) from the spine and trim of the cover
+% https://kdp.amazon.com/en_US/help/topic/G5HDYGP4BXLX4RUW#formatting
 
 %\blindtext
 %\end{minipage}
