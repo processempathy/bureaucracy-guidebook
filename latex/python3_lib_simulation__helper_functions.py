@@ -39,7 +39,7 @@ def check_population_for_capability(list_of_people: list, skill_set_for_people,
     for specialization, skilllevel in max_skill_per_specialization.items():
         if skilllevel<max_skill_level_per_person:
             print("WARNING: population lacks max skill-level for",specialization)
-            print("As a consquence, some tasks cannot be completed by this population")
+            print("As a consequence, some tasks cannot be completed by this population")
     return
 
 # use defaults to avoid having to specify variables each time
