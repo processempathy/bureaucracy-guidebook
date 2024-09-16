@@ -32,6 +32,19 @@ make uz
 ./make.sh all
 ```
 
+# Docker images pushed to Docker Hub
+
+First, get the docker image ID using
+```bash
+docker images
+```
+and then
+```bash
+docker tag 6d2b4a5ecf1b benislocated/bureaucracy_book_latex_debian:latest
+docker login
+docker push benislocated/bureaucracy_book_latex_debian:latest
+```
+
 # Latex Index
 
 * TEXnical Tips for Producing a "Clean" Index - <https://www.ams.org/arc/tex/howto/index/0index-notes.pdf>
