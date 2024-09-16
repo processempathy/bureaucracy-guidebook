@@ -44,6 +44,8 @@ docker tag 6d2b4a5ecf1b benislocated/bureaucracy_book_latex_debian:latest
 docker login
 docker push benislocated/bureaucracy_book_latex_debian:latest
 ```
+which results in the image being available on <https://hub.docker.com/r/benislocated/bureaucracy_book_latex_debian>
+
 
 # Latex Index
 
