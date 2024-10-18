@@ -20,10 +20,11 @@ The model of task distribution in an organization is sufficiently detailed to il
 The model relies on a few concepts. These definitions are local to the model and do not apply to the rest of the book:
 \begin{itemize}
     \item \textbf{Specialization} refers to categories of ability. A person has a specialization. Completing a task requires a specialization. Practical examples of specialization include lifting boxes from the ground onto a shelf, writing a report summarizing an experiment, providing customer support, or creating a contract for a service. In the model specializations are abstracted to distinct categories. 
-    \item \textbf{Skill-level} is a ranking of proficiency for how work can be done for a task. If a task requires a skill-level higher than a person has, then that person is unable to complete the task. Practical examples of skill-levels include the ability to lift small boxes versus large boxes, a poorly written report versus a well-written report, mediocre customer support versus amazing customer support, and an acceptable contract versus a robust contract. As with specialization, in the model skill-levels are abstracted as discrete categories. 
+    \item \textbf{Skill-level} is a ranking of proficiency for how a task is done. If a task requires a skill-level higher than a person has, then that person is unable to complete the task. Practical examples of skill-levels include the ability to lift small boxes versus large boxes, a poorly written report versus a well-written report, mediocre customer support versus amazing customer support, and an acceptable contract versus a robust contract. In the model skill-levels are abstracted as non-negative ordinal values. 
     \item \textbf{Person}: a member of the organization, has specializations, has a skill-level per specialization, can receive tasks, and can engage with other people in the organization. In this model a person can complete one task at a time. A person can coordinate one task at a time. A person has the following attributes:
     \begin{itemize}
-        \item Person's \textbf{contact list}: A person has a list of people they've previously given tasks to. When figuring out who to give a task to, they can review the list of people they already know. 
+        % 2024-10-14: the contact list is a form of hierarchy, and it isn't being used in first edition
+        %\item Person's \textbf{contact list}: A person has a list of people they've previously given tasks to. When figuring out who to give a task to, they can review the list of people they already know. 
         \item Person's \textbf{backlog}: Each person maintains a queue of tasks to be done.
         \item Person's \textbf{status}: A person is either idle (not assigned a task), working on a task, or coordinating with other people. 
     \end{itemize}
@@ -50,7 +51,7 @@ This is consistent with organizations for which each person's task backlog is no
 
 
 The model relies on a process being a sequence of tasks. That might not be realistic when branching is part of a process. %(conditional branching or splitting).
-Real processes feature type kinds of branching. The first kind of branching is conditional logic: ``if this then something else that.''
+Real processes feature two kinds of branching. The first kind of branching is conditional logic: ``if this then something else that.''
 The second kind of branching is when a task is the initiation point of multiple other processes. 
 Regardless of which kind of branching is applicable in a situation, from the perspective of individual people involved a process can be treated as an independent sequence of tasks. 
 
@@ -64,7 +65,7 @@ The following simplifying assumptions are used in the model. The list of what is
     \item People in the model don't get to initiate tasks of their own volition. They work on tasks that are either from their personal backlog or from an infinite set of tasks.
     \item People in the model don't get to refuse any task that is assigned to them for which they have the specialization and relevant skill-level.
     \item No overtime. Every person gets the same amount of time to do work.
-    \item No support staff. No delegation. 
+    \item No support staff. No delegation to less skilled people. 
     \item No prioritization of tasks in the backlog. Tasks in the backlog are completed in the order in which they were added. 
     \item Infrastructure needed for communication works without failure. Infrastructure needed for completion of a task works without failure. 
     \item No dark patterns. Everyone does the task assigned promptly and correctly.
@@ -92,15 +93,15 @@ A person with skill-level 3 in specialization A and skill-level 1 in specializat
 \begin{center}
 \begin{tabular}{c|c|c|c|}
 &\multicolumn{3}{c}{\footnotesize Specializations}\\
-\hline
+%\hline
 & A & B & C \\
-\hline
+\cline{2-4}
 1 & X & & X \\
-\hline
+\cline{2-4}
 2 & X & & \\
-\hline
+\cline{2-4}
 3 & X & & \\
-\hline
+\cline{2-4}
 \end{tabular}
 \end{center}
 
@@ -266,18 +267,19 @@ Suppose every person in the organization is an A1 and every task is an A1.
 
 As a consequence of this configuration, no coordination is required because each person can do every task. Observations about this configuration include:
 \begin{itemize}
-    \item The number of people each person knows is irrelevant because coordination is unnecessary.
+    % 2024-10-14: removed reference to contact lists
+    %\item The number of people each person knows is irrelevant because coordination is unnecessary.
     \item This configuration yields the maximum throughput tasks for the organization.
     \item Adding more people increases the throughput.
 \end{itemize}
 
 These same conclusions hold for any configuration of an organization comprised exclusively of unicorns. 
-The concept of every member being able to do any task is the concept of 
-\href{https://en.wikipedia.org/wiki/Adhocracy}{Adhocracy}.%
-\index{Wikipedia!adhocracy@\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}}
+%The concept of every member being able to do any task is the concept of 
+%\href{https://en.wikipedia.org/wiki/Adhocracy}{Adhocracy}.%
+%\index{Wikipedia!adhocracy@\href{https://en.wikipedia.org/wiki/Adhocracy}{adhocracy}}
 The feasibility of gathering people with relevant talents becomes challenging as the task complexity increases or increased throughput is needed. That is part of why organizations hire people who are not unicorns. 
 
-The distribution of skills and specializations of people in an organization is set by the hiring process. Hiring less qualified people is easier than finding highly skills people. Other motives for hiring non-unicorns include being able to pay non-unicorns less money, non-unicorns are easier to find, and the possibility of on-the-job training.
+The distribution of skills and specializations of people in an organization is set by the hiring process. Hiring less qualified people is easier than finding highly skilled people. Other motives for hiring non-unicorns include being able to pay non-unicorns less money, non-unicorns are easier to find, and the possibility of on-the-job training.
 
 
 
@@ -405,7 +407,7 @@ Because the specialization of skills is too diverse for any one person to master
 
 \ \\
 
-When the number of people is held constant (e.g., 10), there is only 1 skill-level, the task duration is 1 tick, and the number of relevant specializations is increased, then the task throughput is unchanged. That may be surprising, but the cause is that the probability of a person having a specific skill or not is 50\%. As a consequence, the need for coordinating a task insensitive to the number of specializations.
+When the number of people is held constant (e.g., 10), there is only 1 skill-level, the task duration is 1 tick, and the number of relevant specializations is increased, then the task throughput is unchanged. That may be surprising, but the cause is that the probability of a person having a specific skill or not is 50\%. As a consequence, the need for coordinating a task is insensitive to the number of specializations.
 
 
 
@@ -482,24 +484,24 @@ A separate approach to having too many tasks relative to the number of people in
 
 Prioritization requires sacrifice (what tasks are you not doing) and induces risk (there are consequences to not doing tasks) and spends your reputation (not doing tasks affects other people).
 
-There are two conditions under which prioritization becomes important:
+There are two different contexts for prioritization:
 \begin{itemize}
     \item The number of tasks is less than or equal to the amount of staff attention available and skill. Then prioritization is merely ordering the sequence of tasks.
     \item When the number of tasks exceeds staffing capacity and skill-level per person, an oversubscribed person won't get to every task. Saying no is important but harms your reputation.
 \end{itemize}
 
 
-Prioritization strategies options
+Prioritization strategies:
 \begin{itemize}
-    \item Don't prioritize. Work on tasks as they are identified and don't complete anything because it gets interrupted by the next task
-Static prioritization that is exclusive. Only work on one thing to the exclusion of everything else.
+    \item Don't prioritize. Work on tasks as they are identified and don't complete anything because it gets interrupted by the next task.
+    \item Static prioritization that is exclusive. Only work on one thing to the exclusion of everything else.
+    \item Static prioritization by category. Likely to harm your reputation with people come to you with tasks that aren't in your primary category.
     \item Shifting prioritization (prioritization changes over time); either:
     \begin{itemize}
         \item Prioritization evolves slower than tasks can be completed.
         \item Prioritization shifts faster than tasks can be completed is ineffective because it is indistinguishable from responding to tasks as they arise.
     \end{itemize}
-    \item Static prioritization by category. Likely to harm your reputation with people come to you with tasks that aren't in your primary category.
-    \item Prioritization within proportionally allocated task categories. For example, suppose you have three categories of tasks. You allocate 10\% of your time to the first category, 20\% of your time to the second, and your remaining time to  the third category. 
+    \item Prioritization within proportionally allocated task categories. For example, suppose you have three categories of tasks. Allocate 10\% of your time to the first category, 20\% of your time to the second, and your remaining time to  the third category. 
 \end{itemize}
 
 \clearpage
@@ -520,13 +522,13 @@ The entity in this
 The simulation depends on the following helper functions.
 %\iftoggle{narrowpage}{
 \begin{landscape}
+% https://tex.stackexchange.com/a/252265/235813
+%\inputminted[xleftmargin=\parindent,fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
+%\inputminted[xleftmargin=15pt,fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
 \inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
 \end{landscape}
-%}{
-%\inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__helper_functions.py}
-%}
 
 \begin{landscape}
 The simulation loop.
-\inputminted[fontsize=\footnotesize,linenos]{python}{python3_lib_simulation__simulate.py}
+\inputminted[fontsize=\footnotesize]{python}{python3_lib_simulation__simulate.py}
 \end{landscape}
